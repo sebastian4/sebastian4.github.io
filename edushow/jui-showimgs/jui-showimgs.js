@@ -54,11 +54,11 @@ $.widget("jui.showimgs", {
         this._preloadAtStart();
 
         this._private.mainImage.attr("src",this.options.mainImg);
-        this._private.mainTitle.text("click image to advance");
-        this._private.headingFarLeft.text("<<<");
+        this._private.mainTitle.text("start");
+        this._private.headingFarLeft.text("<<");
         this._private.headingLeft.text("<");
         this._private.headingRight.text(">");
-        this._private.headingFarRight.text(">>>");
+        this._private.headingFarRight.text(">>");
 
         // Events
         this._on({

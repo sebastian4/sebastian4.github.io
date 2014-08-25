@@ -1,19 +1,24 @@
 .jui-showimgs .main-subcontainer {
     width: 100%;
     height: 100%;
-    background-color: #5d91ff;
+    background-color: #C0C0C3;
 }
 
 .jui-showimgs .main-image {
     width: 100%;
-    height: 90%;
+    height: 100%;
 }
 
 .jui-showimgs .main-heading {
+    position: absolute;
+    bottom: 0;
     text-align: center;
-    font-size: 3em;
+    font-size: 5em;
+    font-weight: bold;
+    color: #ffff00;
+    text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
     width: 100%;
-    height: 10%;
+    height: 16%;
 }
 
 .jui-showimgs .main-heading .heading-far-left {
@@ -35,4 +40,3 @@
 .jui-showimgs .main-heading .heading-far-right {
     width: 15%;
 }
-
