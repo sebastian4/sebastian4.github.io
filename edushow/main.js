@@ -4,13 +4,19 @@ $(function () {
 
     var mainImg = "http://2.bp.blogspot.com/-Q3Z9ja2jzb8/TxrCQPPL5CI/AAAAAAAAB8E/g3UrQZj7SYo/s400/Show_TV_logosu.png";
 
-    var imgsAnimals = [
+    var imgsAnimals1 = [
         { name: "dog", url: "http://www.petparadisetx.com/dog3.jpeg" },
         { name: "cat", url: "http://t2.gstatic.com/images?q=tbn:ANd9GcQ3WbN4lqD1BAWIQbGyctZKDe7kny7m-bLTNymmYochy-sdHOZjSA" },
         { name: "pig", url: "http://www.theglobeandmail.com/migration_catalog/Books/article4027503.ece/BINARY/w620/pig-08" },
         { name: "squirrel", url: "http://t0.gstatic.com/images?q=tbn:ANd9GcRvI5Azpwx3k0c0YWtOc0V9rcR28ONc70NyEltl12a8WmXT_N_f" },
         { name: "horse", url: "http://upload.wikimedia.org/wikipedia/commons/9/9a/Avenger_-_Westphalian_horse.jpg" },
         { name: "cow", url: "http://greece.greekreporter.com/files/cow.jpg" },
+        { name: "rabbit", url: "http://4.bp.blogspot.com/-1solYA4mVAU/UeYWSGGCmqI/AAAAAAAAAKQ/2gm8h0BJmCY/s1600/Rabbit+Farming+in+Kenya.JPG" },
+        { name: "lamb", url: "http://t3.gstatic.com/images?q=tbn:ANd9GcTfgTn-aMzEgzCLoakeKZBwL6dQlvxae-EtgnQi3M-6zjklw8zdWA" },
+        { name: "chicken", url: "http://wallpapers-junction.com/Animals/Images/Hen-Wallpaper.jpg" }
+    ];
+
+    var imgsAnimals2 = [
         { name: "lion", url: "http://cdn.theanimals.pics/pictures/imagesci.com/img/2013/01/lion-wallpaper-11060-hd-wallpapers.jpg" },
         { name: "monkey", url: "http://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2011/5/31/1306846833333/vervet-monkey-007.jpg" },
         { name: "zebra", url: "http://t1.gstatic.com/images?q=tbn:ANd9GcRvNo7pL39mqHHgYhoHEthITy5LWmrXv1iTC92UKrsQXHzut0ch" },
@@ -38,7 +44,10 @@ $(function () {
         { name: "robot", url: "http://img1.wikia.nocookie.net/__cb20111227042926/dundef/images/0/01/Laser_Robot.png" },
         { name: "bybicle", url: "http://t1.gstatic.com/images?q=tbn:ANd9GcS-BZ-TsOcmGnr2ky_E57stwWQyAwzqcADOFSknmHTkbq8LYHPNhA" },
         { name: "train", url: "http://2.bp.blogspot.com/-p_eU3fIWMqE/TbhVdygw38I/AAAAAAAAAgQ/JxtBBGTEmEE/s1600/train%2Bfor%2Bblog.jpeg" },
-        { name: "truck", url: "http://www.just4wheels.com/images/classes/atruck24.jpg" }
+        { name: "truck", url: "http://www.just4wheels.com/images/classes/atruck24.jpg" },
+        { name: "firetruck", url: "http://www.wtae.com/image/view/-/11260314/highRes/2/-/maxh/480/maxw/640/-/xp0cm7/-/Firetruck-generic.jpg" },
+        { name: "ambulance", url: "http://t1.gstatic.com/images?q=tbn:ANd9GcROl62N7EAjon2-bRrHOgxmr3njncVavHMWYWjoGswlq_7maOU8Aw" },
+        { name: "bus", url: "http://carpundit.typepad.com/photos/uncategorized/school_bus.jpg" }
     ];
 
     var imgsOutside = [
@@ -67,8 +76,12 @@ $(function () {
     ];
 
     var imgsPeople = [
-        { name: "shannon", url: "http://shannonsnannycare.com/generator/assets/zoo.jpg" },
         { name: "obama", url: "http://t2.gstatic.com/images?q=tbn:ANd9GcTrAeSkHQX19P5z4UeInuLaTl6hZg1J67iGZDqsHckIj-5auy-CpQ" },
+        { name: "shannon", url: "http://shannonsnannycare.com/generator/assets/zoo.jpg" },
+        { name: "batman", url: "http://2.bp.blogspot.com/-KMaGaZna7IY/UbGI36lp6tI/AAAAAAAABVc/QIUM4JBo_Pw/s1600/Batman3.jpg" }
+    ];
+
+    var imgsCartoons = [
         { name: "goofy", url: "http://img3.wikia.nocookie.net/__cb20120113162156/p__/protagonist/images/a/a5/Goofy_02.gif" },
         { name: "mickey", url: "http://t3.gstatic.com/images?q=tbn:ANd9GcQCii56reUYPikc4G3TkhZkNpq05NV__FUfd5NJqgtoj-3pe49Cig" },
         { name: "minnie", url: "http://upload.wikimedia.org/wikipedia/en/6/67/Minnie_Mouse.png" },
@@ -87,7 +100,17 @@ $(function () {
         { name: "jump", url: "http://www.rock.k12.nc.us/cms/lib6/NC01000985/Centricity/Domain/938/jump%20rope%20team.gif" },
         { name: "drive", url: "http://4.bp.blogspot.com/-yazsMmZJJZg/Ut0Lb2KnX_I/AAAAAAAABGo/lK5w_SATslQ/s1600/francis_driving_car.gif" },
         { name: "push", url: "https://gcps.desire2learn.com/d2l/lor/viewer/viewFile.d2lfile/15524/6499/stick_figure_push_crate_md_wm.gif" },
-        { name: "pull", url: "http://www.gifs.net/Animation11/Animals/Cats/welcome_cat.gif" }
+        { name: "pull", url: "http://www.graphicsfactory.com/clip-art/image_files/tn_image/5/550245-tn_people-193.gif" },
+        { name: "eat", url: "http://www.clipartlord.com/wp-content/uploads/2013/08/boy-eating-fried-chicken.gif" }
+    ];
+
+    var imgsFeelings = [
+        { name: "happy", url: "http://img1.wikia.nocookie.net/__cb20130905081021/glee/images/4/40/Happy-jump-happy-animation-animated-smiley-emoticon-000360-large.gif" },
+        { name: "sad", url: "http://www.clipartbest.com/cliparts/niX/nG4/niXnG4X5T.gif" },
+        { name: "angry", url: "http://www.sherv.net/cm/emo/angry/fist-shake.gif" },
+        { name: "laugh", url: "http://i484.photobucket.com/albums/rr207/kalir13/laughing_smiley.gif" },
+        { name: "tired", url: "http://4.bp.blogspot.com/-hSHZXxjtNUg/Uqb6LYckF4I/AAAAAAAAB0w/NE8i2Mpx0MQ/s1600/original+(1).gif" },
+        { name: "play", url: "http://www.sherv.net/cm/emoticons/basketball/bouncing-a-basketball-smiley-emoticon.gif" }
     ];
 
     var imgsBody = [
@@ -100,13 +123,16 @@ $(function () {
     ];
 
     var groupImages = [
+        imgsAnimals2,
         imgsKitchen,
         imgsTransport,
         imgsOutside,
         imgsHouse,
         imgsPeople,
+        imgsCartoons,
         imgsActions,
-        imgsAnimals
+        imgsFeelings,
+        imgsAnimals1
     ];
 
     //// Starting Widget
