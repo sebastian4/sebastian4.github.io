@@ -8,12 +8,13 @@ $(function () {
         { name: "dog", url: "http://www.petparadisetx.com/dog3.jpeg" },
         { name: "cat", url: "http://t2.gstatic.com/images?q=tbn:ANd9GcQ3WbN4lqD1BAWIQbGyctZKDe7kny7m-bLTNymmYochy-sdHOZjSA" },
         { name: "pig", url: "http://www.theglobeandmail.com/migration_catalog/Books/article4027503.ece/BINARY/w620/pig-08" },
-        { name: "squirrel", url: "http://t0.gstatic.com/images?q=tbn:ANd9GcRvI5Azpwx3k0c0YWtOc0V9rcR28ONc70NyEltl12a8WmXT_N_f" },
         { name: "horse", url: "http://upload.wikimedia.org/wikipedia/commons/9/9a/Avenger_-_Westphalian_horse.jpg" },
         { name: "cow", url: "http://greece.greekreporter.com/files/cow.jpg" },
         { name: "rabbit", url: "http://4.bp.blogspot.com/-1solYA4mVAU/UeYWSGGCmqI/AAAAAAAAAKQ/2gm8h0BJmCY/s1600/Rabbit+Farming+in+Kenya.JPG" },
         { name: "lamb", url: "http://t3.gstatic.com/images?q=tbn:ANd9GcTfgTn-aMzEgzCLoakeKZBwL6dQlvxae-EtgnQi3M-6zjklw8zdWA" },
-        { name: "chicken", url: "http://wallpapers-junction.com/Animals/Images/Hen-Wallpaper.jpg" }
+        { name: "chicken", url: "http://wallpapers-junction.com/Animals/Images/Hen-Wallpaper.jpg" },
+        { name: "duck", url: "http://www.timeshighereducation.co.uk/Pictures/web/u/m/n/duck_0_450.jpg" },
+        { name: "turkey", url: "http://www.sootoday.com/userfiles/images/Animals/turkey.jpg" }
     ];
 
     var imgsAnimals2 = [
@@ -22,10 +23,18 @@ $(function () {
         { name: "zebra", url: "http://t1.gstatic.com/images?q=tbn:ANd9GcRvNo7pL39mqHHgYhoHEthITy5LWmrXv1iTC92UKrsQXHzut0ch" },
         { name: "rhino", url: "http://upload.wikimedia.org/wikipedia/commons/3/38/Rhinoc%C3%A9ros_blanc_JHE.jpg" },
         { name: "giraffe", url: "http://www.skullsunlimited.com/userfiles/image/giraffe.jpg" },
-        { name: "bird", url: "http://upload.wikimedia.org/wikipedia/commons/f/f8/Geopelia_zebra_-KL_Bird_Park-6a.jpg" },
-        { name: "deer", url: "http://www.nhptv.org/natureworks/graphics/whitetaileddeer1sm.jpg" },
         { name: "turtle", url: "http://images.wisegeek.com/turtle.jpg" },
-        { name: "crow", url: "http://t2.gstatic.com/images?q=tbn:ANd9GcQUmsqMh6eS0ZxSPfd3Q31cWQvpoAizD2GZELOq6X9mTWlLNhpU3A" }
+        { name: "crocodile", url: "http://www.abc.net.au/reslib/201007/r600136_3900983.jpg" }
+    ];
+
+    var imgsAnimals3 = [
+        { name: "squirrel", url: "http://t0.gstatic.com/images?q=tbn:ANd9GcRvI5Azpwx3k0c0YWtOc0V9rcR28ONc70NyEltl12a8WmXT_N_f" },
+        { name: "bird", url: "http://upload.wikimedia.org/wikipedia/commons/f/f8/Geopelia_zebra_-KL_Bird_Park-6a.jpg" },
+        { name: "crow", url: "http://t2.gstatic.com/images?q=tbn:ANd9GcQUmsqMh6eS0ZxSPfd3Q31cWQvpoAizD2GZELOq6X9mTWlLNhpU3A" },
+        { name: "worm", url: "http://images.businessweek.com/ss/10/10/1014_cyber_attacks/image/04_worm_104455132.jpg" },
+        { name: "ant", url: "http://www.sbs.utexas.edu/fireant/Images/Solenopsis_invicta1.JPG" },
+        { name: "bee", url: "http://t3.gstatic.com/images?q=tbn:ANd9GcRvMkBoaD1KkCirLU7xaZC_FdBRtipWN0JKYQHreg1JNPzYnk6Kwg" },
+        { name: "deer", url: "http://www.nhptv.org/natureworks/graphics/whitetaileddeer1sm.jpg" }
     ];
 
     var imgsKitchen = [
@@ -81,7 +90,7 @@ $(function () {
         { name: "batman", url: "http://2.bp.blogspot.com/-KMaGaZna7IY/UbGI36lp6tI/AAAAAAAABVc/QIUM4JBo_Pw/s1600/Batman3.jpg" }
     ];
 
-    var imgsCartoons = [
+    var imgsCartoons1 = [
         { name: "goofy", url: "http://img3.wikia.nocookie.net/__cb20120113162156/p__/protagonist/images/a/a5/Goofy_02.gif" },
         { name: "mickey", url: "http://t3.gstatic.com/images?q=tbn:ANd9GcQCii56reUYPikc4G3TkhZkNpq05NV__FUfd5NJqgtoj-3pe49Cig" },
         { name: "minnie", url: "http://upload.wikimedia.org/wikipedia/en/6/67/Minnie_Mouse.png" },
@@ -90,18 +99,47 @@ $(function () {
         { name: "pete", url: "http://img1.wikia.nocookie.net/__cb20110322175344/disney/es/images/9/9f/Pete_Clubhouse.png" },
         { name: "toodles", url: "http://img1.wikia.nocookie.net/__cb20120924161727/disney/images/2/2c/Toodles.jpg" },
         { name: "elmo", url: "http://t1.gstatic.com/images?q=tbn:ANd9GcRHwbCF3aEHSyytmG7IlLqWDubqbyz9tfT2_v4ZEZ8UjZXgsXXe" },
-        { name: "george", url: "http://www.ethos3.com/wp-content/uploads/2012/01/Curious-George.jpg" },
-        { name: "manny", url: "http://img4.wikia.nocookie.net/__cb20130410134530/h__/handymanny/images/e/e1/Manny_Earth_Day02.png" },
-        { name: "mater", url: "http://upload.wikimedia.org/wikipedia/en/2/21/MaterCars.jpg" }
+        { name: "big bird", url: "http://www.themillions.com/wp-content/uploads/2012/10/570_big-bird-wins.jpg" }
     ];
 
-    var imgsActions = [
+    var imgsCartoons2 = [
+        { name: "george", url: "http://www.ethos3.com/wp-content/uploads/2012/01/Curious-George.jpg" },
+        { name: "manny", url: "http://img4.wikia.nocookie.net/__cb20130410134530/h__/handymanny/images/e/e1/Manny_Earth_Day02.png" },
+        { name: "mater", url: "http://upload.wikimedia.org/wikipedia/en/2/21/MaterCars.jpg" },
+        { name: "buzzbee", url: "http://t1.gstatic.com/images?q=tbn:ANd9GcSYP2TsB2mIQZw1kGzDYFzVDfJvvDtnAeWgee9m1pV91t4_bvMgXw" },
+        { name: "huckle", url: "http://t0.gstatic.com/images?q=tbn:ANd9GcT1G86Z9kvPlSMJ292H5MgifNc1gTonFjt9WlhqD_-y9IiYJ2Sv" },
+        { name: "lowly", url: "http://loudcrow.com/wp-content/uploads/LowlyWorm-269x300.png" }
+    ];
+
+    var imgsShapes = [
+        { name: "circle", url: "http://www.eonhq.com/m/geometry/images/2d-circle.gif" },
+        { name: "oval", url: "http://www.eonhq.com/m/geometry/images/2d-ellipse.gif" },
+        { name: "triangle", url: "http://www.eonhq.com/m/geometry/images/2d-triangle.gif" },
+        { name: "square", url: "http://www.eonhq.com/m/geometry/images/2d-square.gif" },
+        { name: "rectangle", url: "http://www.eonhq.com/m/geometry/images/2d-rectangle.gif" },
+        { name: "star", url: "http://www.clker.com/cliparts/E/N/5/r/b/5/star-shape-hi.png" },
+        { name: "crescent", url: "http://upload.wikimedia.org/wikipedia/commons/6/6f/Crescent_2_(PSF).png" },
+        { name: "pentagon", url: "http://www.eonhq.com/m/geometry/images/2d-pentagon.gif" },
+        { name: "hexagon", url: "http://www.eonhq.com/m/geometry/images/2d-hexagon.gif" },
+        { name: "cross", url: "http://jpundits.com/wp-content/uploads/2014/06/catholic-cross-clipart-7.jpg" }
+    ];
+
+    var imgsActions1 = [
         { name: "walk", url: "http://www.picgifs.com/graphics/w/walking/graphics-walking-365538.gif" },
+        { name: "run", url: "http://stream1.gifsoup.com/view1/2006857/run-animation-o.gif" },
         { name: "jump", url: "http://www.rock.k12.nc.us/cms/lib6/NC01000985/Centricity/Domain/938/jump%20rope%20team.gif" },
-        { name: "drive", url: "http://4.bp.blogspot.com/-yazsMmZJJZg/Ut0Lb2KnX_I/AAAAAAAABGo/lK5w_SATslQ/s1600/francis_driving_car.gif" },
+        { name: "rest", url: "http://itoon.co/600/royalty-free-cartoon-of-a-grinning-bee-mascot-cartoon-character-resting-his-face-on-his-hand-by-toons4biz-5724.jpg" },
+        { name: "spin", url: "http://www.chrismeyer3d.com/images/characters/boy/boy_color_spin.gif" },
         { name: "push", url: "https://gcps.desire2learn.com/d2l/lor/viewer/viewFile.d2lfile/15524/6499/stick_figure_push_crate_md_wm.gif" },
         { name: "pull", url: "http://www.graphicsfactory.com/clip-art/image_files/tn_image/5/550245-tn_people-193.gif" },
-        { name: "eat", url: "http://www.clipartlord.com/wp-content/uploads/2013/08/boy-eating-fried-chicken.gif" }
+        { name: "eat", url: "http://www.clipartlord.com/wp-content/uploads/2013/08/boy-eating-fried-chicken.gif" },
+        { name: "drink", url: "http://i18.photobucket.com/albums/b110/SweetHoneyBee64/drinking-water.gif" }
+    ];
+
+    var imgsActions2 = [
+        { name: "sing", url: "https://www.beach.k12.nd.us/jtescher/files/2013/02/singermic.gif" },
+        { name: "dance", url: "http://lh4.ggpht.com/_m0YtPN5vgmI/TN4E8Ry0BnI/AAAAAAAAVLY/meyWTLAQ3F4/s800/dancing%20bear.gif" },
+        { name: "drive", url: "http://4.bp.blogspot.com/-yazsMmZJJZg/Ut0Lb2KnX_I/AAAAAAAABGo/lK5w_SATslQ/s1600/francis_driving_car.gif" }
     ];
 
     var imgsFeelings = [
@@ -124,13 +162,17 @@ $(function () {
 
     var groupImages = [
         imgsAnimals2,
+        imgsAnimals3,
         imgsKitchen,
         imgsTransport,
         imgsOutside,
         imgsHouse,
         imgsPeople,
-        imgsCartoons,
-        imgsActions,
+        imgsCartoons1,
+        imgsCartoons2,
+        imgsShapes,
+        imgsActions1,
+        imgsActions2,
         imgsFeelings,
         imgsAnimals1
     ];
