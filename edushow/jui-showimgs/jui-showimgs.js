@@ -37,6 +37,7 @@ $.widget("jui.showimgs", {
         this.element.addClass( "jui-showimgs" );
 
         this._private = {
+            bigFatRatio: true,
             containerDiv: null,
             mainImage: null,
             mainTitle: null,
@@ -63,7 +64,7 @@ $.widget("jui.showimgs", {
         // Events
         this._on({
             'click .main-image': function (ev) {
-                self._private.imageIndex++;
+                self._private.imageIndex = self._getRandomInt(0,self.options.groupImages[self._private.groupIndex].length);
                 self._imageGuards();
                 self._showImages();
             },
@@ -79,9 +80,15 @@ $.widget("jui.showimgs", {
                 self._showImages();
             },
             'click .main-title': function (ev) {
-                self._private.imageIndex = self._getRandomInt(0,self.options.groupImages[self._private.groupIndex].length);
-                self._imageGuards();
-                self._showImages();
+                if (this._private.bigFatRatio) {
+                    this._private.bigFatRatio = false;
+                    this._private.mainImage.addClass( "main-image-additions2" );
+                    this._private.mainImage.removeClass( "main-image-additions1" );
+                } else {
+                    this._private.bigFatRatio = true;
+                    this._private.mainImage.addClass( "main-image-additions1" );
+                    this._private.mainImage.removeClass( "main-image-additions2" );
+                }
             },
             'click .heading-left': function (ev) {
                 self._private.groupIndex--;
@@ -107,7 +114,7 @@ $.widget("jui.showimgs", {
                 this._private.mainTitle = $("<td class='main-title'> </td>").appendTo(this._private.mainHeading);
                 this._private.headingRight = $("<td class='heading-right'> </td>").appendTo(this._private.mainHeading);
                 this._private.headingFarRight = $("<td class='heading-far-right'> </td>").appendTo(this._private.mainHeading);
-            this._private.mainImage = $("<img class='main-image'> </img>").appendTo(this._private.mainSubcontainer);
+            this._private.mainImage = $("<img class='main-image main-image-additions1'> </img>").appendTo(this._private.mainSubcontainer);
 
     },
     _preloadAtStart: function() {

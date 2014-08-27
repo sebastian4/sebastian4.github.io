@@ -5,8 +5,18 @@
 }
 
 .jui-showimgs .main-image {
-    width: 100%;
     height: 100%;
+}
+
+.main-image-additions1 {
+    width: 100%
+}
+
+.main-image-additions2 {
+    max-width: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .jui-showimgs .main-heading {
