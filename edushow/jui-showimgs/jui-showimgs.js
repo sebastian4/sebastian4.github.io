@@ -64,7 +64,11 @@ $.widget("jui.showimgs", {
         // Events
         this._on({
             'click .main-image': function (ev) {
-                self._private.imageIndex = self._getRandomInt(0,self.options.groupImages[self._private.groupIndex].length);
+                var randomInt = self._private.imageIndex;
+                while (self._private.imageIndex === randomInt) {
+                    randomInt = self._getRandomInt(0,self.options.groupImages[self._private.groupIndex].length);
+                }
+                self._private.imageIndex = randomInt;
                 self._imageGuards();
                 self._showImages();
             },
@@ -74,6 +78,7 @@ $.widget("jui.showimgs", {
                 self._showImages();
             },
             'click .heading-right': function (ev) {
+                self._private.mainImage.attr("src","jui-showimgs/loading1.gif");
                 self._private.groupIndex++;
                 self._private.imageIndex = 0;
                 self._preloadAtStart();
@@ -91,6 +96,7 @@ $.widget("jui.showimgs", {
                 }
             },
             'click .heading-left': function (ev) {
+                self._private.mainImage.attr("src","jui-showimgs/loading1.gif");
                 self._private.groupIndex--;
                 self._private.imageIndex = 0;
                 self._preloadAtStart();
