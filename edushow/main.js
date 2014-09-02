@@ -262,6 +262,11 @@ $(function () {
     var imgsBody = [
     ];
 
+    var favorites = [
+        { name: "mickey", url: "http://t3.gstatic.com/images?q=tbn:ANd9GcQCii56reUYPikc4G3TkhZkNpq05NV__FUfd5NJqgtoj-3pe49Cig" },
+        { name: "elmo", url: "http://t1.gstatic.com/images?q=tbn:ANd9GcRHwbCF3aEHSyytmG7IlLqWDubqbyz9tfT2_v4ZEZ8UjZXgsXXe" }
+    ];
+
     var imgsExtra = [
         { name: "", url: "" },
         { name: "", url: "" },
@@ -269,6 +274,7 @@ $(function () {
     ];
 
     var groupImages = [
+        imgsAnimals1,
         imgsAnimals2,
         imgsAnimals3,
         imgsKitchen,
@@ -289,7 +295,7 @@ $(function () {
         imgsClothes,
         imgsMisc,
         imgsToys,
-        imgsAnimals1
+        favorites
     ];
 
     //// Starting Widget

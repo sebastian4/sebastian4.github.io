@@ -95,6 +95,9 @@ $.widget("jui.showimgs", {
                     this._private.mainImage.removeClass( "main-image-additions2" );
                 }
             },
+            'dblclick .main-title': function (ev) {
+                self.options.groupImages[self.options.groupImages.length-1].push(self.options.groupImages[self._private.groupIndex][self._private.imageIndex]);
+            },
             'click .heading-left': function (ev) {
                 self._private.mainImage.attr("src","jui-showimgs/loading1.gif");
                 self._private.groupIndex--;
