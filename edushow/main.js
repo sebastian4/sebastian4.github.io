@@ -26,7 +26,8 @@ $(function () {
         { name: "giraffe", url: "http://www.skullsunlimited.com/userfiles/image/giraffe.jpg" },
         { name: "turtle", url: "http://images.wisegeek.com/turtle.jpg" },
         { name: "crocodile", url: "http://www.abc.net.au/reslib/201007/r600136_3900983.jpg" },
-        { name: "frog", url: "http://s.hswstatic.com/gif/frog-1.jpg" }
+        { name: "frog", url: "http://s.hswstatic.com/gif/frog-1.jpg" },
+        { name: "mouse", url: "http://t3.gstatic.com/images?q=tbn:ANd9GcT2RZFeZKyhorMxLCoDgPRapy_d8btsEKERuaLWGvH8fG3iFBOW" }
     ];
 
     var imgsAnimals3 = [
@@ -88,10 +89,9 @@ $(function () {
         { name: "snow", url: "http://image.blingee.com/images17/content/output/000/000/000/60f/518825130_988743.gif" },
         { name: "slide", url: "http://img2.wfrcdn.com/lf/79/hash/636/8401863/1/UPlay%2BToday%2BFreestanding%2BSlide.jpg" },
         { name: "bench", url: "http://ltrf.org/wp-content/uploads/2014/01/garden_bench.jpg" }
-
     ];
 
-    var imgsHouse = [
+    var imgsHouse1 = [
         { name: "floor", url: "http://t3.gstatic.com/images?q=tbn:ANd9GcSJYWtKpB0K91gxPsEWsrjmYqTKjK1WxDm-MOCg-qbuRXA6--yU" },
         { name: "carpet", url: "http://www.townofjacksonwi.org/wp-content/uploads/2013/02/What-to-Consider-before-Buying-Carpet.jpg" },
         { name: "ceiling", url: "http://www.calfinder.com/assets/images/library/ceiling-link.jpg" },
@@ -100,8 +100,17 @@ $(function () {
         { name: "table", url: "http://www.woodgears.ca/table/plans/main.png" },
         { name: "chair", url: "http://housetohome.media.ipcdigital.co.uk/96/00000d365/16b1_orh550w550/Goliath-kitchen-chair.jpg" },
         { name: "key", url: "http://cdn.shopify.com/s/files/1/0177/9886/products/arrow-ar1-bump-key-1_1024x1024.jpg?v=1346093238" },
-        { name: "window", url: "http://glassrepairorlando.com/wp-content/uploads/2013/06/window.jpg" },
-        { name: "gate", url: "http://www.babysafehomes.com/wp-content/uploads/2013/09/SS30_Angle_SanDiego.jpg" }
+        { name: "window", url: "http://glassrepairorlando.com/wp-content/uploads/2013/06/window.jpg" }
+    ];
+
+    var imgsHouse2 = [
+        { name: "gate", url: "http://www.babysafehomes.com/wp-content/uploads/2013/09/SS30_Angle_SanDiego.jpg" },
+        { name: "door", url: "http://www.busybeaver.com/images/subdepartments/550x550/6-Panel-Door-w_jam.jpg" },
+        { name: "door knob", url: "http://0.tqn.com/w/experts/Locksmithing-3110/2008/10/door-knob.jpg" },
+        { name: "pack n play", url: "http://i.walmartimages.com/i/p/00/04/74/06/12/0004740612229_500X500.jpg" },
+        { name: "bed", url: "http://jacobandlevis.com/CMS/uploads/Stafford_Queen_Bed.jpg" },
+        { name: "lamp", url: "http://pearlsofpromiseministries.com/wp-content/uploads/2012/10/Lamp-3.jpg" },
+        { name: "switch", url: "http://t1.gstatic.com/images?q=tbn:ANd9GcRogmwxWHLqMrYfnpEV9HyZxpz9NYNMrASDUekiRV9JL-pGcXcFBg" }
     ];
 
     var imgsPeople = [
@@ -117,6 +126,7 @@ $(function () {
         { name: "minnie", url: "http://upload.wikimedia.org/wikipedia/en/6/67/Minnie_Mouse.png" },
         { name: "pluto", url: "http://img1.wikia.nocookie.net/__cb20130128231305/disney/images/4/42/Pluto_KH.png" },
         { name: "donald", url: "http://www.great-kidsbedrooms.co.uk/media/wysiwyg/donald.gif" },
+        { name: "daisy", url: "http://t1.gstatic.com/images?q=tbn:ANd9GcQEI8Zj9dp21wIKf3PdK5nEaE-T8P2Ca0vuB2s_4bIl6UQK89uF" },
         { name: "pete", url: "http://img1.wikia.nocookie.net/__cb20110322175344/disney/es/images/9/9f/Pete_Clubhouse.png" },
         { name: "toodles", url: "http://img1.wikia.nocookie.net/__cb20120924161727/disney/images/2/2c/Toodles.jpg" },
         { name: "elmo", url: "http://t1.gstatic.com/images?q=tbn:ANd9GcRHwbCF3aEHSyytmG7IlLqWDubqbyz9tfT2_v4ZEZ8UjZXgsXXe" },
@@ -130,6 +140,7 @@ $(function () {
         { name: "buzzbee", url: "http://t1.gstatic.com/images?q=tbn:ANd9GcSYP2TsB2mIQZw1kGzDYFzVDfJvvDtnAeWgee9m1pV91t4_bvMgXw" },
         { name: "huckle", url: "http://t0.gstatic.com/images?q=tbn:ANd9GcT1G86Z9kvPlSMJ292H5MgifNc1gTonFjt9WlhqD_-y9IiYJ2Sv" },
         { name: "lowly", url: "http://loudcrow.com/wp-content/uploads/LowlyWorm-269x300.png" },
+        { name: "clifford", url: "http://www.hollywoodreporter.com/sites/default/files/imagecache/thumbnail_570x321/2012/05/clifford_happy_a_l.jpg" },
         { name: "dora", url: "http://allthingsd.com/files/2013/04/dora1.png" }
     ];
 
@@ -156,7 +167,10 @@ $(function () {
         { name: "sleep", url: "http://www.picturesanimations.com/s/sleep/163tweetyslaapt.gif" },
         { name: "sleep", url: "http://worldofteacherfortin.perso.sfr.fr/quiz%20pr%C3%A9t%C3%A9rit/images/sleeping-girl-animated.gif" },
         { name: "clean", url: "http://www.picgifs.com/clip-art/activities/cleaning/clip-art-cleaning-121482.jpg" },
-        { name: "spin", url: "http://www.chrismeyer3d.com/images/characters/boy/boy_color_spin.gif" }
+        { name: "spin", url: "http://www.chrismeyer3d.com/images/characters/boy/boy_color_spin.gif" },
+        { name: "falling", url: "http://www.stykz.net/blogimages/Falling.gif" },
+        { name: "follow", url: "http://stream1.gifsoup.com/view3/2087765/following-the-leader-o.gif" },
+        { name: "follow", url: "http://1.bp.blogspot.com/-3eQBpYf_vgo/ToYXhmxf5NI/AAAAAAAABlA/stBDM01TIU4/s1600/Animated-Jesus.gif" }
     ];
 
     var imgsActions2 = [
@@ -180,7 +194,13 @@ $(function () {
         { name: "drink", url: "http://i18.photobucket.com/albums/b110/SweetHoneyBee64/drinking-water.gif" },
         { name: "drawing", url: "http://media.giphy.com/media/hCQTd0xRTdetq/giphy.gif" },
         { name: "coloring", url: "http://wedesign.saschina.wikispaces.net/file/view/animated-drawing.gif/451704914/180x180/animated-drawing.gif" },
-        { name: "touch", url: "http://media.giphy.com/media/ptnWal3n4VPdS/giphy.gif" }
+        { name: "touch", url: "http://media.giphy.com/media/ptnWal3n4VPdS/giphy.gif" },
+        { name: "sit", url: "http://i1160.photobucket.com/albums/q492/Alcotrash_79/sitdown.gif" },
+        { name: "sit", url: "http://memeguy.com/photos/images/when-i-sit-down-for-the-after-school-dump-10983.gif" },
+        { name: "lay", url: "http://www.clipartillustration.com/wp-content/uploads/symbiostock_rf_content/62948-orange-man-lying-down.jpg" },
+        { name: "chase", url: "http://media.giphy.com/media/Fb4OOxPYfO4fK/giphy.gif" },
+        { name: "hide", url: "http://media1.giphy.com/media/vFuQaUkLvdcFW/giphy.gif" },
+        { name: "hide", url: "http://stream1.gifsoup.com/view6/2022544/hide-and-seek-o.gif" }
     ];
 
     var imgsFeelings = [
@@ -210,6 +230,14 @@ $(function () {
         { name: "grapes", url: "http://www.detoxdrinks.info/images/grapes_detox_drinks.jpg" }
     ];
 
+    var imgsClothes = [
+        { name: "shoes", url: "http://image.dhgate.com/albu_269291503_00-1.0x0/blue-tall-chuck-canvas-shoes-sneaker-men.jpg" },
+        { name: "umbrella", url: "http://www.iianm.org/Principal/SiteAssets/Pages/AgencyCoverage/agency-umbrella/blue-umbrella-graphic.jpg" },
+        { name: "hat", url: "http://www.burnhamhats.co.uk/v/vspfiles/assets/images/panama%20hats%20category%20header.jpg" },
+        { name: "gloves", url: "http://images.hayneedle.com/mgen/master:SMX011.jpg" },
+        { name: "shirt", url: "http://3.bp.blogspot.com/_-05CbS9fCMY/TJwNUY7tcJI/AAAAAAAAADY/Dxy5mrFhoP8/s1600/spongebob-squarepants-face-t-shirt-610-p.jpg" }
+    ];
+
     var imgsMisc = [
         { name: "fire", url: "http://media0.giphy.com/media/lAoDtIcj2DflC/giphy.gif" },
         { name: "on off", url: "http://davepear.com/blog/wp-content/uploads/2009/09/lightbulb.gif" },
@@ -222,6 +250,8 @@ $(function () {
     var imgsToys = [
         { name: "robot", url: "http://img1.wikia.nocookie.net/__cb20111227042926/dundef/images/0/01/Laser_Robot.png" },
         { name: "swing", url: "http://www.graphicsfactory.com/clip-art/image_files/tn_image/3/547803-tn_mother_and_daughter_swings0001aa.gif" },
+        { name: "ball", url: "http://www.qualitylogoproducts.com/stress-balls/beach-ball-stress-toy-superextralarge-175340.jpg" },
+        { name: "ball", url: "http://www.sz-wholesaler.com/userimg/1144/1163sw1/pvc-toy-ball-575.jpg" },
         { name: "soccer ball", url: "http://t0.gstatic.com/images?q=tbn:ANd9GcSZF_kT03eLD86toLY5Se2mw72AWT6OiuvYxWfLgTPBqIPab54gFA" },
         { name: "basketball", url: "http://t3.gstatic.com/images?q=tbn:ANd9GcQtyDsy7iGu6kuac0prM8KLpfNgXaDXnNm8aFTjqazJE2wqdcN2Tg" },
         { name: "tennis ball", url: "http://i.dailymail.co.uk/i/pix/2012/07/02/article-2167894-04F7D9440000044D-333_468x320.jpg" },
@@ -246,7 +276,8 @@ $(function () {
         imgsTransport,
         imgsOutside1,
         imgsOutside2,
-        imgsHouse,
+        imgsHouse1,
+        imgsHouse2,
         imgsPeople,
         imgsCartoons1,
         imgsCartoons2,
@@ -255,6 +286,7 @@ $(function () {
         imgsActions2,
         imgsActions3,
         imgsFeelings,
+        imgsClothes,
         imgsMisc,
         imgsToys,
         imgsAnimals1
