@@ -21,6 +21,7 @@ $(function () {
         { name: "lion", url: "http://cdn.theanimals.pics/pictures/imagesci.com/img/2013/01/lion-wallpaper-11060-hd-wallpapers.jpg" },
         { name: "monkey", url: "http://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2011/5/31/1306846833333/vervet-monkey-007.jpg" },
         { name: "zebra", url: "http://t1.gstatic.com/images?q=tbn:ANd9GcRvNo7pL39mqHHgYhoHEthITy5LWmrXv1iTC92UKrsQXHzut0ch" },
+        { name: "bear", url: "http://t1.gstatic.com/images?q=tbn:ANd9GcQpugBnfXIG2sVStrLfUzUnp3-9PR_B-HW9LuJaAjGhy1NT3L8G" },
         { name: "rhino", url: "http://upload.wikimedia.org/wikipedia/commons/3/38/Rhinoc%C3%A9ros_blanc_JHE.jpg" },
         { name: "giraffe", url: "http://www.skullsunlimited.com/userfiles/image/giraffe.jpg" },
         { name: "turtle", url: "http://images.wisegeek.com/turtle.jpg" },
@@ -50,13 +51,11 @@ $(function () {
         { name: "plate", url: "http://thumbs.dreamstime.com/z/empty-plate-6005076.jpg" },
         { name: "pan", url: "http://images.wisegeek.com/teflon-pan.jpg" },
         { name: "cup", url: "http://ecx.images-amazon.com/images/I/51ZTcWXhbkL._SL1500_.jpg" },
-        { name: "spatula", url: "https://billlabrie.files.wordpress.com/2014/07/wpid-spatulas-edit.jpg" },
-        { name: "fire", url: "http://media0.giphy.com/media/lAoDtIcj2DflC/giphy.gif" }
+        { name: "spatula", url: "https://billlabrie.files.wordpress.com/2014/07/wpid-spatulas-edit.jpg" }
     ];
 
     var imgsTransport = [
         { name: "car", url: "http://www.picturesnew.com/media/images/car-car_car.jpg" },
-        { name: "robot", url: "http://img1.wikia.nocookie.net/__cb20111227042926/dundef/images/0/01/Laser_Robot.png" },
         { name: "bicycle", url: "http://t1.gstatic.com/images?q=tbn:ANd9GcS-BZ-TsOcmGnr2ky_E57stwWQyAwzqcADOFSknmHTkbq8LYHPNhA" },
         { name: "train", url: "http://2.bp.blogspot.com/-p_eU3fIWMqE/TbhVdygw38I/AAAAAAAAAgQ/JxtBBGTEmEE/s1600/train%2Bfor%2Bblog.jpeg" },
         { name: "truck", url: "http://www.just4wheels.com/images/classes/atruck24.jpg" },
@@ -88,8 +87,8 @@ $(function () {
         { name: "rain", url: "http://2.bp.blogspot.com/-esmn9bw2atY/U69LL3HY_pI/AAAAAAAABOo/BexkiMtJYIk/s1600/Rain_Animated.gif" },
         { name: "snow", url: "http://image.blingee.com/images17/content/output/000/000/000/60f/518825130_988743.gif" },
         { name: "slide", url: "http://img2.wfrcdn.com/lf/79/hash/636/8401863/1/UPlay%2BToday%2BFreestanding%2BSlide.jpg" },
-        { name: "bench", url: "http://ltrf.org/wp-content/uploads/2014/01/garden_bench.jpg" },
-        { name: "swing", url: "http://www.graphicsfactory.com/clip-art/image_files/tn_image/3/547803-tn_mother_and_daughter_swings0001aa.gif" }
+        { name: "bench", url: "http://ltrf.org/wp-content/uploads/2014/01/garden_bench.jpg" }
+
     ];
 
     var imgsHouse = [
@@ -170,7 +169,8 @@ $(function () {
         { name: "swim", url: "http://harrydarlingtonqegs.files.wordpress.com/2011/10/swimming-man.gif" },
         { name: "give", url: "http://i906.photobucket.com/albums/ac263/nols_photos/puppy-giving-gift.gif" },
         { name: "give", url: "http://www.toonuppresentations.com/thumb-prehistoric_art_flowers_anim.gif.350.c.gif" },
-        { name: "touch", url: "http://media.giphy.com/media/ptnWal3n4VPdS/giphy.gif" }
+        { name: "keep", url: "http://img.weburbanist.com/pics/wp-content/uploads/2010/09/Selfish.jpg" },
+        { name: "throw", url: "http://3.bp.blogspot.com/-xjetycqwrB8/Um1-CkOr-CI/AAAAAAAAAQQ/P6zYIfIxEGY/s1600/Sandeepan_Ball+throw1.gif" }
     ];
 
     var imgsActions3 = [
@@ -178,9 +178,9 @@ $(function () {
         { name: "pull", url: "http://www.graphicsfactory.com/clip-art/image_files/tn_image/5/550245-tn_people-193.gif" },
         { name: "eat", url: "http://www.clipartlord.com/wp-content/uploads/2013/08/boy-eating-fried-chicken.gif" },
         { name: "drink", url: "http://i18.photobucket.com/albums/b110/SweetHoneyBee64/drinking-water.gif" },
-        { name: "on off", url: "http://davepear.com/blog/wp-content/uploads/2009/09/lightbulb.gif" },
-        { name: "on", url: "http://www.clker.com/cliparts/a/c/7/3/11954453872135666604liftarn_Light_bulb.svg.hi.png" },
-        { name: "off", url: "http://www.clker.com/cliparts/5/Y/g/U/j/H/light-bulb-off-hi.png" }
+        { name: "drawing", url: "http://media.giphy.com/media/hCQTd0xRTdetq/giphy.gif" },
+        { name: "coloring", url: "http://wedesign.saschina.wikispaces.net/file/view/animated-drawing.gif/451704914/180x180/animated-drawing.gif" },
+        { name: "touch", url: "http://media.giphy.com/media/ptnWal3n4VPdS/giphy.gif" }
     ];
 
     var imgsFeelings = [
@@ -210,7 +210,18 @@ $(function () {
         { name: "grapes", url: "http://www.detoxdrinks.info/images/grapes_detox_drinks.jpg" }
     ];
 
+    var imgsMisc = [
+        { name: "fire", url: "http://media0.giphy.com/media/lAoDtIcj2DflC/giphy.gif" },
+        { name: "on off", url: "http://davepear.com/blog/wp-content/uploads/2009/09/lightbulb.gif" },
+        { name: "on", url: "http://www.clker.com/cliparts/a/c/7/3/11954453872135666604liftarn_Light_bulb.svg.hi.png" },
+        { name: "off", url: "http://www.clker.com/cliparts/5/Y/g/U/j/H/light-bulb-off-hi.png" },
+        { name: "first", url: "http://www.jandsmministries.com/images/message/running.gif" },
+        { name: "first", url: "http://www.netanimations.net/Moving-animated-picture-off-to-the-races.gif" }
+    ];
+
     var imgsToys = [
+        { name: "robot", url: "http://img1.wikia.nocookie.net/__cb20111227042926/dundef/images/0/01/Laser_Robot.png" },
+        { name: "swing", url: "http://www.graphicsfactory.com/clip-art/image_files/tn_image/3/547803-tn_mother_and_daughter_swings0001aa.gif" },
         { name: "soccer ball", url: "http://t0.gstatic.com/images?q=tbn:ANd9GcSZF_kT03eLD86toLY5Se2mw72AWT6OiuvYxWfLgTPBqIPab54gFA" },
         { name: "basketball", url: "http://t3.gstatic.com/images?q=tbn:ANd9GcQtyDsy7iGu6kuac0prM8KLpfNgXaDXnNm8aFTjqazJE2wqdcN2Tg" },
         { name: "tennis ball", url: "http://i.dailymail.co.uk/i/pix/2012/07/02/article-2167894-04F7D9440000044D-333_468x320.jpg" },
@@ -244,6 +255,7 @@ $(function () {
         imgsActions2,
         imgsActions3,
         imgsFeelings,
+        imgsMisc,
         imgsToys,
         imgsAnimals1
     ];
