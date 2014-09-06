@@ -298,6 +298,7 @@ $(function () {
     ];
 
     var favorites = [
+        { name: "favorites", url: "http://us.123rf.com/450wm/iqoncept/iqoncept1304/iqoncept130400126/19214234-the-word-favorite-in-a-blue-thumb-s-up-symbol-to-represent-liking-a-comment-photo-or-product-on-a-so.jpg" },
         { name: "mickey", url: "http://t3.gstatic.com/images?q=tbn:ANd9GcQCii56reUYPikc4G3TkhZkNpq05NV__FUfd5NJqgtoj-3pe49Cig" },
         { name: "elmo", url: "http://t1.gstatic.com/images?q=tbn:ANd9GcRHwbCF3aEHSyytmG7IlLqWDubqbyz9tfT2_v4ZEZ8UjZXgsXXe" }
     ];
@@ -335,6 +336,33 @@ $(function () {
         favorites
     ];
 
+    var groupNames = [
+        "Animals 1",
+        "Animals 2",
+        "Animals 3",
+        "Kitchen",
+        "Food 1",
+        "Food 2",
+        "Transport",
+        "Outside 1",
+        "Outside 2",
+        "House 1",
+        "House 2",
+        "People",
+        "Cartoons 1",
+        "Cartoons 2",
+        "Shapes",
+        "Actions 1",
+        "Actions 2",
+        "Actions 3",
+        "Feelings",
+        "Clothes",
+        "Roles",
+        "Misc",
+        "Toys",
+        "favorites"
+    ];
+
     //// Starting Widget
 
     console.log("starting images");
@@ -343,7 +371,8 @@ $(function () {
         name: "show1",
         debug: false,
         mainImg: mainImg,
-        groupImages: groupImages
+        groupImages: groupImages,
+        groupNames: groupNames
     });
 	
 });

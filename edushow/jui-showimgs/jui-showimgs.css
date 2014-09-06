@@ -42,10 +42,17 @@
     width: 8%;
 }
 
-.jui-showimgs .main-heading .main-title {
+.jui-showimgs .main-heading .main-square {
     vertical-align: bottom;
-    font-size: 0.3em;
     width: 56%;
+}
+
+.jui-showimgs .main-heading .main-title {
+    font-size: 0.3em;
+}
+
+.jui-showimgs .main-heading .main-subtitle {
+    font-size: 0.1em;
 }
 
 .jui-showimgs .main-heading .heading-right {

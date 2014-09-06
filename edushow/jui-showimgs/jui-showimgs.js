@@ -13,8 +13,8 @@ $.widget("jui.showimgs", {
         debug: false,
         mode: "single",
         mainImg: "",
-        groupImages: []
-        //images: []
+        groupImages: [],
+        groupNames: []
     },
 
     // OPTIONS FUNCTIONS
@@ -56,6 +56,7 @@ $.widget("jui.showimgs", {
 
         this._private.mainImage.attr("src",this.options.mainImg);
         this._private.mainTitle.text("start");
+        this._private.mainSubtitle.text("start");
         this._private.headingFarLeft.text("<");
         this._private.headingLeft.text("<");
         this._private.headingRight.text(">");
@@ -84,7 +85,7 @@ $.widget("jui.showimgs", {
                 self._preloadAtStart();
                 self._showImages();
             },
-            'click .main-title': function (ev) {
+            'click .main-square': function (ev) {
                 if (this._private.bigFatRatio) {
                     this._private.bigFatRatio = false;
                     this._private.mainImage.addClass( "main-image-additions2" );
@@ -95,8 +96,8 @@ $.widget("jui.showimgs", {
                     this._private.mainImage.removeClass( "main-image-additions2" );
                 }
             },
-            'dblclick .main-title': function (ev) {
-                self.options.groupImages[self.options.groupImages.length-1].push(self.options.groupImages[self._private.groupIndex][self._private.imageIndex]);
+            'click .main-subtitle': function (ev) {
+                self._saveToFavorites();
             },
             'click .heading-left': function (ev) {
                 self._private.mainImage.attr("src","jui-showimgs/loading1.gif");
@@ -120,7 +121,9 @@ $.widget("jui.showimgs", {
             this._private.mainHeading = $("<table class='main-heading'> </table>").appendTo(this._private.mainSubcontainer);
                 this._private.headingFarLeft = $("<td class='heading-far-left'> </td>").appendTo(this._private.mainHeading);
                 this._private.headingLeft = $("<td class='heading-left'> </td>").appendTo(this._private.mainHeading);
-                this._private.mainTitle = $("<td class='main-title'> </td>").appendTo(this._private.mainHeading);
+                this._private.mainSquare = $("<td class='main-square'> </td>").appendTo(this._private.mainHeading);
+                    this._private.mainTitle = $("<div class='main-title'> </div>").appendTo(this._private.mainSquare);
+                    this._private.mainSubtitle = $("<div class='main-subtitle'> </div>").appendTo(this._private.mainSquare);
                 this._private.headingRight = $("<td class='heading-right'> </td>").appendTo(this._private.mainHeading);
                 this._private.headingFarRight = $("<td class='heading-far-right'> </td>").appendTo(this._private.mainHeading);
             this._private.mainImage = $("<img class='main-image main-image-additions1'> </img>").appendTo(this._private.mainSubcontainer);
@@ -140,6 +143,7 @@ $.widget("jui.showimgs", {
     },
     _showImages: function() {
         self._private.mainTitle.text(self.options.groupImages[this._private.groupIndex][self._private.imageIndex].name);
+        self._private.mainSubtitle.text(self.options.groupNames[this._private.groupIndex]);
         self._private.mainImage.attr("src",self._private.images[self._private.imageIndex].src);
     },
     _imageGuards: function() {
@@ -156,6 +160,17 @@ $.widget("jui.showimgs", {
         }
         if (self._private.groupIndex < 0) {
             self._private.groupIndex = self.options.groupImages.length - 1;
+        }
+    },
+    _saveToFavorites: function() {
+        var alreadyThere = false;
+        for (var ii = 0; ii < self.options.groupImages[self.options.groupImages.length-1].length; ii++) {
+            if (self.options.groupImages[self.options.groupImages.length-1][ii].name === self.options.groupImages[self._private.groupIndex][self._private.imageIndex].name) {
+                alreadyThere = true;
+            }
+        }
+        if (alreadyThere === false) {
+            self.options.groupImages[self.options.groupImages.length-1].push(self.options.groupImages[self._private.groupIndex][self._private.imageIndex]);
         }
     },
     _getRandomInt: function(min, max) {
