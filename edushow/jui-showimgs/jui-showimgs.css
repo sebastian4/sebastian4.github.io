@@ -39,26 +39,38 @@
 .jui-showimgs .main-heading .heading-left {
     vertical-align: middle;
     font-size: 0.5em;
-    width: 8%;
+    width: 9%;
 }
 
 .jui-showimgs .main-heading .main-square {
-    vertical-align: bottom;
-    width: 56%;
+    /*vertical-align: bottom;*/
+    width: 54%;
 }
 
-.jui-showimgs .main-heading .main-title {
+.jui-showimgs .main-heading .main-square .main-square-table {
+    width: 100%;
+    height: 100%;
+}
+
+.jui-showimgs .main-heading .main-square .main-square-table .main-square-table-r1 {
+    font-size: 0.4em;
+    height: 70%;
+}
+
+.jui-showimgs .main-heading .main-square .main-square-table .main-square-table-r2 {
     font-size: 0.3em;
+    height: 25%;
 }
 
-.jui-showimgs .main-heading .main-subtitle {
-    font-size: 0.1em;
+.jui-showimgs .main-heading .main-square .main-square-table .main-square-table-r3{
+    font-size: 0.08em;
+    height: 5%;
 }
 
 .jui-showimgs .main-heading .heading-right {
     vertical-align: middle;
     font-size: 0.5em;
-    width: 8%;
+    width: 9%;
 }
 
 .jui-showimgs .main-heading .heading-far-right {

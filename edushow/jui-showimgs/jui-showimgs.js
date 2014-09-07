@@ -32,7 +32,7 @@ $.widget("jui.showimgs", {
     _create: function() {
         if (this.options.debug) console.log(this.options.name+" create");
 
-        self = this;
+        var self = this;
 
         this.element.addClass( "jui-showimgs" );
 
@@ -55,6 +55,9 @@ $.widget("jui.showimgs", {
         this._preloadAtStart();
 
         this._private.mainImage.attr("src",this.options.mainImg);
+        this._private.mainControl1.text(".");
+        this._private.mainControl2.text(".");
+        this._private.mainControl3.text(".");
         this._private.mainTitle.text("start");
         this._private.mainSubtitle.text("start");
         this._private.headingFarLeft.text("<");
@@ -65,51 +68,28 @@ $.widget("jui.showimgs", {
         // Events
         this._on({
             'click .main-image': function (ev) {
-                var randomInt = self._private.imageIndex;
-                while (self._private.imageIndex === randomInt) {
-                    randomInt = self._getRandomInt(0,self.options.groupImages[self._private.groupIndex].length);
-                }
-                self._private.imageIndex = randomInt;
-                self._imageGuards();
-                self._showImages();
+                self._chooseRandomImage();
             },
             'click .heading-far-right': function (ev) {
-                self._private.imageIndex++;
-                self._imageGuards();
-                self._showImages();
+                self._getNextImage();
             },
             'click .heading-right': function (ev) {
-                self._private.mainImage.attr("src","jui-showimgs/loading1.gif");
-                self._private.groupIndex++;
-                self._private.imageIndex = 0;
-                self._preloadAtStart();
-                self._showImages();
+                self._getNextGroup();
             },
-            'click .main-square': function (ev) {
-                if (this._private.bigFatRatio) {
-                    this._private.bigFatRatio = false;
-                    this._private.mainImage.addClass( "main-image-additions2" );
-                    this._private.mainImage.removeClass( "main-image-additions1" );
-                } else {
-                    this._private.bigFatRatio = true;
-                    this._private.mainImage.addClass( "main-image-additions1" );
-                    this._private.mainImage.removeClass( "main-image-additions2" );
-                }
+            'click .main-square-table-r1-ctrl1': function (ev) {
+                console.log("change game");
             },
-            'click .main-subtitle': function (ev) {
+            'click .main-square-table-r1-ctrl2': function (ev) {
+                self._adjustImage();
+            },
+            'click .main-square-table-r1-ctrl3': function (ev) {
                 self._saveToFavorites();
             },
             'click .heading-left': function (ev) {
-                self._private.mainImage.attr("src","jui-showimgs/loading1.gif");
-                self._private.groupIndex--;
-                self._private.imageIndex = 0;
-                self._preloadAtStart();
-                self._showImages();
+                self._getPreviousGroup();
             },
             'click .heading-far-left': function (ev) {
-                self._private.imageIndex--;
-                self._imageGuards();
-                self._showImages();
+                self._getPreviousImage();
             }
         });
 
@@ -122,12 +102,19 @@ $.widget("jui.showimgs", {
                 this._private.headingFarLeft = $("<td class='heading-far-left'> </td>").appendTo(this._private.mainHeading);
                 this._private.headingLeft = $("<td class='heading-left'> </td>").appendTo(this._private.mainHeading);
                 this._private.mainSquare = $("<td class='main-square'> </td>").appendTo(this._private.mainHeading);
-                    this._private.mainTitle = $("<div class='main-title'> </div>").appendTo(this._private.mainSquare);
-                    this._private.mainSubtitle = $("<div class='main-subtitle'> </div>").appendTo(this._private.mainSquare);
+                    this._private.mainSquareTable = $("<table class='main-square-table'> </table>").appendTo(this._private.mainSquare);
+                        this._private.mainSquareTableRow1 = $("<tr class='main-square-table-r1'> </tr>").appendTo(this._private.mainSquareTable);
+                            this._private.mainControl1 = $("<td class='main-square-table-r1-ctrl1'> </td>").appendTo(this._private.mainSquareTableRow1);
+                            this._private.mainControl2 = $("<td class='main-square-table-r1-ctrl2'> </td>").appendTo(this._private.mainSquareTableRow1);
+                            this._private.mainControl3 = $("<td class='main-square-table-r1-ctrl3'> </td>").appendTo(this._private.mainSquareTableRow1);
+                        this._private.mainSquareTableRow2 = $("<tr class='main-square-table-r2'> </tr>").appendTo(this._private.mainSquareTable);
+                            this._private.mainTitle = $("<td class='main-title' colspan='3'> </td>").appendTo(this._private.mainSquareTableRow2);
+                        this._private.mainSquareTableRow3 = $("<tr class='main-square-table-r3'> </tr>").appendTo(this._private.mainSquareTable);
+                            this._private.mainSubtitle = $("<td class='main-subtitle' colspan='3'> </td>").appendTo(this._private.mainSquareTableRow3);
                 this._private.headingRight = $("<td class='heading-right'> </td>").appendTo(this._private.mainHeading);
                 this._private.headingFarRight = $("<td class='heading-far-right'> </td>").appendTo(this._private.mainHeading);
-            this._private.mainImage = $("<img class='main-image main-image-additions1'> </img>").appendTo(this._private.mainSubcontainer);
-
+            this._private.mainBody = $("<span class-='main-body''> </span>").appendTo(this._private.mainSubcontainer);
+                this._private.mainImage = $("<img class='main-image main-image-additions1'> </img>").appendTo(this._private.mainBody);
     },
     _preloadAtStart: function() {
         if (this.options.debug) console.log(this.options.name+" loadAtStart");
@@ -139,38 +126,81 @@ $.widget("jui.showimgs", {
             this._private.images[counter] = new Image();
             this._private.images[counter].src = this.options.groupImages[this._private.groupIndex][counter].url;
         }
-
     },
     _showImages: function() {
-        self._private.mainTitle.text(self.options.groupImages[this._private.groupIndex][self._private.imageIndex].name);
-        self._private.mainSubtitle.text(self.options.groupNames[this._private.groupIndex]);
-        self._private.mainImage.attr("src",self._private.images[self._private.imageIndex].src);
+        this._private.mainTitle.text(this.options.groupImages[this._private.groupIndex][this._private.imageIndex].name);
+        this._private.mainSubtitle.text(this.options.groupNames[this._private.groupIndex]);
+        this._private.mainImage.attr("src",this._private.images[this._private.imageIndex].src);
     },
     _imageGuards: function() {
-        if (self._private.imageIndex >= self.options.groupImages[this._private.groupIndex].length) {
-            self._private.imageIndex = 0;
+        if (this._private.imageIndex >= this.options.groupImages[this._private.groupIndex].length) {
+            this._private.imageIndex = 0;
         }
-        if (self._private.imageIndex < 0) {
-            self._private.imageIndex = self.options.groupImages[this._private.groupIndex].length - 1;
+        if (this._private.imageIndex < 0) {
+            this._private.imageIndex = this.options.groupImages[this._private.groupIndex].length - 1;
         }
     },
     _groupGuards: function() {
-        if (self._private.groupIndex >= self.options.groupImages.length) {
-            self._private.groupIndex = 0;
+        if (this._private.groupIndex >= this.options.groupImages.length) {
+            this._private.groupIndex = 0;
         }
-        if (self._private.groupIndex < 0) {
-            self._private.groupIndex = self.options.groupImages.length - 1;
+        if (this._private.groupIndex < 0) {
+            this._private.groupIndex = this.options.groupImages.length - 1;
+        }
+    },
+    _chooseRandomImage: function() {
+        var randomInt = this._private.imageIndex;
+        while (this._private.imageIndex === randomInt) {
+            randomInt = this._getRandomInt(0,this.options.groupImages[this._private.groupIndex].length);
+        }
+        this._private.imageIndex = randomInt;
+        this._imageGuards();
+        this._showImages();
+    },
+    _getPreviousImage: function() {
+        this._private.imageIndex--;
+        this._imageGuards();
+        this._showImages();
+    },
+    _getPreviousGroup: function() {
+        this._private.mainImage.attr("src","jui-showimgs/loading1.gif");
+        this._private.groupIndex--;
+        this._private.imageIndex = 0;
+        this._preloadAtStart();
+        this._showImages();
+    },
+    _getNextGroup: function() {
+        this._private.mainImage.attr("src","jui-showimgs/loading1.gif");
+        this._private.groupIndex++;
+        this._private.imageIndex = 0;
+        this._preloadAtStart();
+        this._showImages();
+    },
+    _getNextImage: function() {
+        this._private.imageIndex++;
+        this._imageGuards();
+        this._showImages();
+    },
+    _adjustImage: function() {
+        if (this._private.bigFatRatio) {
+            this._private.bigFatRatio = false;
+            this._private.mainImage.addClass( "main-image-additions2" );
+            this._private.mainImage.removeClass( "main-image-additions1" );
+        } else {
+            this._private.bigFatRatio = true;
+            this._private.mainImage.addClass( "main-image-additions1" );
+            this._private.mainImage.removeClass( "main-image-additions2" );
         }
     },
     _saveToFavorites: function() {
         var alreadyThere = false;
-        for (var ii = 0; ii < self.options.groupImages[self.options.groupImages.length-1].length; ii++) {
-            if (self.options.groupImages[self.options.groupImages.length-1][ii].name === self.options.groupImages[self._private.groupIndex][self._private.imageIndex].name) {
+        for (var ii = 0; ii < this.options.groupImages[this.options.groupImages.length-1].length; ii++) {
+            if (this.options.groupImages[this.options.groupImages.length-1][ii].name === this.options.groupImages[this._private.groupIndex][this._private.imageIndex].name) {
                 alreadyThere = true;
             }
         }
         if (alreadyThere === false) {
-            self.options.groupImages[self.options.groupImages.length-1].push(self.options.groupImages[self._private.groupIndex][self._private.imageIndex]);
+            this.options.groupImages[this.options.groupImages.length-1].push(this.options.groupImages[this._private.groupIndex][this._private.imageIndex]);
         }
     },
     _getRandomInt: function(min, max) {
@@ -187,10 +217,6 @@ $.widget("jui.showimgs", {
         // Call the base destroy function.
         $.Widget.prototype.destroy.call( this );
     }
-
-    //TODO
-    //-populate with more images
-    //-load to github
 
 });
 
