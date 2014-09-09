@@ -32,12 +32,12 @@ $.widget("jui.showimgs", {
     _create: function() {
         if (this.options.debug) console.log(this.options.name+" create");
 
-        var self = this;
-
         this.element.addClass( "jui-showimgs" );
 
         this._private = {
             bigFatRatio: true,
+            flashcardMode: true,
+            currentWinningBucket: -1,
             containerDiv: null,
             mainImage: null,
             mainTitle: null,
@@ -50,51 +50,17 @@ $.widget("jui.showimgs", {
             images: []
         }
 
-        this._createMarkup();
+        this._createStaticMarkup();
+
+        this._setAllCaptions();
+
+        this._createDynamicFlashcardMarkup();
+
+        this._setAllEvents();
 
         this._preloadAtStart();
-
-        this._private.mainImage.attr("src",this.options.mainImg);
-        this._private.mainControl1.text(".");
-        this._private.mainControl2.text(".");
-        this._private.mainControl3.text(".");
-        this._private.mainTitle.text("start");
-        this._private.mainSubtitle.text("start");
-        this._private.headingFarLeft.text("<");
-        this._private.headingLeft.text("<");
-        this._private.headingRight.text(">");
-        this._private.headingFarRight.text(">");
-
-        // Events
-        this._on({
-            'click .main-image': function (ev) {
-                self._chooseRandomImage();
-            },
-            'click .heading-far-right': function (ev) {
-                self._getNextImage();
-            },
-            'click .heading-right': function (ev) {
-                self._getNextGroup();
-            },
-            'click .main-square-table-r1-ctrl1': function (ev) {
-                console.log("change game");
-            },
-            'click .main-square-table-r1-ctrl2': function (ev) {
-                self._adjustImage();
-            },
-            'click .main-square-table-r1-ctrl3': function (ev) {
-                self._saveToFavorites();
-            },
-            'click .heading-left': function (ev) {
-                self._getPreviousGroup();
-            },
-            'click .heading-far-left': function (ev) {
-                self._getPreviousImage();
-            }
-        });
-
     },
-    _createMarkup: function() {
+    _createStaticMarkup: function() {
         if (this.options.debug) console.log(this.options.name+" createMarkup");
 
         this._private.mainSubcontainer = $("<div class='main-subcontainer'> </div>").appendTo(this.element);
@@ -114,7 +80,117 @@ $.widget("jui.showimgs", {
                 this._private.headingRight = $("<td class='heading-right'> </td>").appendTo(this._private.mainHeading);
                 this._private.headingFarRight = $("<td class='heading-far-right'> </td>").appendTo(this._private.mainHeading);
             this._private.mainBody = $("<span class-='main-body''> </span>").appendTo(this._private.mainSubcontainer);
-                this._private.mainImage = $("<img class='main-image main-image-additions1'> </img>").appendTo(this._private.mainBody);
+
+    },
+    _createDynamicFlashcardMarkup: function() {
+
+        this._private.flashcardMode = true;
+
+        this._private.mainBody.empty();
+            this._private.mainImage = $("<img class='main-image main-image-additions1'> </img>").appendTo(this._private.mainBody);
+
+        this._resetValues();
+        this._groupGuards();
+        this._imageGuards();
+
+        this._private.mainImage.attr("src",this.options.mainImg);
+
+        this._setAllCaptions();
+
+        this._preloadAtStart();
+    },
+    _createDynamicQuizMarkup: function() {
+
+        this._private.flashcardMode = false;
+
+        this._private.mainBody.empty();
+            this._private.mainTableForImages = $("<table class='main-table-for-images'> </table>").appendTo(this._private.mainBody);
+                this._private.mainTableImagesTr1 = $("<tr class='main-table-images-tr1'> </tr>").appendTo(this._private.mainTableForImages);
+                    this._private.mainTableImagesTr1Td1 = $("<td class='main-table-images-td'> </td>").appendTo(this._private.mainTableImagesTr1);
+                        this._private.tableImageTr1Td1 = $("<img class='table-image-tr1-td1'> </img>").appendTo(this._private.mainTableImagesTr1Td1);
+                    this._private.mainTableImagesTr1Td2 = $("<td class='main-table-images-td'> </td>").appendTo(this._private.mainTableImagesTr1);
+                        this._private.tableImageTr1Td2 = $("<img class='table-image-tr1-td2'> </img>").appendTo(this._private.mainTableImagesTr1Td2);
+                    this._private.mainTableImagesTr1Td3 = $("<td class='main-table-images-td'> </td>").appendTo(this._private.mainTableImagesTr1);
+                        this._private.tableImageTr1Td3 = $("<img class='table-image-tr1-td3'> </img>").appendTo(this._private.mainTableImagesTr1Td3);
+
+        this._resetValues();
+        this._groupGuards();
+        this._imageGuards();
+
+        this._private.tableImageTr1Td1.attr("src",this.options.mainImg);
+        this._private.tableImageTr1Td2.attr("src",this.options.mainImg);
+        this._private.tableImageTr1Td3.attr("src",this.options.mainImg);
+
+        this._setAllCaptions();
+
+        this._private.mainControl2.text("?");
+
+        this._preloadAtStart();
+    },
+    _resetValues: function() {
+        this._private.imageIndex = -1;
+        this._private.groupIndex = -1;
+        this._private.images = [];
+    },
+    _setAllCaptions: function() {
+
+        this._private.mainControl1.text(".");
+        this._private.mainControl2.text(".");
+        this._private.mainControl3.text(".");
+        this._private.mainTitle.text("start");
+        this._private.mainSubtitle.text("start");
+        this._private.headingFarLeft.text("<");
+        this._private.headingLeft.text("<");
+        this._private.headingRight.text(">");
+        this._private.headingFarRight.text(">");
+
+    },
+    _setAllEvents: function() {
+
+        var self = this;
+
+        this._on({
+            'click .main-image': function (ev) {
+                if (self._private.flashcardMode === true)   self._chooseRandomImage();
+            },
+            'click .table-image-tr1-td1': function (ev) {
+                if (self._private.flashcardMode === false)   self._checkForWinningBucket(0);
+            },
+            'click .table-image-tr1-td2': function (ev) {
+                if (self._private.flashcardMode === false)   self._checkForWinningBucket(1);
+            },
+            'click .table-image-tr1-td3': function (ev) {
+                if (self._private.flashcardMode === false)   self._checkForWinningBucket(2);
+            },
+            'click .heading-far-right': function (ev) {
+                if (self._private.flashcardMode === true)   self._getNextImage();
+                else    self._getDifferentQuiz();
+            },
+            'click .heading-right': function (ev) {
+                if (self._private.flashcardMode === true)   self._getNextGroup();
+                else    self._getNextQuizGroup();
+            },
+            'click .main-square-table-r1-ctrl1': function (ev) {
+                console.log("change game");
+                if (self._private.flashcardMode === true)   self._createDynamicQuizMarkup();
+                else    self._createDynamicFlashcardMarkup();
+            },
+            'click .main-square-table-r1-ctrl2': function (ev) {
+                if (self._private.flashcardMode === true)   self._adjustImage();
+            },
+            'click .main-square-table-r1-ctrl3': function (ev) {
+                if (self._private.flashcardMode === true)   self._saveToFavorites();
+            },
+            'click .heading-left': function (ev) {
+                if (self._private.flashcardMode === true)   self._getPreviousGroup();
+                else    self._getPreviousQuizGroup();
+            },
+            'click .heading-far-left': function (ev) {
+                if (self._private.flashcardMode === true)   self._getPreviousImage();
+                else    self._getDifferentQuiz();
+            }
+        });
+
     },
     _preloadAtStart: function() {
         if (this.options.debug) console.log(this.options.name+" loadAtStart");
@@ -166,6 +242,7 @@ $.widget("jui.showimgs", {
         this._private.mainImage.attr("src","jui-showimgs/loading1.gif");
         this._private.groupIndex--;
         this._private.imageIndex = 0;
+        this._groupGuards();
         this._preloadAtStart();
         this._showImages();
     },
@@ -173,6 +250,7 @@ $.widget("jui.showimgs", {
         this._private.mainImage.attr("src","jui-showimgs/loading1.gif");
         this._private.groupIndex++;
         this._private.imageIndex = 0;
+        this._groupGuards();
         this._preloadAtStart();
         this._showImages();
     },
@@ -180,6 +258,51 @@ $.widget("jui.showimgs", {
         this._private.imageIndex++;
         this._imageGuards();
         this._showImages();
+    },
+    _getPreviousQuizGroup: function() {
+        this._private.mainImage.attr("src","jui-showimgs/loading1.gif");
+        this._private.groupIndex--;
+        this._private.imageIndex = 0;
+        this._groupGuards();
+        this._preloadAtStart();
+        this._private.mainSubtitle.text(this.options.groupNames[this._private.groupIndex]);
+        this._getDifferentQuiz();
+        this._private.mainControl2.text("?");
+    },
+    _getDifferentQuiz: function() {
+        var maxSize = this.options.groupImages[this._private.groupIndex].length - 1;
+        var buckets = [ -1, -1, -1 ];
+        for (var randomIndex=0; randomIndex<3; randomIndex++) {
+            var randomInt = -1;
+            while (buckets[0] === randomInt || buckets[1] === randomInt || buckets[2] === randomInt) {
+                randomInt = this._getRandomInt(0,maxSize);
+            }
+            buckets[randomIndex] = randomInt;
+        }
+        //console.log(maxSize+"   "+buckets);
+        this._private.currentWinningBucket = this._getRandomInt(0,2);
+        this._private.mainTitle.text(this.options.groupImages[this._private.groupIndex][buckets[this._private.currentWinningBucket]].name);
+        this._private.tableImageTr1Td1.attr("src",this._private.images[buckets[0]].src);
+        this._private.tableImageTr1Td2.attr("src",this._private.images[buckets[1]].src);
+        this._private.tableImageTr1Td3.attr("src",this._private.images[buckets[2]].src);
+        this._private.mainControl2.text("?");
+    },
+    _getNextQuizGroup: function() {
+        this._private.mainImage.attr("src","jui-showimgs/loading1.gif");
+        this._private.groupIndex++;
+        this._private.imageIndex = 0;
+        this._groupGuards();
+        this._preloadAtStart();
+        this._private.mainSubtitle.text(this.options.groupNames[this._private.groupIndex]);
+        this._getDifferentQuiz();
+        this._private.mainControl2.text("?");
+    },
+    _checkForWinningBucket: function(num) {
+        if (this._private.currentWinningBucket == num) {
+            this._private.mainControl2.text("YAY");
+        } else {
+            this._private.mainControl2.text("no");
+        }
     },
     _adjustImage: function() {
         if (this._private.bigFatRatio) {

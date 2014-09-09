@@ -48,8 +48,8 @@ $(function () {
 
     var imgsKitchen = [
         { name: "sink", url: "http://t3.gstatic.com/images?q=tbn:ANd9GcSPk7U-b2-plTAkQj2WZblMtl8Dg1dGoiNitEdohl-fOEv1URB9" },
-        { name: "oven", url: "http://grillingwithrich.com/wp-content/uploads/2012/07/Oven.bmp" },
-        { name: "stove", url: "http://appliancerepairinlakesideca.com/images/ge_30_gas_stove_2.JPG" },
+        { name: "oven", url: "https://homeappliances.files.wordpress.com/2010/09/steam-oven.jpg" },
+        { name: "stove", url: "http://i00.i.aliimg.com/photo/v1/536319676/Table_top_gas_stove_4_RT502.jpg" },
         { name: "microwave", url: "http://www.photo-dictionary.com/photofiles/list/1700/6159microwave_oven.jpg" },
         { name: "plate", url: "http://thumbs.dreamstime.com/z/empty-plate-6005076.jpg" },
         { name: "pan", url: "http://images.wisegeek.com/teflon-pan.jpg" },
@@ -104,7 +104,7 @@ $(function () {
         { name: "carpet", url: "http://www.townofjacksonwi.org/wp-content/uploads/2013/02/What-to-Consider-before-Buying-Carpet.jpg" },
         { name: "ceiling", url: "http://www.calfinder.com/assets/images/library/ceiling-link.jpg" },
         { name: "sofa", url: "http://www.furniturerow.com/images/prodImages/SM-CEALVQP_LRG_00.JPG" },
-        { name: "trampoline", url: "http://st.houzz.com/simgs/11b1021c024d92fb_4-5612/modern-baby-toys.jpg" },
+        { name: "trampoline", url: "http://images.amazon.com/images/G/01/toys/detail-page/c26-B007CA1L54-1-l.jpg" },
         { name: "table", url: "http://www.woodgears.ca/table/plans/main.png" },
         { name: "chair", url: "http://housetohome.media.ipcdigital.co.uk/96/00000d365/16b1_orh550w550/Goliath-kitchen-chair.jpg" },
         { name: "key", url: "http://cdn.shopify.com/s/files/1/0177/9886/products/arrow-ar1-bump-key-1_1024x1024.jpg?v=1346093238" },
@@ -118,7 +118,7 @@ $(function () {
         { name: "pack n play", url: "http://i.walmartimages.com/i/p/00/04/74/06/12/0004740612229_500X500.jpg" },
         { name: "bed", url: "http://jacobandlevis.com/CMS/uploads/Stafford_Queen_Bed.jpg" },
         { name: "lamp", url: "http://pearlsofpromiseministries.com/wp-content/uploads/2012/10/Lamp-3.jpg" },
-        { name: "switch", url: "http://t1.gstatic.com/images?q=tbn:ANd9GcRogmwxWHLqMrYfnpEV9HyZxpz9NYNMrASDUekiRV9JL-pGcXcFBg" }
+        { name: "switch", url: "http://media.tumblr.com/tumblr_m1r51piwyV1r5lyu3.jpg" }
     ];
 
     var imgsPeople = [
@@ -130,8 +130,8 @@ $(function () {
 
     var imgsCartoons1 = [
         { name: "goofy", url: "http://img3.wikia.nocookie.net/__cb20120113162156/p__/protagonist/images/a/a5/Goofy_02.gif" },
-        { name: "mickey", url: "http://t3.gstatic.com/images?q=tbn:ANd9GcQCii56reUYPikc4G3TkhZkNpq05NV__FUfd5NJqgtoj-3pe49Cig" },
-        { name: "minnie", url: "http://upload.wikimedia.org/wikipedia/en/6/67/Minnie_Mouse.png" },
+        { name: "mickey", url: "http://img3.wikia.nocookie.net/__cb20121011213635/disney/images/d/d6/Mickey_Mouse_Clubhouse_-_Mickey_-_Playhouse_Disney_Canada.png" },
+        { name: "minnie", url: "http://www.fiestas10.com/9983-765-thickbox/mini-figuras-de-minnie.jpg" },
         { name: "pluto", url: "http://img1.wikia.nocookie.net/__cb20130128231305/disney/images/4/42/Pluto_KH.png" },
         { name: "donald", url: "http://www.great-kidsbedrooms.co.uk/media/wysiwyg/donald.gif" },
         { name: "daisy", url: "http://t1.gstatic.com/images?q=tbn:ANd9GcQEI8Zj9dp21wIKf3PdK5nEaE-T8P2Ca0vuB2s_4bIl6UQK89uF" },
@@ -142,8 +142,8 @@ $(function () {
     ];
 
     var imgsCartoons2 = [
-        { name: "george", url: "http://www.ethos3.com/wp-content/uploads/2012/01/Curious-George.jpg" },
-        { name: "manny", url: "http://img4.wikia.nocookie.net/__cb20130410134530/h__/handymanny/images/e/e1/Manny_Earth_Day02.png" },
+        { name: "george", url: "http://www.gallaudet.edu/images/Clerc/20100611-0004w.jpg" },
+        { name: "manny", url: "http://img3.wikia.nocookie.net/__cb20111218194739/h__/handymanny/images/5/5b/Handy_manny.jpg" },
         { name: "mater", url: "http://upload.wikimedia.org/wikipedia/en/2/21/MaterCars.jpg" },
         { name: "buzzbee", url: "http://t1.gstatic.com/images?q=tbn:ANd9GcSYP2TsB2mIQZw1kGzDYFzVDfJvvDtnAeWgee9m1pV91t4_bvMgXw" },
         { name: "huckle", url: "http://t0.gstatic.com/images?q=tbn:ANd9GcT1G86Z9kvPlSMJ292H5MgifNc1gTonFjt9WlhqD_-y9IiYJ2Sv" },
@@ -187,7 +187,7 @@ $(function () {
     var imgsActions2 = [
         { name: "hug", url: "http://www.animationplayhouse.com/cows-hug.gif" },
         { name: "sing", url: "https://www.beach.k12.nd.us/jtescher/files/2013/02/singermic.gif" },
-        { name: "dance", url: "http://lh4.ggpht.com/_m0YtPN5vgmI/TN4E8Ry0BnI/AAAAAAAAVLY/meyWTLAQ3F4/s800/dancing%20bear.gif" },
+        { name: "dance", url: "http://media.giphy.com/media/E5pcLyXRM5fIA/giphy.gif" },
         { name: "dance", url: "http://www.animationplayhouse.com/dancing_giraffees.gif" },
         { name: "argue", url: "http://www.picgifs.com/graphics/b/best-friend/graphics-best-friend-198591.gif" },
         { name: "swim", url: "http://harrydarlingtonqegs.files.wordpress.com/2011/10/swimming-man.gif" },
@@ -273,7 +273,7 @@ $(function () {
         { name: "fire", url: "http://media0.giphy.com/media/lAoDtIcj2DflC/giphy.gif" },
         { name: "over under", url: "http://4.bp.blogspot.com/-z0UGGlMzqiA/UmgDivMFTGI/AAAAAAAAIgc/70PsUm_VGFE/s320/ZZ2.jpg" },
         { name: "on off", url: "http://davepear.com/blog/wp-content/uploads/2009/09/lightbulb.gif" },
-        { name: "on", url: "http://www.clker.com/cliparts/a/c/7/3/11954453872135666604liftarn_Light_bulb.svg.hi.png" },
+        { name: "on", url: "http://metrouk2.files.wordpress.com/2010/11/article-1290073129742-06d5003c000005dc-371581_304x219.jpg" },
         { name: "off", url: "http://www.clker.com/cliparts/5/Y/g/U/j/H/light-bulb-off-hi.png" },
         { name: "first", url: "http://www.jandsmministries.com/images/message/running.gif" },
         { name: "first", url: "http://www.netanimations.net/Moving-animated-picture-off-to-the-races.gif" }
@@ -295,6 +295,15 @@ $(function () {
     ];
 
     var imgsBody = [
+    ];
+
+    var imgsBathroom = [
+    ];
+
+    var imgsTools = [
+    ];
+
+    var imgsSignLanguage = [
     ];
 
     var favorites = [
