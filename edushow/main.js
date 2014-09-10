@@ -4,6 +4,66 @@ $(function () {
 
     var mainImg = "http://2.bp.blogspot.com/-Q3Z9ja2jzb8/TxrCQPPL5CI/AAAAAAAAB8E/g3UrQZj7SYo/s400/Show_TV_logosu.png";
 
+    var imgsActions1 = [
+        { name: "walk", url: "http://www.picgifs.com/graphics/w/walking/graphics-walking-365538.gif" },
+        { name: "walk", url: "http://lh5.ggpht.com/_gXLJq-z63k8/TQ5g650naHI/AAAAAAAACrM/_qXyDKZ6KDU/s800/Haters-Gonna-Hate-Gif-7.gif" },
+        { name: "run", url: "http://stream1.gifsoup.com/view1/2006857/run-animation-o.gif" },
+        { name: "jump", url: "http://www.rock.k12.nc.us/cms/lib6/NC01000985/Centricity/Domain/938/jump%20rope%20team.gif" },
+        { name: "rest", url: "http://itoon.co/600/royalty-free-cartoon-of-a-grinning-bee-mascot-cartoon-character-resting-his-face-on-his-hand-by-toons4biz-5724.jpg" },
+        { name: "sleep", url: "http://i379.photobucket.com/albums/oo231/Rishro/dog_animated.gif" },
+        { name: "sleep", url: "http://www.picturesanimations.com/s/sleep/163tweetyslaapt.gif" },
+        { name: "sleep", url: "http://worldofteacherfortin.perso.sfr.fr/quiz%20pr%C3%A9t%C3%A9rit/images/sleeping-girl-animated.gif" },
+        { name: "clean", url: "http://www.picgifs.com/clip-art/activities/cleaning/clip-art-cleaning-121482.jpg" },
+        { name: "spin", url: "http://www.chrismeyer3d.com/images/characters/boy/boy_color_spin.gif" },
+        { name: "lick", url: "http://i.imgur.com/dybq3Uc.gif" },
+        { name: "falling", url: "http://www.stykz.net/blogimages/Falling.gif" },
+        { name: "like", url: "http://stream1.gifsoup.com/view3/4543898/spongebob-licking-the-patty-poster-o.gif" }
+    ];
+
+    var imgsActions2 = [
+        { name: "hug", url: "http://www.animationplayhouse.com/cows-hug.gif" },
+        { name: "sing", url: "https://www.beach.k12.nd.us/jtescher/files/2013/02/singermic.gif" },
+        { name: "dance", url: "http://media.giphy.com/media/E5pcLyXRM5fIA/giphy.gif" },
+        { name: "dance", url: "http://www.animationplayhouse.com/dancing_giraffees.gif" },
+        { name: "argue", url: "http://www.picgifs.com/graphics/b/best-friend/graphics-best-friend-198591.gif" },
+        { name: "swim", url: "http://harrydarlingtonqegs.files.wordpress.com/2011/10/swimming-man.gif" },
+        { name: "give", url: "http://i906.photobucket.com/albums/ac263/nols_photos/puppy-giving-gift.gif" },
+        { name: "give", url: "http://www.toonuppresentations.com/thumb-prehistoric_art_flowers_anim.gif.350.c.gif" },
+        { name: "keep", url: "http://img.weburbanist.com/pics/wp-content/uploads/2010/09/Selfish.jpg" },
+        { name: "clap", url: "http://schoolofdisney.com/Tinkerbell/images/animated_clapping_hands.gif" },
+        { name: "knod head", url: "https://img.4plebs.org/boards/s4s/image/1409/14/1409140350334.gif" },
+        { name: "shake head", url: "http://www.christianity-and-the-confusion.com/boss_head_nodding_no_sm_nwm.gif" },
+        { name: "bite", url: "http://media0.giphy.com/media/gXFpraXeKyHDi/giphy.gif" },
+        { name: "stomp", url: "http://www.futuremusic.com/news/images/msp-stomp-action.gif" }
+    ];
+
+    var imgsActions3 = [
+        { name: "read", url: "http://classroomclipart.com/images/gallery/Animations/Education/boy_reading_a_book_animation_2A.gif" },
+        { name: "push", url: "https://gcps.desire2learn.com/d2l/lor/viewer/viewFile.d2lfile/15524/6499/stick_figure_push_crate_md_wm.gif" },
+        { name: "pull", url: "http://www.graphicsfactory.com/clip-art/image_files/tn_image/5/550245-tn_people-193.gif" },
+        { name: "eat", url: "http://www.clipartlord.com/wp-content/uploads/2013/08/boy-eating-fried-chicken.gif" },
+        { name: "drink", url: "http://i18.photobucket.com/albums/b110/SweetHoneyBee64/drinking-water.gif" },
+        { name: "drawing", url: "http://media.giphy.com/media/hCQTd0xRTdetq/giphy.gif" },
+        { name: "coloring", url: "http://wedesign.saschina.wikispaces.net/file/view/animated-drawing.gif/451704914/180x180/animated-drawing.gif" },
+        { name: "drive", url: "http://4.bp.blogspot.com/-yazsMmZJJZg/Ut0Lb2KnX_I/AAAAAAAABGo/lK5w_SATslQ/s1600/francis_driving_car.gif" },
+        { name: "touch", url: "http://media.giphy.com/media/ptnWal3n4VPdS/giphy.gif" },
+        { name: "sit", url: "http://i1160.photobucket.com/albums/q492/Alcotrash_79/sitdown.gif" },
+        { name: "sit", url: "http://memeguy.com/photos/images/when-i-sit-down-for-the-after-school-dump-10983.gif" },
+        { name: "lay", url: "http://www.clipartillustration.com/wp-content/uploads/symbiostock_rf_content/62948-orange-man-lying-down.jpg" }
+    ];
+
+    var imgsActions4 = [
+        { name: "pick up", url: "https://buddyanimation.files.wordpress.com/2014/03/pick-up1.gif" },
+        { name: "throw", url: "http://3.bp.blogspot.com/-xjetycqwrB8/Um1-CkOr-CI/AAAAAAAAAQQ/P6zYIfIxEGY/s1600/Sandeepan_Ball+throw1.gif" },
+        { name: "throw trash", url: "http://www.presentermedia.com/files/animsp/00011000/11853/waste_paper_shot_miss_sm_wm.gif" },
+        { name: "chase", url: "http://media.giphy.com/media/Fb4OOxPYfO4fK/giphy.gif" },
+        { name: "hide", url: "http://media1.giphy.com/media/vFuQaUkLvdcFW/giphy.gif" },
+        { name: "hide", url: "http://stream1.gifsoup.com/view6/2022544/hide-and-seek-o.gif" },
+        { name: "ride bicycle", url: "http://classroomclipart.com/images/gallery/Animations/Children/cycle.gif" },
+        { name: "follow", url: "http://stream1.gifsoup.com/view3/2087765/following-the-leader-o.gif" },
+        { name: "follow", url: "http://1.bp.blogspot.com/-3eQBpYf_vgo/ToYXhmxf5NI/AAAAAAAABlA/stBDM01TIU4/s1600/Animated-Jesus.gif" }
+    ];
+
     var imgsAnimals1 = [
         { name: "dog", url: "http://www.petparadisetx.com/dog3.jpeg" },
         { name: "cat", url: "http://t2.gstatic.com/images?q=tbn:ANd9GcQ3WbN4lqD1BAWIQbGyctZKDe7kny7m-bLTNymmYochy-sdHOZjSA" },
@@ -19,6 +79,7 @@ $(function () {
 
     var imgsAnimals2 = [
         { name: "lion", url: "http://cdn.theanimals.pics/pictures/imagesci.com/img/2013/01/lion-wallpaper-11060-hd-wallpapers.jpg" },
+        { name: "tiger", url: "http://www.21stcenturytiger.org/wp-content/blogs.dir/2/files/home-page/hl_eye-of-the-tiger-com_sumatrantiger_wilhelmazoo.jpg" },
         { name: "monkey", url: "http://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2011/5/31/1306846833333/vervet-monkey-007.jpg" },
         { name: "zebra", url: "http://t1.gstatic.com/images?q=tbn:ANd9GcRvNo7pL39mqHHgYhoHEthITy5LWmrXv1iTC92UKrsQXHzut0ch" },
         { name: "bear", url: "http://t1.gstatic.com/images?q=tbn:ANd9GcQpugBnfXIG2sVStrLfUzUnp3-9PR_B-HW9LuJaAjGhy1NT3L8G" },
@@ -44,17 +105,6 @@ $(function () {
         { name: "fish", url: "http://pngimg.com/upload/fish_PNG1150.png" },
         { name: "beaver", url: "http://cottagelife.com/files/2013/02/Beaver_istockphoto_thinkstock-e1361292176199.jpg" },
         { name: "lighting bug", url: "https://c1.staticflickr.com/5/4048/4707355367_7192739675_z.jpg" }
-    ];
-
-    var imgsKitchen = [
-        { name: "sink", url: "http://t3.gstatic.com/images?q=tbn:ANd9GcSPk7U-b2-plTAkQj2WZblMtl8Dg1dGoiNitEdohl-fOEv1URB9" },
-        { name: "oven", url: "https://homeappliances.files.wordpress.com/2010/09/steam-oven.jpg" },
-        { name: "stove", url: "http://i00.i.aliimg.com/photo/v1/536319676/Table_top_gas_stove_4_RT502.jpg" },
-        { name: "microwave", url: "http://www.photo-dictionary.com/photofiles/list/1700/6159microwave_oven.jpg" },
-        { name: "plate", url: "http://thumbs.dreamstime.com/z/empty-plate-6005076.jpg" },
-        { name: "pan", url: "http://images.wisegeek.com/teflon-pan.jpg" },
-        { name: "cup", url: "http://ecx.images-amazon.com/images/I/51ZTcWXhbkL._SL1500_.jpg" },
-        { name: "spatula", url: "https://billlabrie.files.wordpress.com/2014/07/wpid-spatulas-edit.jpg" }
     ];
 
     var imgsTransport = [
@@ -83,7 +133,6 @@ $(function () {
         { name: "beach", url: "http://melliedee.com/wp-content/uploads/2013/09/Beach-Animated.gif" },
         { name: "beach", url: "http://media.giphy.com/media/rXy3zZGg9sIzC/giphy.gif" },
         { name: "ocean", url: "http://media.giphy.com/media/5ERaOy5fQEIAU/giphy.gif" }
-
     ];
 
     var imgsOutside2 = [
@@ -95,7 +144,6 @@ $(function () {
         { name: "wind", url: "http://media0.giphy.com/media/xc3sjbJrb0FGw/giphy.gif" },
         { name: "rain", url: "http://2.bp.blogspot.com/-esmn9bw2atY/U69LL3HY_pI/AAAAAAAABOo/BexkiMtJYIk/s1600/Rain_Animated.gif" },
         { name: "snow", url: "http://image.blingee.com/images17/content/output/000/000/000/60f/518825130_988743.gif" },
-        { name: "slide", url: "http://img2.wfrcdn.com/lf/79/hash/636/8401863/1/UPlay%2BToday%2BFreestanding%2BSlide.jpg" },
         { name: "bench", url: "http://ltrf.org/wp-content/uploads/2014/01/garden_bench.jpg" }
     ];
 
@@ -119,6 +167,42 @@ $(function () {
         { name: "bed", url: "http://jacobandlevis.com/CMS/uploads/Stafford_Queen_Bed.jpg" },
         { name: "lamp", url: "http://pearlsofpromiseministries.com/wp-content/uploads/2012/10/Lamp-3.jpg" },
         { name: "switch", url: "http://media.tumblr.com/tumblr_m1r51piwyV1r5lyu3.jpg" }
+    ];
+
+    var imgsKitchen = [
+        { name: "sink", url: "http://t3.gstatic.com/images?q=tbn:ANd9GcSPk7U-b2-plTAkQj2WZblMtl8Dg1dGoiNitEdohl-fOEv1URB9" },
+        { name: "oven", url: "https://homeappliances.files.wordpress.com/2010/09/steam-oven.jpg" },
+        { name: "stove", url: "http://i00.i.aliimg.com/photo/v1/536319676/Table_top_gas_stove_4_RT502.jpg" },
+        { name: "microwave", url: "http://www.photo-dictionary.com/photofiles/list/1700/6159microwave_oven.jpg" },
+        { name: "plate", url: "http://thumbs.dreamstime.com/z/empty-plate-6005076.jpg" },
+        { name: "pan", url: "http://images.wisegeek.com/teflon-pan.jpg" },
+        { name: "cup", url: "http://ecx.images-amazon.com/images/I/51ZTcWXhbkL._SL1500_.jpg" },
+        { name: "spatula", url: "https://billlabrie.files.wordpress.com/2014/07/wpid-spatulas-edit.jpg" },
+        { name: "blender", url: "http://www.earlychildhoodworksheets.com/clipart/cooking/blender.gif" },
+        { name: "toaster", url: "http://www.earlychildhoodworksheets.com/clipart/cooking/toaster.gif" },
+        { name: "bowl", url: "http://www.earlychildhoodworksheets.com/clipart/dining/bowl.gif" },
+        { name: "refrigerator", url: "http://cdn.diply.com/img/3dea964a-ff0c-4c9c-987f-f3b18d9cbe6c.jpg" }
+    ];
+
+    var imgsBathroom = [
+        { name: "bath", url: "http://classroomclipart.com/images/gallery/Animations/Children/girl_in_bathtub_animation_2B.gif" },
+        { name: "bath tube", url: "http://www.earlychildhoodworksheets.com/clipart/bathroom/bath-tube.gif" },
+        { name: "toilet", url: "http://www.earlychildhoodworksheets.com/clipart/bathroom/toilet.gif" },
+        { name: "toothbrush", url: "http://www.earlychildhoodworksheets.com/clipart/bathroom/tooth-brush.gif" },
+        { name: "toothpaste", url: "http://www.earlychildhoodworksheets.com/clipart/bathroom/toothpaste.gif" },
+        { name: "sink", url: "http://www.earlychildhoodworksheets.com/clipart/bathroom/wastafel.gif" },
+        { name: "towel", url: "http://www.earlychildhoodworksheets.com/clipart/bathroom/towel.gif" },
+        { name: "comb", url: "http://www.earlychildhoodworksheets.com/clipart/bathroom/comb.gif" },
+        { name: "toilet paper", url: "http://classroomclipart.com/images/gallery/Things/TN_toilet_paper.jpg" }
+    ];
+
+    var imgsRoles = [
+        { name: "policeman", url: "http://jokes4all.net/policeman,baton.gif" },
+        { name: "astronaut", url: "http://media.npr.org/assets/img/2013/10/30/hadfield_an-astronaut-s-guide-to-life-on-earth-4--d982fdb6dc3a68a4c8c3c198f5e731f124a14343.jpg" },
+        { name: "mailman", url: "http://muyargentino.com/wp-content/uploads/2012/10/Francis-Mailman.jpg" },
+        { name: "soldier", url: "http://t3.gstatic.com/images?q=tbn:ANd9GcQrYXT2AT0gxrz45N1cpcwKUiI58CUa9wSbkE2eNuZhLTsc-Nmb" },
+        { name: "doctor", url: "http://www.earlychildhoodworksheets.com/clipart/occupation/doctor.gif" },
+        { name: "fireman", url: "http://www.earlychildhoodworksheets.com/clipart/occupation/fireman.gif" }
     ];
 
     var imgsPeople = [
@@ -166,61 +250,6 @@ $(function () {
         { name: "shapes", url: "http://4.bp.blogspot.com/-Sh_E69QcAxY/Um-2BwVztJI/AAAAAAAAIik/kQ0ebue72zU/s1600/Slide35.JPG" }
     ];
 
-    var imgsActions1 = [
-        { name: "walk", url: "http://www.picgifs.com/graphics/w/walking/graphics-walking-365538.gif" },
-        { name: "walk", url: "http://lh5.ggpht.com/_gXLJq-z63k8/TQ5g650naHI/AAAAAAAACrM/_qXyDKZ6KDU/s800/Haters-Gonna-Hate-Gif-7.gif" },
-        { name: "run", url: "http://stream1.gifsoup.com/view1/2006857/run-animation-o.gif" },
-        { name: "jump", url: "http://www.rock.k12.nc.us/cms/lib6/NC01000985/Centricity/Domain/938/jump%20rope%20team.gif" },
-        { name: "rest", url: "http://itoon.co/600/royalty-free-cartoon-of-a-grinning-bee-mascot-cartoon-character-resting-his-face-on-his-hand-by-toons4biz-5724.jpg" },
-        { name: "sleep", url: "http://i379.photobucket.com/albums/oo231/Rishro/dog_animated.gif" },
-        { name: "sleep", url: "http://www.picturesanimations.com/s/sleep/163tweetyslaapt.gif" },
-        { name: "sleep", url: "http://worldofteacherfortin.perso.sfr.fr/quiz%20pr%C3%A9t%C3%A9rit/images/sleeping-girl-animated.gif" },
-        { name: "clean", url: "http://www.picgifs.com/clip-art/activities/cleaning/clip-art-cleaning-121482.jpg" },
-        { name: "spin", url: "http://www.chrismeyer3d.com/images/characters/boy/boy_color_spin.gif" },
-        { name: "lick", url: "http://i.imgur.com/dybq3Uc.gif" },
-        { name: "falling", url: "http://www.stykz.net/blogimages/Falling.gif" },
-        { name: "follow", url: "http://stream1.gifsoup.com/view3/2087765/following-the-leader-o.gif" },
-        { name: "follow", url: "http://1.bp.blogspot.com/-3eQBpYf_vgo/ToYXhmxf5NI/AAAAAAAABlA/stBDM01TIU4/s1600/Animated-Jesus.gif" },
-        { name: "like", url: "http://stream1.gifsoup.com/view3/4543898/spongebob-licking-the-patty-poster-o.gif" }
-    ];
-
-    var imgsActions2 = [
-        { name: "hug", url: "http://www.animationplayhouse.com/cows-hug.gif" },
-        { name: "sing", url: "https://www.beach.k12.nd.us/jtescher/files/2013/02/singermic.gif" },
-        { name: "dance", url: "http://media.giphy.com/media/E5pcLyXRM5fIA/giphy.gif" },
-        { name: "dance", url: "http://www.animationplayhouse.com/dancing_giraffees.gif" },
-        { name: "argue", url: "http://www.picgifs.com/graphics/b/best-friend/graphics-best-friend-198591.gif" },
-        { name: "swim", url: "http://harrydarlingtonqegs.files.wordpress.com/2011/10/swimming-man.gif" },
-        { name: "give", url: "http://i906.photobucket.com/albums/ac263/nols_photos/puppy-giving-gift.gif" },
-        { name: "give", url: "http://www.toonuppresentations.com/thumb-prehistoric_art_flowers_anim.gif.350.c.gif" },
-        { name: "keep", url: "http://img.weburbanist.com/pics/wp-content/uploads/2010/09/Selfish.jpg" },
-        { name: "throw", url: "http://3.bp.blogspot.com/-xjetycqwrB8/Um1-CkOr-CI/AAAAAAAAAQQ/P6zYIfIxEGY/s1600/Sandeepan_Ball+throw1.gif" },
-        { name: "clap", url: "http://schoolofdisney.com/Tinkerbell/images/animated_clapping_hands.gif" },
-        { name: "knod head", url: "https://img.4plebs.org/boards/s4s/image/1409/14/1409140350334.gif" },
-        { name: "shake head", url: "http://www.christianity-and-the-confusion.com/boss_head_nodding_no_sm_nwm.gif" },
-        { name: "bite", url: "http://media0.giphy.com/media/gXFpraXeKyHDi/giphy.gif" },
-        { name: "stomp", url: "http://www.futuremusic.com/news/images/msp-stomp-action.gif" },
-        { name: "pick up", url: "https://buddyanimation.files.wordpress.com/2014/03/pick-up1.gif" },
-        { name: "throw trash", url: "http://www.presentermedia.com/files/animsp/00011000/11853/waste_paper_shot_miss_sm_wm.gif" }
-    ];
-
-    var imgsActions3 = [
-        { name: "push", url: "https://gcps.desire2learn.com/d2l/lor/viewer/viewFile.d2lfile/15524/6499/stick_figure_push_crate_md_wm.gif" },
-        { name: "pull", url: "http://www.graphicsfactory.com/clip-art/image_files/tn_image/5/550245-tn_people-193.gif" },
-        { name: "eat", url: "http://www.clipartlord.com/wp-content/uploads/2013/08/boy-eating-fried-chicken.gif" },
-        { name: "drink", url: "http://i18.photobucket.com/albums/b110/SweetHoneyBee64/drinking-water.gif" },
-        { name: "drawing", url: "http://media.giphy.com/media/hCQTd0xRTdetq/giphy.gif" },
-        { name: "coloring", url: "http://wedesign.saschina.wikispaces.net/file/view/animated-drawing.gif/451704914/180x180/animated-drawing.gif" },
-        { name: "drive", url: "http://4.bp.blogspot.com/-yazsMmZJJZg/Ut0Lb2KnX_I/AAAAAAAABGo/lK5w_SATslQ/s1600/francis_driving_car.gif" },
-        { name: "touch", url: "http://media.giphy.com/media/ptnWal3n4VPdS/giphy.gif" },
-        { name: "sit", url: "http://i1160.photobucket.com/albums/q492/Alcotrash_79/sitdown.gif" },
-        { name: "sit", url: "http://memeguy.com/photos/images/when-i-sit-down-for-the-after-school-dump-10983.gif" },
-        { name: "lay", url: "http://www.clipartillustration.com/wp-content/uploads/symbiostock_rf_content/62948-orange-man-lying-down.jpg" },
-        { name: "chase", url: "http://media.giphy.com/media/Fb4OOxPYfO4fK/giphy.gif" },
-        { name: "hide", url: "http://media1.giphy.com/media/vFuQaUkLvdcFW/giphy.gif" },
-        { name: "hide", url: "http://stream1.gifsoup.com/view6/2022544/hide-and-seek-o.gif" }
-    ];
-
     var imgsFeelings = [
         { name: "happy", url: "http://img1.wikia.nocookie.net/__cb20130905081021/glee/images/4/40/Happy-jump-happy-animation-animated-smiley-emoticon-000360-large.gif" },
         { name: "sad", url: "http://www.clipartbest.com/cliparts/niX/nG4/niXnG4X5T.gif" },
@@ -232,6 +261,7 @@ $(function () {
         { name: "nice", url: "http://www.urlbaron.com/ubcards/images/p6384.gif" },
         { name: "mean", url: "http://cdn.graphicsfactory.com/clip-art/image_files/image/8/709218-MERCURIAL.gif" },
         { name: "scared", url: "http://i717.photobucket.com/albums/ww173/prestonjjrtr/Smileys/AfraidScared01.gif" },
+        { name: "cry", url: "http://classroomclipart.com/images/gallery/Animations/Children/crying_girl_cc.gif" },
         { name: "friends", url: "http://julzz.wikispaces.com/file/view/Animated_singing_in_the_rain_friends.gif/30660519/Animated_singing_in_the_rain_friends.gif" }
     ];
 
@@ -249,9 +279,19 @@ $(function () {
     ];
 
     var imgsFood2 = [
+        { name: "raisins", url: "http://malayeraisin.com/images/pg-sundried-raisins1.jpg" },
         { name: "hot dog", url: "http://www.grillingcompanion.com/wp-content/uploads/2009/03/hotdog4web.jpg" },
         { name: "ice cream", url: "http://t1.gstatic.com/images?q=tbn:ANd9GcTk3acVCAwgOHb4ZYb5J_F-wSqKMD3rxASmeSBpXHV6l6YYaoUuKA" },
         { name: "bacon", url: "http://digitaldeconstruction.com/wp-content/uploads/2012/06/bacon.jpgNEW.jpg" }
+    ];
+
+    var imgsBody = [
+        { name: "hands", url: "http://us.cdn2.123rf.com/168nwm/ruslan/ruslan0808/ruslan080800073/3408232-child-hands-isolated-on-white.jpg" },
+        { name: "eyes", url: "http://us.cdn2.123rf.com/168nwm/teddy2007b/teddy2007b1012/teddy2007b101200001/8369404-female-look.jpg" },
+        { name: "ear", url: "http://us.cdn1.123rf.com/168nwm/krisdog/krisdog0705/krisdog070500013/937239-body-parts-ear-an-illustration-of-a-human-ear-no-meshes-used.jpg" },
+        { name: "nose", url: "http://us.cdn3.123rf.com/168nwm/krisdog/krisdog0705/krisdog070500029/937249-body-parts-nose-an-illustration-of-a-human-nose-no-meshes-used.jpg" },
+        { name: "mouth", url: "http://us.cdn2.123rf.com/168nwm/krisdog/krisdog0705/krisdog070500028/937248-body-parts-mouth-an-illustration-of-a-human-mouth-no-meshes-used.jpg" },
+        { name: "feet", url: "http://us.cdn2.123rf.com/168nwm/lelik759/lelik7591103/lelik759110300163/9079804-vector-illustration-of-a-foot-of-feet-on-a-white-background.jpg" }
     ];
 
     var imgsClothes = [
@@ -262,27 +302,21 @@ $(function () {
         { name: "shirt", url: "http://3.bp.blogspot.com/_-05CbS9fCMY/TJwNUY7tcJI/AAAAAAAAADY/Dxy5mrFhoP8/s1600/spongebob-squarepants-face-t-shirt-610-p.jpg" }
     ];
 
-    var imgsRoles = [
-        { name: "policeman", url: "http://jokes4all.net/policeman,baton.gif" },
-        { name: "astronaut", url: "http://media.npr.org/assets/img/2013/10/30/hadfield_an-astronaut-s-guide-to-life-on-earth-4--d982fdb6dc3a68a4c8c3c198f5e731f124a14343.jpg" },
-        { name: "mailman", url: "http://muyargentino.com/wp-content/uploads/2012/10/Francis-Mailman.jpg" },
-        { name: "soldier", url: "http://t3.gstatic.com/images?q=tbn:ANd9GcQrYXT2AT0gxrz45N1cpcwKUiI58CUa9wSbkE2eNuZhLTsc-Nmb" }
-    ];
-
-    var imgsMisc = [
-        { name: "fire", url: "http://media0.giphy.com/media/lAoDtIcj2DflC/giphy.gif" },
-        { name: "over under", url: "http://4.bp.blogspot.com/-z0UGGlMzqiA/UmgDivMFTGI/AAAAAAAAIgc/70PsUm_VGFE/s320/ZZ2.jpg" },
-        { name: "on off", url: "http://davepear.com/blog/wp-content/uploads/2009/09/lightbulb.gif" },
-        { name: "on", url: "http://metrouk2.files.wordpress.com/2010/11/article-1290073129742-06d5003c000005dc-371581_304x219.jpg" },
-        { name: "off", url: "http://www.clker.com/cliparts/5/Y/g/U/j/H/light-bulb-off-hi.png" },
-        { name: "first", url: "http://www.jandsmministries.com/images/message/running.gif" },
-        { name: "first", url: "http://www.netanimations.net/Moving-animated-picture-off-to-the-races.gif" }
+    var imgsTools = [
+        { name: "hammer", url: "http://classroomclipart.com/images/gallery/Clipart/Tools/hammer_0104.jpg" },
+        { name: "screwdriver", url: "http://www.clker.com/cliparts/8/2/2/6/11971154711712468971BigRedSmile_A_screwdriver_1.svg.hi.png" },
+        { name: "mallet", url: "http://t1.gstatic.com/images?q=tbn:ANd9GcSnpVNpKI3OVkBZnUkic2ZiTPzZpWm4oOV_rahlnroLDhN549KszA" },
+        { name: "saw", url: "http://www.earlychildhoodworksheets.com/clipart/tools/saw.gif" },
+        { name: "pliers", url: "http://www.earlychildhoodworksheets.com/clipart/tools/pliers.gif" },
+        { name: "scissors", url: "http://www.earlychildhoodworksheets.com/clipart/tools/scissors.gif" },
+        { name: "wrench", url: "http://www.earlychildhoodworksheets.com/clipart/tools/wrench.gif" },
+        { name: "nail clippers", url: "http://www.earlychildhoodworksheets.com/clipart/tools/nail-clippers.gif" }
     ];
 
     var imgsToys = [
         { name: "robot", url: "http://img1.wikia.nocookie.net/__cb20111227042926/dundef/images/0/01/Laser_Robot.png" },
         { name: "tablet", url: "http://www.androidcentral.com/sites/androidcentral.com/files/articleimage/9274/2010/12/Android_tablet.jpg" },
-        { name: "swing", url: "http://www.graphicsfactory.com/clip-art/image_files/tn_image/3/547803-tn_mother_and_daughter_swings0001aa.gif" },
+        { name: "swing", url: "http://classroomclipart.com/images/gallery/Animations/boy_swinging_animation_2_15A.gif" },
         { name: "ball", url: "http://www.qualitylogoproducts.com/stress-balls/beach-ball-stress-toy-superextralarge-175340.jpg" },
         { name: "ball", url: "http://www.sz-wholesaler.com/userimg/1144/1163sw1/pvc-toy-ball-575.jpg" },
         { name: "soccer ball", url: "http://t0.gstatic.com/images?q=tbn:ANd9GcSZF_kT03eLD86toLY5Se2mw72AWT6OiuvYxWfLgTPBqIPab54gFA" },
@@ -291,19 +325,56 @@ $(function () {
         { name: "football", url: "http://files.leagueathletics.com/Images/Club/10794/football.gif" },
         { name: "golf ball", url: "http://t1.gstatic.com/images?q=tbn:ANd9GcQ_qBhlCOfnmx_sJHiHFjym4POhIxoLlyVJeVzQy2cLT_Y5NU93" },
         { name: "guitar", url: "http://t2.gstatic.com/images?q=tbn:ANd9GcTa14PLSvd061jPie4iDaTNLz6uGjcAywtIX1weQmwz7XWEIjCc" },
-        { name: "piano", url: "http://i1068.photobucket.com/albums/u458/leelocal6/piano.jpg" }
+        { name: "piano", url: "http://i1068.photobucket.com/albums/u458/leelocal6/piano.jpg" },
+        { name: "slide", url: "http://img2.wfrcdn.com/lf/79/hash/636/8401863/1/UPlay%2BToday%2BFreestanding%2BSlide.jpg" },
+        { name: "see saw", url: "http://classroomclipart.com/images/gallery/Animations/Children/updwn.gif" },
+        { name: "balloon", url: "http://www.earlychildhoodworksheets.com/clipart/kids/ballon.gif" },
+        { name: "kite", url: "http://www.earlychildhoodworksheets.com/clipart/kids/kite.gif" }
     ];
 
-    var imgsBody = [
+    var imgsAslAnimals = [
+        { name: "dog", url: "http://www.lifeprint.com/asl101/gifs-animated/dogbanimation.gif" },
+        { name: "cat", url: "http://www.lifeprint.com/asl101/gifs-animated/catanimation.gif" },
+        { name: "elephant", url: "http://www.lifeprint.com/asl101/gifs-animated/elephant.gif" },
+        { name: "bear", url: "http://www.lifeprint.com/asl101/gifs-animated/bear.gif" }
     ];
 
-    var imgsBathroom = [
+    var imgsAslFood = [
+        { name: "water", url: "http://stream1.gifsoup.com/view5/20140513/5036479/water-asl-o.gif" },
+        { name: "banana", url: "http://www.lifeprint.com/asl101/gifs-animated/banana.gif" },
+        { name: "apple", url: "http://media-cache-ec0.pinimg.com/236x/6e/1d/fe/6e1dfecf7bbd530bcf4ed099a2d1863f.jpg" },
+        { name: "ice cream", url: "http://www.lifeprint.com/asl101/gifs-animated/icecream.gif" },
+        { name: "bread", url: "http://www.lifeprint.com/asl101/gifs-animated/breadsideview.gif" }
     ];
 
-    var imgsTools = [
+    var imgsAslThings = [
+        { name: "book", url: "http://www.lifeprint.com/asl101/gifs-animated/bookanimation.gif" },
+        { name: "chair", url: "http://www.lifeprint.com/asl101/gifs-animated/chair.gif" },
+        { name: "table", url: "http://www.lifeprint.com/asl101/gifs-animated/tableanimation.gif" },
+        { name: "door", url: "http://www.lifeprint.com/asl101/gifs-animated/dooranimation.gif" },
+        { name: "phone", url: "http://www.lifeprint.com/asl101/gifs-animated/phone.gif" },
+        { name: "tree", url: "http://www.lifeprint.com/asl101/gifs-animated/tree.gif" },
+        { name: "ball", url: "http://www.lifeprint.com/asl101/gifs-animated/ball.gif" }
     ];
 
-    var imgsSignLanguage = [
+    var imgsAslActions = [
+        { name: "read", url: "http://www.lifeprint.com/asl101/gifs-animated/readanimation.gif" },
+        { name: "play", url: "http://www.lifeprint.com/asl101/gifs-animated/play.gif" },
+        { name: "walk", url: "http://www.lifeprint.com/asl101/gifs-animated/walk.gif" },
+        { name: "run", url: "http://www.lifeprint.com/asl101/gifs-animated/run.gif" },
+        { name: "yes", url: "http://www.lifeprint.com/asl101/gifs-animated/yesanimation.gif" },
+        { name: "no", url: "http://www.lifeprint.com/asl101/gifs-animated/noanimation.gif" }
+    ];
+
+    var imgsMisc = [
+        { name: "hi", url: "http://classroomclipart.com/images/gallery/Animations/People/HI.gif" },
+        { name: "fire", url: "http://media0.giphy.com/media/lAoDtIcj2DflC/giphy.gif" },
+        { name: "over under", url: "http://4.bp.blogspot.com/-z0UGGlMzqiA/UmgDivMFTGI/AAAAAAAAIgc/70PsUm_VGFE/s320/ZZ2.jpg" },
+        { name: "on off", url: "http://davepear.com/blog/wp-content/uploads/2009/09/lightbulb.gif" },
+        { name: "on", url: "http://metrouk2.files.wordpress.com/2010/11/article-1290073129742-06d5003c000005dc-371581_304x219.jpg" },
+        { name: "off", url: "http://www.clker.com/cliparts/5/Y/g/U/j/H/light-bulb-off-hi.png" },
+        { name: "first", url: "http://www.jandsmministries.com/images/message/running.gif" },
+        { name: "first", url: "http://www.netanimations.net/Moving-animated-picture-off-to-the-races.gif" }
     ];
 
     var favorites = [
@@ -319,10 +390,13 @@ $(function () {
     ];
 
     var groupImages = [
+        imgsActions1,
+        imgsActions2,
+        imgsActions3,
+        imgsActions4,
         imgsAnimals1,
         imgsAnimals2,
         imgsAnimals3,
-        imgsKitchen,
         imgsFood1,
         imgsFood2,
         imgsTransport,
@@ -330,26 +404,34 @@ $(function () {
         imgsOutside2,
         imgsHouse1,
         imgsHouse2,
+        imgsKitchen,
+        imgsBathroom,
+        imgsRoles,
         imgsPeople,
         imgsCartoons1,
         imgsCartoons2,
         imgsShapes,
-        imgsActions1,
-        imgsActions2,
-        imgsActions3,
         imgsFeelings,
+        imgsBody,
         imgsClothes,
-        imgsRoles,
-        imgsMisc,
+        imgsTools,
         imgsToys,
+        imgsAslAnimals,
+        imgsAslFood,
+        imgsAslThings,
+        imgsAslActions,
+        imgsMisc,
         favorites
     ];
 
     var groupNames = [
+        "Actions 1",
+        "Actions 2",
+        "Actions 3",
+        "Actions 4",
         "Animals 1",
         "Animals 2",
         "Animals 3",
-        "Kitchen",
         "Food 1",
         "Food 2",
         "Transport",
@@ -357,18 +439,23 @@ $(function () {
         "Outside 2",
         "House 1",
         "House 2",
+        "Kitchen",
+        "Bathroom",
+        "Roles",
         "People",
         "Cartoons 1",
         "Cartoons 2",
         "Shapes",
-        "Actions 1",
-        "Actions 2",
-        "Actions 3",
         "Feelings",
+        "Body",
         "Clothes",
-        "Roles",
-        "Misc",
+        "Tools",
         "Toys",
+        "ASL animals",
+        "ASL food",
+        "ASL things",
+        "ASL actions",
+        "Miscellaneous",
         "favorites"
     ];
 
