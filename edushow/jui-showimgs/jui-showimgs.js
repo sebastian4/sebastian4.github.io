@@ -11,6 +11,8 @@ $.widget("jui.showimgs", {
     options: {
         name: "default",
         debug: false,
+        label: "name",
+        defaultlabel: "name",
         mode: "single",
         mainImg: "",
         groupImages: [],
@@ -204,7 +206,9 @@ $.widget("jui.showimgs", {
         }
     },
     _showImages: function() {
-        this._private.mainTitle.text(this.options.groupImages[this._private.groupIndex][this._private.imageIndex].name);
+        var label = (this.options.groupImages[this._private.groupIndex][this._private.imageIndex][this.options.label] != "") 
+            ? this.options.groupImages[this._private.groupIndex][this._private.imageIndex][this.options.label] : this.options.groupImages[this._private.groupIndex][this._private.imageIndex][this.options.defaultlabel];
+        this._private.mainTitle.text(label);
         this._private.mainSubtitle.text(this.options.groupNames[this._private.groupIndex]);
         this._private.mainImage.attr("src",this._private.images[this._private.imageIndex].src);
     },
@@ -281,7 +285,9 @@ $.widget("jui.showimgs", {
         }
         //console.log(maxSize+"   "+buckets);
         this._private.currentWinningBucket = this._getRandomInt(0,2);
-        this._private.mainTitle.text(this.options.groupImages[this._private.groupIndex][buckets[this._private.currentWinningBucket]].name);
+        var label = (this.options.groupImages[this._private.groupIndex][buckets[this._private.currentWinningBucket]][this.options.label] != "") 
+            ? this.options.groupImages[this._private.groupIndex][buckets[this._private.currentWinningBucket]][this.options.label] : this.options.groupImages[this._private.groupIndex][buckets[this._private.currentWinningBucket]][this.options.defaultlabel];
+        this._private.mainTitle.text(label);
         this._private.tableImageTr1Td1.attr("src",this._private.images[buckets[0]].src);
         this._private.tableImageTr1Td2.attr("src",this._private.images[buckets[1]].src);
         this._private.tableImageTr1Td3.attr("src",this._private.images[buckets[2]].src);
@@ -318,7 +324,7 @@ $.widget("jui.showimgs", {
     _saveToFavorites: function() {
         var alreadyThere = false;
         for (var ii = 0; ii < this.options.groupImages[this.options.groupImages.length-1].length; ii++) {
-            if (this.options.groupImages[this.options.groupImages.length-1][ii].name === this.options.groupImages[this._private.groupIndex][this._private.imageIndex].name) {
+            if (this.options.groupImages[this.options.groupImages.length-1][ii][this.options.label] === this.options.groupImages[this._private.groupIndex][this._private.imageIndex][this.options.label]) {
                 alreadyThere = true;
             }
         }
