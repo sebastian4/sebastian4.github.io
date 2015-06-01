@@ -181,7 +181,7 @@ $.widget("jui.showimgs", {
                 if (self._private.flashcardMode === true)   self._adjustImage();
             },
             'click .main-square-table-r1-ctrl3': function (ev) {
-                if (self._private.flashcardMode === true)   self._saveToFavorites();
+                if (self._private.flashcardMode === true)   self._toggleLanguage();
             },
             'click .heading-left': function (ev) {
                 if (self._private.flashcardMode === true)   self._getPreviousGroup();
@@ -331,6 +331,14 @@ $.widget("jui.showimgs", {
         if (alreadyThere === false) {
             this.options.groupImages[this.options.groupImages.length-1].push(this.options.groupImages[this._private.groupIndex][this._private.imageIndex]);
         }
+    },
+    _toggleLanguage: function() {
+        if (this.options.label === "name") {
+            this.options.label = "es";
+        } else {
+            this.options.label = "name";
+        }
+        this._getNextImage();
     },
     _getRandomInt: function(min, max) {
         return Math.floor(Math.random() * (max - min + 1)) + min;
