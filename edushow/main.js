@@ -11,7 +11,6 @@ $(function () {
         { name: "jump", es: "saltar", url: "http://www.rock.k12.nc.us/cms/lib6/NC01000985/Centricity/Domain/938/jump%20rope%20team.gif" },
         { name: "rest", es: "descansar", url: "http://itoon.co/600/royalty-free-cartoon-of-a-grinning-bee-mascot-cartoon-character-resting-his-face-on-his-hand-by-toons4biz-5724.jpg" },
         { name: "sleep", es: "dormir", url: "http://i379.photobucket.com/albums/oo231/Rishro/dog_animated.gif" },
-        { name: "sleep", es: "dormir", url: "http://www.picturesanimations.com/s/sleep/163tweetyslaapt.gif" },
         { name: "sleep", es: "dormir", url: "http://worldofteacherfortin.perso.sfr.fr/quiz%20pr%C3%A9t%C3%A9rit/images/sleeping-girl-animated.gif" },
         { name: "clean", es: "limpiar", url: "http://www.picgifs.com/clip-art/activities/cleaning/clip-art-cleaning-121482.jpg" },
         { name: "spin", es: "voltear", url: "http://www.chrismeyer3d.com/images/characters/boy/boy_color_spin.gif" },
@@ -48,7 +47,7 @@ $(function () {
         { name: "drive", es: "manejar", url: "http://4.bp.blogspot.com/-yazsMmZJJZg/Ut0Lb2KnX_I/AAAAAAAABGo/lK5w_SATslQ/s1600/francis_driving_car.gif" },
         { name: "touch", es: "tocar", url: "http://media.giphy.com/media/ptnWal3n4VPdS/giphy.gif" },
         { name: "sit", es: "sentar", url: "http://i1160.photobucket.com/albums/q492/Alcotrash_79/sitdown.gif" },
-        { name: "sit", es: "sentar", url: "http://memeguy.com/photos/images/when-i-sit-down-for-the-after-school-dump-10983.gif" },
+        { name: "potty", es: "cagar", url: "http://memeguy.com/photos/images/when-i-sit-down-for-the-after-school-dump-10983.gif" },
         { name: "lay", es: "echar", url: "https://media4.giphy.com/media/rNXxBS4TsXlni/200_s.gif" }
     ];
 
@@ -186,20 +185,20 @@ $(function () {
 
     var imgsBathroom = [
         { name: "bath", es: "baño", url: "http://classroomclipart.com/images/gallery/Animations/Children/girl_in_bathtub_animation_2B.gif" },
-        { name: "bath tube", es: "bañera", url: "http://www.earlychildhoodworksheets.com/clipart/bathroom/bath-tube.gif" },
-        { name: "toilet", es: "inodoro", url: "http://www.earlychildhoodworksheets.com/clipart/bathroom/toilet.gif" },
-        { name: "toothbrush", es: "", url: "http://www.earlychildhoodworksheets.com/clipart/bathroom/tooth-brush.gif" },
-        { name: "toothpaste", es: "", url: "http://www.earlychildhoodworksheets.com/clipart/bathroom/toothpaste.gif" },
+        { name: "bath tube", es: "bañera", url: "http://samsheys.com/images/b02.jpg" },
+        { name: "toilet", es: "inodoro", url: "http://www.americanstandard-us.com/assets/images/productImages/amstd/standard/5654.prd.s.020.png" },
+        { name: "toothbrush", es: "cepillo", url: "http://www.colgateprofessional.com/Professional/v1/en/us/locale-assets/img/thumbnails/Product-Detail-Toothbrush-ColgateWaveGumComfort-Thumb.png" },
+        { name: "toothpaste", es: "pasta dental", url: "http://alertmedical.org/wp-content/uploads/2014/09/Dangerous_Toothpaste_Ingredients.jpg" },
         { name: "sink", es: "", url: "http://www.earlychildhoodworksheets.com/clipart/bathroom/wastafel.gif" },
         { name: "towel", es: "toalla", url: "http://www.earlychildhoodworksheets.com/clipart/bathroom/towel.gif" },
-        { name: "comb", es: "peine", url: "http://www.earlychildhoodworksheets.com/clipart/bathroom/comb.gif" },
+        { name: "comb", es: "peine", url: "http://manlycurls.com/blog_new/wp-content/uploads/2011/07/wide-tooth-comb.jpg" },
         { name: "toilet paper", es: "papel higienico", url: "http://classroomclipart.com/images/gallery/Things/TN_toilet_paper.jpg" }
     ];
 
     var imgsRoles = [
         { name: "policeman", es: "policia", url: "http://jokes4all.net/policeman,baton.gif" },
         { name: "astronaut", es: "astronauta", url: "http://media.npr.org/assets/img/2013/10/30/hadfield_an-astronaut-s-guide-to-life-on-earth-4--d982fdb6dc3a68a4c8c3c198f5e731f124a14343.jpg" },
-        { name: "mailman", es: "cartero", url: "http://muyargentino.com/wp-content/uploads/2012/10/Francis-Mailman.jpg" },
+        { name: "mailman", es: "cartero", url: "http://holidayinsights.com/moreholidays/February/mailman.jpg" },
         { name: "soldier", es: "soldado", url: "http://t3.gstatic.com/images?q=tbn:ANd9GcQrYXT2AT0gxrz45N1cpcwKUiI58CUa9wSbkE2eNuZhLTsc-Nmb" },
         { name: "doctor", es: "", url: "http://www.earlychildhoodworksheets.com/clipart/occupation/doctor.gif" },
         { name: "fireman", es: "bombero", url: "http://www.earlychildhoodworksheets.com/clipart/occupation/fireman.gif" }
@@ -318,7 +317,7 @@ $(function () {
         { name: "hammer", es: "martillo", url: "http://classroomclipart.com/images/gallery/Clipart/Tools/hammer_0104.jpg" },
         { name: "screwdriver", es: "", url: "http://www.clker.com/cliparts/8/2/2/6/11971154711712468971BigRedSmile_A_screwdriver_1.svg.hi.png" },
         { name: "mallet", es: "", url: "http://t1.gstatic.com/images?q=tbn:ANd9GcSnpVNpKI3OVkBZnUkic2ZiTPzZpWm4oOV_rahlnroLDhN549KszA" },
-        { name: "saw", es: "serrucho", url: "http://www.earlychildhoodworksheets.com/clipart/tools/saw.gif" },
+        { name: "saw", es: "serrucho", url: "http://www.clker.com/cliparts/f/2/9/e/11949850521159759855utensile_sega_architetto_01.svg.med.png" },
         { name: "pliers", es: "", url: "http://www.earlychildhoodworksheets.com/clipart/tools/pliers.gif" },
         { name: "scissors", es: "tijeras", url: "http://www.earlychildhoodworksheets.com/clipart/tools/scissors.gif" },
         { name: "wrench", es: "", url: "http://www.earlychildhoodworksheets.com/clipart/tools/wrench.gif" },
@@ -330,7 +329,6 @@ $(function () {
         { name: "tablet", es: "", url: "http://www.androidcentral.com/sites/androidcentral.com/files/articleimage/9274/2010/12/Android_tablet.jpg" },
         { name: "swing", es: "", url: "http://classroomclipart.com/images/gallery/Animations/boy_swinging_animation_2_15A.gif" },
         { name: "ball", es: "pelota", url: "http://www.qualitylogoproducts.com/stress-balls/beach-ball-stress-toy-superextralarge-175340.jpg" },
-        { name: "ball", es: "pelota", url: "http://www.sz-wholesaler.com/userimg/1144/1163sw1/pvc-toy-ball-575.jpg" },
         { name: "soccer ball", es: "", url: "http://t0.gstatic.com/images?q=tbn:ANd9GcSZF_kT03eLD86toLY5Se2mw72AWT6OiuvYxWfLgTPBqIPab54gFA" },
         { name: "basketball", es: "", url: "http://t3.gstatic.com/images?q=tbn:ANd9GcQtyDsy7iGu6kuac0prM8KLpfNgXaDXnNm8aFTjqazJE2wqdcN2Tg" },
         { name: "tennis ball", es: "", url: "http://i.dailymail.co.uk/i/pix/2012/07/02/article-2167894-04F7D9440000044D-333_468x320.jpg" },
@@ -340,8 +338,8 @@ $(function () {
         { name: "piano", es: "", url: "http://i1068.photobucket.com/albums/u458/leelocal6/piano.jpg" },
         { name: "slide", es: "", url: "http://img2.wfrcdn.com/lf/79/hash/636/8401863/1/UPlay%2BToday%2BFreestanding%2BSlide.jpg" },
         { name: "see saw", es: "", url: "http://classroomclipart.com/images/gallery/Animations/Children/updwn.gif" },
-        { name: "balloon", es: "", url: "http://www.earlychildhoodworksheets.com/clipart/kids/ballon.gif" },
-        { name: "kite", es: "", url: "http://www.earlychildhoodworksheets.com/clipart/kids/kite.gif" }
+        { name: "balloon", es: "", url: "http://www.webweaver.nu/clipart/img/entertainment/party/3-balloons.png" },
+        { name: "kite", es: "", url: "http://www.how-to-draw-funny-cartoons.com/image-files/cartoon-kite-5.gif" }
     ];
 
     var imgsAslAnimals = [
@@ -475,19 +473,31 @@ $(function () {
 
     console.log("starting images");
 
-    var language = location.search.split('lang=')[1];
-    if (typeof(language) == "undefined") {
-        language = "name";
+    var mode = location.search.split('mode=')[1];
+    if (typeof(mode) == "undefined") {
+        mode = "normal";
     }
-    console.log(language);
+    console.log(mode);
 
-    $("#edushow").showimgs({
-        name: "show1",
-        debug: false,
-        label: language,
+    if (mode == "normal") {
+
+      $("#edushow").showimgs({
+          name: "show1",
+          debug: false,
+          mainImg: mainImg,
+          groupImages: groupImages,
+          groupNames: groupNames
+      });
+
+    } else if (mode == "all") {
+
+      $("#edushow").allimgs({
+        name: "all1",
+        debug: true,
         mainImg: mainImg,
         groupImages: groupImages,
         groupNames: groupNames
-    });
+      });
+    }
 
 });

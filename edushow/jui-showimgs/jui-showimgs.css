@@ -102,3 +102,8 @@
     vertical-align: top;
     width: 14%;
 }
+
+.jui-allimgs-div-group {
+    border-style: solid;
+    border-width: medium;
+}
