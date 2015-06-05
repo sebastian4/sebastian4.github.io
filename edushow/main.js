@@ -6,9 +6,9 @@ $(function () {
 
     var imgsActions1 = [
         { name: "walk", es: "caminar", url: "http://www.picgifs.com/graphics/w/walking/graphics-walking-365538.gif" },
-        { name: "walk", es: "caminar", url: "http://lh5.ggpht.com/_gXLJq-z63k8/TQ5g650naHI/AAAAAAAACrM/_qXyDKZ6KDU/s800/Haters-Gonna-Hate-Gif-7.gif" },
         { name: "run", es: "correr", url: "http://stream1.gifsoup.com/view1/2006857/run-animation-o.gif" },
         { name: "jump", es: "saltar", url: "http://www.rock.k12.nc.us/cms/lib6/NC01000985/Centricity/Domain/938/jump%20rope%20team.gif" },
+        { name: "dance", es: "vailar", url: "http://www.animationplayhouse.com/dancing_giraffees.gif" },
         { name: "rest", es: "descansar", url: "http://itoon.co/600/royalty-free-cartoon-of-a-grinning-bee-mascot-cartoon-character-resting-his-face-on-his-hand-by-toons4biz-5724.jpg" },
         { name: "sleep", es: "dormir", url: "http://i379.photobucket.com/albums/oo231/Rishro/dog_animated.gif" },
         { name: "sleep", es: "dormir", url: "http://worldofteacherfortin.perso.sfr.fr/quiz%20pr%C3%A9t%C3%A9rit/images/sleeping-girl-animated.gif" },
@@ -16,24 +16,24 @@ $(function () {
         { name: "spin", es: "voltear", url: "http://www.chrismeyer3d.com/images/characters/boy/boy_color_spin.gif" },
         { name: "lick", es: "lamer", url: "http://i.imgur.com/dybq3Uc.gif" },
         { name: "falling", es: "caer", url: "http://www.stykz.net/blogimages/Falling.gif" },
+        { name: "stomp", es: "pisar", url: "http://www.futuremusic.com/news/images/msp-stomp-action.gif" },
         { name: "like", es: "gustar", url: "http://stream1.gifsoup.com/view3/4543898/spongebob-licking-the-patty-poster-o.gif" }
     ];
 
     var imgsActions2 = [
         { name: "hug", es: "abrazar", url: "http://www.animationplayhouse.com/cows-hug.gif" },
+        { name: "walk", es: "caminar", url: "http://lh5.ggpht.com/_gXLJq-z63k8/TQ5g650naHI/AAAAAAAACrM/_qXyDKZ6KDU/s800/Haters-Gonna-Hate-Gif-7.gif" },
         { name: "sing", es: "cantar", url: "http://www.animationplaza.com/3/animations/people_s/singer/gal_singing_karaoke_hb.gif" },
         { name: "dance", es: "vailar", url: "http://media.giphy.com/media/E5pcLyXRM5fIA/giphy.gif" },
-        { name: "dance", es: "vailar", url: "http://www.animationplayhouse.com/dancing_giraffees.gif" },
         { name: "argue", es: "", url: "http://www.picgifs.com/graphics/b/best-friend/graphics-best-friend-198591.gif" },
         { name: "swim", es: "nadar", url: "http://harrydarlingtonqegs.files.wordpress.com/2011/10/swimming-man.gif" },
-        { name: "give", es: "dar", url: "http://i906.photobucket.com/albums/ac263/nols_photos/puppy-giving-gift.gif" },
+        { name: "share", es: "prestar", url: "http://i906.photobucket.com/albums/ac263/nols_photos/puppy-giving-gift.gif" },
         { name: "give", es: "dar", url: "http://www.toonuppresentations.com/thumb-prehistoric_art_flowers_anim.gif.350.c.gif" },
         { name: "keep", es: "tomar", url: "http://img.weburbanist.com/pics/wp-content/uploads/2010/09/Selfish.jpg" },
         { name: "clap", es: "aplaudir", url: "http://schoolofdisney.com/Tinkerbell/images/animated_clapping_hands.gif" },
         { name: "knod head", es: "", url: "https://img.4plebs.org/boards/s4s/image/1409/14/1409140350334.gif" },
         { name: "shake head", es: "", url: "http://www.christianity-and-the-confusion.com/boss_head_nodding_no_sm_nwm.gif" },
-        { name: "bite", es: "morder", url: "http://media0.giphy.com/media/gXFpraXeKyHDi/giphy.gif" },
-        { name: "stomp", es: "pisar", url: "http://www.futuremusic.com/news/images/msp-stomp-action.gif" }
+        { name: "bite", es: "morder", url: "http://media0.giphy.com/media/gXFpraXeKyHDi/giphy.gif" }
     ];
 
     var imgsActions3 = [
@@ -59,8 +59,7 @@ $(function () {
         { name: "hide", es: "", url: "http://media1.giphy.com/media/vFuQaUkLvdcFW/giphy.gif" },
         { name: "hide", es: "", url: "http://stream1.gifsoup.com/view6/2022544/hide-and-seek-o.gif" },
         { name: "ride bicycle", es: "", url: "http://classroomclipart.com/images/gallery/Animations/Children/cycle.gif" },
-        { name: "follow", es: "", url: "http://stream1.gifsoup.com/view3/2087765/following-the-leader-o.gif" },
-        { name: "follow", es: "", url: "http://1.bp.blogspot.com/-3eQBpYf_vgo/ToYXhmxf5NI/AAAAAAAABlA/stBDM01TIU4/s1600/Animated-Jesus.gif" }
+        { name: "follow", es: "", url: "http://stream1.gifsoup.com/view3/2087765/following-the-leader-o.gif" }
     ];
 
     var imgsAnimals1 = [
@@ -188,9 +187,9 @@ $(function () {
         { name: "bath tube", es: "bañera", url: "http://samsheys.com/images/b02.jpg" },
         { name: "toilet", es: "inodoro", url: "http://www.americanstandard-us.com/assets/images/productImages/amstd/standard/5654.prd.s.020.png" },
         { name: "toothbrush", es: "cepillo", url: "http://www.colgateprofessional.com/Professional/v1/en/us/locale-assets/img/thumbnails/Product-Detail-Toothbrush-ColgateWaveGumComfort-Thumb.png" },
-        { name: "toothpaste", es: "pasta dental", url: "http://alertmedical.org/wp-content/uploads/2014/09/Dangerous_Toothpaste_Ingredients.jpg" },
-        { name: "sink", es: "", url: "http://www.earlychildhoodworksheets.com/clipart/bathroom/wastafel.gif" },
-        { name: "towel", es: "toalla", url: "http://www.earlychildhoodworksheets.com/clipart/bathroom/towel.gif" },
+        { name: "toothpaste", es: "pasta dental", url: "http://www.sott.net/image/s4/99499/full/fluoride_toothpaste.jpg" },
+        { name: "sink", es: "", url: "http://cdn.homeidea.photos/images/groutrescuect.com/resources/white%20sink.jpg" },
+        { name: "towel", es: "toalla", url: "http://noodleandboo.com/images/products/detail/bath_towel_detail.jpg" },
         { name: "comb", es: "peine", url: "http://manlycurls.com/blog_new/wp-content/uploads/2011/07/wide-tooth-comb.jpg" },
         { name: "toilet paper", es: "papel higienico", url: "http://classroomclipart.com/images/gallery/Things/TN_toilet_paper.jpg" }
     ];
@@ -200,8 +199,8 @@ $(function () {
         { name: "astronaut", es: "astronauta", url: "http://media.npr.org/assets/img/2013/10/30/hadfield_an-astronaut-s-guide-to-life-on-earth-4--d982fdb6dc3a68a4c8c3c198f5e731f124a14343.jpg" },
         { name: "mailman", es: "cartero", url: "http://holidayinsights.com/moreholidays/February/mailman.jpg" },
         { name: "soldier", es: "soldado", url: "http://t3.gstatic.com/images?q=tbn:ANd9GcQrYXT2AT0gxrz45N1cpcwKUiI58CUa9wSbkE2eNuZhLTsc-Nmb" },
-        { name: "doctor", es: "", url: "http://www.earlychildhoodworksheets.com/clipart/occupation/doctor.gif" },
-        { name: "fireman", es: "bombero", url: "http://www.earlychildhoodworksheets.com/clipart/occupation/fireman.gif" }
+        { name: "doctor", es: "", url: "http://i.istockimg.com/file_thumbview_approve/24066790/2/stock-illustration-24066790-female-doctor.jpg" },
+        { name: "fireman", es: "bombero", url: "http://www.cliparthut.com/clip-arts/130/firemen-clip-art-130886.png" }
     ];
 
     var imgsPeople = [
@@ -315,13 +314,14 @@ $(function () {
 
     var imgsTools = [
         { name: "hammer", es: "martillo", url: "http://classroomclipart.com/images/gallery/Clipart/Tools/hammer_0104.jpg" },
+        { name: "nails", es: "", url: "http://image.shutterstock.com/display_pic_with_logo/515608/515608,1290580422,1/stock-photo-hammer-a-nail-several-iron-one-gold-65795020.jpg" },
         { name: "screwdriver", es: "", url: "http://www.clker.com/cliparts/8/2/2/6/11971154711712468971BigRedSmile_A_screwdriver_1.svg.hi.png" },
         { name: "mallet", es: "", url: "http://t1.gstatic.com/images?q=tbn:ANd9GcSnpVNpKI3OVkBZnUkic2ZiTPzZpWm4oOV_rahlnroLDhN549KszA" },
         { name: "saw", es: "serrucho", url: "http://www.clker.com/cliparts/f/2/9/e/11949850521159759855utensile_sega_architetto_01.svg.med.png" },
-        { name: "pliers", es: "", url: "http://www.earlychildhoodworksheets.com/clipart/tools/pliers.gif" },
-        { name: "scissors", es: "tijeras", url: "http://www.earlychildhoodworksheets.com/clipart/tools/scissors.gif" },
-        { name: "wrench", es: "", url: "http://www.earlychildhoodworksheets.com/clipart/tools/wrench.gif" },
-        { name: "nail clippers", es: "", url: "http://www.earlychildhoodworksheets.com/clipart/tools/nail-clippers.gif" }
+        { name: "pliers", es: "", url: "http://www.stitchdiva.com/media/Tutorials/Wire/NeedleNosePliers.jpg" },
+        { name: "scissors", es: "tijeras", url: "http://thumbs.dreamstime.com/x/scissors-open-8199471.jpg" },
+        { name: "wrench", es: "", url: "http://s.hswstatic.com/gif/wrench-1.jpg" },
+        { name: "nail clippers", es: "", url: "http://40.media.tumblr.com/f8c303c34968a75d4df0989b756afc39/tumblr_inline_nognaqlZzN1qcmayu_400.jpg" }
     ];
 
     var imgsToys = [
@@ -381,10 +381,10 @@ $(function () {
         { name: "fire", es: "", url: "http://media0.giphy.com/media/lAoDtIcj2DflC/giphy.gif" },
         { name: "over under", es: "", url: "http://4.bp.blogspot.com/-z0UGGlMzqiA/UmgDivMFTGI/AAAAAAAAIgc/70PsUm_VGFE/s320/ZZ2.jpg" },
         { name: "on off", es: "", url: "http://davepear.com/blog/wp-content/uploads/2009/09/lightbulb.gif" },
-        { name: "on", es: "", url: "http://metrouk2.files.wordpress.com/2010/11/article-1290073129742-06d5003c000005dc-371581_304x219.jpg" },
-        { name: "off", es: "", url: "http://www.clker.com/cliparts/5/Y/g/U/j/H/light-bulb-off-hi.png" },
-        { name: "first", es: "", url: "http://www.jandsmministries.com/images/message/running.gif" },
-        { name: "first", es: "", url: "http://www.netanimations.net/Moving-animated-picture-off-to-the-races.gif" }
+        { name: "on", es: "prendido", url: "http://metrouk2.files.wordpress.com/2010/11/article-1290073129742-06d5003c000005dc-371581_304x219.jpg" },
+        { name: "off", es: "apagado", url: "http://www.clker.com/cliparts/5/Y/g/U/j/H/light-bulb-off-hi.png" },
+        { name: "first", es: "primero", url: "http://www.jandsmministries.com/images/message/running.gif" },
+        { name: "last", es: "ultimo", url: "http://i.imgur.com/ViZ6NXW.gif" }
     ];
 
     var favorites = [
