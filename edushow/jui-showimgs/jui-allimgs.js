@@ -48,7 +48,7 @@ $.widget("jui.allimgs", {
 
               if (this.options.debug) console.log(this.options.groupImages[groupIndex][imageIndex].name);
 
-              $('<span class="jui-allimgs-span-img"> <img src="'+this.options.groupImages[groupIndex][imageIndex].url+'" height="60" width="60"> <span>'+this.options.groupImages[groupIndex][imageIndex].name+'</span> </span>')
+              $('<span class="jui-allimgs-span-img"> <img src="'+this.options.groupImages[groupIndex][imageIndex].url+'" height="60" width="60"> <span>'+this.options.groupImages[groupIndex][imageIndex].name+'</span> / <span>'+this.options.groupImages[groupIndex][imageIndex].es+'</span> </span>')
                 .appendTo(this.divGroups[groupIndex]);
 
               count++;

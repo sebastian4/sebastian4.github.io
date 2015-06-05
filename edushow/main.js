@@ -10,7 +10,6 @@ $(function () {
         { name: "jump", es: "saltar", url: "http://www.rock.k12.nc.us/cms/lib6/NC01000985/Centricity/Domain/938/jump%20rope%20team.gif" },
         { name: "dance", es: "vailar", url: "http://www.animationplayhouse.com/dancing_giraffees.gif" },
         { name: "rest", es: "descansar", url: "http://itoon.co/600/royalty-free-cartoon-of-a-grinning-bee-mascot-cartoon-character-resting-his-face-on-his-hand-by-toons4biz-5724.jpg" },
-        { name: "sleep", es: "dormir", url: "http://i379.photobucket.com/albums/oo231/Rishro/dog_animated.gif" },
         { name: "sleep", es: "dormir", url: "http://worldofteacherfortin.perso.sfr.fr/quiz%20pr%C3%A9t%C3%A9rit/images/sleeping-girl-animated.gif" },
         { name: "clean", es: "limpiar", url: "http://www.picgifs.com/clip-art/activities/cleaning/clip-art-cleaning-121482.jpg" },
         { name: "spin", es: "voltear", url: "http://www.chrismeyer3d.com/images/characters/boy/boy_color_spin.gif" },
@@ -53,13 +52,13 @@ $(function () {
 
     var imgsActions4 = [
         { name: "pick up", es: "recojer", url: "https://buddyanimation.files.wordpress.com/2014/03/pick-up1.gif" },
-        { name: "throw", es: "botar", url: "http://3.bp.blogspot.com/-xjetycqwrB8/Um1-CkOr-CI/AAAAAAAAAQQ/P6zYIfIxEGY/s1600/Sandeepan_Ball+throw1.gif" },
+        { name: "throw", es: "tirar", url: "http://3.bp.blogspot.com/-xjetycqwrB8/Um1-CkOr-CI/AAAAAAAAAQQ/P6zYIfIxEGY/s1600/Sandeepan_Ball+throw1.gif" },
         { name: "throw trash", es: "bota la basura", url: "http://www.presentermedia.com/files/animsp/00011000/11853/waste_paper_shot_miss_sm_wm.gif" },
         { name: "chase", es: "", url: "http://media.giphy.com/media/Fb4OOxPYfO4fK/giphy.gif" },
-        { name: "hide", es: "", url: "http://media1.giphy.com/media/vFuQaUkLvdcFW/giphy.gif" },
-        { name: "hide", es: "", url: "http://stream1.gifsoup.com/view6/2022544/hide-and-seek-o.gif" },
+        { name: "hide", es: "ocultar", url: "http://media1.giphy.com/media/vFuQaUkLvdcFW/giphy.gif" },
+        { name: "hide", es: "ocultar", url: "http://stream1.gifsoup.com/view6/2022544/hide-and-seek-o.gif" },
         { name: "ride bicycle", es: "", url: "http://classroomclipart.com/images/gallery/Animations/Children/cycle.gif" },
-        { name: "follow", es: "", url: "http://stream1.gifsoup.com/view3/2087765/following-the-leader-o.gif" }
+        { name: "follow", es: "seguir", url: "http://stream1.gifsoup.com/view3/2087765/following-the-leader-o.gif" }
     ];
 
     var imgsAnimals1 = [
@@ -129,7 +128,6 @@ $(function () {
         { name: "cloud", es: "nube", url: "http://stream1.gifsoup.com/view/168615/flying-in-clouds-o.gif" },
         { name: "cloud", es: "nube", url: "http://th09.deviantart.net/fs29/PRE/f/2008/168/f/7/Monsoon_Clouds_by_ash2000.jpg" },
         { name: "beach", es: "playa", url: "http://melliedee.com/wp-content/uploads/2013/09/Beach-Animated.gif" },
-        { name: "beach", es: "playa", url: "http://media.giphy.com/media/rXy3zZGg9sIzC/giphy.gif" },
         { name: "ocean", es: "oceano", url: "http://media.giphy.com/media/5ERaOy5fQEIAU/giphy.gif" }
     ];
 
@@ -142,7 +140,9 @@ $(function () {
         { name: "wind", es: "viento", url: "http://media0.giphy.com/media/xc3sjbJrb0FGw/giphy.gif" },
         { name: "rain", es: "lluvia", url: "http://2.bp.blogspot.com/-esmn9bw2atY/U69LL3HY_pI/AAAAAAAABOo/BexkiMtJYIk/s1600/Rain_Animated.gif" },
         { name: "snow", es: "nieve", url: "http://image.blingee.com/images17/content/output/000/000/000/60f/518825130_988743.gif" },
-        { name: "bench", es: "banco", url: "http://ltrf.org/wp-content/uploads/2014/01/garden_bench.jpg" }
+        { name: "bench", es: "banco", url: "http://ltrf.org/wp-content/uploads/2014/01/garden_bench.jpg" },
+        { name: "bridge", es: "puente", url: "http://www.publicdomainpictures.net/pictures/30000/nahled/small-bridge.jpg" },
+        { name: "beach", es: "playa", url: "http://media.giphy.com/media/rXy3zZGg9sIzC/giphy.gif" }
     ];
 
     var imgsHouse1 = [
@@ -205,9 +205,10 @@ $(function () {
 
     var imgsPeople = [
         { name: "obama", es: "", url: "http://t2.gstatic.com/images?q=tbn:ANd9GcTrAeSkHQX19P5z4UeInuLaTl6hZg1J67iGZDqsHckIj-5auy-CpQ" },
+        { name: "bush", es: "", url: "http://i.telegraph.co.uk/multimedia/archive/01011/george-bush-460_1011810c.jpg" },
+        { name: "reagan", es: "", url: "http://www.classbrain.com/artbiographies/uploads/ronald-reagan.jpg" },
         { name: "pitt", es: "", url: "http://thefoodeablog.com/wp-content/assets/2007/09/brad_pitt.jpg" },
         { name: "hillary", es: "", url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAqg3L-Q0Zz5mTALOxxmswMcqCFd2sAZkAIgcyEolrxMy4xMo1" },
-        { name: "bush", es: "", url: "http://i.telegraph.co.uk/multimedia/archive/01011/george-bush-460_1011810c.jpg" },
         { name: "mom", es: "", url: "http://www.graphicsfactory.com/clip-art/image_files/tn_image/7/547787-tn_mother_and_baby_hugging0001aa.gif" },
         { name: "dad", es: "", url: "http://www.graphicsfactory.com/clip-art/image_files/tn_image/1/1306841-tn_New-Parents002.jpg" }
     ];
@@ -233,6 +234,7 @@ $(function () {
         { name: "huckle", es: "", url: "http://t0.gstatic.com/images?q=tbn:ANd9GcT1G86Z9kvPlSMJ292H5MgifNc1gTonFjt9WlhqD_-y9IiYJ2Sv" },
         { name: "lowly", es: "", url: "http://loudcrow.com/wp-content/uploads/LowlyWorm-269x300.png" },
         { name: "clifford", es: "", url: "http://www.hollywoodreporter.com/sites/default/files/imagecache/thumbnail_570x321/2012/05/clifford_happy_a_l.jpg" },
+        { name: "oso", es: "", url: "http://i475.photobucket.com/albums/rr115/mynannysgirl/Special%20Agent%20OSO/special-agent-oso.jpg" },
         { name: "dora", es: "", url: "http://allthingsd.com/files/2013/04/dora1.png" }
     ];
 

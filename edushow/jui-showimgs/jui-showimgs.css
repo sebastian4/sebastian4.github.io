@@ -104,6 +104,15 @@
 }
 
 .jui-allimgs-div-group {
-    border-style: solid;
-    border-width: medium;
+    border-style: dotted;
+    border-width: 2px;
+}
+
+.jui-allimgs-span-img {
+    border-style: none dotted none dotted;
+    border-width: 1px;
+}
+
+.jui-allimgs-span-img img {
+    display: inline;
 }
