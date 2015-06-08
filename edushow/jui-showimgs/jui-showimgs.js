@@ -89,9 +89,9 @@ $.widget("jui.showimgs", {
         var self = this;
 
         this._private.modalWindow = $("<div class='modal-dialog modal-hide'> </div>").appendTo(this.element);
+        $("<span> <button class='modal-dialog-btn-close'>CLOSE WINDOW</button> </span>").appendTo(this._private.modalWindow);
         $("<span> <button class='modal-dialog-btn-single'>SINGLE MODE</button> <button class='modal-dialog-btn-quiz'>QUIZ MODE</button> </span>").appendTo(this._private.modalWindow);
         this._private.modalDialogGroups = $("<span class='modal-dialog-groups'> </span>").appendTo(this._private.modalWindow);
-        $("<span> <button class='modal-dialog-btn-close'>CLOSE THIS WINDOW</button> </span>").appendTo(this._private.modalWindow);
 
         for (var idxg in this.options.groupNames) {
           $("<button class='modal-dialog-btn-group' group='"+idxg+"'>"+this.options.groupNames[idxg]+"</button>").appendTo(this._private.modalDialogGroups);
