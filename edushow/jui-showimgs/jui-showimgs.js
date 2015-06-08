@@ -54,6 +54,8 @@ $.widget("jui.showimgs", {
 
         this._createStaticMarkup();
 
+        this._createModalWindowMarkup();
+
         this._setAllCaptions();
 
         this._createDynamicFlashcardMarkup();
@@ -82,7 +84,37 @@ $.widget("jui.showimgs", {
                 this._private.headingRight = $("<td class='heading-right'> </td>").appendTo(this._private.mainHeading);
                 this._private.headingFarRight = $("<td class='heading-far-right'> </td>").appendTo(this._private.mainHeading);
             this._private.mainBody = $("<span class-='main-body''> </span>").appendTo(this._private.mainSubcontainer);
+    },
+    _createModalWindowMarkup: function() {
+        var self = this;
 
+        this._private.modalWindow = $("<div class='modal-dialog modal-hide'> </div>").appendTo(this.element);
+        $("<span> <button class='modal-dialog-btn-single'>SINGLE MODE</button> <button class='modal-dialog-btn-quiz'>QUIZ MODE</button> </span>").appendTo(this._private.modalWindow);
+        this._private.modalDialogGroups = $("<span class='modal-dialog-groups'> </span>").appendTo(this._private.modalWindow);
+        $("<span> <button class='modal-dialog-btn-close'>CLOSE THIS WINDOW</button> </span>").appendTo(this._private.modalWindow);
+
+        for (var idxg in this.options.groupNames) {
+          $("<button class='modal-dialog-btn-group' group='"+idxg+"'>"+this.options.groupNames[idxg]+"</button>").appendTo(this._private.modalDialogGroups);
+        }
+
+        $(".modal-dialog-btn-single").click(function() {
+          self._createDynamicFlashcardMarkup();
+        });
+
+        $(".modal-dialog-btn-quiz").click(function() {
+          self._createDynamicQuizMarkup();
+        });
+
+        $(".modal-dialog-btn-group").click(function() {
+          var groupNumber = $(this).attr('group');
+          self._getAGroup(groupNumber);
+          if (self._private.flashcardMode === false)   self._createDynamicQuizMarkup();
+          else    self._createDynamicFlashcardMarkup();
+        });
+
+        $(".modal-dialog-btn-close").click(function() {
+          $(".modal-dialog").addClass("modal-hide");
+        });
     },
     _createDynamicFlashcardMarkup: function() {
 
@@ -91,15 +123,15 @@ $.widget("jui.showimgs", {
         this._private.mainBody.empty();
             this._private.mainImage = $("<img class='main-image main-image-additions1'> </img>").appendTo(this._private.mainBody);
 
-        this._resetValues();
+        this._private.imageIndex = 0;
         this._groupGuards();
         this._imageGuards();
 
-        this._private.mainImage.attr("src",this.options.mainImg);
-
-        this._setAllCaptions();
+        this._private.mainControl2.text(".");
 
         this._preloadAtStart();
+
+        this._showImages();
     },
     _createDynamicQuizMarkup: function() {
 
@@ -115,15 +147,11 @@ $.widget("jui.showimgs", {
                     this._private.mainTableImagesTr1Td3 = $("<td class='main-table-images-td'> </td>").appendTo(this._private.mainTableImagesTr1);
                         this._private.tableImageTr1Td3 = $("<img class='table-image-tr1-td3'> </img>").appendTo(this._private.mainTableImagesTr1Td3);
 
-        this._resetValues();
+        this._resetJustImages();
         this._groupGuards();
         this._imageGuards();
 
-        this._private.tableImageTr1Td1.attr("src",this.options.mainImg);
-        this._private.tableImageTr1Td2.attr("src",this.options.mainImg);
-        this._private.tableImageTr1Td3.attr("src",this.options.mainImg);
-
-        this._setAllCaptions();
+        this._getDifferentQuiz();
 
         this._private.mainControl2.text("?");
 
@@ -133,6 +161,9 @@ $.widget("jui.showimgs", {
         this._private.imageIndex = -1;
         this._private.groupIndex = -1;
         this._private.images = [];
+    },
+    _resetJustImages: function() {
+        this._private.imageIndex = -1;
     },
     _setAllCaptions: function() {
 
@@ -174,8 +205,9 @@ $.widget("jui.showimgs", {
             },
             'click .main-square-table-r1-ctrl1': function (ev) {
                 console.log("change game");
-                if (self._private.flashcardMode === true)   self._createDynamicQuizMarkup();
-                else    self._createDynamicFlashcardMarkup();
+                // if (self._private.flashcardMode === true)   self._createDynamicQuizMarkup();
+                // else    self._createDynamicFlashcardMarkup();
+                $(".modal-dialog").removeClass("modal-hide");
             },
             'click .main-square-table-r1-ctrl2': function (ev) {
                 if (self._private.flashcardMode === true)   self._adjustImage();
@@ -206,7 +238,7 @@ $.widget("jui.showimgs", {
         }
     },
     _showImages: function() {
-        var label = (this.options.groupImages[this._private.groupIndex][this._private.imageIndex][this.options.label] != "") 
+        var label = (this.options.groupImages[this._private.groupIndex][this._private.imageIndex][this.options.label] != "")
             ? this.options.groupImages[this._private.groupIndex][this._private.imageIndex][this.options.label] : this.options.groupImages[this._private.groupIndex][this._private.imageIndex][this.options.defaultlabel];
         this._private.mainTitle.text(label);
         this._private.mainSubtitle.text(this.options.groupNames[this._private.groupIndex]);
@@ -258,8 +290,20 @@ $.widget("jui.showimgs", {
         this._preloadAtStart();
         this._showImages();
     },
+    _getAGroup: function(number) {
+        this._private.mainImage.attr("src","jui-showimgs/loading1.gif");
+        this._private.groupIndex = number;
+        this._private.imageIndex = 0;
+        this._groupGuards();
+        this._preloadAtStart();
+        this._showImages();
+    },
     _getNextImage: function() {
         this._private.imageIndex++;
+        this._imageGuards();
+        this._showImages();
+    },
+    _getSameImage: function() {
         this._imageGuards();
         this._showImages();
     },
@@ -285,7 +329,7 @@ $.widget("jui.showimgs", {
         }
         //console.log(maxSize+"   "+buckets);
         this._private.currentWinningBucket = this._getRandomInt(0,2);
-        var label = (this.options.groupImages[this._private.groupIndex][buckets[this._private.currentWinningBucket]][this.options.label] != "") 
+        var label = (this.options.groupImages[this._private.groupIndex][buckets[this._private.currentWinningBucket]][this.options.label] != "")
             ? this.options.groupImages[this._private.groupIndex][buckets[this._private.currentWinningBucket]][this.options.label] : this.options.groupImages[this._private.groupIndex][buckets[this._private.currentWinningBucket]][this.options.defaultlabel];
         this._private.mainTitle.text(label);
         this._private.tableImageTr1Td1.attr("src",this._private.images[buckets[0]].src);
@@ -338,7 +382,7 @@ $.widget("jui.showimgs", {
         } else {
             this.options.label = "name";
         }
-        this._getNextImage();
+        this._getSameImage();
     },
     _getRandomInt: function(min, max) {
         return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -356,4 +400,3 @@ $.widget("jui.showimgs", {
     }
 
 });
-

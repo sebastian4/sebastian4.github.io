@@ -85,11 +85,13 @@ $(function () {
         { name: "turtle", es: "tortuga", url: "http://images.wisegeek.com/turtle.jpg" },
         { name: "crocodile", es: "cocrodilo", url: "http://www.abc.net.au/reslib/201007/r600136_3900983.jpg" },
         { name: "frog", es: "rana", url: "http://s.hswstatic.com/gif/frog-1.jpg" },
-        { name: "mouse", es: "raton", url: "http://t3.gstatic.com/images?q=tbn:ANd9GcT2RZFeZKyhorMxLCoDgPRapy_d8btsEKERuaLWGvH8fG3iFBOW" }
+        { name: "mouse", es: "raton", url: "http://t3.gstatic.com/images?q=tbn:ANd9GcT2RZFeZKyhorMxLCoDgPRapy_d8btsEKERuaLWGvH8fG3iFBOW" },
+        { name: "fish", es: "pez", url: "http://pngimg.com/upload/fish_PNG1150.png" }
     ];
 
     var imgsAnimals3 = [
         { name: "squirrel", es: "ardilla", url: "http://t0.gstatic.com/images?q=tbn:ANd9GcRvI5Azpwx3k0c0YWtOc0V9rcR28ONc70NyEltl12a8WmXT_N_f" },
+        { name: "lizard", es: "lagartija", url: "http://cliparts.co/cliparts/ATb/j88/ATbj889Ac.jpg" },
         { name: "bird", es: "pajaro", url: "http://upload.wikimedia.org/wikipedia/commons/f/f8/Geopelia_zebra_-KL_Bird_Park-6a.jpg" },
         { name: "bird", es: "pajaro", url: "http://i.telegraph.co.uk/multimedia/archive/02059/bird-1-snow-buntin_2059659i.jpg" },
         { name: "crow", es: "cuervo", url: "http://t2.gstatic.com/images?q=tbn:ANd9GcQUmsqMh6eS0ZxSPfd3Q31cWQvpoAizD2GZELOq6X9mTWlLNhpU3A" },
@@ -99,7 +101,6 @@ $(function () {
         { name: "bee", es: "abeja", url: "http://t3.gstatic.com/images?q=tbn:ANd9GcRvMkBoaD1KkCirLU7xaZC_FdBRtipWN0JKYQHreg1JNPzYnk6Kwg" },
         { name: "deer", es: "venado", url: "http://www.nhptv.org/natureworks/graphics/whitetaileddeer1sm.jpg" },
         { name: "fox", es: "zorro", url: "http://www.lhnet.org/assets/Carnivores/Red-fox/Red-fox-Vulpes-vulpes3.jpg" },
-        { name: "fish", es: "pez", url: "http://pngimg.com/upload/fish_PNG1150.png" },
         { name: "beaver", es: "castor", url: "http://cottagelife.com/files/2013/02/Beaver_istockphoto_thinkstock-e1361292176199.jpg" },
         { name: "lighting bug", es: "", url: "https://c1.staticflickr.com/5/4048/4707355367_7192739675_z.jpg" }
     ];
@@ -153,7 +154,9 @@ $(function () {
         { name: "trampoline", es: "trampolin", url: "http://images.amazon.com/images/G/01/toys/detail-page/c26-B007CA1L54-1-l.jpg" },
         { name: "table", es: "mesa", url: "http://www.woodgears.ca/table/plans/main.png" },
         { name: "chair", es: "silla", url: "http://housetohome.media.ipcdigital.co.uk/96/00000d365/16b1_orh550w550/Goliath-kitchen-chair.jpg" },
-        { name: "key", es: "llave", url: "http://cdn.shopify.com/s/files/1/0177/9886/products/arrow-ar1-bump-key-1_1024x1024.jpg?v=1346093238" },
+        { name: "pool", es: "", url: "http://pcglad.com/wp-content/uploads/2014/10/swimming-pool-of-exterior-hotlist-of-homes-with-swimming-pools.jpg" },
+        { name: "grill", es: "", url: "http://www.grill-repair.com/images/grill/kenmore3.jpg" },
+        { name: "floatie", es: "", url: "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQdg67RnAq5ye0Qvcf1Lfd7iJ0uLgWmehmjGBbPAbyu2Zpln59cDQ" },
         { name: "window", es: "ventana", url: "http://glassrepairorlando.com/wp-content/uploads/2013/06/window.jpg" }
     ];
 
@@ -161,6 +164,7 @@ $(function () {
         { name: "gate", es: "puerta", url: "http://www.babysafehomes.com/wp-content/uploads/2013/09/SS30_Angle_SanDiego.jpg" },
         { name: "door", es: "puerta", url: "http://www.busybeaver.com/images/subdepartments/550x550/6-Panel-Door-w_jam.jpg" },
         { name: "door knob", es: "", url: "http://0.tqn.com/w/experts/Locksmithing-3110/2008/10/door-knob.jpg" },
+        { name: "key", es: "llave", url: "http://cdn.shopify.com/s/files/1/0177/9886/products/arrow-ar1-bump-key-1_1024x1024.jpg?v=1346093238" },
         { name: "pack n play", es: "", url: "http://i.walmartimages.com/i/p/00/04/74/06/12/0004740612229_500X500.jpg" },
         { name: "bed", es: "cama", url: "http://jacobandlevis.com/CMS/uploads/Stafford_Queen_Bed.jpg" },
         { name: "lamp", es: "lampara", url: "http://pearlsofpromiseministries.com/wp-content/uploads/2012/10/Lamp-3.jpg" },
@@ -260,7 +264,7 @@ $(function () {
         { name: "tired", es: "cansado", url: "http://4.bp.blogspot.com/-hSHZXxjtNUg/Uqb6LYckF4I/AAAAAAAAB0w/NE8i2Mpx0MQ/s1600/original+(1).gif" },
         { name: "play", es: "jugar", url: "http://www.sherv.net/cm/emoticons/basketball/bouncing-a-basketball-smiley-emoticon.gif" },
         { name: "play", es: "jugar", url: "http://www.urbana.k12.oh.us/uhs/animations2/people_a_c/children/boy_playing_with_cars_mw.gif" },
-        { name: "nice", es: "bueno", url: "http://pic-zoom.com/media/images/smiley-gif.jpeg" },
+        { name: "nice", es: "bueno", url: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRx6tSFVLCf0BY15LEujFmh5CQq3HddhaC4qYsU_u37WjQhb0gG" },
         { name: "mean", es: "malo", url: "http://cdn.graphicsfactory.com/clip-art/image_files/image/8/709218-MERCURIAL.gif" },
         { name: "scared", es: "con miedo", url: "http://i717.photobucket.com/albums/ww173/prestonjjrtr/Smileys/AfraidScared01.gif" },
         { name: "cry", es: "llorar", url: "http://classroomclipart.com/images/gallery/Animations/Children/crying_girl_cc.gif" },
@@ -379,20 +383,29 @@ $(function () {
     ];
 
     var imgsMisc = [
-        { name: "hi", es: "", url: "http://classroomclipart.com/images/gallery/Animations/People/HI.gif" },
         { name: "fire", es: "", url: "http://media0.giphy.com/media/lAoDtIcj2DflC/giphy.gif" },
-        { name: "over under", es: "", url: "http://4.bp.blogspot.com/-z0UGGlMzqiA/UmgDivMFTGI/AAAAAAAAIgc/70PsUm_VGFE/s320/ZZ2.jpg" },
-        { name: "on off", es: "", url: "http://davepear.com/blog/wp-content/uploads/2009/09/lightbulb.gif" },
+        { name: "on and off", es: "", url: "http://davepear.com/blog/wp-content/uploads/2009/09/lightbulb.gif" },
         { name: "on", es: "prendido", url: "http://metrouk2.files.wordpress.com/2010/11/article-1290073129742-06d5003c000005dc-371581_304x219.jpg" },
         { name: "off", es: "apagado", url: "http://www.clker.com/cliparts/5/Y/g/U/j/H/light-bulb-off-hi.png" },
         { name: "first", es: "primero", url: "http://www.jandsmministries.com/images/message/running.gif" },
-        { name: "last", es: "ultimo", url: "http://i.imgur.com/ViZ6NXW.gif" }
+        { name: "last", es: "ultimo", url: "http://i.imgur.com/ViZ6NXW.gif" },
+        { name: "slow", es: "", url: "http://upload.wikimedia.org/wikipedia/commons/9/99/Horse_gif_slow.gif" },
+        { name: "fast", es: "", url: "http://static.wixstatic.com/media/f9795d_a4fdbcfc1301def85d06cf6c86934aaa.gif" }
+    ];
+
+    var imgsPositioning = [
+        { name: "over", es: "", url: "http://upload.wikimedia.org/wikipedia/commons/9/93/Explain_on_under_between_by_in_over_thrue_21.svg" },
+        { name: "under", es: "", url: "http://leechbabe.files.wordpress.com/2008/06/under1.jpg" },
+        { name: "on", es: "", url: "http://leechbabe.files.wordpress.com/2008/06/on1.jpg?w=144" },
+        { name: "in", es: "", url: "http://leechbabe.files.wordpress.com/2008/06/in1.jpg?w=144" },
+        { name: "behind", es: "", url: "http://upload.wikimedia.org/wikipedia/commons/5/58/Explain_on_under_between_by_in_over_thrue_19.svg" },
+        { name: "in front", es: "", url: "http://files.differencebetween.com/wp-content/uploads/2014/11/Prepositions_Difference-Between-Adverbs-and-Prepositions.png" }
     ];
 
     var favorites = [
-        { name: "favorites", es: "", url: "http://us.123rf.com/450wm/iqoncept/iqoncept1304/iqoncept130400126/19214234-the-word-favorite-in-a-blue-thumb-s-up-symbol-to-represent-liking-a-comment-photo-or-product-on-a-so.jpg" },
-        { name: "mickey", es: "", url: "http://t3.gstatic.com/images?q=tbn:ANd9GcQCii56reUYPikc4G3TkhZkNpq05NV__FUfd5NJqgtoj-3pe49Cig" },
-        { name: "elmo", es: "", url: "http://t1.gstatic.com/images?q=tbn:ANd9GcRHwbCF3aEHSyytmG7IlLqWDubqbyz9tfT2_v4ZEZ8UjZXgsXXe" }
+        { name: "swirl", es: "remolino", url: "http://jbum.com/pixmagic/rainbowspiral.jpg" },
+        { name: "hi", es: "hola", url: "http://classroomclipart.com/images/gallery/Animations/People/HI.gif" },
+        { name: "good bye", es: "adios", url: "http://www.scrapwish.com/2113522/2011/good-bye/goodbye-2.gif" }
     ];
 
     var imgsExtra = [
@@ -428,6 +441,7 @@ $(function () {
         imgsClothes,
         imgsTools,
         imgsToys,
+        imgsPositioning,
         imgsAslAnimals,
         imgsAslFood,
         imgsAslThings,
@@ -463,6 +477,7 @@ $(function () {
         "Clothes",
         "Tools",
         "Toys",
+        "Positioning",
         "ASL animals",
         "ASL food",
         "ASL things",

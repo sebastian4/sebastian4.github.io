@@ -103,6 +103,34 @@
     width: 14%;
 }
 
+.jui-showimgs .modal-dialog {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+  padding: 2em;
+  color: #00ff00;
+	background: rgba(0,0,0,0.8);
+	z-index: 9999;
+	opacity: 0.8;
+	-webkit-transition: opacity 400ms ease-in;
+	-moz-transition: opacity 400ms ease-in;
+	transition: opacity 400ms ease-in;
+	pointer-events: none;
+}
+
+.jui-showimgs .modal-dialog button {
+  font-size: 2em;
+  opacity:1;
+  margin: 0.1em;
+	pointer-events: auto;
+}
+
+.jui-showimgs .modal-hide {
+  display: none;
+}
+
 .jui-allimgs-div-group {
     border-style: dotted;
     border-width: 2px;
