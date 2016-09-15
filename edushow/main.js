@@ -433,6 +433,38 @@ $(function () {
         { name: "Y", es: "", url: "https://www.designsbyjuju.com/media/catalog/product/cache/1/small_image/275x/9df78eab33525d08d6e5fb8d27136e95/D/B/DBJJ557-BOY-Y-Single_1.jpg" },
         { name: "Z", es: "", url: "https://www.designsbyjuju.com/media/catalog/product/cache/1/small_image/275x/9df78eab33525d08d6e5fb8d27136e95/D/B/DBJJ557-BOY-Z-Single_1.jpg" }
     ];
+    
+    var imgsLetters3 = [
+        { name: "A", es: "", url: "http://4.bp.blogspot.com/-YUBGSzkfLgg/Ts-jeIfglXI/AAAAAAAACrw/QsSoh0bMaIs/s200/CAPITAL-LETTER-A.png" },
+        { name: "B", es: "", url: "http://3.bp.blogspot.com/-V5wQXjP9Q18/Ts-jgfCjV6I/AAAAAAAACr4/QtGeTJh6wnQ/s200/CAPITAL-LETTER-B.png" },
+        { name: "C", es: "", url: "http://4.bp.blogspot.com/-mx6mrLBU3eI/Ts-jivn5IRI/AAAAAAAACsA/OpEgw27WBvU/s200/CAPITAL-LETTER-C.png" },
+        { name: "D", es: "", url: "http://2.bp.blogspot.com/-T2nA9U2aAuQ/Ts-jkonh4QI/AAAAAAAACsI/6vTU7bsTMBQ/s200/CAPITAL-LETTER-D.png" },
+        { name: "E", es: "", url: "http://1.bp.blogspot.com/-Kf83hrbueFc/Ts-jm8xzkhI/AAAAAAAACsQ/q8Y0uvyfskE/s200/CAPITAL-LETTER-E.png" },
+        { name: "F", es: "", url: "http://2.bp.blogspot.com/-iajjWxelFr8/Ts-jorpYpgI/AAAAAAAACsY/dr8KUqthDz0/s200/CAPITAL-LETTER-F.png" },
+        { name: "G", es: "", url: "http://3.bp.blogspot.com/-EMsnTli8TxY/Ts-jq8mdKuI/AAAAAAAACsg/svrOTTLqtEM/s200/CAPITAL-LETTER-G.png" },
+        { name: "H", es: "", url: "http://2.bp.blogspot.com/-LyRS5_13nAY/Ts-js9aFRHI/AAAAAAAACso/9aOS_5XYF5w/s200/CAPITAL-LETTER-H.png" },
+        { name: "I", es: "", url: "http://4.bp.blogspot.com/-vLqbO-AnXtg/Ts-juEYhDGI/AAAAAAAACsw/GBNsKIWWqew/s200/CAPITAL-LETTER-I.png" },
+        { name: "J", es: "", url: "http://3.bp.blogspot.com/-TD0jf8PGB0o/Ts-jvqk5xpI/AAAAAAAACs4/RBxyzmVaeME/s200/CAPITAL-LETTER-J.png" },
+        { name: "K", es: "", url: "http://4.bp.blogspot.com/-u_NGDOPOSAY/Ts-jxjsZwEI/AAAAAAAACtA/8gowOp4OrZg/s200/CAPITAL-LETTER-K.png" },
+        { name: "L", es: "", url: "http://3.bp.blogspot.com/-a16xceFIR50/Ts-jzp_MCOI/AAAAAAAACtI/bfb0W3UndhM/s200/CAPITAL-LETTER-L.png" }
+    ];
+    
+    var imgsLetters4 = [
+        { name: "M", es: "", url: "http://3.bp.blogspot.com/-zMBJBQ72pFg/Ts-j13b0c6I/AAAAAAAACtQ/ZddMUCWwfKs/s200/CAPITAL-LETTER-M.png" },
+        { name: "N", es: "", url: "http://2.bp.blogspot.com/-ZuiPdHIYS5c/Ts-j4SH2FyI/AAAAAAAACtY/N7nvU39x20Q/s200/CAPITAL-LETTER-N.png" },
+        { name: "O", es: "", url: "http://3.bp.blogspot.com/-tt55hOCQs0s/Ts-j68O9DFI/AAAAAAAACtg/o2fpQXLGjk4/s200/CAPITAL-LETTER-O.png" },
+        { name: "P", es: "", url: "http://1.bp.blogspot.com/-GLssEutQ2kI/Ts-j9KkUWGI/AAAAAAAACto/XbACES0y71Y/s200/CAPITAL-LETTER-P.png" },
+        { name: "Q", es: "", url: "http://1.bp.blogspot.com/-eKDrWjJyCms/Ts-j_5sl6oI/AAAAAAAACtw/DXPj5Gk0k28/s200/CAPITAL-LETTER-Q.png" },
+        { name: "R", es: "", url: "http://3.bp.blogspot.com/-rC8MoVztxPU/Ts-kChhh0wI/AAAAAAAACt4/eZYThztTD78/s200/CAPITAL-LETTER-R.png" },
+        { name: "S", es: "", url: "http://3.bp.blogspot.com/-6YXHwTZ77Y0/Ts-kFbw7czI/AAAAAAAACuA/x-66EKHueqE/s200/CAPITAL-LETTER-S.png" },
+        { name: "T", es: "", url: "http://4.bp.blogspot.com/-xoQhDVlnApk/Ts-kHT_7XNI/AAAAAAAACuI/3re46XFkyu0/s200/CAPITAL-LETTER-T.png" },
+        { name: "U", es: "", url: "http://4.bp.blogspot.com/-igFYkPzjU8A/Ts-kJixCuzI/AAAAAAAACuQ/sfH8zQby1Pw/s200/CAPITAL-LETTER-U.png" },
+        { name: "V", es: "", url: "http://3.bp.blogspot.com/-dOTChMRmISU/Ts-kL2fAJII/AAAAAAAACuY/C6W1GmnAN7g/s200/CAPITAL-LETTER-V.png" },
+        { name: "W", es: "", url: "http://3.bp.blogspot.com/-RgY3666MhJY/Ts-kO-DxTwI/AAAAAAAACug/lINNWAmVB8w/s200/CAPITAL-LETTER-W.png" },
+        { name: "X", es: "", url: "http://4.bp.blogspot.com/-YWFqxqSVjYk/Ts-kRTiaBVI/AAAAAAAACuo/BlLX6YwxnA0/s200/CAPITAL-LETTER-X.png" },
+        { name: "Y", es: "", url: "http://2.bp.blogspot.com/-2nAaH5Cqg54/Ts-kTfenIiI/AAAAAAAACuw/nrC1U2vBcGc/s200/CAPITAL-LETTER-Y.png" },
+        { name: "Z", es: "", url: "http://4.bp.blogspot.com/-f7_Ap5g3PJg/Ts-kV28ivUI/AAAAAAAACu4/kX4Guj3o0fM/s200/CAPITAL-LETTER-Z.png" }
+    ];
 
     var favorites = [
         { name: "swirl", es: "remolino", url: "http://jbum.com/pixmagic/rainbowspiral.jpg" },
@@ -481,6 +513,8 @@ $(function () {
         imgsMisc,
         imgsLetters1,
         imgsLetters2,
+        imgsLetters3,
+        imgsLetters4,
         favorites
     ];
 
@@ -519,6 +553,8 @@ $(function () {
         "Miscellaneous",
         "Letters 1",
         "Letters 2",
+        "Letters 3",
+        "Letters 4",
         "favorites"
     ];
 
