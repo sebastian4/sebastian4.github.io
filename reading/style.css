@@ -1,0 +1,47 @@
+
+.holder {
+  width: 60em;
+  height: 31em;
+  border-color: gray;
+  border-style: dashed;
+  border-width: 0.1em;
+}
+
+.dropzone {
+  position: relative;
+  top: 68.4%;
+  background-color: #ccc;
+  width: 58.2em;
+  height: 8em;
+  border: dashed 1em transparent;
+  z-index: -1;
+  vertical-align: bottom;
+}
+
+.draggable {
+  width: 4em;
+  height: 4em;
+  float:left;
+  background-color: #2196F3;
+  color: white;
+  padding: 0.5em;
+  margin: 0.8em;
+}
+
+.drop-active {
+  border-color: #aaa;
+}
+
+.drop-target {
+  background-color: #000;
+  color: #FFF;
+  border-color: #fff;
+  border-style: solid;
+}
+
+.letter-inside {
+    position: relative;
+    text-align: center;
+    top: 8%;
+    font-size: 3em;
+}
