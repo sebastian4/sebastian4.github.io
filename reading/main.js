@@ -6,8 +6,8 @@ voiceIndex = 0;
 
 var colors = ["#FF0000","#F1C40F","#00FF00","#008000","#008000","#FF00FF","#800080","#FFA07A","#00FFFF","#F1948A"];
 
-var flickerimages = true;
-var flickerIndex = 0;
+var imagesSource = 0;
+var imageIndex = 0;
 
 ////
 
@@ -40,7 +40,8 @@ var flickerIndex = 0;
   
   interact('.draggable')
     .on('doubletap', draggableDoubleTapListener)
-    .on('tap', draggableOneTapListener);
+    .on('tap', draggableOneTapListener)
+    .on('hold', draggableDoubleTapListener);
     
   interact('.voice')
     .on('doubletap', voiceDoubleTapListener)
@@ -193,9 +194,22 @@ var flickerIndex = 0;
 
   function imageDoubleTapListener (event) {
     //console.log( "image double tap" );
+
+    imagesSource++;
+    if (imagesSource > 2) {
+      imagesSource = 0;
+    }
     
-    flickerimages = !flickerimages;
-    
+    if (imagesSource == 0) {
+      $("#imagezone").css("background-color","#AEC6CF");
+    }
+    else if (imagesSource == 1) {
+      $("#imagezone").css("background-color","#AEC797");
+    }
+    else if (imagesSource == 2) {
+      $("#imagezone").css("background-color","#DBABC2");
+    }
+
   }
   
   ////
@@ -249,7 +263,10 @@ var flickerIndex = 0;
       return;
     }
     
-    if (flickerimages) {
+    if (imagesSource == 0) {
+      $("#zone-image").attr("src", "");
+    }
+    else if (imagesSource == 1) {
       
       $.getJSON("http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?",
       {
@@ -262,12 +279,12 @@ var flickerIndex = 0;
 
         if (typeof(data)!="undefined" && typeof(data.items)!="undefined") {
           
-          var link = data.items[flickerIndex].media.m;
+          var link = data.items[imageIndex].media.m;
           $("#zone-image").attr("src", link);
           
-          flickerIndex++;
-          if (flickerIndex > 6) {
-            flickerIndex = 0;
+          imageIndex++;
+          if (imageIndex > 6) {
+            imageIndex = 0;
           }
         }
         else {
@@ -278,7 +295,7 @@ var flickerIndex = 0;
       });
       
     }
-    else {
+    else if (imagesSource == 2) {
       
       $.ajax({
         type: "GET",
@@ -299,11 +316,15 @@ var flickerIndex = 0;
         if (typeof(data)!="undefined" && typeof(data.items)!="undefined") {
           
           var googleResults = data.items;
-          var link = googleResults[0].link;
+          var link = googleResults[imageIndex].link;
           //console.log(link);
           
           $("#zone-image").attr("src", link);
           
+          imageIndex++;
+          if (imageIndex > 6) {
+            imageIndex = 0;
+          }
         }
         else {
           //console.log("google image responses were undefined");
