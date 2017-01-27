@@ -1,7 +1,7 @@
 
 .holder {
   width: 60em;
-  height: 31em;
+  height: 34em;
   border-color: gray;
   border-style: dashed;
   border-width: 0.1em;
@@ -9,10 +9,10 @@
 
 .dropzone {
   position: relative;
-  top: 68.4%;
+  top: 60.4%;
   background-color: #ccc;
   width: 58.2em;
-  height: 8em;
+  height: 11.6em;
   border: dashed 1em transparent;
   z-index: -1;
   vertical-align: bottom;
@@ -44,4 +44,35 @@
     text-align: center;
     top: 8%;
     font-size: 3em;
+}
+
+.voice {
+  width: 4em;
+  height: 4em;
+  float:left;
+  background-color: #2196F3;
+  color: white;
+  padding: 0.5em;
+  margin: 0.8em;
+}
+
+.voice-image {
+  width: 4em;
+  height: 4em;
+}
+
+.imagezone {
+  position: relative;
+  top: 2.4%;
+  background-color: #AEC6CF;
+  width: 11em;
+  height: 11.4em;
+  border: dashed 1em transparent;
+  z-index: 1;
+  float: right;
+}
+
+#zone-image {
+  width: 11em;
+  height: 11em;
 }

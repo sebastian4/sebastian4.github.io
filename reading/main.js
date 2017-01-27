@@ -1,4 +1,4 @@
-// $(function () {
+$(function () {
 ////
 
 interact('.draggable')  
@@ -46,7 +46,7 @@ interact('.draggable')
         dragTarget.style.top=rect.top+"px";
         dragTarget.style.left=rect.left+"px";
         dragTarget.className += " aclone";
-        console.log('clone created');
+        // console.log('clone created');
     } else {
         // console.log("dragging clone");
         dragTarget = event.target;
@@ -54,12 +54,17 @@ interact('.draggable')
   }
   
   function doubleTapListener (event) {
-    //   console.log("double tap");
-      
+      console.log("double tap");
+
       dragTargetParent = event.target.parentNode;
     //   dragTargetParent.style.backgroundColor="gray";
+    
+      console.log(dragTargetParent.className);
       
-      dragTargetParent.parentNode.removeChild(dragTargetParent);
+      if (dragTargetParent.className.includes("aclone")) {
+        dragTargetParent.parentNode.removeChild(dragTargetParent);
+      }
+
   }
 
   function dragMoveListener (event) {
@@ -109,6 +114,84 @@ interact('.dropzone').dropzone({
     event.target.classList.remove('drop-target');
   }
 });
+
+$( "#box-voice" ).click(function() {
+  // console.log( "box-voice .click() called" );
+  
+  var cloneString = findCloneString();
+  
+  // console.log(cloneString);
+  
+  responsiveVoice.speak(cloneString);
+});
+
+$( "#imagezone" ).click(function() {
+  // console.log( "imagezone .click() called" );
+  
+  var cloneString = findCloneString();
+  
+  // console.log(cloneString);
+
+  getImages(cloneString);
+});
+
+function findCloneString() {
+  
+  var allClones = [];
+  
+  $( ".aclone" ).each(function( index ) {
+    
+    var letter = $( this ).text().replace(/[\n ]/g,'');
+    // console.log( index + "=" + letter );
+    
+    var position = $( this ).offset();
+    // console.log(position);
+    
+    allClones[Math.trunc(position.left)] = letter;
+  });
+  
+  var cloneString = "";
+  for (x in allClones) {
+    if (typeof(allClones[x]) != "undefined") {
+      cloneString = cloneString.concat(allClones[x]);
+    }
+  }
+  
+  return cloneString;
+}
+
+function getImages(word) {
+  // console.log("getImages "+word);
+  
+  if (word == "") {
+    return;
+  }
+  
+  $.ajax({
+    type: "GET",
+    dataType: "jsonp",
+    url: "https://www.googleapis.com/customsearch/v1",
+    data: {
+      key: "AIzaSyCzb6SI_JRrp6xLLYV617Ary6n59h36ros",
+      cx: "004286675445984025592:ypgpkv9fjd4",
+      filter: "1",
+      searchType: "image",
+      //imgSize: "small",
+      q: word
+    }
+  }).done(function(data) {
+
+    // console.log("success");
+
+    var googleResults = data.items;
+    var link = googleResults[0].link;
+    // console.log(link);
+    
+    $("#zone-image").attr("src", link);
+
+  });
+  
+}
     
 ////	
-// });
+});

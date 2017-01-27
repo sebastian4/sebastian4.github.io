@@ -3,7 +3,7 @@
 
 <head>
 	<meta charset="UTF-8">
-	<title>interactjs-1</title>
+	<title>reading</title>
 	<link rel="stylesheet" href="style.css">
 </head>
 
@@ -89,12 +89,20 @@
     <div id="box-Z" class="draggable">  
         <div class="letter-inside"> Z </div>
     </div>
-
-    <div id="dropzone" class="dropzone"> </div>  
-
+		<div id="box-voice" class="voice">  
+        <img src="https://cdn4.iconfinder.com/data/icons/proglyphs-multimedia/512/Voice-512.png" alt="Speak" class="voice-image"/>
     </div>
 
+    <div id="dropzone" class="dropzone"> </div>
+		
+		<div id="imagezone" class="imagezone"> 
+			<img id="zone-image"/>
+		</div>  
+
+    </div>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/interact.js/1.2.8/interact.min.js"></script>
+		<script src='https://code.responsivevoice.org/responsivevoice.js'></script>
 	<script src="main.js"></script>
 </body>
 
