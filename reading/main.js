@@ -1,7 +1,7 @@
 $(function () {
 ////
 
-var voices = ["US English Female", "UK English Female", "UK English Male", "Australian Female"];
+var voices = ["US English Female", "UK English Female", "UK English Male", "Australian Female", "Spanish Female"];
 voiceIndex = 0;
 
 var colors = ["#FF0000","#F1C40F","#00FF00","#008000","#008000","#FF00FF","#800080","#FFA07A","#00FFFF","#F1948A"];
@@ -53,6 +53,9 @@ var imageIndex = 0;
     .on('tap', imageOneTapListener)
     .on('hold', resetClones);
       
+  interact('#box-I')
+    .on('hold', showInfo);
+  
   ////
   
   function draggableDragStartListener (event) {
@@ -173,7 +176,7 @@ var imageIndex = 0;
   function voiceDoubleTapListener (event) {
     //console.log( "voice double tap" );
     voiceIndex++;
-    if (voiceIndex > 3) {
+    if (voiceIndex > 4) {
       voiceIndex = 0;
     }
     responsiveVoice.speak(voices[voiceIndex], voices[voiceIndex]);
@@ -220,7 +223,7 @@ var imageIndex = 0;
     removeAllClones();
     
   }
-  
+
   ////
   
   function removeAllClones() {
@@ -255,7 +258,44 @@ var imageIndex = 0;
     
     return cloneString;
   }
+  
+  ////
+  
+  function showInfo (event) {
+    console.log( "show info" );
+    
+    var message = "Manual\n" +
+                  "Main objective is to drag and drop the letters in the drop zone (zone in gray). " +
+                  "Once some letters are in the drop zone the user can tap (or click) on the microphone icon to hear the word, " +
+                  "or tap (or click) on the image zone (zone in bluish gray) to see a related image show up. " +
+                  "To remove a letter the user should either double tap (or double click) a letter or press and hold a letter. " +
+                  "To reset and remove all the letters the user should either press and hold the microphone icon or press and " +
+                  "hold the image zone. To change a letter to any color the user should tap (or click) that letter, this only works " +
+                  "for cloned letters so the original letters will always stay blue. " +
+                  "As a voice default the US female voice is chosen and no image search service is chosen. " +
+                  "There are US english and british versions and also a spanish voice for spanish words. " +
+                  "To change the voice the user should double tap (or double click) the microphone icon and the voice chosen will " +
+                  "announce itself. To change the image search service, the user should double tap (or double click) the image zone, " +
+                  "and the image zone will change background color to show that its using another image search service. " +
+                  "The bluish gray background means no service, the greenish gray background means flickr service and " +
+                  "the redish gray background means google service. Google service is the best image search service but it allows " +
+                  "only about 50 searches per day for all the users so the likelyhood that it might work is little. " +
+                  "So flicker is the most reliable image service for now. " +
+                  "The app goes through the best 8 images from flicker (or google image) so that means keep tapping the image zone " +
+                  "if an image does not seem to be related to the word. Flicker has that problem because flickr users tag the images " +
+                  "with many words. " +
+                  "One quick warning for the images: I have no power for what images are returned from google and flickr, " +
+                  "the majority of them are clean but that is why the default for images is having no image service, " +
+                  "in the case of kids are learning by themselves. So it is best to learn with a supervising adult. " +
+                  "If something seems to be failing then the best thing to do is to just reload the page. " +
+                  "To invoke this info popup press and hold on the I letter (for Info). " +
+                  "\nEnjoy!";
+    alert(message);
 
+  }
+
+  ////
+  
   function getImages(word) {
     // console.log("getImages "+word);
     
@@ -283,7 +323,7 @@ var imageIndex = 0;
           $("#zone-image").attr("src", link);
           
           imageIndex++;
-          if (imageIndex > 6) {
+          if (imageIndex > 8) {
             imageIndex = 0;
           }
         }
@@ -322,7 +362,7 @@ var imageIndex = 0;
           $("#zone-image").attr("src", link);
           
           imageIndex++;
-          if (imageIndex > 6) {
+          if (imageIndex > 8) {
             imageIndex = 0;
           }
         }
