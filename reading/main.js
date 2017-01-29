@@ -62,8 +62,8 @@ var messages = [ "messages" ];
   interact('#info')
     .on('tap', showInfo);
     
-  // #messagezone
-  // #box-space
+  interact('#messagezone')
+    .on('tap', clearImageArea);
   
   ////
   
@@ -332,6 +332,7 @@ var messages = [ "messages" ];
                   "Main objective is to drag and drop the letters in the drop zone (zone in gray). " +
                   "Once some letters are in the drop zone the user can tap (or click) on the microphone icon to hear the word, " +
                   "or tap (or click) on the image zone (zone in bluish gray) to see a related image show up. " +
+                  "By default the image is not turned on, see later in the paragraph to turn it on. " +
                   "To remove a letter the user should either double tap (or double click) a letter or press and hold a letter " +
                   "or drag the letter to the top of the screen. " +
                   "To reset and remove all the letters the user should tap the broom icon. " +
@@ -349,6 +350,7 @@ var messages = [ "messages" ];
                   "is little. So flicker is the most reliable image service for now. " +
                   "The app goes through the best 8 images from flicker (or google image) so that means keep tapping the image zone " +
                   "if an image does not seem to be related to the word, until a good related image is found. " +
+                  "To clear the image tap (or click) on the little message section under the image zone. " +
                   "One quick warning for the images: I have no power for what images are returned from google and flickr, " +
                   "the majority of them are clean but that is why the default for images is having no image service, " +
                   "in the case of kids are learning by themselves. So it is best to learn with a supervising adult. " +
@@ -389,7 +391,7 @@ var messages = [ "messages" ];
           var link = data.items[imageIndex].media.m;
           $("#zone-image").attr("src", link);
           
-          setMessage("flickr image "+imageIndex);
+          setMessage("flickr img "+imageIndex);
           
           imageIndex++;
           if (imageIndex > 8) {
@@ -431,7 +433,7 @@ var messages = [ "messages" ];
           
           $("#zone-image").attr("src", link);
           
-          setMessage("google image "+imageIndex);
+          setMessage("google img "+imageIndex);
           
           imageIndex++;
           if (imageIndex > 8) {
