@@ -332,9 +332,11 @@ var messages = [ "messages" ];
                   "Main objective is to drag and drop the letters in the drop zone (zone in gray). " +
                   "Once some letters are in the drop zone the user can tap (or click) on the microphone icon to hear the word, " +
                   "or tap (or click) on the image zone (zone in bluish gray) to see a related image show up. " +
-                  "To remove a letter the user should either double tap (or double click) a letter or press and hold a letter. " +
-                  "To reset and remove all the letters the user should either press and hold the microphone icon or press and " +
-                  "hold the image zone. To change a letter to any color the user should tap (or click) that letter, this only works " +
+                  "To remove a letter the user should either double tap (or double click) a letter or press and hold a letter " +
+                  "or drag the letter to the top of the screen. " +
+                  "To reset and remove all the letters the user should tap the broom icon. " +
+                  "Blank spaces are included to use two or more letter words. " +
+                  "To change a letter to any color the user should tap (or click) that letter, this only works " +
                   "for cloned letters so the original letters will always stay blue. " +
                   "As a voice default the US female voice is chosen and no image search service is chosen. " +
                   "There are US english and british versions and also a spanish voice for spanish words. " +
@@ -343,16 +345,17 @@ var messages = [ "messages" ];
                   "and the image zone will change background color to show that its using another image search service. " +
                   "The bluish gray background means no service, the greenish gray background means flickr service and " +
                   "the redish gray background means google service. Google service is the best image search service but it allows " +
-                  "only about 50 searches per day for all the users so the likelyhood that it might work is little. " +
-                  "So flicker is the most reliable image service for now. " +
+                  "only about 100 searches per day for all the users so the likelyhood that it might work for many people at once " +
+                  "is little. So flicker is the most reliable image service for now. " +
                   "The app goes through the best 8 images from flicker (or google image) so that means keep tapping the image zone " +
-                  "if an image does not seem to be related to the word. Flicker has that problem because flickr users tag the images " +
-                  "with many words. " +
+                  "if an image does not seem to be related to the word, until a good related image is found. " +
                   "One quick warning for the images: I have no power for what images are returned from google and flickr, " +
                   "the majority of them are clean but that is why the default for images is having no image service, " +
                   "in the case of kids are learning by themselves. So it is best to learn with a supervising adult. " +
                   "If something seems to be failing then the best thing to do is to just reload the page. " +
-                  "To invoke this info popup press and hold on the I letter (for Info). " +
+                  "To invoke this info popup tap (or click) the info icon. " +
+                  "There is a little message window under the image zone to tell the user the last commands, " +
+                  "its a little backlog that saves the last 3 commands." +
                   "\nEnjoy!";
     alert(message);
     setMessage("info invoked");
