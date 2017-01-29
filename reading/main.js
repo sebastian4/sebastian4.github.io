@@ -9,6 +9,8 @@ var colors = ["#FF0000","#F1C40F","#00FF00","#008000","#008000","#FF00FF","#8000
 var imagesSource = 0;
 var imageIndex = 0;
 
+var messages = [ "messages" ];
+
 ////
 
   interact('.draggable')  
@@ -33,7 +35,8 @@ var imageIndex = 0;
     autoScroll: true,
     // call this function on every dragmove event
     onmove: draggableDragMoveListener,
-    onstart: draggableDragStartListener
+    onstart: draggableDragStartListener,
+    onend: draggableDragDropListener
   });
   
   ////
@@ -46,15 +49,21 @@ var imageIndex = 0;
   interact('.voice')
     .on('doubletap', voiceDoubleTapListener)
     .on('tap', voiceOneTapListener)
-    .on('hold', resetClones);
+    .on('hold', voiceDoubleTapListener);
     
   interact('.imagezone')
     .on('doubletap', imageDoubleTapListener)
     .on('tap', imageOneTapListener)
-    .on('hold', resetClones);
+    .on('hold', clearImageArea);
+    
+  interact('#reset')
+    .on('tap', resetClones);
       
-  interact('#box-I')
-    .on('hold', showInfo);
+  interact('#info')
+    .on('tap', showInfo);
+    
+  // #messagezone
+  // #box-space
   
   ////
   
@@ -103,12 +112,13 @@ var imageIndex = 0;
   function draggableDoubleTapListener (event) {
       //console.log("draggable double tap");
 
-      dragTargetParent = event.target.parentNode;
+      var dragTargetParent = event.target.parentNode;
     
       //console.log(dragTargetParent.className);
       
       if (dragTargetParent.className.includes("aclone")) {
         dragTargetParent.parentNode.removeChild(dragTargetParent);
+        setMessage("erased letter");
       }
 
   }
@@ -116,7 +126,7 @@ var imageIndex = 0;
   function draggableOneTapListener (event) {
       //console.log("draggable one tap");
 
-      dragTargetParent = event.target.parentNode;
+      var dragTargetParent = event.target.parentNode;
     
       // console.log(dragTargetParent.className);
       
@@ -125,6 +135,31 @@ var imageIndex = 0;
         dragTargetParent.style.backgroundColor = colors[arandom];
       }
 
+  }
+
+  function draggableDragDropListener (event) {
+    //console.log("draggable drop");
+    
+    var eventHeight = event.clientY;
+    var windowHeight = $(window).height();
+    
+    // console.log(eventHeight);
+    // console.log(windowHeight);
+    
+    if ((windowHeight/5) > eventHeight) {
+      // console.log("in the erase zone so erase");
+      
+      var dragTarget = event.target;
+      
+      // console.log(dragTarget.className);
+      
+      if (dragTarget.className.includes("aclone")) {
+        dragTarget.parentNode.removeChild(dragTarget);
+        setMessage("erased letter");
+      }
+      
+    }
+    
   }
 
   ////
@@ -168,9 +203,14 @@ var imageIndex = 0;
     
     var cloneString = findCloneString();
     
-    // console.log(cloneString);
+    if (cloneString == "") {
+      return;
+    }
     
+    // console.log(cloneString);
+    setMessage("voice start");
     responsiveVoice.speak(cloneString, voices[voiceIndex]);
+    setMessage("voice stop");
   }
 
   function voiceDoubleTapListener (event) {
@@ -180,7 +220,7 @@ var imageIndex = 0;
       voiceIndex = 0;
     }
     responsiveVoice.speak(voices[voiceIndex], voices[voiceIndex]);
-    
+    setMessage(voices[voiceIndex]);
   }
   
   ////
@@ -205,14 +245,22 @@ var imageIndex = 0;
     
     if (imagesSource == 0) {
       $("#imagezone").css("background-color","#AEC6CF");
+      setMessage("set no imgs");
     }
     else if (imagesSource == 1) {
       $("#imagezone").css("background-color","#AEC797");
+      setMessage("set flickr imgs");
     }
     else if (imagesSource == 2) {
       $("#imagezone").css("background-color","#DBABC2");
+      setMessage("set google imgs");
     }
 
+    $("#zone-image").attr("src", "");
+  }
+  
+  function clearImageArea (event) {
+    $("#zone-image").attr("src", "");
   }
   
   ////
@@ -221,7 +269,9 @@ var imageIndex = 0;
     //console.log( "reset all clones x" );
     
     removeAllClones();
+    $("#zone-image").attr("src", "");
     
+    setMessage("reset board");
   }
 
   ////
@@ -256,13 +306,27 @@ var imageIndex = 0;
       }
     }
     
+    cloneString = cloneString.replace("_"," ");
+    
+    //console.log(cloneString);
+    
     return cloneString;
   }
   
   ////
   
+  function setMessage(message) {
+    messages.push(message);
+    if (messages.length > 3) {
+      messages.splice(0,1);
+    }
+    $(".messaging").text(messages.join(". ")+'.');
+  }
+  
+  ////
+  
   function showInfo (event) {
-    console.log( "show info" );
+    //console.log( "show info" );
     
     var message = "Manual\n" +
                   "Main objective is to drag and drop the letters in the drop zone (zone in gray). " +
@@ -291,7 +355,7 @@ var imageIndex = 0;
                   "To invoke this info popup press and hold on the I letter (for Info). " +
                   "\nEnjoy!";
     alert(message);
-
+    setMessage("info invoked");
   }
 
   ////
@@ -322,6 +386,8 @@ var imageIndex = 0;
           var link = data.items[imageIndex].media.m;
           $("#zone-image").attr("src", link);
           
+          setMessage("flickr image "+imageIndex);
+          
           imageIndex++;
           if (imageIndex > 8) {
             imageIndex = 0;
@@ -330,6 +396,7 @@ var imageIndex = 0;
         else {
           //console.log("flicker image responses were undefined");
           $("#zone-image").attr("src", "");
+          setMessage("flickr no response");
         }
         
       });
@@ -361,6 +428,8 @@ var imageIndex = 0;
           
           $("#zone-image").attr("src", link);
           
+          setMessage("google image "+imageIndex);
+          
           imageIndex++;
           if (imageIndex > 8) {
             imageIndex = 0;
@@ -369,6 +438,7 @@ var imageIndex = 0;
         else {
           //console.log("google image responses were undefined");
           $("#zone-image").attr("src", "");
+          setMessage("google no response");
         }
       
       });
