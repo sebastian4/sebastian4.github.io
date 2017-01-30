@@ -11,6 +11,12 @@ var imageIndex = 0;
 
 var messages = [ "messages" ];
 
+var isLessonMode = false;
+var lessonLetterPosition = 2;
+var preWords = [ "one", "two" ];
+var preWordsIndex = 0;
+var preWordsFileIndex = 0;
+
 ////
 
 // this is for debugging. when degugging, uncomment
@@ -20,7 +26,6 @@ var messages = [ "messages" ];
 //     sendToServer("log - "+message);
 //     oldLog.apply(console, arguments);
 // };
-
 // window.onerror = function(message, url, linen) {  
 //   sendToServer("error - line "+linen+" - "+message);
 //   return true;
@@ -72,20 +77,25 @@ var messages = [ "messages" ];
     .on('hold', clearImageArea);
     
   interact('#reset')
-    .on('tap', resetClones);
+    .on('tap', resetClones)
+    .on('doubletap', changeLessonMode)
+    .on('hold', changeFileIndex);
       
   interact('#info')
     .on('tap', showInfo);
     
   interact('#messagezone')
     .on('tap', clearImageArea);
-  
+
   ////
   
   function draggableDragStartListener (event) {
-    //console.log("drag start");
+    // console.log("drag start");
+    // console.log(event.target.dragOrigin);
     
-    if (!event.target.dragOrigin) {
+    if (typeof(event.target.dragOrigin) == "undefined" && event.target.dragOrigin==null) {
+    // if (typeof(value) == "undefined" || value == null) {
+    // if (!event.target.dragOrigin) {
         // console.log("cloning");
         var rect = event.target.getBoundingClientRect();
         // console.log(rect.top, rect.right, rect.bottom, rect.left);
@@ -286,6 +296,7 @@ var messages = [ "messages" ];
     
     removeAllClones();
     clearImageArea();
+    lessonLetterPosition = 2;
     
     setMessage("reset board");
   }
@@ -331,6 +342,86 @@ var messages = [ "messages" ];
   
   ////
   
+  function changeLessonMode(event) {
+    isLessonMode = !isLessonMode;
+    // console.log("change lesson mode to "+isLessonMode);
+    
+    if (isLessonMode) {
+      $("#info").css("background-color","#D050D0");
+      setMessage("lesson mode");
+    }
+    else { // isLessonMode Not
+      $("#info").css("background-color","#2196F3");
+      setMessage("no lesson mode");
+    }
+  }
+  
+  function changeLetterAuto(event) {
+    // console.log("changeLetterAuto next");
+    
+    setMessage("next word "+preWordsIndex);
+
+    removeAllClones();
+    clearImageArea();
+    lessonLetterPosition = 2;
+    
+    var currentWord = preWords[preWordsIndex];
+    
+    copyWord(currentWord);
+    
+    preWordsIndex++;
+    if (preWordsIndex > preWords.length-1) {
+      preWordsIndex = 0;
+    }
+    
+  }
+  
+  function copyWord(word) {
+    word = word.toUpperCase();
+    // console.log("copyWord: "+word);
+    
+    for (var i = 0, len = word.length; i < len; i++) {
+      
+      var aTarget = $("#box-"+word[i]).get()[0];
+      
+      var clone = aTarget.cloneNode(true);
+      clone.dragOrigin = null;
+      document.body.appendChild(clone);
+      clone.style="position:absolute; left:"+lessonLetterPosition+"%; top:40%;"
+      clone.className += " aclone";
+      
+      lessonLetterPosition+=9;
+    }
+    
+  }
+  
+  function changeFileIndex(event) {
+    // console.log("changeFileIndex");
+    
+    preWordsFileIndex++;
+    if (preWordsFileIndex>3) {
+      preWordsFileIndex = 1;
+    }
+    
+    getFileData(preWordsFileIndex);
+    
+    // console.log("change to file file-"+preWordsFileIndex);
+    
+    setMessage("file to "+preWordsFileIndex);
+  }
+  
+  function getFileData(number) {
+    // console.log("getFileData");
+    
+    $.getJSON( "wordfiles/file-"+number+".json", function( data ) {
+      // console.log("data from file:");
+      // console.log(data);
+      preWords = data;
+    });
+  }
+
+  ////
+  
   function setMessage(message) {
     messages.push(message);
     if (messages.length > 3) {
@@ -343,8 +434,17 @@ var messages = [ "messages" ];
   ////
   
   function showInfo (event) {
-    //console.log( "show info" );
+    // console.log( "show info" );
     
+    if (isLessonMode) {
+      changeLetterAuto();
+    }
+    else {
+      actualShowInfo();
+    }
+  }
+  
+  function actualShowInfo() {
     var message = "Manual\n" +
                   "Main objective is to drag and drop the letters in the drop zone (zone in gray). " +
                   "Once some letters are in the drop zone the user can tap (or click) on the microphone icon to hear the word, " +
