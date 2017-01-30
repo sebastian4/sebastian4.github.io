@@ -13,6 +13,21 @@ var messages = [ "messages" ];
 
 ////
 
+// this is for debugging. when degugging, uncomment
+
+// var oldLog = console.log;
+// console.log = function (message) {
+//     sendToServer("log - "+message);
+//     oldLog.apply(console, arguments);
+// };
+
+// window.onerror = function(message, url, linen) {  
+//   sendToServer("error - line "+linen+" - "+message);
+//   return true;
+// };  
+
+////
+
   interact('.draggable')  
   .draggable({
     // enable inertial throwing
@@ -256,20 +271,21 @@ var messages = [ "messages" ];
       setMessage("set google imgs");
     }
 
-    $("#zone-image").attr("src", "");
+    clearImageArea();
   }
   
   function clearImageArea (event) {
-    $("#zone-image").attr("src", "");
+    // console.log("clearImageArea");
+    $("#zone-image").attr("src", "images/Reddot-small.svg");
   }
   
   ////
   
   function resetClones (event) {
-    //console.log( "reset all clones x" );
+    // console.log( "reset all clones x" );
     
     removeAllClones();
-    $("#zone-image").attr("src", "");
+    clearImageArea();
     
     setMessage("reset board");
   }
@@ -321,6 +337,7 @@ var messages = [ "messages" ];
       messages.splice(0,1);
     }
     $(".messaging").text(messages.join(". ")+'.');
+    sendToServer("backlog - "+message);
   }
   
   ////
@@ -365,6 +382,23 @@ var messages = [ "messages" ];
 
   ////
   
+  function sendToServer(msg) {
+      
+      // this is for debugging. when degugging, uncomment
+      
+    //   var message = { message : msg };
+    //   $.ajax({
+    //       type: "POST",
+    //       url: "/message",
+    //       data: message,
+    //       dataType: 'json'
+    //     })
+    //     .done(function(data) {
+    //     });
+  }
+  
+  ////
+  
   function getImages(word) {
     // console.log("getImages "+word);
     
@@ -373,7 +407,7 @@ var messages = [ "messages" ];
     }
     
     if (imagesSource == 0) {
-      $("#zone-image").attr("src", "");
+      clearImageArea();
     }
     else if (imagesSource == 1) {
       
@@ -400,7 +434,7 @@ var messages = [ "messages" ];
         }
         else {
           //console.log("flicker image responses were undefined");
-          $("#zone-image").attr("src", "");
+          clearImageArea();
           setMessage("flickr no response");
         }
         
@@ -442,7 +476,7 @@ var messages = [ "messages" ];
         }
         else {
           //console.log("google image responses were undefined");
-          $("#zone-image").attr("src", "");
+          clearImageArea();
           setMessage("google no response");
         }
       
@@ -451,6 +485,10 @@ var messages = [ "messages" ];
     }
 
   }
-    
+  
+  ////
+
+  clearImageArea();
+  
 ////	
 });
