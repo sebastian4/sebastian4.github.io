@@ -13,10 +13,10 @@ var messages = [ "messages" ];
 
 var isLessonMode = false;
 var lessonLetterPosition = 2;
-var preWords = [ "one", "two" ];
+var preWords = [ "one", "two", "three" ];
 var preWordsIndex = 0;
 var preWordsFileIndex = 0;
-
+var preWordsFileIndexMax = 5;
 ////
 
 // this is for debugging. when degugging, uncomment
@@ -377,6 +377,9 @@ var preWordsFileIndex = 0;
   }
   
   function copyWord(word) {
+    if (typeof(word) == "undefined") {
+        return;
+    }
     word = word.toUpperCase();
     // console.log("copyWord: "+word);
     
@@ -399,10 +402,11 @@ var preWordsFileIndex = 0;
     // console.log("changeFileIndex");
     
     preWordsFileIndex++;
-    if (preWordsFileIndex>3) {
+    if (preWordsFileIndex>preWordsFileIndexMax) {
       preWordsFileIndex = 1;
     }
     
+    preWordsIndex=0;
     getFileData(preWordsFileIndex);
     
     // console.log("change to file file-"+preWordsFileIndex);
