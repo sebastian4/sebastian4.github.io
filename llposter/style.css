@@ -1,0 +1,44 @@
+html, body
+{
+    height: 100%;
+    width: 100%;
+}
+
+body {
+	 background-image: url("planties.jpeg");
+	 /*background-image: url("");*/
+}
+
+h2 {
+    text-align: center;
+    font-size: 4em;
+}
+
+table {
+	margin-left: auto; 
+    margin-right: auto;
+	width: 64%;
+}
+
+th, td {
+	text-align: center;
+	font-size: 2.5em;
+}
+
+th {
+	padding: 0.4em;
+}
+
+td {
+	padding: 0.3em;
+}
+
+ul {
+	margin-left: auto; 
+    margin-right: auto;
+	width: 40%;
+}
+
+li {
+	font-size: 3em;
+}
