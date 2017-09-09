@@ -14,6 +14,11 @@ h2 {
     font-size: 4em;
 }
 
+h3 {
+    text-align: center;
+    font-size: 4em;
+}
+
 table {
 	margin-left: auto; 
     margin-right: auto;
@@ -26,11 +31,11 @@ th, td {
 }
 
 th {
-	padding: 0.4em;
+	padding: 0.35em;
 }
 
 td {
-	padding: 0.3em;
+	padding: 0.25em;
 }
 
 ul {
