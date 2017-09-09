@@ -36,7 +36,22 @@ td {
 ul {
 	margin-left: auto; 
     margin-right: auto;
+}
+
+ul.narrow {
 	width: 40%;
+}
+
+ul.slim {
+	width: 50%;
+}
+
+ul.wide {
+	width: 60%;
+}
+
+ul.extwide {
+	width: 70%;
 }
 
 li {
