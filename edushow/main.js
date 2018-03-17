@@ -466,6 +466,38 @@ $(function () {
         { name: "Z", es: "", url: "http://4.bp.blogspot.com/-f7_Ap5g3PJg/Ts-kV28ivUI/AAAAAAAACu4/kX4Guj3o0fM/s200/CAPITAL-LETTER-Z.png" }
     ];
 
+    var imgsLetters5 = [
+        { name: "a", es: "", url: "http://alphabetletters.org/letters/letter-a/lowercase-alphabet-letter-a.jpg" },
+        { name: "b", es: "", url: "http://alphabetletters.org/letters/letter-b/lowercase-alphabet-letter-b.jpg" },
+        { name: "c", es: "", url: "http://alphabetletters.org/letters/letter-c/lowercase-alphabet-letter-c.jpg" },
+        { name: "d", es: "", url: "http://alphabetletters.org/letters/letter-d/lowercase-alphabet-letter-d.jpg" },
+        { name: "e", es: "", url: "http://alphabetletters.org/letters/letter-e/lowercase-alphabet-letter-e.jpg" },
+        { name: "f", es: "", url: "http://alphabetletters.org/letters/letter-f/lowercase-alphabet-letter-f.jpg" },
+        { name: "g", es: "", url: "http://alphabetletters.org/letters/letter-g/lowercase-alphabet-letter-g.jpg" },
+        { name: "h", es: "", url: "http://alphabetletters.org/letters/letter-h/lowercase-alphabet-letter-h.jpg" },
+        { name: "i", es: "", url: "http://alphabetletters.org/letters/letter-i/lowercase-alphabet-letter-i.jpg" },
+        { name: "j", es: "", url: "http://alphabetletters.org/letters/letter-j/lowercase-alphabet-letter-j.jpg" },
+        { name: "k", es: "", url: "http://alphabetletters.org/letters/letter-k/lowercase-alphabet-letter-k.jpg" },
+        { name: "l", es: "", url: "http://alphabetletters.org/letters/letter-l/lowercase-alphabet-letter-l.jpg" }
+    ];
+
+    var imgsLetters6 = [
+        { name: "m", es: "", url: "http://alphabetletters.org/letters/letter-m/lowercase-alphabet-letter-m.jpg" },
+        { name: "n", es: "", url: "http://alphabetletters.org/letters/letter-n/lowercase-alphabet-letter-n.jpg" },
+        { name: "o", es: "", url: "http://alphabetletters.org/letters/letter-o/lowercase-alphabet-letter-o.jpg" },
+        { name: "p", es: "", url: "http://alphabetletters.org/letters/letter-p/lowercase-alphabet-letter-p.jpg" },
+        { name: "q", es: "", url: "http://alphabetletters.org/letters/letter-q/lowercase-alphabet-letter-q.jpg" },
+        { name: "r", es: "", url: "http://alphabetletters.org/letters/letter-r/lowercase-alphabet-letter-r.jpg" },
+        { name: "s", es: "", url: "http://alphabetletters.org/letters/letter-s/lowercase-alphabet-letter-s.jpg" },
+        { name: "t", es: "", url: "http://alphabetletters.org/letters/letter-t/lowercase-alphabet-letter-t.jpg" },
+        { name: "u", es: "", url: "http://alphabetletters.org/letters/letter-u/lowercase-alphabet-letter-u.jpg" },
+        { name: "v", es: "", url: "http://alphabetletters.org/letters/letter-v/lowercase-alphabet-letter-v.jpg" },
+        { name: "w", es: "", url: "http://alphabetletters.org/letters/letter-w/lowercase-alphabet-letter-w.jpg" },
+        { name: "x", es: "", url: "http://alphabetletters.org/letters/letter-x/lowercase-alphabet-letter-x.jpg" },
+        { name: "y", es: "", url: "http://alphabetletters.org/letters/letter-y/lowercase-alphabet-letter-y.jpg" },
+        { name: "z", es: "", url: "http://alphabetletters.org/letters/letter-z/lowercase-alphabet-letter-z.jpg" }
+    ];
+
     var favorites = [
         { name: "swirl", es: "remolino", url: "http://jbum.com/pixmagic/rainbowspiral.jpg" },
         { name: "hi", es: "hola", url: "http://classroomclipart.com/images/gallery/Animations/People/HI.gif" },
@@ -515,6 +547,8 @@ $(function () {
         imgsLetters2,
         imgsLetters3,
         imgsLetters4,
+        imgsLetters5,
+        imgsLetters6,
         favorites
     ];
 
@@ -555,6 +589,8 @@ $(function () {
         "Letters 2",
         "Letters 3",
         "Letters 4",
+        "Letters 5",
+        "Letters 6",
         "favorites"
     ];
 
