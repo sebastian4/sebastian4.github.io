@@ -77,7 +77,7 @@
         
         "assets/images/textures/wall2/diff-result-diff-choice.jpg",
         "assets/images/textures/wall2/everyone-can-1.jpg",
-        "assets/images/textures/wall2/four-posters-22.jpg",
+        "assets/images/textures/wall2/four-posters-22.png",
         "assets/images/textures/wall2/friends-stars-1.jpg",
         "assets/images/textures/wall2/i-am-5.jpg",
         "assets/images/textures/wall2/i-am-many-1.jpg",
@@ -95,7 +95,7 @@
         "assets/images/textures/wall2/shoot-moon.jpg",
         "assets/images/textures/wall2/success-effort.jpg",
         "assets/images/textures/wall2/think-i-can.jpg",
-        "assets/images/textures/wall2/this-life-1.jpg",
+        "assets/images/textures/wall2/this-life-1.png",
         
         // "assets/images/textures/wall2/.jpg",
         // "assets/images/textures/wall2/.jpg",
