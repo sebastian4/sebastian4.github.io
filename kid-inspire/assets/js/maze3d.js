@@ -173,7 +173,7 @@
         
         var wallMaterialSingle = new THREE.MeshPhongMaterial({
             // map: loader.load("assets/images/textures/wall1/wall_diffuse.jpg")
-            map: loader.load("assets/images/textures/wall1/white-blank-brick-wal.jpg")
+            map: loader.load("assets/images/textures/wallx/white-blank-brick-wal.jpg")
         });
         repeatTexture(wallMaterialSingle.map, 1);
         
