@@ -498,6 +498,38 @@ $(function () {
         { name: "z", es: "", url: "http://alphabetletters.org/letters/letter-z/lowercase-alphabet-letter-z.jpg" }
     ];
 
+    var imgsLetters7 = [
+        { name: "a", es: "", url: "https://i.pinimg.com/236x/f2/ec/52/f2ec52c0f94a49c888489bfdf88e7dbf--printable-alphabet-alphabet-book.jpg" },
+        { name: "b", es: "", url: "https://i.pinimg.com/236x/9b/cf/8a/9bcf8a29c10356f64463ba20ec688e05--printable-alphabet-alphabet-book.jpg" },
+        { name: "c", es: "", url: "https://i.pinimg.com/236x/e6/57/43/e65743122ae5d246278307f07ac333dd--printable-alphabet-alphabet-book.jpg" },
+        { name: "d", es: "", url: "https://i.pinimg.com/236x/fc/91/e5/fc91e5592f277b5fb511e25732dc2c1b--printable-alphabet-alphabet-book.jpg" },
+        { name: "e", es: "", url: "https://i.pinimg.com/236x/09/9b/43/099b43d352116a6dc2145f8cbde3d5a3--printable-alphabet-alphabet-book.jpg" },
+        { name: "f", es: "", url: "https://i.pinimg.com/236x/98/ff/5e/98ff5e69d82ec63bfe55e385342cea72--printable-alphabet-alphabet-book.jpg" },
+        { name: "g", es: "", url: "https://i.pinimg.com/236x/b0/5b/a6/b05ba66dae9bce8e5a2c4d6c270b134b--printable-alphabet-alphabet-book.jpg" },
+        { name: "h", es: "", url: "https://i.pinimg.com/236x/97/6f/66/976f6649968fb1ad41fdd0284e769014--printable-alphabet-alphabet-book.jpg" },
+        { name: "i", es: "", url: "https://i.pinimg.com/236x/e3/d0/c0/e3d0c0c7fbef4ca3b3356666d6044df9--printable-alphabet-alphabet-book.jpg" },
+        { name: "j", es: "", url: "https://i.pinimg.com/236x/8c/fc/91/8cfc91e8a273f5ad10727534ef1b24d7.jpg" },
+        { name: "k", es: "", url: "https://i.pinimg.com/236x/3b/67/2f/3b672f7edb0c8fc6f5fd0439aea484b5--letter-k-preschool-preschool-ideas.jpg" },
+        { name: "l", es: "", url: "https://i.pinimg.com/236x/dd/2c/0b/dd2c0ba25445a45b295fc8455d10e520--printable-alphabet-alphabet-book.jpg" }
+    ];
+
+    var imgsLetters8 = [
+        { name: "m", es: "", url: "https://i.pinimg.com/236x/b7/9b/97/b79b97116c986d81f446151f4e2563f4--printable-alphabet-alphabet-book.jpg" },
+        { name: "n", es: "", url: "https://i.pinimg.com/236x/6b/bf/bf/6bbfbfa4eceaa26ae97effc5399f39ee--printable-alphabet-alphabet-book.jpg" },
+        { name: "o", es: "", url: "https://i.pinimg.com/236x/74/dc/32/74dc328dc4b72e6766256185d11fb5bc--printable-alphabet-alphabet-book.jpg" },
+        { name: "p", es: "", url: "https://i.pinimg.com/236x/5f/0e/c6/5f0ec62a21b4646e2920a4869a7758c4--printable-alphabet-alphabet-book.jpg" },
+        { name: "q", es: "", url: "https://i.pinimg.com/236x/75/30/80/75308076ee3e864541f07680d509080e--printable-alphabet-alphabet-book.jpg" },
+        { name: "r", es: "", url: "https://i.pinimg.com/236x/f1/5b/bf/f15bbf5545b8d70ad1b6e1960c9e0745--printable-alphabet-alphabet-book.jpg" },
+        { name: "s", es: "", url: "https://i.pinimg.com/236x/5c/db/4a/5cdb4ab8db723701282861f6bd902b93--printable-alphabet-alphabet-book.jpg" },
+        { name: "t", es: "", url: "https://i.pinimg.com/236x/3a/c1/a3/3ac1a37a131188b3699da19e827ad4e6--printable-alphabet-alphabet-book.jpg" },
+        { name: "u", es: "", url: "https://i.pinimg.com/236x/6c/41/ff/6c41ff76416df9b4cdbad7ed7c3823f0--printable-alphabet-alphabet-book.jpg" },
+        { name: "v", es: "", url: "https://i.pinimg.com/236x/af/3a/f2/af3af2d03c8d2349e72715a4590cba53--printable-alphabet-alphabet-book.jpg" },
+        { name: "w", es: "", url: "https://i.pinimg.com/236x/e4/48/69/e44869b24bc045253486b0184f16e542--printable-alphabet-alphabet-book.jpg" },
+        { name: "x", es: "", url: "https://i.pinimg.com/236x/d5/24/15/d524159d43a4fbd5ff76e41ff0f5dcd2--printable-alphabet-alphabet-book.jpg" },
+        { name: "y", es: "", url: "https://i.pinimg.com/236x/50/57/c5/5057c5461e756841c2910f50426bf1a5--printable-alphabet-alphabet-book.jpg" },
+        { name: "z", es: "", url: "https://i.pinimg.com/236x/26/3b/40/263b401aefb0fc79a2f4c1b673440b68--printable-alphabet-alphabet-book.jpg" }
+    ];
+
     var favorites = [
         { name: "swirl", es: "remolino", url: "http://jbum.com/pixmagic/rainbowspiral.jpg" },
         { name: "hi", es: "hola", url: "http://classroomclipart.com/images/gallery/Animations/People/HI.gif" },
@@ -549,6 +581,8 @@ $(function () {
         imgsLetters4,
         imgsLetters5,
         imgsLetters6,
+        imgsLetters7,
+        imgsLetters8,
         favorites
     ];
 
@@ -591,6 +625,8 @@ $(function () {
         "Letters 4",
         "Letters 5",
         "Letters 6",
+        "Letters 7",
+        "Letters 8",
         "favorites"
     ];
 
