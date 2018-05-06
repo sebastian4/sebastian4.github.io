@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>Musical Keyboard</title>
+
+<link rel="stylesheet" href="src/piano.css">
+
+<script async="" src="./src/analytics.js"></script><script src="./src/audiosynth.js"></script>
+<script src="./src/audiosynth.view.js"></script>
+
+</head>
+
+<body>
+
+<div class="title">Musical Keyboard ....</div>
+
+<div class="keyboard-options">
+
+<div>
+	
+	Sound
+	<select id="sound">
+		<option value="0" selected="">Keyboard</option>
+		<option value="1">Organ</option>
+	    <option value="2">Acoustic Guitar</option>
+	    <option value="3">EDM, bro!</option>
+	</select>
+	
+	Range [C<span id="OCTAVE_LOWER">3</span>-B<span id="OCTAVE_UPPER">5</span>]
+	<input type="button" id="-_OCTAVE" value="-">
+	<input type="button" id="+_OCTAVE" value="+">
+	
+</div>
+<br/><br/>
+<hr/>
+
+<div id="keyboard" class="keyboard-holder"></div>
+
+<br/><br/><br/><br/><br/>
+
+<hr/>
+<div>
+<span id="output">.</span>
+|||
+<span id="console"></span>
+</div>
+<div>
+<!-- <button id="song-1">song 1</button> -->
+<button id="happy-bday-1">happy birthday 1</button>
+<button id="happy-bday-2">happy birthday 2</button>
+<button id="twinkle-st-1">twinkle star 1</button>
+<button id="itsy-spid-1">itsy bitsy spider 1</button>
+<button id="sunshine-1">my sunshine 1</button>
+</div>
+<div>
+<button id="total-eclip-1">total eclipse 1</button>
+<button id="wanna-be-1">be with you 1</button>
+<button id="frozen-1">frozen 1</button>
+<button id="s-mario-1">super mario 1</button>
+</div>
+<div>
+<button id="replay-1">replay</button>
+<button id="clear">clear</button>
+<!-- <button id=""></button> -->
+</div>
+
+</div>
+
+<script src="src/piano.js"></script>
+<script src="../../bower_components/jquery/dist/jquery.js"></script>
+<script src="src/samp-1.js"></script>
+
+</body>
+
+</html>
