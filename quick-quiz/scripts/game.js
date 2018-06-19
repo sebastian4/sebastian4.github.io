@@ -99,7 +99,7 @@ var Placing = (function (_Phaser$Sprite) {
 
     this.places = [[], [], []];
 
-    this.placesScreenInit = [this.center.x * 0.58, this.x * 0.98, this.x * 1.30];
+    this.placesScreenInit = [this.center.x * 0.58, this.center.x * 0.94, this.center.x * 1.30];
 
     this.placesScreen = this.placesScreenInit;
 
@@ -170,7 +170,7 @@ window.configAdd = {
 	name: "addition",
 	timeup: 6000,
 	quizSize: 180,
-	choiceSize: 100,
+	choiceSize: 90,
 	moveMainBy: 0,
 	calculator: function calculator() {
 		var first = Math.floor(Math.random() * (1 + 9)) + 0;
@@ -194,7 +194,7 @@ window.configDel = {
 	name: "subtraction",
 	timeup: 6000,
 	quizSize: 180,
-	choiceSize: 100,
+	choiceSize: 90,
 	moveMainBy: 0,
 	calculator: function calculator() {
 		var first = Math.floor(Math.random() * (1 + 10)) + 4;
@@ -218,7 +218,7 @@ window.configMul = {
 	name: "multiplication",
 	timeup: 7000,
 	quizSize: 180,
-	choiceSize: 100,
+	choiceSize: 90,
 	moveMainBy: 0,
 	calculator: function calculator() {
 		var first = Math.floor(Math.random() * (1 + 5)) + 1;
@@ -369,14 +369,14 @@ var Quiz = (function (_Phaser$Sprite) {
     this.textChoices = [];
 
     var sprite1 = this.game.add.sprite(x * 0.26, y * 0.16, key1);
-    sprite1.scale.setTo(x * 0.0017, y * 0.0010);
+    sprite1.scale.setTo(x * 0.0017, y * 0.0011);
 
-    var sprite11 = this.game.add.sprite(x * 0.46, y * 0.70, key2);
-    sprite11.scale.setTo(x * 0.00055, y * 0.0006);
-    var sprite12 = this.game.add.sprite(x * 0.82, y * 0.70, key2);
-    sprite12.scale.setTo(x * 0.00055, y * 0.0006);
-    var sprite13 = this.game.add.sprite(x * 1.18, y * 0.70, key2);
-    sprite13.scale.setTo(x * 0.00055, y * 0.0006);
+    var sprite11 = this.game.add.sprite(x * 0.46, y * 0.72, key2);
+    sprite11.scale.setTo(x * 0.00055, y * 0.00055);
+    var sprite12 = this.game.add.sprite(x * 0.82, y * 0.72, key2);
+    sprite12.scale.setTo(x * 0.00055, y * 0.00055);
+    var sprite13 = this.game.add.sprite(x * 1.18, y * 0.72, key2);
+    sprite13.scale.setTo(x * 0.00055, y * 0.00055);
   }
 
   _createClass(Quiz, [{
@@ -384,7 +384,7 @@ var Quiz = (function (_Phaser$Sprite) {
     value: function writeMain() {
       this.calcQuizzer();
       console.log('writeMain - result=' + this.result);
-      this.main = this.game.add.text(this.center.x * 0.78 + window.config.moveMainBy, this.center.y * 0.23, this.quizzer, { fontSize: window.config.quizSize + 'px' });
+      this.main = this.game.add.text(this.center.x * 0.74 + window.config.moveMainBy, this.center.y * 0.20, this.quizzer, { fontSize: window.config.quizSize + 'px' });
       this.main.addColor("#ffffff", 0);
     }
   }, {
@@ -603,7 +603,7 @@ var GameState = (function (_Phaser$State) {
 			console.log(window.config);
 
 			//test
-			this.nexter();
+			// this.nexter();
 		}
 
 		////
@@ -643,7 +643,7 @@ var GameState = (function (_Phaser$State) {
 		key: 'render',
 		value: function render() {
 			if (this.timer != null) {
-				this.game.debug.text('time: ' + this.timer.duration.toFixed(0) / 1000, this.center.x * 0.77, this.center.y * 1.25, 'black', '60px Courier New');
+				this.game.debug.text('time: ' + this.timer.duration.toFixed(0) / 1000, this.center.x * 0.77, this.center.y * 1.28, 'black', '60px Courier New');
 			}
 		}
 
@@ -690,7 +690,7 @@ var GameState = (function (_Phaser$State) {
 				this.status.updateScores(this.points);
 				this.status.writeScores();
 			} else {
-				message = "!!!!!!!! everyone got it wrong !!!!!!";
+				message = "!!!!!! everyone got it wrong !!!!!!";
 			}
 
 			this.status.writeMainStatus(message);
@@ -795,9 +795,9 @@ var Status = (function (_Phaser$Sprite) {
 
     this.writeScores();
 
-    this.game.add.text(this.center.x - 315, this.center.y * 1.86, "blue", { fontSize: '34px', fill: "#0000a2" });
-    this.game.add.text(this.center.x - 35, this.center.y * 1.86, "red", { fontSize: '34px', fill: "#8b0000" });
-    this.game.add.text(this.center.x + 240, this.center.y * 1.86, "green", { fontSize: '34px', fill: "#006400" });
+    this.game.add.text(this.center.x - 315, this.center.y * 1.90, "blue", { fontSize: '34px', fill: "#0000a2" });
+    this.game.add.text(this.center.x - 35, this.center.y * 1.90, "red", { fontSize: '34px', fill: "#8b0000" });
+    this.game.add.text(this.center.x + 240, this.center.y * 1.90, "green", { fontSize: '34px', fill: "#006400" });
   }
 
   _createClass(Status, [{
@@ -807,8 +807,8 @@ var Status = (function (_Phaser$Sprite) {
 
       this.erase();
 
-      this.mainStatus = this.game.add.text(this.center.x * 0.30, this.center.y * 1.38, msg, {
-        font: "90px Optima",
+      this.mainStatus = this.game.add.text(this.center.x * 0.30, this.center.y * 1.36, msg, {
+        font: "86px Optima",
         fill: "#FFD700"
       });
       this.mainStatus.setShadow(4, 4, 'rgba(0,0,0,0.9)', 6);
