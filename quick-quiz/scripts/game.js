@@ -52,7 +52,7 @@ var ButtonNext = (function (_Phaser$Sprite) {
         _get(Object.getPrototypeOf(ButtonNext.prototype), "constructor", this).call(this, game, x, y, key);
         // width, height
 
-        var button = game.add.button(90, 90, key, callback, context, 0, 1, 2, 3);
+        var button = game.add.button(84, 90, key, callback, context, 0, 1, 2, 3);
         button.anchor.x = 0.5;
         button.anchor.y = 0.5;
         button.scale.setTo(0.6, 0.6);
@@ -101,7 +101,7 @@ var Placing = (function (_Phaser$Sprite) {
 
     this.placesScreenInit = [this.center.x * 0.58, this.center.x * 0.94, this.center.x * 1.30];
 
-    this.placesScreen = this.placesScreenInit;
+    this.placesScreen = [this.placesScreenInit[0], this.placesScreenInit[1], this.placesScreenInit[2]];
 
     this.placesTexts = [];
 
@@ -136,7 +136,7 @@ var Placing = (function (_Phaser$Sprite) {
         this.placesTexts[index].destroy();
       }
       this.places = [[], [], []];
-      this.placesScreen = this.placesScreenInit;
+      this.placesScreen = [this.placesScreenInit[0], this.placesScreenInit[1], this.placesScreenInit[2]];
       this.placesTexts = [];
       this.gone = [false, false, false];
     }
@@ -167,11 +167,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 window.configAdd = {
+	id: 11,
 	name: "addition",
-	timeup: 6000,
+	timeup: 7000,
 	quizSize: 180,
 	choiceSize: 90,
 	moveMainBy: 0,
+	pre: function pre(game) {},
 	calculator: function calculator() {
 		var first = Math.floor(Math.random() * (1 + 9)) + 0;
 		var second = Math.floor(Math.random() * (1 + 5)) + 0;
@@ -191,11 +193,13 @@ window.configAdd = {
 };
 
 window.configDel = {
+	id: 12,
 	name: "subtraction",
-	timeup: 6000,
+	timeup: 7000,
 	quizSize: 180,
 	choiceSize: 90,
 	moveMainBy: 0,
+	pre: function pre(game) {},
 	calculator: function calculator() {
 		var first = Math.floor(Math.random() * (1 + 10)) + 4;
 		var second = Math.floor(Math.random() * (1 + 5)) + 0;
@@ -215,11 +219,13 @@ window.configDel = {
 };
 
 window.configMul = {
+	id: 13,
 	name: "multiplication",
-	timeup: 7000,
+	timeup: 9000,
 	quizSize: 180,
 	choiceSize: 90,
 	moveMainBy: 0,
+	pre: function pre(game) {},
 	calculator: function calculator() {
 		var first = Math.floor(Math.random() * (1 + 5)) + 1;
 		var second = Math.floor(Math.random() * (1 + 4)) + 0;
@@ -239,12 +245,113 @@ window.configMul = {
 };
 
 window.configRhy = {
+	id: 21,
 	name: "rhymes",
+	timeup: 8000,
+	quizSize: 84,
+	choiceSize: 56,
+	moveMainBy: -170,
+	pre: function pre(game) {},
+	calculator: function calculator() {
+		var rhymes = [["ball", "wall"], ["net", "bet"], ["moon", "toon"], ["soon", "moon"], ["rice", "nice"], ["kite", "lite"], ["rough", "cough"], ["see", "knee"], ["neat", "seat"], ["dry", "fry"]];
+		var rhymeIndex = Math.floor(Math.random() * rhymes.length) + 0;
+		var rhymePair = rhymes[rhymeIndex];
+		var result = rhymePair[1];
+		var quizzer = "rhymes with " + rhymePair[0];
+		return [result, quizzer];
+	},
+	getRandom: function getRandom(result) {
+		var rhymes = ["joke", "jack", "knot", "what", "mac", "rune", "tin", "chip", "fin", "flan", "dune", "man"];
+		var rhymeIndex = Math.floor(Math.random() * rhymes.length) + 0;
+		var rhymed = rhymes[rhymeIndex];
+		return rhymed;
+	}
+};
+
+window.configImg = {
+	id: 31,
+	name: "needs work",
 	timeup: 7000,
 	quizSize: 90,
 	choiceSize: 60,
 	moveMainBy: -170,
+	gamey: null,
+	dataURItoBlob: function dataURItoBlob(dataURI) {
+		// convert base64/URLEncoded data component to raw binary data held in a string
+		var byteString;
+		if (dataURI.split(',')[0].indexOf('base64') >= 0) byteString = atob(dataURI.split(',')[1]);else byteString = unescape(dataURI.split(',')[1]);
+
+		// separate out the mime component
+		var mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0];
+
+		// write the bytes of the string to a typed array
+		var ia = new Uint8Array(byteString.length);
+		for (var i = 0; i < byteString.length; i++) {
+			ia[i] = byteString.charCodeAt(i);
+		}
+
+		return new Blob([ia], { type: mimeString });
+	},
+	dataURLtoFile: function dataURLtoFile(dataurl, filename) {
+		var arr = dataurl.split(','),
+		    mime = arr[0].match(/:(.*?);/)[1],
+		    bstr = atob(arr[1]),
+		    n = bstr.length,
+		    u8arr = new Uint8Array(n);
+		while (n--) {
+			u8arr[n] = bstr.charCodeAt(n);
+		}
+		return new File([u8arr], filename, { type: mime });
+	},
+	urltoFile: function urltoFile(url, filename, mimeType) {
+		mimeType = mimeType || (url.match(/^data:([^;]+);/) || '')[1];
+		return fetch(url).then(function (res) {
+			return res.arrayBuffer();
+		}).then(function (buf) {
+			return new File([buf], filename, { type: mimeType });
+		});
+	},
+	pre: function pre(game) {
+		console.log("pre");
+		console.log(this.gamey);
+		this.gamey = game;
+		// game.load.image('panda', 'https://image.flaticon.com/icons/svg/948/948256.svg');
+		// this.gamey.load.image('panda', 'assets/button-1045.png');
+		// loader.image('someimage', '//url/to/image' );
+
+		var loader = new Phaser.Loader(game);
+
+		// 		var dataURI = 'data:image/png;base64,'+
+		// 'iVBORw0KGgoAAAANSUhEUgAAAGAAAAATCAYAAABvLghXAAABZElEQVR42u2YUQrCMAyGdwjB13kP'+
+		// 'z7GrCJ5qexC8mw8VnZOsa5K/TXAbthDEKV/+Jk3Wtmn0ERjzGpWvAU99tzCDs8qX4BRyvJ5nnxRM'+
+		// 'R4aTpNiU8L3xpxhZ+Kp4OokIHkqTm/q+B753fFihXKll9j1Y/B74NEZxokv4LKDrL1+TJqk4E1em'+
+		// 'NIkSPuIj/j2X753sZB+jwZcS8Hr+CEsjTsziET4NajukWe3HNqa/EVe+lAAOHjmBVnmO+BSfC/gi'+
+		// 'AcPm9M8rwJIApszU6or59L8oH1lArUE/ukDjdyjA9y8xrYdOAkpbHMK3tFBUP3oeUPhyGRe+ZCA+'+
+		// 'MoFSvpZgabeH6neKz+iE2zkgvQ/Y55omUcrPTLC7/uhwhh2xDdnN5mfup2E+x0o9t+h3js/Sibaf'+
+		// 'LrjrCLknyj/jzy+bnC+xVuML/d7MVw519Zp4x/xx3G+HQD8r/4f8Gpx1+W8wtcr35z8BKzsYemDt'+
+		// 'gtgAAAAASUVORK5CYII=';
+		//
+		// 		var data2 = this.urltoFile(dataURI, 'image1.png', 'image/png');
+
+		// var data1 = new Image();
+		// data1.src = dataURI;
+
+		// loader.image('panda', 'assets/button-1045.png');
+		// loader.image('panda', 'assets/animalSheet2009.jpg');
+		// loader.image('panda', data2);
+
+		// loader.onLoadComplete.addOnce(this.onLoaded);
+		// loader.start();
+		// var
+	},
+	onLoaded: function onLoaded() {
+		console.log('everything is loaded and ready to be used');
+	},
 	calculator: function calculator() {
+		console.log('calculator');
+		// console.log(this.gamey);
+		// var sprite1 = this.gamey.add.sprite(100, 400, 'panda');
+		// sprite1.scale.setTo(50,50);
 		var rhymes = [["ball", "wall"], ["net", "bet"], ["moon", "toon"], ["soon", "moon"], ["rough", "cough"], ["see", "knee"], ["dry", "fry"]];
 		var rhymeIndex = Math.floor(Math.random() * rhymes.length) + 0;
 		var rhymePair = rhymes[rhymeIndex];
@@ -278,8 +385,10 @@ var QuizType = (function (_Phaser$Sprite) {
 		// default
 		window.config = window.configAdd;
 
-		this.ypos = 210;
-		this.xpos = 40;
+		this.xposOrig = 26;
+		this.xpos = this.xposOrig;
+		this.yposOrig = 210;
+		this.ypos = this.yposOrig;
 
 		var text = null;
 
@@ -292,7 +401,7 @@ var QuizType = (function (_Phaser$Sprite) {
 		button11.scale.setTo(0.14, 0.14);
 		text = game.add.text(-60, -100, "+", { font: "200px Arial", fill: "#000000" });
 		button11.addChild(text);
-		this.xpos += 40;
+		this.xpos += 38;
 
 		// Del
 		var button12 = game.add.button(this.xpos, this.ypos, key, function () {
@@ -303,7 +412,7 @@ var QuizType = (function (_Phaser$Sprite) {
 		button12.scale.setTo(0.14, 0.14);
 		text = game.add.text(-30, -120, "-", { font: "200px Arial", fill: "#000000" });
 		button12.addChild(text);
-		this.xpos += 40;
+		this.xpos += 38;
 
 		// Mul
 		var button13 = game.add.button(this.xpos, this.ypos, key, function () {
@@ -314,7 +423,7 @@ var QuizType = (function (_Phaser$Sprite) {
 		button13.scale.setTo(0.14, 0.14);
 		text = game.add.text(-50, -120, "x", { font: "200px Arial", fill: "#000000" });
 		button13.addChild(text);
-		this.xpos += 40;
+		this.xpos += 38;
 
 		// Mul
 		var button14 = game.add.button(this.xpos, this.ypos, key, function () {
@@ -325,7 +434,19 @@ var QuizType = (function (_Phaser$Sprite) {
 		button14.scale.setTo(0.14, 0.14);
 		text = game.add.text(-40, -120, "r", { font: "200px Arial", fill: "#000000" });
 		button14.addChild(text);
-		this.xpos += 40;
+		this.xpos = this.xposOrig;
+		this.ypos += 40;
+
+		// Tmp
+		var button15 = game.add.button(this.xpos, this.ypos, key, function () {
+			window.config = window.configImg;
+		}, context, 0, 1, 2, 3);
+		button15.anchor.x = 0.5;
+		button15.anchor.y = 0.5;
+		button15.scale.setTo(0.14, 0.14);
+		text = game.add.text(-30, -120, "i", { font: "200px Arial", fill: "#000000" });
+		button15.addChild(text);
+		this.xpos += 38;
 	}
 
 	return QuizType;
@@ -525,7 +646,7 @@ var GameState = (function (_Phaser$State) {
 			var title = this.game.add.text(this.center.x * 0.98, this.center.y * 0.06, 'Quick Quiz', { font: "46px Optima" });
 			title.anchor.set(0.5);
 
-			this.subtitle = this.game.add.text(this.center.x * 0.98, this.center.y * 0.12, window.config.name, { font: "18px Optima" });
+			this.subtitle = this.game.add.text(this.center.x * 0.98, this.center.y * 0.13, window.config.name, { font: "18px Optima" });
 			this.subtitle.anchor.set(0.5);
 
 			this.next = new _next2['default'](this.game, this.center.x, this.center.y, 'button1', this.nexter, this);
@@ -544,6 +665,9 @@ var GameState = (function (_Phaser$State) {
 			this.playerColors = ['blue', 'red', 'green'];
 
 			this.gameOn = false;
+
+			this.lastTypeId = 11;
+			window.config.pre(this.game);
 
 			// this.practice01();
 			// this.practice02();
@@ -612,9 +736,16 @@ var GameState = (function (_Phaser$State) {
 		key: 'nexter',
 		value: function nexter() {
 			if (this.gameOn == false) {
+				console.log('--------- -------- --------');
 				console.log('next - start');
 				this.gameOn = true;
 				this.reset();
+
+				if (window.config.id != this.lastTypeId) {
+					console.log("reloading pre");
+					window.config.pre(this.game);
+				}
+				this.lastTypeId = window.config.id;
 
 				console.log('next - continue');
 				this.quiz.writeMain();
