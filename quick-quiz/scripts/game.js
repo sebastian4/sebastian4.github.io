@@ -166,101 +166,186 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-window.configAdd = {
+window.configAdd11 = {
 	id: 11,
 	name: "addition",
 	timeup: 7000,
 	quizSize: 180,
 	choiceSize: 90,
 	moveMainBy: 0,
-	pre: function pre(game) {},
+	timein: 0,
+	pre: function pre(game, center) {},
+	before: function before(game, center) {},
 	calculator: function calculator() {
 		var first = Math.floor(Math.random() * (1 + 9)) + 0;
 		var second = Math.floor(Math.random() * (1 + 5)) + 0;
 		var result = first + second;
 		var quizzer = first.toString() + " + " + second.toString();
-		return [result, quizzer];
+		return [result, result, quizzer];
 	},
-	getRandom: function getRandom(result) {
+	getRandom: function getRandom(number) {
 		var operation = Math.floor(Math.random() * (1 + 1)) + 0;
 		var variant = Math.floor(Math.random() * (1 + 3)) + 1;
-		if (result < 3 || operation == 0) {
-			return result + variant;
+		if (number < 3 || operation == 0) {
+			return number + variant;
 		} else {
-			return result - variant;
+			return number - variant;
 		}
 	}
 };
 
-window.configDel = {
+window.configDel12 = {
 	id: 12,
 	name: "subtraction",
 	timeup: 7000,
 	quizSize: 180,
 	choiceSize: 90,
 	moveMainBy: 0,
-	pre: function pre(game) {},
+	timein: 0,
+	pre: function pre(game, center) {},
+	before: function before(game, center) {},
 	calculator: function calculator() {
 		var first = Math.floor(Math.random() * (1 + 10)) + 4;
 		var second = Math.floor(Math.random() * (1 + 5)) + 0;
 		var result = first - second;
 		var quizzer = first.toString() + " - " + second.toString();
-		return [result, quizzer];
+		return [result, result, quizzer];
 	},
-	getRandom: function getRandom(result) {
+	getRandom: function getRandom(number) {
 		var operation = Math.floor(Math.random() * (1 + 1)) + 0;
 		var variant = Math.floor(Math.random() * (1 + 3)) + 1;
-		if (result < 3 || operation == 0) {
-			return result + variant;
+		if (number < 3 || operation == 0) {
+			return number + variant;
 		} else {
-			return result - variant;
+			return number - variant;
 		}
 	}
 };
 
-window.configMul = {
+window.configMul13 = {
 	id: 13,
 	name: "multiplication",
 	timeup: 9000,
 	quizSize: 180,
 	choiceSize: 90,
 	moveMainBy: 0,
-	pre: function pre(game) {},
+	timein: 0,
+	pre: function pre(game, center) {},
+	before: function before(game, center) {},
 	calculator: function calculator() {
 		var first = Math.floor(Math.random() * (1 + 5)) + 1;
 		var second = Math.floor(Math.random() * (1 + 4)) + 0;
 		var result = first * second;
 		var quizzer = first.toString() + " X " + second.toString();
-		return [result, quizzer];
+		return [result, result, quizzer];
 	},
-	getRandom: function getRandom(result) {
+	getRandom: function getRandom(number) {
 		var operation = Math.floor(Math.random() * (1 + 1)) + 0;
 		var variant = Math.floor(Math.random() * (1 + 3)) + 1;
-		if (result < 3 || operation == 0) {
-			return result + variant;
+		if (number < 3 || operation == 0) {
+			return number + variant;
 		} else {
-			return result - variant;
+			return number - variant;
 		}
 	}
 };
 
-window.configRhy = {
+// ..
+
+window.configMem16 = {
+	id: 16,
+	name: "memorize numbers",
+	timeup: 9000,
+	quizSize: 180,
+	choiceSize: 74,
+	moveMainBy: -50,
+	timein: 3000,
+	pre: function pre(game, center) {},
+	mainText: null,
+	before: function before(game, center) {
+		this.result = this.numcalc();
+		var mainText = game.add.text(center.x * 0.74 + this.moveMainBy, center.y * 0.20, this.result, { font: this.quizSize + "px", fill: "#ffffff" });
+		window.setTimeout(function () {
+			mainText.destroy();
+		}, this.timein);
+	},
+	nums: 5,
+	numcalc: function numcalc() {
+		var response = "";
+		for (var ii = 0; ii < this.nums; ii++) {
+			var anum = Math.floor(Math.random() * (1 + 9)) + 0;
+			response += anum;
+		}
+		return response;
+	},
+	result: -1,
+	calculator: function calculator() {
+		var quizzer = "which?";
+		return [this.result, this.result, quizzer];
+	},
+	getRandom: function getRandom(number) {
+		return this.numcalc();
+	}
+};
+
+window.configMem17 = {
+	id: 17,
+	name: "memorize numbers backwards",
+	timeup: 9000,
+	quizSize: 180,
+	choiceSize: 74,
+	moveMainBy: -50,
+	timein: 3000,
+	pre: function pre(game, center) {},
+	mainText: null,
+	before: function before(game, center) {
+		this.result = this.numcalc();
+		var reversed = this.result.split("").reverse().join("");
+		var mainText = game.add.text(center.x * 0.74 + this.moveMainBy, center.y * 0.20, reversed, { font: this.quizSize + "px", fill: "#ffffff" });
+		window.setTimeout(function () {
+			mainText.destroy();
+		}, this.timein);
+	},
+	nums: 4,
+	numcalc: function numcalc() {
+		var response = "";
+		for (var ii = 0; ii < this.nums; ii++) {
+			var anum = Math.floor(Math.random() * (1 + 9)) + 0;
+			response += anum;
+		}
+		return response;
+	},
+	result: -1,
+	calculator: function calculator() {
+		var quizzer = "reversed?";
+		return [this.result, this.result, quizzer];
+	},
+	getRandom: function getRandom(number) {
+		return this.numcalc();
+	}
+};
+
+// ..
+
+window.configRhy21 = {
 	id: 21,
 	name: "rhymes",
 	timeup: 8000,
 	quizSize: 84,
 	choiceSize: 56,
 	moveMainBy: -170,
-	pre: function pre(game) {},
+	timein: 0,
+	pre: function pre(game, center) {},
+	before: function before(game, center) {},
 	calculator: function calculator() {
 		var rhymes = [["ball", "wall"], ["net", "bet"], ["moon", "toon"], ["soon", "moon"], ["rice", "nice"], ["kite", "lite"], ["rough", "cough"], ["see", "knee"], ["neat", "seat"], ["dry", "fry"]];
 		var rhymeIndex = Math.floor(Math.random() * rhymes.length) + 0;
 		var rhymePair = rhymes[rhymeIndex];
 		var result = rhymePair[1];
 		var quizzer = "rhymes with " + rhymePair[0];
-		return [result, quizzer];
+		return [rhymeIndex, result, quizzer];
 	},
-	getRandom: function getRandom(result) {
+	getRandom: function getRandom(number) {
 		var rhymes = ["joke", "jack", "knot", "what", "mac", "rune", "tin", "chip", "fin", "flan", "dune", "man"];
 		var rhymeIndex = Math.floor(Math.random() * rhymes.length) + 0;
 		var rhymed = rhymes[rhymeIndex];
@@ -268,13 +353,62 @@ window.configRhy = {
 	}
 };
 
-window.configImg = {
+// --
+
+window.configMem31 = {
 	id: 31,
+	name: "memory 31",
+	timeup: 6000,
+	quizSize: 74,
+	choiceSize: 52,
+	moveMainBy: -300,
+	timein: 0,
+	pre: function pre(game, center) {
+		var sprite1 = game.add.sprite(center.x * 0.20, center.y * 0.11, 'bookopen');
+		sprite1.scale.setTo(center.x * 0.0067, center.y * 0.0082);
+		var style = { font: '50px Arial', fill: 'black', align: 'left', wordWrap: true, wordWrapWidth: 1200 };
+		var text1 = game.add.text(center.x * 0.28, center.y * 0.24, this.message, style);
+		window.setTimeout(function () {
+			text1.destroy();sprite1.destroy();
+		}, 10000);
+	},
+	before: function before(game, center) {
+		// game.add.text(100, 20, "papa papa papa", {font: "40px Arial", fill: "#000000"});
+	},
+	message: 'Nectar, in botany, is a liquid made by the flowers of plants. It is very sweet because it has a lot of sugar in it. Plants make nectar to attract pollinating animals. It is made in glands called nectaries. The Nectaries are usually at the bottom of the flower. This means the animal trying to get the nectar have to touch the parts of the plant that are used for reproduction. By doing this, the animal getting the nectar helps the plants reproduce. Some plants make nectar outside the flower. These plants do it to attract predatory insects. These insects will eat both the nectar and any plant-eating insects found near the plant.',
+	questions: [["what makes nectar", "plants", "bees", "fleas"], ["why is nectar sweet", "sugar", "salt", "bees"], ["are all nectars inside the \nflower", "no", "yes", "yes"], ["where are the nectaries in \nthe flower", "bottom", "top", "air"], ["what does nectar attract", "animals", "babies", "babies"], ["what are nectaries", "glands", "animals", "bees"], ["is nectar a liquid", "yes", "no", "no"]],
+	wackyAnswers: ["jack", "joe", "what", "fire", "water", "apple", "cheese", "men"],
+	calculator: function calculator() {
+		console.log(this.questions);
+		var questionIndex = Math.floor(Math.random() * this.questions.length) + 0;
+		var questionPair = this.questions[questionIndex];
+		var result = questionPair[1];
+		var quizzer = questionPair[0] + " ?";
+		return [questionIndex, result, quizzer];
+	},
+	getRandom: function getRandom(number) {
+		var answered = "";
+		var answerIndex = Math.floor(Math.random() * (1 + 4)) + 2;
+		if (answerIndex < 4) {
+			answered = this.questions[number][answerIndex];
+		} else {
+			var wackyAnswerIndex = Math.floor(Math.random() * this.wackyAnswers.length) + 0;
+			answered = this.wackyAnswers[wackyAnswerIndex];
+		}
+		return answered;
+	}
+};
+
+// --
+
+window.configImg41 = {
+	id: 41,
 	name: "needs work",
 	timeup: 7000,
 	quizSize: 90,
 	choiceSize: 60,
 	moveMainBy: -170,
+	timein: 0,
 	gamey: null,
 	dataURItoBlob: function dataURItoBlob(dataURI) {
 		// convert base64/URLEncoded data component to raw binary data held in a string
@@ -311,55 +445,31 @@ window.configImg = {
 			return new File([buf], filename, { type: mimeType });
 		});
 	},
-	pre: function pre(game) {
+	pre: function pre(game, center) {
 		console.log("pre");
-		console.log(this.gamey);
 		this.gamey = game;
-		// game.load.image('panda', 'https://image.flaticon.com/icons/svg/948/948256.svg');
-		// this.gamey.load.image('panda', 'assets/button-1045.png');
-		// loader.image('someimage', '//url/to/image' );
-
 		var loader = new Phaser.Loader(game);
-
-		// 		var dataURI = 'data:image/png;base64,'+
-		// 'iVBORw0KGgoAAAANSUhEUgAAAGAAAAATCAYAAABvLghXAAABZElEQVR42u2YUQrCMAyGdwjB13kP'+
-		// 'z7GrCJ5qexC8mw8VnZOsa5K/TXAbthDEKV/+Jk3Wtmn0ERjzGpWvAU99tzCDs8qX4BRyvJ5nnxRM'+
-		// 'R4aTpNiU8L3xpxhZ+Kp4OokIHkqTm/q+B753fFihXKll9j1Y/B74NEZxokv4LKDrL1+TJqk4E1em'+
-		// 'NIkSPuIj/j2X753sZB+jwZcS8Hr+CEsjTsziET4NajukWe3HNqa/EVe+lAAOHjmBVnmO+BSfC/gi'+
-		// 'AcPm9M8rwJIApszU6or59L8oH1lArUE/ukDjdyjA9y8xrYdOAkpbHMK3tFBUP3oeUPhyGRe+ZCA+'+
-		// 'MoFSvpZgabeH6neKz+iE2zkgvQ/Y55omUcrPTLC7/uhwhh2xDdnN5mfup2E+x0o9t+h3js/Sibaf'+
-		// 'LrjrCLknyj/jzy+bnC+xVuML/d7MVw519Zp4x/xx3G+HQD8r/4f8Gpx1+W8wtcr35z8BKzsYemDt'+
-		// 'gtgAAAAASUVORK5CYII=';
-		//
-		// 		var data2 = this.urltoFile(dataURI, 'image1.png', 'image/png');
-
-		// var data1 = new Image();
-		// data1.src = dataURI;
-
-		// loader.image('panda', 'assets/button-1045.png');
-		// loader.image('panda', 'assets/animalSheet2009.jpg');
-		// loader.image('panda', data2);
-
-		// loader.onLoadComplete.addOnce(this.onLoaded);
-		// loader.start();
-		// var
+		loader.spritesheet('panda', 'extras/animalSheet2009.jpg', 172, 160);
+		loader.onLoadComplete.addOnce(this.onLoaded);
+		loader.start();
 	},
+	before: function before(game, center) {},
 	onLoaded: function onLoaded() {
 		console.log('everything is loaded and ready to be used');
 	},
 	calculator: function calculator() {
 		console.log('calculator');
-		// console.log(this.gamey);
-		// var sprite1 = this.gamey.add.sprite(100, 400, 'panda');
-		// sprite1.scale.setTo(50,50);
+		var sprite1 = this.gamey.add.sprite(500, 260, 'panda');
+		sprite1.frame = 7;
+		// sprite1.scale.setTo(0.5,0.5);
 		var rhymes = [["ball", "wall"], ["net", "bet"], ["moon", "toon"], ["soon", "moon"], ["rough", "cough"], ["see", "knee"], ["dry", "fry"]];
 		var rhymeIndex = Math.floor(Math.random() * rhymes.length) + 0;
 		var rhymePair = rhymes[rhymeIndex];
 		var result = rhymePair[1];
 		var quizzer = "rhymes with " + rhymePair[0];
-		return [result, quizzer];
+		return [rhymeIndex, result, quizzer];
 	},
-	getRandom: function getRandom(result) {
+	getRandom: function getRandom(number) {
 		var rhymes = ["joke", "jack", "knot", "what", "mac", "tin", "chip", "fin", "flan", "dune"];
 		var rhymeIndex = Math.floor(Math.random() * rhymes.length) + 0;
 		var rhymed = rhymes[rhymeIndex];
@@ -367,34 +477,36 @@ window.configImg = {
 	}
 };
 
-// default
+//// default
 
-window.config = window.configAdd;
+window.config = window.configAdd11;
 
 ////////
 
 var QuizType = (function (_Phaser$Sprite) {
 	_inherits(QuizType, _Phaser$Sprite);
 
-	function QuizType(game, x, y, key, context) {
+	function QuizType(game, x, y, key, context, center) {
 		_classCallCheck(this, QuizType);
 
 		_get(Object.getPrototypeOf(QuizType.prototype), "constructor", this).call(this, game, x, y, key);
 		// width, height
 
 		// default
-		window.config = window.configAdd;
+		window.config = window.configAdd11;
 
 		this.xposOrig = 26;
 		this.xpos = this.xposOrig;
 		this.yposOrig = 210;
 		this.ypos = this.yposOrig;
 
+		this.center = center;
+
 		var text = null;
 
 		// Add
 		var button11 = game.add.button(this.xpos, this.ypos, key, function () {
-			window.config = window.configAdd;
+			window.config = window.configAdd11;
 		}, context, 0, 1, 2, 3);
 		button11.anchor.x = 0.5;
 		button11.anchor.y = 0.5;
@@ -405,7 +517,7 @@ var QuizType = (function (_Phaser$Sprite) {
 
 		// Del
 		var button12 = game.add.button(this.xpos, this.ypos, key, function () {
-			window.config = window.configDel;
+			window.config = window.configDel12;
 		}, context, 0, 1, 2, 3);
 		button12.anchor.x = 0.5;
 		button12.anchor.y = 0.5;
@@ -416,7 +528,7 @@ var QuizType = (function (_Phaser$Sprite) {
 
 		// Mul
 		var button13 = game.add.button(this.xpos, this.ypos, key, function () {
-			window.config = window.configMul;
+			window.config = window.configMul13;
 		}, context, 0, 1, 2, 3);
 		button13.anchor.x = 0.5;
 		button13.anchor.y = 0.5;
@@ -425,27 +537,61 @@ var QuizType = (function (_Phaser$Sprite) {
 		button13.addChild(text);
 		this.xpos += 38;
 
-		// Mul
-		var button14 = game.add.button(this.xpos, this.ypos, key, function () {
-			window.config = window.configRhy;
+		// Rhy
+		var button21 = game.add.button(this.xpos, this.ypos, key, function () {
+			window.config = window.configRhy21;
 		}, context, 0, 1, 2, 3);
-		button14.anchor.x = 0.5;
-		button14.anchor.y = 0.5;
-		button14.scale.setTo(0.14, 0.14);
+		button21.anchor.x = 0.5;
+		button21.anchor.y = 0.5;
+		button21.scale.setTo(0.14, 0.14);
 		text = game.add.text(-40, -120, "r", { font: "200px Arial", fill: "#000000" });
-		button14.addChild(text);
+		button21.addChild(text);
 		this.xpos = this.xposOrig;
 		this.ypos += 40;
 
-		// Tmp
-		var button15 = game.add.button(this.xpos, this.ypos, key, function () {
-			window.config = window.configImg;
+		// Mem
+		var button16 = game.add.button(this.xpos, this.ypos, key, function () {
+			window.config = window.configMem16;
 		}, context, 0, 1, 2, 3);
-		button15.anchor.x = 0.5;
-		button15.anchor.y = 0.5;
-		button15.scale.setTo(0.14, 0.14);
-		text = game.add.text(-30, -120, "i", { font: "200px Arial", fill: "#000000" });
-		button15.addChild(text);
+		button16.anchor.x = 0.5;
+		button16.anchor.y = 0.5;
+		button16.scale.setTo(0.14, 0.14);
+		text = game.add.text(-80, -120, "m", { font: "200px Arial", fill: "#000000" });
+		button16.addChild(text);
+		this.xpos += 38;
+
+		var button17 = game.add.button(this.xpos, this.ypos, key, function () {
+			window.config = window.configMem17;
+		}, context, 0, 1, 2, 3);
+		button17.anchor.x = 0.5;
+		button17.anchor.y = 0.5;
+		button17.scale.setTo(0.14, 0.14);
+		text = game.add.text(-80, -120, "m", { font: "200px Arial", fill: "#000000" });
+		button17.addChild(text);
+		this.xpos += 38;
+
+		//
+
+		// Mem
+		var button31 = game.add.button(this.xpos, this.ypos, key, function () {
+			window.config = window.configMem31;window.config.pre(game, this.center);
+		}, context, 0, 1, 2, 3);
+		button31.anchor.x = 0.5;
+		button31.anchor.y = 0.5;
+		button31.scale.setTo(0.14, 0.14);
+		text = game.add.text(-80, -120, "m", { font: "200px Arial", fill: "#000000" });
+		button31.addChild(text);
+		this.xpos += 38;
+
+		// Tmp
+		var button41 = game.add.button(this.xpos, this.ypos, key, function () {
+			window.config = window.configImg41;window.config.pre(game, this.center);
+		}, context, 0, 1, 2, 3);
+		button41.anchor.x = 0.5;
+		button41.anchor.y = 0.5;
+		button41.scale.setTo(0.14, 0.14);
+		text = game.add.text(-30, -120, "t", { font: "200px Arial", fill: "#000000" });
+		button41.addChild(text);
 		this.xpos += 38;
 	}
 
@@ -483,14 +629,15 @@ var Quiz = (function (_Phaser$Sprite) {
 
     this.quizzer = "";
     this.result = -1;
+    this.index = -1;
 
     this.choices = [-1, -1, -1];
     this.correct = -1;
 
     this.textChoices = [];
 
-    var sprite1 = this.game.add.sprite(x * 0.26, y * 0.16, key1);
-    sprite1.scale.setTo(x * 0.0017, y * 0.0011);
+    var sprite1 = this.game.add.sprite(x * 0.24, y * 0.16, key1);
+    sprite1.scale.setTo(x * 0.0019, y * 0.0011);
 
     var sprite11 = this.game.add.sprite(x * 0.46, y * 0.72, key2);
     sprite11.scale.setTo(x * 0.00055, y * 0.00055);
@@ -532,7 +679,7 @@ var Quiz = (function (_Phaser$Sprite) {
     value: function calcChoices() {
       var context = this;
       for (var index in this.choices) {
-        this.choices[index] = this.getRandomFromResult();
+        this.choices[index] = this.getRandomFromIndexNumberOrResult();
       }
       var which = Math.floor(Math.random() * (1 + 2)) + 0;
       this.choices[which] = this.result;
@@ -543,8 +690,9 @@ var Quiz = (function (_Phaser$Sprite) {
     value: function calcQuizzer() {
       console.log("calcRandomQuizzer");
       var response = window.config.calculator();
-      this.result = response[0];
-      this.quizzer = response[1];
+      this.index = response[0];
+      this.result = response[1];
+      this.quizzer = response[2];
     }
   }, {
     key: 'erase',
@@ -558,6 +706,13 @@ var Quiz = (function (_Phaser$Sprite) {
         this.textChoices[index].destroy();
       }
     }
+
+    // eraseJustMain() {
+    //   if (this.main != null) {
+    //     this.main.destroy();
+    //   }
+    // }
+
   }, {
     key: 'getResult',
     value: function getResult() {
@@ -569,9 +724,9 @@ var Quiz = (function (_Phaser$Sprite) {
       return this.correct;
     }
   }, {
-    key: 'getRandomFromResult',
-    value: function getRandomFromResult() {
-      return window.config.getRandom(this.result);
+    key: 'getRandomFromIndexNumberOrResult',
+    value: function getRandomFromIndexNumberOrResult() {
+      return window.config.getRandom(this.index);
     }
   }]);
 
@@ -636,6 +791,7 @@ var GameState = (function (_Phaser$State) {
 			this.game.load.image('button2', 'assets/button-1536.png');
 			this.game.load.image('button3', 'assets/button-gray.png');
 			this.game.load.image('speechbubble', 'assets/speech-bubble-22.png');
+			this.game.load.image('bookopen', 'assets/book-open.png');
 		}
 	}, {
 		key: 'create',
@@ -651,7 +807,7 @@ var GameState = (function (_Phaser$State) {
 
 			this.next = new _next2['default'](this.game, this.center.x, this.center.y, 'button1', this.nexter, this);
 
-			this.quiztype = new _qtype2['default'](this.game, this.center.x, this.center.y, 'button3', this);
+			this.quiztype = new _qtype2['default'](this.game, this.center.x, this.center.y, 'button3', this, this.center);
 
 			this.quiz = new _quiz2['default'](this.game, this.center.x, this.center.y, 'blackboard', 'button2');
 
@@ -667,7 +823,7 @@ var GameState = (function (_Phaser$State) {
 			this.gameOn = false;
 
 			this.lastTypeId = 11;
-			window.config.pre(this.game);
+			// window.config.pre(this.game);
 
 			// this.practice01();
 			// this.practice02();
@@ -741,25 +897,41 @@ var GameState = (function (_Phaser$State) {
 				this.gameOn = true;
 				this.reset();
 
-				if (window.config.id != this.lastTypeId) {
-					console.log("reloading pre");
-					window.config.pre(this.game);
+				// if (window.config.id != this.lastTypeId) {
+				// 	console.log("reloading pre");
+				// 	window.config.pre(this.game);
+				// }
+				// this.lastTypeId = window.config.id;
+
+				window.config.before(this.game, this.center);
+
+				if (window.config.timein == 0) {
+					this.nextcontinue();
+				} else {
+					var that = this;
+					window.setTimeout(function () {
+						that.nextcontinue();
+					}, window.config.timein);
 				}
-				this.lastTypeId = window.config.id;
-
-				console.log('next - continue');
-				this.quiz.writeMain();
-				this.quiz.writeChoices();
-
-				this.timerReset();
-				this.timer = this.game.time.create(false);
-				this.timer.loop(window.config.timeup, this.timerFinished, this);
-				this.timer.start();
-
-				this.subtitle.destroy();
-				this.subtitle = this.game.add.text(this.center.x * 0.98, this.center.y * 0.12, window.config.name, { font: "18px Optima" });
-				this.subtitle.anchor.set(0.5);
 			}
+		}
+	}, {
+		key: 'nextcontinue',
+		value: function nextcontinue() {
+			console.log('next - continue');
+			this.quiz.writeMain();
+			this.quiz.writeChoices();
+
+			this.timerReset();
+			this.timer = this.game.time.create(false);
+			this.timer.loop(window.config.timeup, this.timerFinished, this);
+			this.timer.start();
+
+			this.subtitle.destroy();
+			this.subtitle = this.game.add.text(this.center.x * 0.98, this.center.y * 0.12, window.config.name, { font: "18px Optima" });
+			this.subtitle.anchor.set(0.5);
+
+			console.log('next - end');
 		}
 	}, {
 		key: 'reset',
