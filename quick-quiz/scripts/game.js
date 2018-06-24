@@ -1,4 +1,396 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var Config = (function () {
+  function Config(id, name, config) {
+    _classCallCheck(this, Config);
+
+    this.id = id;
+    this.name = name;
+    this.timeup = 7000;
+    this.quizSize = 180;
+    this.choiceSize = 10;
+    this.moveMainBy = 0;
+    this.timein = 0;
+    this.setConfig(config);
+  }
+
+  _createClass(Config, [{
+    key: "setConfig",
+    value: function setConfig(config) {
+      for (var key in config) {
+        if (config.hasOwnProperty(key)) {
+          this[key] = config[key];
+          // console.log(key + " -> " + p[key]);
+        }
+      }
+    }
+  }, {
+    key: "pre",
+    value: function pre(game, center) {}
+  }, {
+    key: "before",
+    value: function before(game, center) {}
+  }, {
+    key: "calculator",
+    value: function calculator() {
+      return [-1, -1, -1];
+    }
+  }, {
+    key: "getRandom",
+    value: function getRandom(number) {
+      return -1;
+    }
+  }, {
+    key: "after",
+    value: function after(game, center) {}
+
+    // get area() { return this.height * this.width; }
+    // set area(value) { this.area = value; }
+
+  }]);
+
+  return Config;
+})();
+
+exports["default"] = Config;
+module.exports = exports["default"];
+
+},{}],2:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var _config = require('config');
+
+var _config2 = _interopRequireDefault(_config);
+
+var ConfigCalc = (function (_Config) {
+	_inherits(ConfigCalc, _Config);
+
+	function ConfigCalc(id, name, config, firstmin, firstmax, secondmax, optype) {
+		_classCallCheck(this, ConfigCalc);
+
+		_get(Object.getPrototypeOf(ConfigCalc.prototype), "constructor", this).call(this, id, name, config);
+		this.firstmin = firstmin;
+		this.firstmax = firstmax;
+		this.secondmax = secondmax;
+		this.optype = optype;
+	}
+
+	_createClass(ConfigCalc, [{
+		key: "calculator",
+		value: function calculator() {
+			var first = Math.floor(Math.random() * (1 + this.firstmax)) + this.firstmin;
+			var second = Math.floor(Math.random() * (1 + this.secondmax)) + 0;
+			var quizzer = first.toString() + " " + this.optype + " " + second.toString();
+			var result = eval(quizzer);
+			return [result, result, quizzer];
+		}
+	}, {
+		key: "getRandom",
+		value: function getRandom(number) {
+			var operation = Math.floor(Math.random() * (1 + 1)) + 0;
+			var variant = Math.floor(Math.random() * (1 + 3)) + 1;
+			if (number < 3 || operation == 0) {
+				return number + variant;
+			} else {
+				return number - variant;
+			}
+		}
+	}]);
+
+	return ConfigCalc;
+})(_config2["default"]);
+
+exports["default"] = ConfigCalc;
+module.exports = exports["default"];
+
+},{"config":1}],3:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var _config = require('config');
+
+var _config2 = _interopRequireDefault(_config);
+
+var ConfigMem = (function (_Config) {
+  _inherits(ConfigMem, _Config);
+
+  function ConfigMem(id, name, config, nums, callback) {
+    _classCallCheck(this, ConfigMem);
+
+    _get(Object.getPrototypeOf(ConfigMem.prototype), "constructor", this).call(this, id, name, config);
+    this.nums = nums;
+    this.callback = callback;
+    //
+    this.mainText = "";
+    this.result = -1;
+  }
+
+  _createClass(ConfigMem, [{
+    key: "before",
+    value: function before(game, center) {
+      this.result = this.numcalc();
+      var message = this.callback(this.result);
+      var mainText = game.add.text(center.x * 0.74 + this.moveMainBy, center.y * 0.20, message, { font: this.quizSize + "px", fill: "#ffffff" });
+      window.setTimeout(function () {
+        mainText.destroy();
+      }, this.timein);
+    }
+  }, {
+    key: "numcalc",
+    value: function numcalc() {
+      var response = "";
+      for (var ii = 0; ii < this.nums; ii++) {
+        var anum = Math.floor(Math.random() * (1 + 9)) + 0;
+        response += anum;
+      }
+      return response;
+    }
+  }, {
+    key: "calculator",
+    value: function calculator() {
+      var quizzer = "which?";
+      return [this.result, this.result, quizzer];
+    }
+  }, {
+    key: "getRandom",
+    value: function getRandom(number) {
+      return this.numcalc();
+    }
+  }]);
+
+  return ConfigMem;
+})(_config2["default"]);
+
+exports["default"] = ConfigMem;
+module.exports = exports["default"];
+
+},{"config":1}],4:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var _config = require('config');
+
+var _config2 = _interopRequireDefault(_config);
+
+var ConfigQues = (function (_Config) {
+  _inherits(ConfigQues, _Config);
+
+  function ConfigQues(id, name, config, ante, afte, questions, wackys) {
+    _classCallCheck(this, ConfigQues);
+
+    _get(Object.getPrototypeOf(ConfigQues.prototype), "constructor", this).call(this, id, name, config);
+    this.ante = ante;
+    this.afte = afte;
+    this.questions = questions;
+    this.wackys = wackys;
+    //
+    this.index = -1;
+  }
+
+  _createClass(ConfigQues, [{
+    key: "calculator",
+    value: function calculator() {
+      var questionIndex = Math.floor(Math.random() * this.questions.length) + 0;
+      var questionPair = this.questions[questionIndex];
+      var result = questionPair[1];
+      var quizzer = this.ante + questionPair[0] + this.afte;
+      this.index = questionIndex;
+      return [questionIndex, result, quizzer];
+    }
+  }, {
+    key: "getRandom",
+    value: function getRandom(number) {
+      var answered = "";
+      var answerIndex = Math.floor(Math.random() * (1 + 3)) + 2;
+      if (answerIndex < 3) {
+        answered = this.questions[number][answerIndex];
+      } else {
+        var wackyIndex = Math.floor(Math.random() * this.wackys.length) + 0;
+        answered = this.wackys[wackyIndex];
+      }
+      return answered;
+    }
+  }]);
+
+  return ConfigQues;
+})(_config2["default"]);
+
+exports["default"] = ConfigQues;
+module.exports = exports["default"];
+
+},{"config":1}],5:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, '__esModule', {
+  value: true
+});
+
+var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var _configQues = require('configQues');
+
+var _configQues2 = _interopRequireDefault(_configQues);
+
+var ConfigQuesImag = (function (_ConfigQues) {
+  _inherits(ConfigQuesImag, _ConfigQues);
+
+  function ConfigQuesImag(id, name, config, ante, afte, questions, wackys, sheetfile) {
+    _classCallCheck(this, ConfigQuesImag);
+
+    _get(Object.getPrototypeOf(ConfigQuesImag.prototype), 'constructor', this).call(this, id, name, config, ante, afte, questions, wackys);
+    this.sheetfile = sheetfile;
+    //
+    this.game = null;
+    this.sprite = null;
+  }
+
+  _createClass(ConfigQuesImag, [{
+    key: 'pre',
+    value: function pre(game, center) {
+      console.log("pre");
+      this.game = game;
+      var loader = new Phaser.Loader(game);
+      loader.spritesheet('sheet', this.sheetfile, 172, 160);
+      loader.onLoadComplete.addOnce(this.onLoaded);
+      loader.start();
+    }
+  }, {
+    key: 'onLoaded',
+    value: function onLoaded() {
+      console.log('image sheet is loaded and ready to be used');
+    }
+  }, {
+    key: 'before',
+    value: function before(game, center) {
+      if (this.sprite != null) {
+        this.sprite.destroy();
+      }
+      this.sprite = this.game.add.sprite(center.x * 0.77, center.y * 0.19, 'sheet');
+      this.sprite.scale.setTo(center.x * 0.0028, center.y * 0.0030);
+    }
+  }, {
+    key: 'after',
+    value: function after(game, center) {
+      this.sprite.frame = this.index;
+    }
+  }]);
+
+  return ConfigQuesImag;
+})(_configQues2['default']);
+
+exports['default'] = ConfigQuesImag;
+module.exports = exports['default'];
+
+},{"configQues":4}],6:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, '__esModule', {
+  value: true
+});
+
+var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var _configQues = require('configQues');
+
+var _configQues2 = _interopRequireDefault(_configQues);
+
+var ConfigQuesRead = (function (_ConfigQues) {
+  _inherits(ConfigQuesRead, _ConfigQues);
+
+  function ConfigQuesRead(id, name, config, ante, afte, message, questions, wackys) {
+    _classCallCheck(this, ConfigQuesRead);
+
+    _get(Object.getPrototypeOf(ConfigQuesRead.prototype), 'constructor', this).call(this, id, name, config, ante, afte, questions, wackys);
+    this.message = message;
+  }
+
+  _createClass(ConfigQuesRead, [{
+    key: 'pre',
+    value: function pre(game, center) {
+      var sprite1 = game.add.sprite(center.x * 0.20, center.y * 0.11, 'bookopen');
+      sprite1.scale.setTo(center.x * 0.0068, center.y * 0.0081);
+      var style = { font: '50px Arial', fill: 'black', align: 'left', wordWrap: true, wordWrapWidth: center.x * 1.63 };
+      var text1 = game.add.text(center.x * 0.28, center.y * 0.24, this.message, style);
+      window.setTimeout(function () {
+        text1.destroy();sprite1.destroy();
+      }, 10000);
+      console.log("message length is " + this.message.length);
+      // ideally length should be under 450.
+    }
+  }]);
+
+  return ConfigQuesRead;
+})(_configQues2['default']);
+
+exports['default'] = ConfigQuesRead;
+module.exports = exports['default'];
+
+},{"configQues":4}],7:[function(require,module,exports){
 'use strict';
 
 var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
@@ -30,7 +422,7 @@ var Game = (function (_Phaser$Game) {
 
 new Game();
 
-},{"states/GameState":6}],2:[function(require,module,exports){
+},{"states/GameState":12}],8:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -68,7 +460,7 @@ var ButtonNext = (function (_Phaser$Sprite) {
 exports["default"] = ButtonNext;
 module.exports = exports["default"];
 
-},{}],3:[function(require,module,exports){
+},{}],9:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -148,460 +540,605 @@ var Placing = (function (_Phaser$Sprite) {
 exports["default"] = Placing;
 module.exports = exports["default"];
 
-},{}],4:[function(require,module,exports){
+},{}],10:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, '__esModule', {
+				value: true
+});
+
+var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var _configCalc = require('configCalc');
+
+var _configCalc2 = _interopRequireDefault(_configCalc);
+
+var _configMem = require('configMem');
+
+var _configMem2 = _interopRequireDefault(_configMem);
+
+var _configQues = require('configQues');
+
+var _configQues2 = _interopRequireDefault(_configQues);
+
+var _configQuesRead = require('configQuesRead');
+
+var _configQuesRead2 = _interopRequireDefault(_configQuesRead);
+
+var _configQuesImag = require('configQuesImag');
+
+var _configQuesImag2 = _interopRequireDefault(_configQuesImag);
+
+// import Config from 'config';
 
 ////////
 
 // configs
 
-"use strict";
+// window.configAdd11 = {
+// 	id: 11,
+// 	name: "addition",
+// 	timeup: 7000,
+// 	quizSize: 180,
+// 	choiceSize: 90,
+//   moveMainBy: 0,
+// 	timein: 0,
+// 	pre: function(game,center) {},
+// 	before: function(game,center) {},
+// 	calculator: function() {
+// 		var first = Math.floor(Math.random() * (1 + 9)) + 0;
+// 	  var second = Math.floor(Math.random() * (1 + 5)) + 0;
+// 	  var result = first + second;
+// 		var quizzer = first.toString() + " + " + second.toString();
+// 		return [result, result, quizzer];
+// 	},
+// 	getRandom: function(number) {
+// 		var operation = Math.floor(Math.random() * (1 + 1)) + 0;
+// 		var variant = Math.floor(Math.random() * (1 + 3)) + 1;
+// 		if (number < 3 || operation == 0) {
+// 			return number + variant;
+// 		}
+// 		else {
+// 			return number - variant;
+// 		}
+// 	}
+// }
 
-Object.defineProperty(exports, "__esModule", {
-	value: true
-});
+// window.configDel12 = {
+// 	id: 12,
+// 	name: "subtraction",
+// 	timeup: 7000,
+// 	quizSize: 180,
+// 	choiceSize: 90,
+//   moveMainBy: 0,
+// 	timein: 0,
+// 	pre: function(game,center) {},
+// 	before: function(game,center) {},
+// 	calculator: function() {
+// 		var first = Math.floor(Math.random() * (1 + 10)) + 4;
+// 	  var second = Math.floor(Math.random() * (1 + 5)) + 0;
+// 	  var result = first - second;
+// 		var quizzer = first.toString() + " - " + second.toString();
+// 		return [result, result, quizzer];
+// 	},
+// 	getRandom: function(number) {
+// 		var operation = Math.floor(Math.random() * (1 + 1)) + 0;
+// 		var variant = Math.floor(Math.random() * (1 + 3)) + 1;
+// 		if (number < 3 || operation == 0) {
+// 			return number + variant;
+// 		}
+// 		else {
+// 			return number - variant;
+// 		}
+// 	}
+// }
 
-var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+// window.configMul13 = {
+// 	id: 13,
+// 	name: "multiplication",
+// 	timeup: 9000,
+// 	quizSize: 180,
+// 	choiceSize: 90,
+//   moveMainBy: 0,
+// 	timein: 0,
+// 	pre: function(game,center) {},
+// 	before: function(game,center) {},
+// 	calculator: function() {
+// 		var first = Math.floor(Math.random() * (1 + 5)) + 1;
+// 	  var second = Math.floor(Math.random() * (1 + 4)) + 0;
+// 	  var result = first * second;
+// 		var quizzer = first.toString() + " X " + second.toString();
+// 		return [result, result, quizzer];
+// 	},
+// 	getRandom: function(number) {
+// 		var operation = Math.floor(Math.random() * (1 + 1)) + 0;
+// 		var variant = Math.floor(Math.random() * (1 + 3)) + 1;
+// 		if (number < 3 || operation == 0) {
+// 			return number + variant;
+// 		}
+// 		else {
+// 			return number - variant;
+// 		}
+// 	}
+// }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+// window.configMem16 = {
+// 	id: 16,
+// 	name: "memorize numbers",
+// 	timeup: 9000,
+// 	quizSize: 180,
+// 	choiceSize: 74,
+//   moveMainBy: -50,
+// 	timein: 3000,
+// 	pre: function(game,center) {},
+// 	mainText: null,
+// 	before: function(game,center) {
+// 		this.result = this.numcalc();
+// 		var mainText = game.add.text(center.x*0.74+this.moveMainBy, center.y*0.20, this.result, {font: this.quizSize+"px", fill: "#ffffff"});
+// 		window.setTimeout(function(){ mainText.destroy(); }, this.timein);
+// 	},
+// 	nums: 5,
+// 	numcalc: function() {
+// 		var response = "";
+// 		for (var ii=0; ii<this.nums; ii++) {
+// 			var anum = Math.floor(Math.random() * (1 + 9)) + 0;
+// 			response += anum;
+// 		}
+// 		return response;
+// 	},
+// 	result: -1,
+// 	calculator: function() {
+// 		var quizzer = "which?";
+// 		return [this.result, this.result, quizzer];
+// 	},
+// 	getRandom: function(number) {
+// 		return this.numcalc();
+// 	}
+// }
 
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+// window.configMem17 = {
+// 	id: 17,
+// 	name: "memorize numbers backwards",
+// 	timeup: 9000,
+// 	quizSize: 180,
+// 	choiceSize: 74,
+//   moveMainBy: -50,
+// 	timein: 3000,
+// 	pre: function(game,center) {},
+// 	mainText: null,
+// 	before: function(game,center) {
+// 		this.result = this.numcalc();
+// 		var reversed = this.result.split("").reverse().join("");
+// 		var mainText = game.add.text(center.x*0.74+this.moveMainBy, center.y*0.20, reversed, {font: this.quizSize+"px", fill: "#ffffff"});
+// 		window.setTimeout(function(){ mainText.destroy(); }, this.timein);
+// 	},
+// 	nums: 4,
+// 	numcalc: function() {
+// 		var response = "";
+// 		for (var ii=0; ii<this.nums; ii++) {
+// 			var anum = Math.floor(Math.random() * (1 + 9)) + 0;
+// 			response += anum;
+// 		}
+// 		return response;
+// 	},
+// 	result: -1,
+// 	calculator: function() {
+// 		var quizzer = "reversed?";
+// 		return [this.result, this.result, quizzer];
+// 	},
+// 	getRandom: function(number) {
+// 		return this.numcalc();
+// 	}
+// }
 
-window.configAdd11 = {
-	id: 11,
-	name: "addition",
-	timeup: 7000,
-	quizSize: 180,
-	choiceSize: 90,
-	moveMainBy: 0,
-	timein: 0,
-	pre: function pre(game, center) {},
-	before: function before(game, center) {},
-	calculator: function calculator() {
-		var first = Math.floor(Math.random() * (1 + 9)) + 0;
-		var second = Math.floor(Math.random() * (1 + 5)) + 0;
-		var result = first + second;
-		var quizzer = first.toString() + " + " + second.toString();
-		return [result, result, quizzer];
-	},
-	getRandom: function getRandom(number) {
-		var operation = Math.floor(Math.random() * (1 + 1)) + 0;
-		var variant = Math.floor(Math.random() * (1 + 3)) + 1;
-		if (number < 3 || operation == 0) {
-			return number + variant;
-		} else {
-			return number - variant;
-		}
-	}
-};
+// window.configRhy21 = {
+// 	id: 21,
+// 	name: "rhymes",
+// 	timeup: 8000,
+// 	quizSize: 84,
+// 	choiceSize: 56,
+//   moveMainBy: -170,
+// 	timein: 0,
+// 	pre: function(game,center) {},
+// 	before: function(game,center) {},
+// 	calculator: function() {
+//     var rhymes = [
+//       ["ball", "wall"],
+//       ["net", "bet"],
+//       ["moon", "toon"],
+//       ["soon", "moon"],
+// 			["rice", "nice"],
+// 			["kite", "lite"],
+//       ["rough", "cough"],
+//       ["see", "knee"],
+// 			["neat", "seat"],
+//       ["dry", "fry"]
+//     ];
+// 		var rhymeIndex = Math.floor(Math.random() * (rhymes.length)) + 0;
+//     var rhymePair = rhymes[rhymeIndex];
+// 	  var result = rhymePair[1];
+// 		var quizzer = "rhymes with " + rhymePair[0];
+// 		return [rhymeIndex, result, quizzer];
+// 	},
+// 	getRandom: function(number) {
+//     var rhymes = [
+//       "joke", "jack", "knot", "what", "mac", "rune",
+//       "tin", "chip", "fin", "flan", "dune", "man"
+//     ];
+// 		var rhymeIndex = Math.floor(Math.random() * (rhymes.length)) + 0;
+//     var rhymed = rhymes[rhymeIndex];
+//     return rhymed;
+// 	}
+// }
 
-window.configDel12 = {
-	id: 12,
-	name: "subtraction",
-	timeup: 7000,
-	quizSize: 180,
-	choiceSize: 90,
-	moveMainBy: 0,
-	timein: 0,
-	pre: function pre(game, center) {},
-	before: function before(game, center) {},
-	calculator: function calculator() {
-		var first = Math.floor(Math.random() * (1 + 10)) + 4;
-		var second = Math.floor(Math.random() * (1 + 5)) + 0;
-		var result = first - second;
-		var quizzer = first.toString() + " - " + second.toString();
-		return [result, result, quizzer];
-	},
-	getRandom: function getRandom(number) {
-		var operation = Math.floor(Math.random() * (1 + 1)) + 0;
-		var variant = Math.floor(Math.random() * (1 + 3)) + 1;
-		if (number < 3 || operation == 0) {
-			return number + variant;
-		} else {
-			return number - variant;
-		}
-	}
-};
+// window.configMem31 = {
+// 	id: 31,
+// 	name: "memory 31",
+// 	timeup: 6000,
+// 	quizSize: 74,
+// 	choiceSize: 52,
+//   moveMainBy: -300,
+// 	timein: 0,
+// 	pre: function(game,center) {
+// 		var sprite1 = game.add.sprite(center.x*0.20, center.y*0.11, 'bookopen');
+// 		sprite1.scale.setTo(center.x*0.0067,center.y*0.0082);
+// 		var style = { font: '50px Arial', fill: 'black', align: 'left', wordWrap: true, wordWrapWidth: 1200 };
+// 		var text1 = game.add.text(center.x*0.28, center.y*0.24, this.message, style);
+// 		window.setTimeout(function(){ text1.destroy(); sprite1.destroy(); }, 10000);
+// 	},
+// 	before: function(game,center) {
+// 		// game.add.text(100, 20, "papa papa papa", {font: "40px Arial", fill: "#000000"});
+// 	},
+// 	message: 'Nectar, in botany, is a liquid made by the flowers of plants. It is very sweet because it has a lot of sugar in it. Plants make nectar to attract pollinating animals. It is made in glands called nectaries. The Nectaries are usually at the bottom of the flower. This means the animal trying to get the nectar have to touch the parts of the plant that are used for reproduction. By doing this, the animal getting the nectar helps the plants reproduce. Some plants make nectar outside the flower. These plants do it to attract predatory insects.',
+// 	questions: [
+// 		["what makes nectar", "plants", "bees", "fleas"],
+// 		["why is nectar sweet", "sugar", "salt", "bees"],
+// 		["are all nectars inside the \nflower", "no", "yes", "yes"],
+// 		["where are the nectaries in \nthe flower", "bottom", "top", "air"],
+// 		["what does nectar attract", "animals", "babies", "babies"],
+// 		["what are nectaries", "glands", "animals", "bees"],
+// 		["is nectar a liquid", "yes", "no", "no"]
+// 	],
+// 	wackyAnswers: [
+// 		"jack", "joe", "what", "fire",
+// 		"water", "apple", "cheese", "men"
+// 	],
+// 	calculator: function() {
+// 		console.log(this.questions);
+// 		var questionIndex = Math.floor(Math.random() * (this.questions.length)) + 0;
+//     var questionPair = this.questions[questionIndex];
+// 	  var result = questionPair[1];
+// 		var quizzer = questionPair[0] + " ?";
+// 		return [questionIndex, result, quizzer];
+// 	},
+// 	getRandom: function(number) {
+// 		var answered = "";
+// 		var answerIndex = Math.floor(Math.random() * (1 + 4)) + 2;
+// 		if (answerIndex < 4) {
+// 			answered = this.questions[number][answerIndex];
+// 		}
+// 		else {
+// 			var wackyAnswerIndex = Math.floor(Math.random() * (this.wackyAnswers.length)) + 0;
+// 			answered = this.wackyAnswers[wackyAnswerIndex];
+// 		}
+//     return answered;
+// 	}
+// }
 
-window.configMul13 = {
-	id: 13,
-	name: "multiplication",
-	timeup: 9000,
-	quizSize: 180,
-	choiceSize: 90,
-	moveMainBy: 0,
-	timein: 0,
-	pre: function pre(game, center) {},
-	before: function before(game, center) {},
-	calculator: function calculator() {
-		var first = Math.floor(Math.random() * (1 + 5)) + 1;
-		var second = Math.floor(Math.random() * (1 + 4)) + 0;
-		var result = first * second;
-		var quizzer = first.toString() + " X " + second.toString();
-		return [result, result, quizzer];
-	},
-	getRandom: function getRandom(number) {
-		var operation = Math.floor(Math.random() * (1 + 1)) + 0;
-		var variant = Math.floor(Math.random() * (1 + 3)) + 1;
-		if (number < 3 || operation == 0) {
-			return number + variant;
-		} else {
-			return number - variant;
-		}
-	}
-};
-
-// ..
-
-window.configMem16 = {
-	id: 16,
-	name: "memorize numbers",
-	timeup: 9000,
-	quizSize: 180,
-	choiceSize: 74,
-	moveMainBy: -50,
-	timein: 3000,
-	pre: function pre(game, center) {},
-	mainText: null,
-	before: function before(game, center) {
-		this.result = this.numcalc();
-		var mainText = game.add.text(center.x * 0.74 + this.moveMainBy, center.y * 0.20, this.result, { font: this.quizSize + "px", fill: "#ffffff" });
-		window.setTimeout(function () {
-			mainText.destroy();
-		}, this.timein);
-	},
-	nums: 5,
-	numcalc: function numcalc() {
-		var response = "";
-		for (var ii = 0; ii < this.nums; ii++) {
-			var anum = Math.floor(Math.random() * (1 + 9)) + 0;
-			response += anum;
-		}
-		return response;
-	},
-	result: -1,
-	calculator: function calculator() {
-		var quizzer = "which?";
-		return [this.result, this.result, quizzer];
-	},
-	getRandom: function getRandom(number) {
-		return this.numcalc();
-	}
-};
-
-window.configMem17 = {
-	id: 17,
-	name: "memorize numbers backwards",
-	timeup: 9000,
-	quizSize: 180,
-	choiceSize: 74,
-	moveMainBy: -50,
-	timein: 3000,
-	pre: function pre(game, center) {},
-	mainText: null,
-	before: function before(game, center) {
-		this.result = this.numcalc();
-		var reversed = this.result.split("").reverse().join("");
-		var mainText = game.add.text(center.x * 0.74 + this.moveMainBy, center.y * 0.20, reversed, { font: this.quizSize + "px", fill: "#ffffff" });
-		window.setTimeout(function () {
-			mainText.destroy();
-		}, this.timein);
-	},
-	nums: 4,
-	numcalc: function numcalc() {
-		var response = "";
-		for (var ii = 0; ii < this.nums; ii++) {
-			var anum = Math.floor(Math.random() * (1 + 9)) + 0;
-			response += anum;
-		}
-		return response;
-	},
-	result: -1,
-	calculator: function calculator() {
-		var quizzer = "reversed?";
-		return [this.result, this.result, quizzer];
-	},
-	getRandom: function getRandom(number) {
-		return this.numcalc();
-	}
-};
-
-// ..
-
-window.configRhy21 = {
-	id: 21,
-	name: "rhymes",
-	timeup: 8000,
-	quizSize: 84,
-	choiceSize: 56,
-	moveMainBy: -170,
-	timein: 0,
-	pre: function pre(game, center) {},
-	before: function before(game, center) {},
-	calculator: function calculator() {
-		var rhymes = [["ball", "wall"], ["net", "bet"], ["moon", "toon"], ["soon", "moon"], ["rice", "nice"], ["kite", "lite"], ["rough", "cough"], ["see", "knee"], ["neat", "seat"], ["dry", "fry"]];
-		var rhymeIndex = Math.floor(Math.random() * rhymes.length) + 0;
-		var rhymePair = rhymes[rhymeIndex];
-		var result = rhymePair[1];
-		var quizzer = "rhymes with " + rhymePair[0];
-		return [rhymeIndex, result, quizzer];
-	},
-	getRandom: function getRandom(number) {
-		var rhymes = ["joke", "jack", "knot", "what", "mac", "rune", "tin", "chip", "fin", "flan", "dune", "man"];
-		var rhymeIndex = Math.floor(Math.random() * rhymes.length) + 0;
-		var rhymed = rhymes[rhymeIndex];
-		return rhymed;
-	}
-};
-
-// --
-
-window.configMem31 = {
-	id: 31,
-	name: "memory 31",
-	timeup: 6000,
-	quizSize: 74,
-	choiceSize: 52,
-	moveMainBy: -300,
-	timein: 0,
-	pre: function pre(game, center) {
-		var sprite1 = game.add.sprite(center.x * 0.20, center.y * 0.11, 'bookopen');
-		sprite1.scale.setTo(center.x * 0.0067, center.y * 0.0082);
-		var style = { font: '50px Arial', fill: 'black', align: 'left', wordWrap: true, wordWrapWidth: 1200 };
-		var text1 = game.add.text(center.x * 0.28, center.y * 0.24, this.message, style);
-		window.setTimeout(function () {
-			text1.destroy();sprite1.destroy();
-		}, 10000);
-	},
-	before: function before(game, center) {
-		// game.add.text(100, 20, "papa papa papa", {font: "40px Arial", fill: "#000000"});
-	},
-	message: 'Nectar, in botany, is a liquid made by the flowers of plants. It is very sweet because it has a lot of sugar in it. Plants make nectar to attract pollinating animals. It is made in glands called nectaries. The Nectaries are usually at the bottom of the flower. This means the animal trying to get the nectar have to touch the parts of the plant that are used for reproduction. By doing this, the animal getting the nectar helps the plants reproduce. Some plants make nectar outside the flower. These plants do it to attract predatory insects. These insects will eat both the nectar and any plant-eating insects found near the plant.',
-	questions: [["what makes nectar", "plants", "bees", "fleas"], ["why is nectar sweet", "sugar", "salt", "bees"], ["are all nectars inside the \nflower", "no", "yes", "yes"], ["where are the nectaries in \nthe flower", "bottom", "top", "air"], ["what does nectar attract", "animals", "babies", "babies"], ["what are nectaries", "glands", "animals", "bees"], ["is nectar a liquid", "yes", "no", "no"]],
-	wackyAnswers: ["jack", "joe", "what", "fire", "water", "apple", "cheese", "men"],
-	calculator: function calculator() {
-		console.log(this.questions);
-		var questionIndex = Math.floor(Math.random() * this.questions.length) + 0;
-		var questionPair = this.questions[questionIndex];
-		var result = questionPair[1];
-		var quizzer = questionPair[0] + " ?";
-		return [questionIndex, result, quizzer];
-	},
-	getRandom: function getRandom(number) {
-		var answered = "";
-		var answerIndex = Math.floor(Math.random() * (1 + 4)) + 2;
-		if (answerIndex < 4) {
-			answered = this.questions[number][answerIndex];
-		} else {
-			var wackyAnswerIndex = Math.floor(Math.random() * this.wackyAnswers.length) + 0;
-			answered = this.wackyAnswers[wackyAnswerIndex];
-		}
-		return answered;
-	}
-};
-
-// --
-
-window.configImg41 = {
-	id: 41,
-	name: "needs work",
-	timeup: 7000,
-	quizSize: 90,
-	choiceSize: 60,
-	moveMainBy: -170,
-	timein: 0,
-	gamey: null,
-	dataURItoBlob: function dataURItoBlob(dataURI) {
-		// convert base64/URLEncoded data component to raw binary data held in a string
-		var byteString;
-		if (dataURI.split(',')[0].indexOf('base64') >= 0) byteString = atob(dataURI.split(',')[1]);else byteString = unescape(dataURI.split(',')[1]);
-
-		// separate out the mime component
-		var mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0];
-
-		// write the bytes of the string to a typed array
-		var ia = new Uint8Array(byteString.length);
-		for (var i = 0; i < byteString.length; i++) {
-			ia[i] = byteString.charCodeAt(i);
-		}
-
-		return new Blob([ia], { type: mimeString });
-	},
-	dataURLtoFile: function dataURLtoFile(dataurl, filename) {
-		var arr = dataurl.split(','),
-		    mime = arr[0].match(/:(.*?);/)[1],
-		    bstr = atob(arr[1]),
-		    n = bstr.length,
-		    u8arr = new Uint8Array(n);
-		while (n--) {
-			u8arr[n] = bstr.charCodeAt(n);
-		}
-		return new File([u8arr], filename, { type: mime });
-	},
-	urltoFile: function urltoFile(url, filename, mimeType) {
-		mimeType = mimeType || (url.match(/^data:([^;]+);/) || '')[1];
-		return fetch(url).then(function (res) {
-			return res.arrayBuffer();
-		}).then(function (buf) {
-			return new File([buf], filename, { type: mimeType });
-		});
-	},
-	pre: function pre(game, center) {
-		console.log("pre");
-		this.gamey = game;
-		var loader = new Phaser.Loader(game);
-		loader.spritesheet('panda', 'extras/animalSheet2009.jpg', 172, 160);
-		loader.onLoadComplete.addOnce(this.onLoaded);
-		loader.start();
-	},
-	before: function before(game, center) {},
-	onLoaded: function onLoaded() {
-		console.log('everything is loaded and ready to be used');
-	},
-	calculator: function calculator() {
-		console.log('calculator');
-		var sprite1 = this.gamey.add.sprite(500, 260, 'panda');
-		sprite1.frame = 7;
-		// sprite1.scale.setTo(0.5,0.5);
-		var rhymes = [["ball", "wall"], ["net", "bet"], ["moon", "toon"], ["soon", "moon"], ["rough", "cough"], ["see", "knee"], ["dry", "fry"]];
-		var rhymeIndex = Math.floor(Math.random() * rhymes.length) + 0;
-		var rhymePair = rhymes[rhymeIndex];
-		var result = rhymePair[1];
-		var quizzer = "rhymes with " + rhymePair[0];
-		return [rhymeIndex, result, quizzer];
-	},
-	getRandom: function getRandom(number) {
-		var rhymes = ["joke", "jack", "knot", "what", "mac", "tin", "chip", "fin", "flan", "dune"];
-		var rhymeIndex = Math.floor(Math.random() * rhymes.length) + 0;
-		var rhymed = rhymes[rhymeIndex];
-		return rhymed;
-	}
-};
+// window.configImg41 = {
+// 	id: 41,
+// 	name: "needs work",
+// 	timeup: 7000,
+// 	quizSize: 90,
+// 	choiceSize: 60,
+//   moveMainBy: -170,
+// 	timein: 0,
+// 	gamey: null,
+// 	dataURItoBlob: function(dataURI) {
+// 	    // convert base64/URLEncoded data component to raw binary data held in a string
+// 	    var byteString;
+// 	    if (dataURI.split(',')[0].indexOf('base64') >= 0)
+// 	        byteString = atob(dataURI.split(',')[1]);
+// 	    else
+// 	        byteString = unescape(dataURI.split(',')[1]);
+//
+// 	    // separate out the mime component
+// 	    var mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0];
+//
+// 	    // write the bytes of the string to a typed array
+// 	    var ia = new Uint8Array(byteString.length);
+// 	    for (var i = 0; i < byteString.length; i++) {
+// 	        ia[i] = byteString.charCodeAt(i);
+// 	    }
+//
+// 	    return new Blob([ia], {type:mimeString});
+// 	},
+// 	dataURLtoFile: function(dataurl, filename) {
+// 	    var arr = dataurl.split(','), mime = arr[0].match(/:(.*?);/)[1],
+// 	        bstr = atob(arr[1]), n = bstr.length, u8arr = new Uint8Array(n);
+// 	    while(n--){
+// 	        u8arr[n] = bstr.charCodeAt(n);
+// 	    }
+// 	    return new File([u8arr], filename, {type:mime});
+// 	},
+// 	urltoFile: function(url, filename, mimeType){
+// 	    mimeType = mimeType || (url.match(/^data:([^;]+);/)||'')[1];
+// 	    return (fetch(url)
+// 	        .then(function(res){return res.arrayBuffer();})
+// 	        .then(function(buf){return new File([buf], filename, {type:mimeType});})
+// 	    );
+// 	},
+// 	pre: function(game,center) {
+// 		console.log("pre")
+// 		this.gamey = game;
+// 		var loader = new Phaser.Loader(game);
+// 		loader.spritesheet('panda', 'extras/animalSheet2009.jpg', 172, 160);
+// 		loader.onLoadComplete.addOnce(this.onLoaded);
+// 		loader.start();
+// 	},
+// 	before: function(game,center) {},
+// 	onLoaded: function() {  
+// 		console.log('everything is loaded and ready to be used');
+// 	},
+// 	calculator: function() {
+// 		console.log('calculator');
+// 		var sprite1 = this.gamey.add.sprite(500, 260, 'panda');
+// 		sprite1.frame = 7;
+// 		// sprite1.scale.setTo(0.5,0.5);
+//     var rhymes = [
+//       ["ball", "wall"],
+//       ["net", "bet"],
+//       ["moon", "toon"],
+//       ["soon", "moon"],
+//       ["rough", "cough"],
+//       ["see", "knee"],
+//       ["dry", "fry"]
+//     ];
+// 		var rhymeIndex = Math.floor(Math.random() * (rhymes.length)) + 0;
+//     var rhymePair = rhymes[rhymeIndex];
+// 	  var result = rhymePair[1];
+// 		var quizzer = "rhymes with " + rhymePair[0];
+// 		return [rhymeIndex, result, quizzer];
+// 	},
+// 	getRandom: function(number) {
+//     var rhymes = [
+//       "joke", "jack", "knot", "what", "mac",
+//       "tin", "chip", "fin", "flan", "dune"
+//     ];
+// 		var rhymeIndex = Math.floor(Math.random() * (rhymes.length)) + 0;
+//     var rhymed = rhymes[rhymeIndex];
+//     return rhymed;
+// 	}
+// }
 
 //// default
 
-window.config = window.configAdd11;
+// window.config = window.configAdd11;
 
 ////////
 
 var QuizType = (function (_Phaser$Sprite) {
-	_inherits(QuizType, _Phaser$Sprite);
+				_inherits(QuizType, _Phaser$Sprite);
 
-	function QuizType(game, x, y, key, context, center) {
-		_classCallCheck(this, QuizType);
+				function QuizType(game, x, y, key, context, center) {
+								_classCallCheck(this, QuizType);
 
-		_get(Object.getPrototypeOf(QuizType.prototype), "constructor", this).call(this, game, x, y, key);
-		// width, height
+								_get(Object.getPrototypeOf(QuizType.prototype), 'constructor', this).call(this, game, x, y, key);
+								// width, height
 
-		// default
-		window.config = window.configAdd11;
+								// default
+								// window.config = window.configAdd11;
 
-		this.xposOrig = 26;
-		this.xpos = this.xposOrig;
-		this.yposOrig = 210;
-		this.ypos = this.yposOrig;
+								this.xposOrig = 26;
+								this.xpos = this.xposOrig;
+								this.yposOrig = 210;
+								this.ypos = this.yposOrig;
 
-		this.center = center;
+								this.center = center;
 
-		var text = null;
+								var text = null;
 
-		// Add
-		var button11 = game.add.button(this.xpos, this.ypos, key, function () {
-			window.config = window.configAdd11;
-		}, context, 0, 1, 2, 3);
-		button11.anchor.x = 0.5;
-		button11.anchor.y = 0.5;
-		button11.scale.setTo(0.14, 0.14);
-		text = game.add.text(-60, -100, "+", { font: "200px Arial", fill: "#000000" });
-		button11.addChild(text);
-		this.xpos += 38;
+								//////
 
-		// Del
-		var button12 = game.add.button(this.xpos, this.ypos, key, function () {
-			window.config = window.configDel12;
-		}, context, 0, 1, 2, 3);
-		button12.anchor.x = 0.5;
-		button12.anchor.y = 0.5;
-		button12.scale.setTo(0.14, 0.14);
-		text = game.add.text(-30, -120, "-", { font: "200px Arial", fill: "#000000" });
-		button12.addChild(text);
-		this.xpos += 38;
+								var add11 = new _configCalc2['default'](11, "additin", { choiceSize: 90 }, 0, 9, 5, "+");
+								//
+								var del12 = new _configCalc2['default'](12, "subtractin", { choiceSize: 90 }, 4, 10, 5, "-");
+								//
+								var mul13 = new _configCalc2['default'](13, "multiplicatin", { choiceSize: 90 }, 1, 5, 4, "*");
+								//
+								var mem16 = new _configMem2['default'](16, "memoize numbers 5", { quizSize: 160, choiceSize: 60, moveMainBy: -50, timeup: 9000, timein: 3000 }, 5, function (result) {
+												return result;
+								});
+								//
+								var mem17 = new _configMem2['default'](17, "revers numbers", { quizSize: 160, choiceSize: 68, moveMainBy: -50, timeup: 9000, timein: 3000 }, 4, function (result) {
+												console.log('AA AA');return result.split("").reverse().join("");
+								});
+								//
+								var mem18 = new _configMem2['default'](18, "memoize numbers 6", { quizSize: 160, choiceSize: 52, moveMainBy: -50, timeup: 9000, timein: 3000 }, 6, function (result) {
+												return result;
+								});
+								//
+								var rhymes = [["ball", "wall", "bell"], ["net", "bet", "cat"], ["moon", "toon", "spawn"], ["soon", "moon", "ant"], ["rice", "nice", "like"], ["kite", "lite", "king"], ["rough", "cough", "latch"], ["see", "knee", "dean"], ["neat", "seat", "note"], ["dry", "fry", "dress"]];
+								var wackys = ["duck", "jack", "where", "what", "mac", "rune", "tin", "chip", "fin", "flan", "dune", "man"];
+								var rhy21 = new _configQues2['default'](21, "rhymes", { quizSize: 84, choiceSize: 54, moveMainBy: -170, timeup: 8000 }, "rhymes with ", " ?", rhymes, wackys);
+								//
+								var message = 'Nectar, in botany, is a liquid made by the flowers of plants. It is very sweet because it has a lot of sugar in it. Plants make nectar to attract pollinating animals. It is made in glands called nectaries. The Nectaries are usually at the bottom of the flower. This means the animal trying to get the nectar have to touch the parts of the plant that are used for reproduction. Some plants make nectar outside the flower.';
+								var questions = [["what makes nectar", "plants", "bees"], ["why is nectar sweet", "sugar", "salt"], ["are all nectars inside the \nflower", "no", "yes"], ["where are the nectaries in \nthe flower", "bottom", "top"], ["what does nectar attract", "animals", "babies"], ["what are nectaries", "glands", "animals"], ["is nectar a liquid", "yes", "no"]];
+								var wackys = ["jack", "joe", "what", "fire", "sand", "apple", "cheese", "ice cream", "men"];
+								var mem31 = new _configQuesRead2['default'](31, "read comprehend", { quizSize: 74, choiceSize: 50, moveMainBy: -300, timeup: 6000 }, "", " ?", message, questions, wackys);
+								//
+								var opposites = [["up", "down", "right"], ["right", "left", "up"], ["left", "right", "down"], ["walk", "run", "smile"], ["happy", "sad", "naughty"], ["over", "under", "cooked"], ["wet", "dry", "sleep"], ["new", "old", "salty"]];
+								var wackys = ["duck", "jack", "where", "what", "who", "honey", "chip", "flan", "piano", "drum"];
+								var opp22 = new _configQues2['default'](22, "opposites", { quizSize: 84, choiceSize: 54, moveMainBy: -170, timeup: 8000 }, "opposite of ", " ?", opposites, wackys);
+								//
+								var sequences = [["1 2 3 _", "5", "6"], ["2 4 6 _", "8", "7"], ["4 5 _ 7", "6", "7"], ["4 6 _ 10", "8", "6"], ["5 4 3 _", "2", "1"], ["4 3 2 _", "1", "2"], ["3 6 _ 12", "9", "10"], ["10 20 _", "30", "21"]];
+								var wackys = ["0", "7", "11", "13", "17", "19", "21", "99"];
+								var seq25 = new _configQues2['default'](25, "sequence", { quizSize: 84, choiceSize: 54, moveMainBy: -170, timeup: 8000 }, "sequence:   ", "", sequences, wackys);
+								//
+								var questions = [["", "frog", "fog"], ["", "cat", "cart"], ["", "dog", "doog"], ["", "bird", "burd"], ["", "elephant", "aliphant"], ["", "fish", "fin"], ["", "giraffe", "girafy"], ["", "hippo", "hiper"], ["", "monkey", "mankey"], ["", "mouse", "moose"], ["", "panda", "ponda"], ["", "tiger", "tigre"], ["", "unicorn", "hunicorn"], ["", "zebra", "zubra"]];
+								var wackys = ["jack", "jill", "horse", "dinasour", "shark", "whale", "cheese"];
+								var img41 = new _configQuesImag2['default'](41, "what is it", { choiceSize: 50, timeup: 7000 }, "", "", questions, wackys, 'extras/animalSheet2009.jpg');
+								//
+								//["", "", ""],
+								var trivia = [["which country is home to the\n kangaroo", "Australia", "Mexico"], ["which color is in a rainbow", "blue", "gold"], ["What farm animal gives us\n milk to drink", "cow", "mouse"], ["What animal purrs and is\n known for chasing mice", "cat", "dog"], ["what do Jack and Jill go up\n the hill to fetch", "water", "flowers"], ["what color are the leaves in\n summer", "green", "black"], ["what season is usually cold", "winter", "summer"], ["what season usually has red\n leaves", "fall", "summer"], ["what runs on a track and blows\n a whistle", "train", "car"], ["what color is a stop sign", "red", "blue"]];
+								var wackys = ["duck", "jack", "where", "what", "mac", "jill", "clifford"];
+								var tri51 = new _configQues2['default'](51, "trivia 51", { quizSize: 64, choiceSize: 48, moveMainBy: -250, timeup: 8000 }, "", " ?", trivia, wackys);
+								//
+								window.config = add11;
+								//////
 
-		// Mul
-		var button13 = game.add.button(this.xpos, this.ypos, key, function () {
-			window.config = window.configMul13;
-		}, context, 0, 1, 2, 3);
-		button13.anchor.x = 0.5;
-		button13.anchor.y = 0.5;
-		button13.scale.setTo(0.14, 0.14);
-		text = game.add.text(-50, -120, "x", { font: "200px Arial", fill: "#000000" });
-		button13.addChild(text);
-		this.xpos += 38;
+								var bStyle = { font: "120px Arial", fill: "#000000" };
 
-		// Rhy
-		var button21 = game.add.button(this.xpos, this.ypos, key, function () {
-			window.config = window.configRhy21;
-		}, context, 0, 1, 2, 3);
-		button21.anchor.x = 0.5;
-		button21.anchor.y = 0.5;
-		button21.scale.setTo(0.14, 0.14);
-		text = game.add.text(-40, -120, "r", { font: "200px Arial", fill: "#000000" });
-		button21.addChild(text);
-		this.xpos = this.xposOrig;
-		this.ypos += 40;
+								// Add
+								var button11 = game.add.button(this.xpos, this.ypos, key, function () {
+												window.config = add11;
+								}, context, 0, 1, 2, 3);
+								button11.anchor.x = 0.5;
+								button11.anchor.y = 0.5;
+								button11.scale.setTo(0.14, 0.14);
+								text = game.add.text(-60, -80, "++", bStyle);
+								button11.addChild(text);
+								this.xpos += 38;
 
-		// Mem
-		var button16 = game.add.button(this.xpos, this.ypos, key, function () {
-			window.config = window.configMem16;
-		}, context, 0, 1, 2, 3);
-		button16.anchor.x = 0.5;
-		button16.anchor.y = 0.5;
-		button16.scale.setTo(0.14, 0.14);
-		text = game.add.text(-80, -120, "m", { font: "200px Arial", fill: "#000000" });
-		button16.addChild(text);
-		this.xpos += 38;
+								// Del
+								var button12 = game.add.button(this.xpos, this.ypos, key, function () {
+												window.config = del12;
+								}, context, 0, 1, 2, 3);
+								button12.anchor.x = 0.5;
+								button12.anchor.y = 0.5;
+								button12.scale.setTo(0.14, 0.14);
+								text = game.add.text(-30, -80, "--", bStyle);
+								button12.addChild(text);
+								this.xpos += 38;
 
-		var button17 = game.add.button(this.xpos, this.ypos, key, function () {
-			window.config = window.configMem17;
-		}, context, 0, 1, 2, 3);
-		button17.anchor.x = 0.5;
-		button17.anchor.y = 0.5;
-		button17.scale.setTo(0.14, 0.14);
-		text = game.add.text(-80, -120, "m", { font: "200px Arial", fill: "#000000" });
-		button17.addChild(text);
-		this.xpos += 38;
+								// Mul
+								var button13 = game.add.button(this.xpos, this.ypos, key, function () {
+												window.config = mul13;
+								}, context, 0, 1, 2, 3);
+								button13.anchor.x = 0.5;
+								button13.anchor.y = 0.5;
+								button13.scale.setTo(0.14, 0.14);
+								text = game.add.text(-50, -80, "xx", bStyle);
+								button13.addChild(text);
+								this.xpos += 38;
 
-		//
+								// Rhy
+								var button21 = game.add.button(this.xpos, this.ypos, key, function () {
+												window.config = rhy21;
+								}, context, 0, 1, 2, 3);
+								button21.anchor.x = 0.5;
+								button21.anchor.y = 0.5;
+								button21.scale.setTo(0.14, 0.14);
+								text = game.add.text(-40, -80, "r1", bStyle);
+								button21.addChild(text);
+								this.xpos = this.xposOrig;
+								this.ypos += 40;
 
-		// Mem
-		var button31 = game.add.button(this.xpos, this.ypos, key, function () {
-			window.config = window.configMem31;window.config.pre(game, this.center);
-		}, context, 0, 1, 2, 3);
-		button31.anchor.x = 0.5;
-		button31.anchor.y = 0.5;
-		button31.scale.setTo(0.14, 0.14);
-		text = game.add.text(-80, -120, "m", { font: "200px Arial", fill: "#000000" });
-		button31.addChild(text);
-		this.xpos += 38;
+								// Mem
+								var button16 = game.add.button(this.xpos, this.ypos, key, function () {
+												window.config = mem16;
+								}, context, 0, 1, 2, 3);
+								button16.anchor.x = 0.5;
+								button16.anchor.y = 0.5;
+								button16.scale.setTo(0.14, 0.14);
+								text = game.add.text(-80, -80, "m6", bStyle);
+								button16.addChild(text);
+								this.xpos += 38;
 
-		// Tmp
-		var button41 = game.add.button(this.xpos, this.ypos, key, function () {
-			window.config = window.configImg41;window.config.pre(game, this.center);
-		}, context, 0, 1, 2, 3);
-		button41.anchor.x = 0.5;
-		button41.anchor.y = 0.5;
-		button41.scale.setTo(0.14, 0.14);
-		text = game.add.text(-30, -120, "t", { font: "200px Arial", fill: "#000000" });
-		button41.addChild(text);
-		this.xpos += 38;
-	}
+								// mem17
+								var button17 = game.add.button(this.xpos, this.ypos, key, function () {
+												window.config = mem17;
+								}, context, 0, 1, 2, 3);
+								button17.anchor.x = 0.5;
+								button17.anchor.y = 0.5;
+								button17.scale.setTo(0.14, 0.14);
+								text = game.add.text(-80, -80, "m7", bStyle);
+								button17.addChild(text);
+								this.xpos += 38;
 
-	return QuizType;
+								// opp22
+								var button22 = game.add.button(this.xpos, this.ypos, key, function () {
+												window.config = opp22;
+								}, context, 0, 1, 2, 3);
+								button22.anchor.x = 0.5;
+								button22.anchor.y = 0.5;
+								button22.scale.setTo(0.14, 0.14);
+								text = game.add.text(-40, -80, "o1", bStyle);
+								button22.addChild(text);
+								this.xpos += 38;
+
+								// mem18
+								var button18 = game.add.button(this.xpos, this.ypos, key, function () {
+												window.config = mem18;
+								}, context, 0, 1, 2, 3);
+								button18.anchor.x = 0.5;
+								button18.anchor.y = 0.5;
+								button18.scale.setTo(0.14, 0.14);
+								text = game.add.text(-80, -80, "m8", bStyle);
+								button18.addChild(text);
+								this.xpos = this.xposOrig;
+								this.ypos += 40;
+
+								// seq25
+								var button25 = game.add.button(this.xpos, this.ypos, key, function () {
+												window.config = seq25;
+								}, context, 0, 1, 2, 3);
+								button25.anchor.x = 0.5;
+								button25.anchor.y = 0.5;
+								button25.scale.setTo(0.14, 0.14);
+								text = game.add.text(-40, -80, "s5", bStyle);
+								button25.addChild(text);
+								this.xpos += 38;
+
+								// Mem
+								var button31 = game.add.button(this.xpos, this.ypos, key, function () {
+												window.config = mem31;window.config.pre(game, this.center);
+								}, context, 0, 1, 2, 3);
+								button31.anchor.x = 0.5;
+								button31.anchor.y = 0.5;
+								button31.scale.setTo(0.14, 0.14);
+								text = game.add.text(-80, -80, "m1", bStyle);
+								button31.addChild(text);
+								this.xpos += 38;
+
+								// img41
+								var button41 = game.add.button(this.xpos, this.ypos, key, function () {
+												window.config = img41;window.config.pre(game, this.center);
+								}, context, 0, 1, 2, 3);
+								button41.anchor.x = 0.5;
+								button41.anchor.y = 0.5;
+								button41.scale.setTo(0.14, 0.14);
+								text = game.add.text(-30, -80, "i1", bStyle);
+								button41.addChild(text);
+								this.xpos += 38;
+
+								// tri51
+								var button51 = game.add.button(this.xpos, this.ypos, key, function () {
+												window.config = tri51;window.config.pre(game, this.center);
+								}, context, 0, 1, 2, 3);
+								button51.anchor.x = 0.5;
+								button51.anchor.y = 0.5;
+								button51.scale.setTo(0.14, 0.14);
+								text = game.add.text(-30, -80, "t1", bStyle);
+								button51.addChild(text);
+								this.xpos += 38;
+
+								//////
+				}
+
+				return QuizType;
 })(Phaser.Sprite);
 
-exports["default"] = QuizType;
-module.exports = exports["default"];
+exports['default'] = QuizType;
+module.exports = exports['default'];
 
-},{}],5:[function(require,module,exports){
+},{"configCalc":2,"configMem":3,"configQues":4,"configQuesImag":5,"configQuesRead":6}],11:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -667,11 +1204,11 @@ var Quiz = (function (_Phaser$Sprite) {
       console.log(choices);
       console.log(this.correct);
       var text = null;
-      text = this.game.add.text(this.center.x * 0.57, this.center.y * 0.79, this.choices[0], { fontSize: window.config.choiceSize + 'px' });
+      text = this.game.add.text(this.center.x * 0.56, this.center.y * 0.79, this.choices[0], { fontSize: window.config.choiceSize + 'px' });
       this.textChoices.push(text);
-      text = this.game.add.text(this.center.x * 0.93, this.center.y * 0.79, this.choices[1], { fontSize: window.config.choiceSize + 'px' });
+      text = this.game.add.text(this.center.x * 0.92, this.center.y * 0.79, this.choices[1], { fontSize: window.config.choiceSize + 'px' });
       this.textChoices.push(text);
-      text = this.game.add.text(this.center.x * 1.29, this.center.y * 0.79, this.choices[2], { fontSize: window.config.choiceSize + 'px' });
+      text = this.game.add.text(this.center.x * 1.28, this.center.y * 0.79, this.choices[2], { fontSize: window.config.choiceSize + 'px' });
       this.textChoices.push(text);
     }
   }, {
@@ -736,7 +1273,7 @@ var Quiz = (function (_Phaser$Sprite) {
 exports['default'] = Quiz;
 module.exports = exports['default'];
 
-},{}],6:[function(require,module,exports){
+},{}],12:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -802,7 +1339,7 @@ var GameState = (function (_Phaser$State) {
 			var title = this.game.add.text(this.center.x * 0.98, this.center.y * 0.06, 'Quick Quiz', { font: "46px Optima" });
 			title.anchor.set(0.5);
 
-			this.subtitle = this.game.add.text(this.center.x * 0.98, this.center.y * 0.13, window.config.name, { font: "18px Optima" });
+			this.subtitle = this.game.add.text(this.center.x * 0.98, this.center.y * 0.13, ":)", { font: "18px Optima" });
 			this.subtitle.anchor.set(0.5);
 
 			this.next = new _next2['default'](this.game, this.center.x, this.center.y, 'button1', this.nexter, this);
@@ -930,6 +1467,8 @@ var GameState = (function (_Phaser$State) {
 			this.subtitle.destroy();
 			this.subtitle = this.game.add.text(this.center.x * 0.98, this.center.y * 0.12, window.config.name, { font: "18px Optima" });
 			this.subtitle.anchor.set(0.5);
+
+			window.config.after(this.game, this.center);
 
 			console.log('next - end');
 		}
@@ -1059,7 +1598,7 @@ var GameState = (function (_Phaser$State) {
 exports['default'] = GameState;
 module.exports = exports['default'];
 
-},{"next":2,"placing":3,"qtype":4,"quiz":5,"status":7}],7:[function(require,module,exports){
+},{"next":8,"placing":9,"qtype":10,"quiz":11,"status":13}],13:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -1162,5 +1701,5 @@ var Status = (function (_Phaser$Sprite) {
 exports["default"] = Status;
 module.exports = exports["default"];
 
-},{}]},{},[1])
+},{}]},{},[7])
 //# sourceMappingURL=game.js.map
