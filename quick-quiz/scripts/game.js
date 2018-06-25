@@ -127,6 +127,128 @@ exports["default"] = ConfigCalc;
 module.exports = exports["default"];
 
 },{"config":1}],3:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, '__esModule', {
+  value: true
+});
+
+var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var _config = require('config');
+
+var _config2 = _interopRequireDefault(_config);
+
+var ConfigLect = (function (_Config) {
+  _inherits(ConfigLect, _Config);
+
+  function ConfigLect(id, name, config, message, keywords) {
+    _classCallCheck(this, ConfigLect);
+
+    _get(Object.getPrototypeOf(ConfigLect.prototype), 'constructor', this).call(this, id, name, config);
+    this.message = message;
+    this.sentences = message.split(".");
+    this.keywords = keywords;
+    // find keywords index arrays
+    //
+    this.index = -1;
+  }
+
+  _createClass(ConfigLect, [{
+    key: 'pre',
+    value: function pre(game, center) {
+      var sprite1 = game.add.sprite(center.x * 0.20, center.y * 0.11, 'bookopen');
+      sprite1.scale.setTo(center.x * 0.0068, center.y * 0.0081);
+      var style = { font: '50px Arial', fill: 'black', align: 'left', wordWrap: true, wordWrapWidth: center.x * 1.63 };
+      var text1 = game.add.text(center.x * 0.28, center.y * 0.24, this.message, style);
+      window.setTimeout(function () {
+        text1.destroy();sprite1.destroy();
+      }, 10000);
+      console.log("message length is " + this.message.length);
+      // ideally length should be under 450.
+    }
+  }, {
+    key: 'calculator',
+    value: function calculator() {
+      console.log("lect calc");
+      // get random keyword
+      var keywordIndex = Math.floor(Math.random() * this.keywords.length) + 0;
+      var word = this.keywords[keywordIndex];
+      // get random sentence index, where index is at, then raplace
+      var sentenceIndex = this.getRandomSentenceWithWord(word);
+      var sentence = this.sentences[sentenceIndex];
+      var sentence = sentence.replace(word, "___");
+      return [keywordIndex, word, sentence];
+      // index: word index in keywords
+      // result: word
+      // quizzer: sentence replaced with _
+    }
+  }, {
+    key: 'getRandom',
+    value: function getRandom(number) {
+      // console.log("lect get random");
+      // get random from keywords, not index
+      // return: random
+      var keywordIndex = -1;
+      while (true) {
+        keywordIndex = Math.floor(Math.random() * this.keywords.length) + 0;
+        if (keywordIndex != number) {
+          return this.keywords[keywordIndex];
+        }
+      }
+    }
+  }, {
+    key: 'getRandomSentenceWithWord',
+    value: function getRandomSentenceWithWord(word) {
+      // console.log("lect get random sent - "+word);
+      var sentenceIndex = -1;
+      while (true) {
+        sentenceIndex = Math.floor(Math.random() * this.sentences.length) + 0;
+        var index = this.sentences[sentenceIndex].indexOf(word);
+        // console.log("sentenceIndex: "+sentenceIndex+" "+index);
+        if (index > -1) {
+          return sentenceIndex;
+        }
+      }
+      // this.sentences.forEach(function(sentence) {
+      //   console.log(sentence);
+      // });
+    }
+
+    // getIndicesOf(searchStr, str, caseSensitive) {
+    //     var searchStrLen = searchStr.length;
+    //     if (searchStrLen == 0) {
+    //         return [];
+    //     }
+    //     var startIndex = 0, index, indices = [];
+    //     if (!caseSensitive) {
+    //         str = str.toLowerCase();
+    //         searchStr = searchStr.toLowerCase();
+    //     }
+    //     while ((index = str.indexOf(searchStr, startIndex)) > -1) {
+    //         indices.push(index);
+    //         startIndex = index + searchStrLen;
+    //     }
+    //     return indices;
+    // }
+
+  }]);
+
+  return ConfigLect;
+})(_config2['default']);
+
+exports['default'] = ConfigLect;
+module.exports = exports['default'];
+
+},{"config":1}],4:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -200,7 +322,7 @@ var ConfigMem = (function (_Config) {
 exports["default"] = ConfigMem;
 module.exports = exports["default"];
 
-},{"config":1}],4:[function(require,module,exports){
+},{"config":1}],5:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -267,7 +389,7 @@ var ConfigQues = (function (_Config) {
 exports["default"] = ConfigQues;
 module.exports = exports["default"];
 
-},{"config":1}],5:[function(require,module,exports){
+},{"config":1}],6:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -338,7 +460,7 @@ var ConfigQuesImag = (function (_ConfigQues) {
 exports['default'] = ConfigQuesImag;
 module.exports = exports['default'];
 
-},{"configQues":4}],6:[function(require,module,exports){
+},{"configQues":5}],7:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -390,7 +512,7 @@ var ConfigQuesRead = (function (_ConfigQues) {
 exports['default'] = ConfigQuesRead;
 module.exports = exports['default'];
 
-},{"configQues":4}],7:[function(require,module,exports){
+},{"configQues":5}],8:[function(require,module,exports){
 'use strict';
 
 var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
@@ -422,7 +544,7 @@ var Game = (function (_Phaser$Game) {
 
 new Game();
 
-},{"states/GameState":12}],8:[function(require,module,exports){
+},{"states/GameState":14}],9:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -460,7 +582,7 @@ var ButtonNext = (function (_Phaser$Sprite) {
 exports["default"] = ButtonNext;
 module.exports = exports["default"];
 
-},{}],9:[function(require,module,exports){
+},{}],10:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -540,7 +662,7 @@ var Placing = (function (_Phaser$Sprite) {
 exports["default"] = Placing;
 module.exports = exports["default"];
 
-},{}],10:[function(require,module,exports){
+},{}],11:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -574,6 +696,10 @@ var _configQuesRead2 = _interopRequireDefault(_configQuesRead);
 var _configQuesImag = require('configQuesImag');
 
 var _configQuesImag2 = _interopRequireDefault(_configQuesImag);
+
+var _configLect = require('configLect');
+
+var _configLect2 = _interopRequireDefault(_configLect);
 
 // import Config from 'config';
 
@@ -973,11 +1099,12 @@ var QuizType = (function (_Phaser$Sprite) {
 								var wackys = ["jack", "joe", "what", "fire", "sand", "apple", "cheese", "ice cream", "men"];
 								var mem31 = new _configQuesRead2['default'](31, "read comprehend", { quizSize: 74, choiceSize: 50, moveMainBy: -300, timeup: 6000 }, "", " ?", message, questions, wackys);
 								//
+								// ["", "", ""],
 								var opposites = [["up", "down", "right"], ["right", "left", "up"], ["left", "right", "down"], ["walk", "run", "smile"], ["happy", "sad", "naughty"], ["over", "under", "cooked"], ["wet", "dry", "sleep"], ["new", "old", "salty"]];
 								var wackys = ["duck", "jack", "where", "what", "who", "honey", "chip", "flan", "piano", "drum"];
 								var opp22 = new _configQues2['default'](22, "opposites", { quizSize: 84, choiceSize: 54, moveMainBy: -170, timeup: 8000 }, "opposite of ", " ?", opposites, wackys);
 								//
-								var sequences = [["1 2 3 _", "5", "6"], ["2 4 6 _", "8", "7"], ["4 5 _ 7", "6", "7"], ["4 6 _ 10", "8", "6"], ["5 4 3 _", "2", "1"], ["4 3 2 _", "1", "2"], ["3 6 _ 12", "9", "10"], ["10 20 _", "30", "21"]];
+								var sequences = [["1 2 3 _", "5", "6"], ["2 4 6 _", "8", "7"], ["4 5 _ 7", "6", "7"], ["4 6 _ 10", "8", "6"], ["5 4 3 _", "2", "1"], ["4 3 2 _", "1", "2"], ["3 6 _ 12", "9", "10"], ["10 20 _ 40", "30", "21"], ["1 3 _ 7", "5", "6"], ["100 200 _", "300", "1000"], ["10 12 14 _", "16", "18"]];
 								var wackys = ["0", "7", "11", "13", "17", "19", "21", "99"];
 								var seq25 = new _configQues2['default'](25, "sequence", { quizSize: 84, choiceSize: 54, moveMainBy: -170, timeup: 8000 }, "sequence:   ", "", sequences, wackys);
 								//
@@ -985,10 +1112,22 @@ var QuizType = (function (_Phaser$Sprite) {
 								var wackys = ["jack", "jill", "horse", "dinasour", "shark", "whale", "cheese"];
 								var img41 = new _configQuesImag2['default'](41, "what is it", { choiceSize: 50, timeup: 7000 }, "", "", questions, wackys, 'extras/animalSheet2009.jpg');
 								//
-								//["", "", ""],
-								var trivia = [["which country is home to the\n kangaroo", "Australia", "Mexico"], ["which color is in a rainbow", "blue", "gold"], ["What farm animal gives us\n milk to drink", "cow", "mouse"], ["What animal purrs and is\n known for chasing mice", "cat", "dog"], ["what do Jack and Jill go up\n the hill to fetch", "water", "flowers"], ["what color are the leaves in\n summer", "green", "black"], ["what season is usually cold", "winter", "summer"], ["what season usually has red\n leaves", "fall", "summer"], ["what runs on a track and blows\n a whistle", "train", "car"], ["what color is a stop sign", "red", "blue"]];
+								var questions = [["", "f", "g"], ["", "c", "t"], ["", "d", "g"], ["", "b", "g"], ["", "e", "t"], ["", "f", "h"], ["", "g", "f"], ["", "h", "i"], ["", "m", "n"], ["", "m", "t"], ["", "p", "o"], ["", "t", "r"], ["", "u", "h"], ["", "z", "y"]];
+								var wackys = ["x", "y", "w"];
+								var img42 = new _configQuesImag2['default'](41, "first letter", { choiceSize: 50, timeup: 7000 }, "", "", questions, wackys, 'extras/animalSheet2009.jpg');
+								//
+								// ["", "", ""],
+								var trivia = [["which country is home to the\n kangaroo", "Australia", "Mexico"], ["which color is in a rainbow", "blue", "gold"], ["What farm animal gives us milk to drink", "cow", "mouse"], ["What animal purrs and is known for chasing mice", "cat", "dog"], ["what do Jack and Jill go up the hill to fetch", "water", "flowers"], ["what color are the leaves in summer", "green", "black"], ["what season is usually cold", "winter", "summer"], ["what season usually has red leaves", "fall", "summer"], ["what runs on a track and blows a whistle", "train", "car"], ["what color is a stop sign", "red", "blue"], ["what is a baby pig called", "piglet", "calf"], ["who was abel's brother", "cain", "moses"]];
 								var wackys = ["duck", "jack", "where", "what", "mac", "jill", "clifford"];
 								var tri51 = new _configQues2['default'](51, "trivia 51", { quizSize: 64, choiceSize: 48, moveMainBy: -250, timeup: 8000 }, "", " ?", trivia, wackys);
+								//
+								var message = 'Canada is a country in the northern part of North America. It is bordered by the United States of America both to the south and to the west (Alaska). By area, Canada is the second largest country in the world. Canada consists of ten provinces and three territories. Ottawa is the capital of Canada.';
+								var keywords = ["Canada", "northern", "America", "Ottawa", "country", "world", "ten"];
+								var red61 = new _configLect2['default'](61, "read & comprehend", { quizSize: 70, choiceSize: 46, moveMainBy: -300, timeup: 6000 }, message, keywords);
+								//
+								var message = 'Bread is a type of baked food. It is mainly made from dough, which is made mainly from flour, yeast and water. Bread is often baked in an oven. Bread can be toasted or used to make a sandwich. Pizza is a food based on bread. There are many different kinds of bread. Cake is made in a similar way to bread but sugar, fat and milk are added to the dough.';
+								var keywords = ["Bread", "food", "flour", "water", "sandwich", "food", "kinds", "Cake", "sugar"];
+								var red62 = new _configLect2['default'](62, "read & comprehend", { quizSize: 70, choiceSize: 44, moveMainBy: -300, timeup: 6000 }, message, keywords);
 								//
 								window.config = add11;
 								//////
@@ -1118,6 +1257,18 @@ var QuizType = (function (_Phaser$Sprite) {
 								button41.addChild(text);
 								this.xpos += 38;
 
+								// img42
+								var button42 = game.add.button(this.xpos, this.ypos, key, function () {
+												window.config = img42;window.config.pre(game, this.center);
+								}, context, 0, 1, 2, 3);
+								button42.anchor.x = 0.5;
+								button42.anchor.y = 0.5;
+								button42.scale.setTo(0.14, 0.14);
+								text = game.add.text(-30, -80, "i2", bStyle);
+								button42.addChild(text);
+								this.xpos = this.xposOrig;
+								this.ypos += 40;
+
 								// tri51
 								var button51 = game.add.button(this.xpos, this.ypos, key, function () {
 												window.config = tri51;window.config.pre(game, this.center);
@@ -1129,6 +1280,28 @@ var QuizType = (function (_Phaser$Sprite) {
 								button51.addChild(text);
 								this.xpos += 38;
 
+								// red61
+								var button61 = game.add.button(this.xpos, this.ypos, key, function () {
+												window.config = red61;window.config.pre(game, this.center);
+								}, context, 0, 1, 2, 3);
+								button61.anchor.x = 0.5;
+								button61.anchor.y = 0.5;
+								button61.scale.setTo(0.14, 0.14);
+								text = game.add.text(-30, -80, "r1", bStyle);
+								button61.addChild(text);
+								this.xpos += 38;
+
+								// red62
+								var button62 = game.add.button(this.xpos, this.ypos, key, function () {
+												window.config = red62;window.config.pre(game, this.center);
+								}, context, 0, 1, 2, 3);
+								button62.anchor.x = 0.5;
+								button62.anchor.y = 0.5;
+								button62.scale.setTo(0.14, 0.14);
+								text = game.add.text(-30, -80, "r2", bStyle);
+								button62.addChild(text);
+								this.xpos += 38;
+
 								//////
 				}
 
@@ -1138,7 +1311,7 @@ var QuizType = (function (_Phaser$Sprite) {
 exports['default'] = QuizType;
 module.exports = exports['default'];
 
-},{"configCalc":2,"configMem":3,"configQues":4,"configQuesImag":5,"configQuesRead":6}],11:[function(require,module,exports){
+},{"configCalc":2,"configLect":3,"configMem":4,"configQues":5,"configQuesImag":6,"configQuesRead":7}],12:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -1189,7 +1362,7 @@ var Quiz = (function (_Phaser$Sprite) {
     value: function writeMain() {
       this.calcQuizzer();
       console.log('writeMain - result=' + this.result);
-      this.main = this.game.add.text(this.center.x * 0.74 + window.config.moveMainBy, this.center.y * 0.20, this.quizzer, { fontSize: window.config.quizSize + 'px' });
+      this.main = this.game.add.text(this.center.x * 0.74 + window.config.moveMainBy, this.center.y * 0.20, this.quizzer, { fontSize: window.config.quizSize + 'px', wordWrap: true, wordWrapWidth: this.center.x * 1.55 });
       this.main.addColor("#ffffff", 0);
     }
   }, {
@@ -1273,7 +1446,105 @@ var Quiz = (function (_Phaser$Sprite) {
 exports['default'] = Quiz;
 module.exports = exports['default'];
 
-},{}],12:[function(require,module,exports){
+},{}],13:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var RunConfig = (function (_Phaser$Sprite) {
+  _inherits(RunConfig, _Phaser$Sprite);
+
+  function RunConfig(game, x, y, key, context, timedefault) {
+    _classCallCheck(this, RunConfig);
+
+    _get(Object.getPrototypeOf(RunConfig.prototype), "constructor", this).call(this, game, x, y);
+
+    this.center = { x: x, y: y };
+
+    this.game = game;
+
+    var bStyle = { font: "140px Arial", fill: "#000000" };
+
+    var text = null;
+
+    this.timeup = timedefault;
+
+    //
+
+    this.xposOrig = 26;
+    this.xpos = this.xposOrig;
+
+    var that = this;
+
+    var button10 = game.add.button(this.xpos, this.center.y * 1.88, key, function () {
+      that.timeup -= 1;that.changeTimeText();
+    }, context, 0, 1, 2, 3);
+    button10.anchor.x = 0.5;
+    button10.anchor.y = 0.5;
+    button10.scale.setTo(0.14, 0.14);
+    text = game.add.text(-30, -80, "-", bStyle);
+    button10.addChild(text);
+    this.xpos += 38;
+
+    var button11 = game.add.button(this.xpos, this.center.y * 1.88, key, function () {
+      that.timeup += 1;that.changeTimeText();
+    }, context, 0, 1, 2, 3);
+    button11.anchor.x = 0.5;
+    button11.anchor.y = 0.5;
+    button11.scale.setTo(0.14, 0.14);
+    text = game.add.text(-30, -80, "+", bStyle);
+    button11.addChild(text);
+    this.xpos += 44;
+
+    this.changeTimeText();
+  }
+
+  _createClass(RunConfig, [{
+    key: "changeTimeText",
+    value: function changeTimeText() {
+      console.log('changeTimeText ' + this.timeup);
+      if (this.timetext != null) {
+        this.timetext.destroy();
+      }
+      this.timetext = this.game.add.text(this.xpos, this.center.y * 1.884, this.timeup, { font: "32px Optima" });
+      this.timetext.anchor.set(0.5);
+    }
+  }, {
+    key: "setTimeText",
+    value: function setTimeText(number) {
+      this.timeup = number / 1000;
+      this.changeTimeText();
+    }
+  }, {
+    key: "getTimeText",
+    value: function getTimeText() {
+      return this.timeup * 1000;
+    }
+  }, {
+    key: "reset",
+    value: function reset() {
+      this.timeup = timedefault;
+      this.changeTimeText();
+    }
+  }]);
+
+  return RunConfig;
+})(Phaser.Sprite);
+
+exports["default"] = RunConfig;
+module.exports = exports["default"];
+
+},{}],14:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -1305,6 +1576,10 @@ var _status2 = _interopRequireDefault(_status);
 var _placing = require('placing');
 
 var _placing2 = _interopRequireDefault(_placing);
+
+var _runConfig = require('runConfig');
+
+var _runConfig2 = _interopRequireDefault(_runConfig);
 
 var _next = require('next');
 
@@ -1351,6 +1626,8 @@ var GameState = (function (_Phaser$State) {
 			this.status = new _status2['default'](this.game, this.center.x, this.center.y, 'speechbubble');
 
 			this.placing = new _placing2['default'](this.game, this.center.x, this.center.y);
+
+			this.runConfig = new _runConfig2['default'](this.game, this.center.x, this.center.y, 'button3', this, 10);
 
 			this.timer = null;
 
@@ -1419,6 +1696,9 @@ var GameState = (function (_Phaser$State) {
 			// print config
 			console.log(window.config);
 
+			// set first timer
+			this.runConfig.setTimeText(window.config.timeup);
+
 			//test
 			// this.nexter();
 		}
@@ -1434,13 +1714,13 @@ var GameState = (function (_Phaser$State) {
 				this.gameOn = true;
 				this.reset();
 
-				// if (window.config.id != this.lastTypeId) {
-				// 	console.log("reloading pre");
-				// 	window.config.pre(this.game);
-				// }
-				// this.lastTypeId = window.config.id;
-
 				window.config.before(this.game, this.center);
+
+				if (window.config.id != this.lastTypeId) {
+					console.log("reloading diff id");
+					this.runConfig.setTimeText(window.config.timeup);
+				}
+				this.lastTypeId = window.config.id;
 
 				if (window.config.timein == 0) {
 					this.nextcontinue();
@@ -1459,9 +1739,11 @@ var GameState = (function (_Phaser$State) {
 			this.quiz.writeMain();
 			this.quiz.writeChoices();
 
+			var timeup = this.runConfig.getTimeText();
+
 			this.timerReset();
 			this.timer = this.game.time.create(false);
-			this.timer.loop(window.config.timeup, this.timerFinished, this);
+			this.timer.loop(timeup, this.timerFinished, this);
 			this.timer.start();
 
 			this.subtitle.destroy();
@@ -1555,6 +1837,7 @@ var GameState = (function (_Phaser$State) {
 				this.timer.destroy();
 			}
 			this.timer = null;
+			// this.game.debug.text('', this.center.x*0.77, this.center.y*1.28, 'black', '60px Courier New');
 		}
 
 		////
@@ -1598,7 +1881,7 @@ var GameState = (function (_Phaser$State) {
 exports['default'] = GameState;
 module.exports = exports['default'];
 
-},{"next":8,"placing":9,"qtype":10,"quiz":11,"status":13}],13:[function(require,module,exports){
+},{"next":9,"placing":10,"qtype":11,"quiz":12,"runConfig":13,"status":15}],15:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -1701,5 +1984,5 @@ var Status = (function (_Phaser$Sprite) {
 exports["default"] = Status;
 module.exports = exports["default"];
 
-},{}]},{},[7])
+},{}]},{},[8])
 //# sourceMappingURL=game.js.map
