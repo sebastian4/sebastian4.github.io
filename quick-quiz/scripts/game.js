@@ -150,30 +150,41 @@ var _config2 = _interopRequireDefault(_config);
 var ConfigLect = (function (_Config) {
   _inherits(ConfigLect, _Config);
 
-  function ConfigLect(id, name, config, message, keywords) {
+  function ConfigLect(id, name, config, message, keywords, timeread) {
     _classCallCheck(this, ConfigLect);
 
     _get(Object.getPrototypeOf(ConfigLect.prototype), 'constructor', this).call(this, id, name, config);
     this.message = message;
     this.sentences = message.split(".");
     this.keywords = keywords;
+    this.timeread = timeread;
     // find keywords index arrays
-    //
+    this.readtimer = null;
     this.index = -1;
+    this.sprite1 = null;
+    this.text1 = null;
   }
 
   _createClass(ConfigLect, [{
     key: 'pre',
     value: function pre(game, center) {
-      var sprite1 = game.add.sprite(center.x * 0.20, center.y * 0.11, 'bookopen');
-      sprite1.scale.setTo(center.x * 0.0068, center.y * 0.0081);
+      this.sprite1 = game.add.sprite(center.x * 0.20, center.y * 0.11, 'bookopen');
+      this.sprite1.scale.setTo(center.x * 0.0068, center.y * 0.0081);
+      this.sprite1.bringToTop();
       var style = { font: '50px Arial', fill: 'black', align: 'left', wordWrap: true, wordWrapWidth: center.x * 1.63 };
-      var text1 = game.add.text(center.x * 0.28, center.y * 0.24, this.message, style);
-      window.setTimeout(function () {
-        text1.destroy();sprite1.destroy();
-      }, 10000);
+      this.text1 = game.add.text(center.x * 0.28, center.y * 0.24, this.message, style);
+      var that = this;
+      this.readtimer = window.setTimeout(function () {
+        that.text1.destroy();that.sprite1.destroy();
+      }, this.timeread);
       console.log("message length is " + this.message.length);
       // ideally length should be under 450.
+    }
+  }, {
+    key: 'before',
+    value: function before(game, center) {
+      window.clearTimeout(this.readtimer);
+      this.text1.destroy();this.sprite1.destroy();
     }
   }, {
     key: 'calculator',
@@ -1117,17 +1128,23 @@ var QuizType = (function (_Phaser$Sprite) {
 								var img42 = new _configQuesImag2['default'](41, "first letter", { choiceSize: 50, timeup: 7000 }, "", "", questions, wackys, 'extras/animalSheet2009.jpg');
 								//
 								// ["", "", ""],
-								var trivia = [["which country is home to the\n kangaroo", "Australia", "Mexico"], ["which color is in a rainbow", "blue", "gold"], ["What farm animal gives us milk to drink", "cow", "mouse"], ["What animal purrs and is known for chasing mice", "cat", "dog"], ["what do Jack and Jill go up the hill to fetch", "water", "flowers"], ["what color are the leaves in summer", "green", "black"], ["what season is usually cold", "winter", "summer"], ["what season usually has red leaves", "fall", "summer"], ["what runs on a track and blows a whistle", "train", "car"], ["what color is a stop sign", "red", "blue"], ["what is a baby pig called", "piglet", "calf"], ["who was abel's brother", "cain", "moses"]];
+								var trivia = [["which country is home to the\n kangaroo", "Australia", "Mexico"], ["which color is in a rainbow", "blue", "gold"], ["What farm animal gives us milk to drink", "cow", "mouse"], ["What animal purrs and is known for chasing mice", "cat", "dog"], ["what do Jack and Jill go up the hill to fetch", "water", "flowers"], ["what color are the leaves in summer", "green", "black"], ["what season is usually cold", "winter", "summer"], ["what season usually has red leaves", "fall", "summer"], ["what runs on a track and blows a whistle", "train", "car"], ["what color is a stop sign", "red", "blue"], ["what is a baby pig called", "piglet", "calf"], ["who defeated goliath with a sling and a stone", "david", "victor"], ["who was abel's brother", "cain", "moses"]];
 								var wackys = ["duck", "jack", "where", "what", "mac", "jill", "clifford"];
 								var tri51 = new _configQues2['default'](51, "trivia 51", { quizSize: 64, choiceSize: 48, moveMainBy: -250, timeup: 8000 }, "", " ?", trivia, wackys);
 								//
 								var message = 'Canada is a country in the northern part of North America. It is bordered by the United States of America both to the south and to the west (Alaska). By area, Canada is the second largest country in the world. Canada consists of ten provinces and three territories. Ottawa is the capital of Canada.';
 								var keywords = ["Canada", "northern", "America", "Ottawa", "country", "world", "ten"];
-								var red61 = new _configLect2['default'](61, "read & comprehend", { quizSize: 70, choiceSize: 46, moveMainBy: -300, timeup: 6000 }, message, keywords);
+								var red61 = new _configLect2['default'](61, "read & comprehend", { quizSize: 64, choiceSize: 46, moveMainBy: -296, timeup: 6000 }, message, keywords, 40000);
 								//
 								var message = 'Bread is a type of baked food. It is mainly made from dough, which is made mainly from flour, yeast and water. Bread is often baked in an oven. Bread can be toasted or used to make a sandwich. Pizza is a food based on bread. There are many different kinds of bread. Cake is made in a similar way to bread but sugar, fat and milk are added to the dough.';
 								var keywords = ["Bread", "food", "flour", "water", "sandwich", "food", "kinds", "Cake", "sugar"];
-								var red62 = new _configLect2['default'](62, "read & comprehend", { quizSize: 70, choiceSize: 44, moveMainBy: -300, timeup: 6000 }, message, keywords);
+								var red62 = new _configLect2['default'](62, "read & comprehend", { quizSize: 64, choiceSize: 44, moveMainBy: -296, timeup: 6000 }, message, keywords, 40000);
+
+								//
+								var message = 'The Earth is the third planet from the Sun and it is the only planet known to have life on it. The Earth formed around 4,5 billion years ago. Earth is one of four rocky planets on the inside of the Solar System. The large mass of the Sun makes the Earth move around it. The mass of the Earth makes the moon move around it. The Earth also turns around in space. The Earth goes around the Sun once a year.';
+								var keywords = ["Earth", "third", "planet", "billion", "years", "rocky", "planets", "Sun", "moon", "turns", "year"];
+								var red63 = new _configLect2['default'](62, "read & comprehend", { quizSize: 64, choiceSize: 44, moveMainBy: -296, timeup: 6000 }, message, keywords, 40000);
+
 								//
 								window.config = add11;
 								//////
@@ -1302,6 +1319,17 @@ var QuizType = (function (_Phaser$Sprite) {
 								button62.addChild(text);
 								this.xpos += 38;
 
+								// red63
+								var button63 = game.add.button(this.xpos, this.ypos, key, function () {
+												window.config = red63;window.config.pre(game, this.center);
+								}, context, 0, 1, 2, 3);
+								button63.anchor.x = 0.5;
+								button63.anchor.y = 0.5;
+								button63.scale.setTo(0.14, 0.14);
+								text = game.add.text(-30, -80, "r3", bStyle);
+								button63.addChild(text);
+								this.xpos += 38;
+
 								//////
 				}
 
@@ -1346,8 +1374,8 @@ var Quiz = (function (_Phaser$Sprite) {
 
     this.textChoices = [];
 
-    var sprite1 = this.game.add.sprite(x * 0.24, y * 0.16, key1);
-    sprite1.scale.setTo(x * 0.0019, y * 0.0011);
+    var sprite1 = this.game.add.sprite(x * 0.24, y * 0.145, key1);
+    sprite1.scale.setTo(x * 0.0019, y * 0.0012);
 
     var sprite11 = this.game.add.sprite(x * 0.46, y * 0.72, key2);
     sprite11.scale.setTo(x * 0.00055, y * 0.00055);
