@@ -1128,23 +1128,26 @@ var QuizType = (function (_Phaser$Sprite) {
 								var img42 = new _configQuesImag2['default'](41, "first letter", { choiceSize: 50, timeup: 7000 }, "", "", questions, wackys, 'extras/animalSheet2009.jpg');
 								//
 								// ["", "", ""],
-								var trivia = [["which country is home to the\n kangaroo", "Australia", "Mexico"], ["which color is in a rainbow", "blue", "gold"], ["What farm animal gives us milk to drink", "cow", "mouse"], ["What animal purrs and is known for chasing mice", "cat", "dog"], ["what do Jack and Jill go up the hill to fetch", "water", "flowers"], ["what color are the leaves in summer", "green", "black"], ["what season is usually cold", "winter", "summer"], ["what season usually has red leaves", "fall", "summer"], ["what runs on a track and blows a whistle", "train", "car"], ["what color is a stop sign", "red", "blue"], ["what is a baby pig called", "piglet", "calf"], ["who defeated goliath with a sling and a stone", "david", "victor"], ["who was abel's brother", "cain", "moses"]];
-								var wackys = ["duck", "jack", "where", "what", "mac", "jill", "clifford"];
+								var trivia = [["which country is home to the\n kangaroo", "Australia", "Mexico"], ["which color is in a rainbow", "blue", "gold"], ["What farm animal gives us milk to drink", "cow", "mouse"], ["What animal purrs and is known for chasing mice", "cat", "dog"], ["what do Jack and Jill go up the hill to fetch", "water", "flowers"], ["what color are the leaves in summer", "green", "black"], ["what season is usually cold", "winter", "summer"], ["what season usually has red leaves", "fall", "summer"], ["what runs on a track and blows a whistle", "train", "car"], ["what color is a stop sign", "red", "blue"], ["what is a baby pig called", "piglet", "calf"], ["who defeated goliath with a sling and a stone", "david", "victor"], ["who was abel's brother", "cain", "moses"], ["what color is snow usually", "white", "red"], ["what bug makes honey", "bee", "dolphin"], ["where do fish usually live", "water", "moon"]];
+								var wackys = ["duck", "jack", "where", "what", "cheese", "jill", "clifford"];
 								var tri51 = new _configQues2['default'](51, "trivia 51", { quizSize: 64, choiceSize: 48, moveMainBy: -250, timeup: 8000 }, "", " ?", trivia, wackys);
 								//
-								var message = 'Canada is a country in the northern part of North America. It is bordered by the United States of America both to the south and to the west (Alaska). By area, Canada is the second largest country in the world. Canada consists of ten provinces and three territories. Ottawa is the capital of Canada.';
-								var keywords = ["Canada", "northern", "America", "Ottawa", "country", "world", "ten"];
+								var message = 'The United States of America (USA), is a country in North America. USA is made up of 50 states, a federal district, and five territories. The capital of the United States is Washington DC, its federal district. It is one of the worlds superpowers. It is famous for its influence over finance, trade, culture, military, politics, and technology.';
+								var keywords = ["United", "USA", "North", "50", "federal", "Washington", "superpowers", "influence"];
 								var red61 = new _configLect2['default'](61, "read & comprehend", { quizSize: 64, choiceSize: 46, moveMainBy: -296, timeup: 6000 }, message, keywords, 40000);
 								//
 								var message = 'Bread is a type of baked food. It is mainly made from dough, which is made mainly from flour, yeast and water. Bread is often baked in an oven. Bread can be toasted or used to make a sandwich. Pizza is a food based on bread. There are many different kinds of bread. Cake is made in a similar way to bread but sugar, fat and milk are added to the dough.';
 								var keywords = ["Bread", "food", "flour", "water", "sandwich", "food", "kinds", "Cake", "sugar"];
 								var red62 = new _configLect2['default'](62, "read & comprehend", { quizSize: 64, choiceSize: 44, moveMainBy: -296, timeup: 6000 }, message, keywords, 40000);
-
 								//
 								var message = 'The Earth is the third planet from the Sun and it is the only planet known to have life on it. The Earth formed around 4,5 billion years ago. Earth is one of four rocky planets on the inside of the Solar System. The large mass of the Sun makes the Earth move around it. The mass of the Earth makes the moon move around it. The Earth also turns around in space. The Earth goes around the Sun once a year.';
 								var keywords = ["Earth", "third", "planet", "billion", "years", "rocky", "planets", "Sun", "moon", "turns", "year"];
-								var red63 = new _configLect2['default'](62, "read & comprehend", { quizSize: 64, choiceSize: 44, moveMainBy: -296, timeup: 6000 }, message, keywords, 40000);
+								var red63 = new _configLect2['default'](63, "read & comprehend", { quizSize: 64, choiceSize: 44, moveMainBy: -296, timeup: 6000 }, message, keywords, 40000);
 
+								//
+								var message = 'Virginia is a state in the United States. Its capital is Richmond and its largest city is Virginia Beach. The official name of Virginia is the Commonwealth of Virginia. Virginia became a state in 1788 after the American Revolution. Before the United States, Virginia was a colony of Great Britain. The state of West Virginia used to be part of Virginia.';
+								var keywords = ["Virginia", "United", "Richmond", "Beach", "official", "Revolution", "Britain", "West"];
+								var red64 = new _configLect2['default'](64, "read & comprehend", { quizSize: 64, choiceSize: 44, moveMainBy: -296, timeup: 6000 }, message, keywords, 40000);
 								//
 								window.config = add11;
 								//////
@@ -1160,6 +1163,7 @@ var QuizType = (function (_Phaser$Sprite) {
 								button11.scale.setTo(0.14, 0.14);
 								text = game.add.text(-60, -80, "++", bStyle);
 								button11.addChild(text);
+
 								this.xpos += 38;
 
 								// Del
@@ -1171,6 +1175,7 @@ var QuizType = (function (_Phaser$Sprite) {
 								button12.scale.setTo(0.14, 0.14);
 								text = game.add.text(-30, -80, "--", bStyle);
 								button12.addChild(text);
+
 								this.xpos += 38;
 
 								// Mul
@@ -1182,7 +1187,21 @@ var QuizType = (function (_Phaser$Sprite) {
 								button13.scale.setTo(0.14, 0.14);
 								text = game.add.text(-50, -80, "xx", bStyle);
 								button13.addChild(text);
+
 								this.xpos += 38;
+
+								// seq25
+								var button25 = game.add.button(this.xpos, this.ypos, key, function () {
+												window.config = seq25;
+								}, context, 0, 1, 2, 3);
+								button25.anchor.x = 0.5;
+								button25.anchor.y = 0.5;
+								button25.scale.setTo(0.14, 0.14);
+								text = game.add.text(-40, -80, "s5", bStyle);
+								button25.addChild(text);
+
+								this.xpos = this.xposOrig;
+								this.ypos += 40;
 
 								// Rhy
 								var button21 = game.add.button(this.xpos, this.ypos, key, function () {
@@ -1193,29 +1212,7 @@ var QuizType = (function (_Phaser$Sprite) {
 								button21.scale.setTo(0.14, 0.14);
 								text = game.add.text(-40, -80, "r1", bStyle);
 								button21.addChild(text);
-								this.xpos = this.xposOrig;
-								this.ypos += 40;
 
-								// Mem
-								var button16 = game.add.button(this.xpos, this.ypos, key, function () {
-												window.config = mem16;
-								}, context, 0, 1, 2, 3);
-								button16.anchor.x = 0.5;
-								button16.anchor.y = 0.5;
-								button16.scale.setTo(0.14, 0.14);
-								text = game.add.text(-80, -80, "m6", bStyle);
-								button16.addChild(text);
-								this.xpos += 38;
-
-								// mem17
-								var button17 = game.add.button(this.xpos, this.ypos, key, function () {
-												window.config = mem17;
-								}, context, 0, 1, 2, 3);
-								button17.anchor.x = 0.5;
-								button17.anchor.y = 0.5;
-								button17.scale.setTo(0.14, 0.14);
-								text = game.add.text(-80, -80, "m7", bStyle);
-								button17.addChild(text);
 								this.xpos += 38;
 
 								// opp22
@@ -1227,6 +1224,32 @@ var QuizType = (function (_Phaser$Sprite) {
 								button22.scale.setTo(0.14, 0.14);
 								text = game.add.text(-40, -80, "o1", bStyle);
 								button22.addChild(text);
+
+								this.xpos = this.xposOrig;
+								this.ypos += 40;
+
+								// Mem16
+								var button16 = game.add.button(this.xpos, this.ypos, key, function () {
+												window.config = mem16;
+								}, context, 0, 1, 2, 3);
+								button16.anchor.x = 0.5;
+								button16.anchor.y = 0.5;
+								button16.scale.setTo(0.14, 0.14);
+								text = game.add.text(-80, -80, "m6", bStyle);
+								button16.addChild(text);
+
+								this.xpos += 38;
+
+								// mem17
+								var button17 = game.add.button(this.xpos, this.ypos, key, function () {
+												window.config = mem17;
+								}, context, 0, 1, 2, 3);
+								button17.anchor.x = 0.5;
+								button17.anchor.y = 0.5;
+								button17.scale.setTo(0.14, 0.14);
+								text = game.add.text(-80, -80, "m7", bStyle);
+								button17.addChild(text);
+
 								this.xpos += 38;
 
 								// mem18
@@ -1238,51 +1261,7 @@ var QuizType = (function (_Phaser$Sprite) {
 								button18.scale.setTo(0.14, 0.14);
 								text = game.add.text(-80, -80, "m8", bStyle);
 								button18.addChild(text);
-								this.xpos = this.xposOrig;
-								this.ypos += 40;
 
-								// seq25
-								var button25 = game.add.button(this.xpos, this.ypos, key, function () {
-												window.config = seq25;
-								}, context, 0, 1, 2, 3);
-								button25.anchor.x = 0.5;
-								button25.anchor.y = 0.5;
-								button25.scale.setTo(0.14, 0.14);
-								text = game.add.text(-40, -80, "s5", bStyle);
-								button25.addChild(text);
-								this.xpos += 38;
-
-								// Mem
-								var button31 = game.add.button(this.xpos, this.ypos, key, function () {
-												window.config = mem31;window.config.pre(game, this.center);
-								}, context, 0, 1, 2, 3);
-								button31.anchor.x = 0.5;
-								button31.anchor.y = 0.5;
-								button31.scale.setTo(0.14, 0.14);
-								text = game.add.text(-80, -80, "m1", bStyle);
-								button31.addChild(text);
-								this.xpos += 38;
-
-								// img41
-								var button41 = game.add.button(this.xpos, this.ypos, key, function () {
-												window.config = img41;window.config.pre(game, this.center);
-								}, context, 0, 1, 2, 3);
-								button41.anchor.x = 0.5;
-								button41.anchor.y = 0.5;
-								button41.scale.setTo(0.14, 0.14);
-								text = game.add.text(-30, -80, "i1", bStyle);
-								button41.addChild(text);
-								this.xpos += 38;
-
-								// img42
-								var button42 = game.add.button(this.xpos, this.ypos, key, function () {
-												window.config = img42;window.config.pre(game, this.center);
-								}, context, 0, 1, 2, 3);
-								button42.anchor.x = 0.5;
-								button42.anchor.y = 0.5;
-								button42.scale.setTo(0.14, 0.14);
-								text = game.add.text(-30, -80, "i2", bStyle);
-								button42.addChild(text);
 								this.xpos = this.xposOrig;
 								this.ypos += 40;
 
@@ -1295,6 +1274,44 @@ var QuizType = (function (_Phaser$Sprite) {
 								button51.scale.setTo(0.14, 0.14);
 								text = game.add.text(-30, -80, "t1", bStyle);
 								button51.addChild(text);
+
+								this.xpos += 38;
+
+								// img41
+								var button41 = game.add.button(this.xpos, this.ypos, key, function () {
+												window.config = img41;window.config.pre(game, this.center);
+								}, context, 0, 1, 2, 3);
+								button41.anchor.x = 0.5;
+								button41.anchor.y = 0.5;
+								button41.scale.setTo(0.14, 0.14);
+								text = game.add.text(-30, -80, "i1", bStyle);
+								button41.addChild(text);
+
+								this.xpos += 38;
+
+								// img42
+								var button42 = game.add.button(this.xpos, this.ypos, key, function () {
+												window.config = img42;window.config.pre(game, this.center);
+								}, context, 0, 1, 2, 3);
+								button42.anchor.x = 0.5;
+								button42.anchor.y = 0.5;
+								button42.scale.setTo(0.14, 0.14);
+								text = game.add.text(-30, -80, "i2", bStyle);
+								button42.addChild(text);
+
+								this.xpos = this.xposOrig;
+								this.ypos += 40;
+
+								// Mem reading
+								var button31 = game.add.button(this.xpos, this.ypos, key, function () {
+												window.config = mem31;window.config.pre(game, this.center);
+								}, context, 0, 1, 2, 3);
+								button31.anchor.x = 0.5;
+								button31.anchor.y = 0.5;
+								button31.scale.setTo(0.14, 0.14);
+								text = game.add.text(-80, -80, "m1", bStyle);
+								button31.addChild(text);
+
 								this.xpos += 38;
 
 								// red61
@@ -1306,7 +1323,9 @@ var QuizType = (function (_Phaser$Sprite) {
 								button61.scale.setTo(0.14, 0.14);
 								text = game.add.text(-30, -80, "r1", bStyle);
 								button61.addChild(text);
-								this.xpos += 38;
+
+								this.xpos = this.xposOrig;
+								this.ypos += 40;
 
 								// red62
 								var button62 = game.add.button(this.xpos, this.ypos, key, function () {
@@ -1317,6 +1336,7 @@ var QuizType = (function (_Phaser$Sprite) {
 								button62.scale.setTo(0.14, 0.14);
 								text = game.add.text(-30, -80, "r2", bStyle);
 								button62.addChild(text);
+
 								this.xpos += 38;
 
 								// red63
@@ -1328,6 +1348,20 @@ var QuizType = (function (_Phaser$Sprite) {
 								button63.scale.setTo(0.14, 0.14);
 								text = game.add.text(-30, -80, "r3", bStyle);
 								button63.addChild(text);
+
+								this.xpos += 38;
+
+								// red64
+
+								var button64 = game.add.button(this.xpos, this.ypos, key, function () {
+												window.config = red64;window.config.pre(game, this.center);
+								}, context, 0, 1, 2, 3);
+								button64.anchor.x = 0.5;
+								button64.anchor.y = 0.5;
+								button64.scale.setTo(0.14, 0.14);
+								text = game.add.text(-30, -80, "r4", bStyle);
+								button64.addChild(text);
+
 								this.xpos += 38;
 
 								//////
