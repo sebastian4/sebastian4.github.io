@@ -677,7 +677,7 @@ module.exports = exports["default"];
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
-				value: true
+    value: true
 });
 
 var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
@@ -1061,313 +1061,373 @@ var _configLect2 = _interopRequireDefault(_configLect);
 ////////
 
 var QuizType = (function (_Phaser$Sprite) {
-				_inherits(QuizType, _Phaser$Sprite);
+    _inherits(QuizType, _Phaser$Sprite);
 
-				function QuizType(game, x, y, key, context, center) {
-								_classCallCheck(this, QuizType);
+    function QuizType(game, x, y, key, context, center) {
+        _classCallCheck(this, QuizType);
 
-								_get(Object.getPrototypeOf(QuizType.prototype), 'constructor', this).call(this, game, x, y, key);
-								// width, height
+        _get(Object.getPrototypeOf(QuizType.prototype), 'constructor', this).call(this, game, x, y, key);
+        // width, height
 
-								// default
-								// window.config = window.configAdd11;
+        // default
+        // window.config = window.configAdd11;
 
-								this.xposOrig = 26;
-								this.xpos = this.xposOrig;
-								this.yposOrig = 210;
-								this.ypos = this.yposOrig;
+        this.xposOrig = 26;
+        this.xpos = this.xposOrig;
+        this.yposOrig = 210;
+        this.ypos = this.yposOrig;
 
-								this.center = center;
+        this.center = center;
 
-								var text = null;
+        var text = null;
 
-								//////
+        //////
 
-								var add11 = new _configCalc2['default'](11, "additin", { choiceSize: 90 }, 0, 9, 5, "+");
-								//
-								var del12 = new _configCalc2['default'](12, "subtractin", { choiceSize: 90 }, 4, 10, 5, "-");
-								//
-								var mul13 = new _configCalc2['default'](13, "multiplicatin", { choiceSize: 90 }, 1, 5, 4, "*");
-								//
-								var mem16 = new _configMem2['default'](16, "memoize numbers 5", { quizSize: 160, choiceSize: 60, moveMainBy: -50, timeup: 9000, timein: 3000 }, 5, function (result) {
-												return result;
-								});
-								//
-								var mem17 = new _configMem2['default'](17, "revers numbers", { quizSize: 160, choiceSize: 68, moveMainBy: -50, timeup: 9000, timein: 3000 }, 4, function (result) {
-												console.log('AA AA');return result.split("").reverse().join("");
-								});
-								//
-								var mem18 = new _configMem2['default'](18, "memoize numbers 6", { quizSize: 160, choiceSize: 52, moveMainBy: -50, timeup: 9000, timein: 3000 }, 6, function (result) {
-												return result;
-								});
-								//
-								var rhymes = [["ball", "wall", "bell"], ["net", "bet", "cat"], ["moon", "toon", "spawn"], ["soon", "moon", "ant"], ["rice", "nice", "like"], ["kite", "lite", "king"], ["rough", "cough", "latch"], ["see", "knee", "dean"], ["neat", "seat", "note"], ["dry", "fry", "dress"]];
-								var wackys = ["duck", "jack", "where", "what", "mac", "rune", "tin", "chip", "fin", "flan", "dune", "man"];
-								var rhy21 = new _configQues2['default'](21, "rhymes", { quizSize: 84, choiceSize: 54, moveMainBy: -170, timeup: 8000 }, "rhymes with ", " ?", rhymes, wackys);
-								//
-								var message = 'Nectar, in botany, is a liquid made by the flowers of plants. It is very sweet because it has a lot of sugar in it. Plants make nectar to attract pollinating animals. It is made in glands called nectaries. The Nectaries are usually at the bottom of the flower. This means the animal trying to get the nectar have to touch the parts of the plant that are used for reproduction. Some plants make nectar outside the flower.';
-								var questions = [["what makes nectar", "plants", "bees"], ["why is nectar sweet", "sugar", "salt"], ["are all nectars inside the \nflower", "no", "yes"], ["where are the nectaries in \nthe flower", "bottom", "top"], ["what does nectar attract", "animals", "babies"], ["what are nectaries", "glands", "animals"], ["is nectar a liquid", "yes", "no"]];
-								var wackys = ["jack", "joe", "what", "fire", "sand", "apple", "cheese", "ice cream", "men"];
-								var mem31 = new _configQuesRead2['default'](31, "read comprehend", { quizSize: 74, choiceSize: 50, moveMainBy: -300, timeup: 6000 }, "", " ?", message, questions, wackys);
-								//
-								// ["", "", ""],
-								var opposites = [["up", "down", "right"], ["right", "left", "up"], ["left", "right", "down"], ["walk", "run", "smile"], ["happy", "sad", "naughty"], ["over", "under", "cooked"], ["wet", "dry", "sleep"], ["new", "old", "salty"]];
-								var wackys = ["duck", "jack", "where", "what", "who", "honey", "chip", "flan", "piano", "drum"];
-								var opp22 = new _configQues2['default'](22, "opposites", { quizSize: 84, choiceSize: 54, moveMainBy: -170, timeup: 8000 }, "opposite of ", " ?", opposites, wackys);
-								//
-								var sequences = [["1 2 3 _", "5", "6"], ["2 4 6 _", "8", "7"], ["4 5 _ 7", "6", "7"], ["4 6 _ 10", "8", "6"], ["5 4 3 _", "2", "1"], ["4 3 2 _", "1", "2"], ["3 6 _ 12", "9", "10"], ["10 20 _ 40", "30", "21"], ["1 3 _ 7", "5", "6"], ["100 200 _", "300", "1000"], ["10 12 14 _", "16", "18"]];
-								var wackys = ["0", "7", "11", "13", "17", "19", "21", "99"];
-								var seq25 = new _configQues2['default'](25, "sequence", { quizSize: 84, choiceSize: 54, moveMainBy: -170, timeup: 8000 }, "sequence:   ", "", sequences, wackys);
-								//
-								var questions = [["", "frog", "fog"], ["", "cat", "cart"], ["", "dog", "doog"], ["", "bird", "burd"], ["", "elephant", "aliphant"], ["", "fish", "fin"], ["", "giraffe", "girafy"], ["", "hippo", "hiper"], ["", "monkey", "mankey"], ["", "mouse", "moose"], ["", "panda", "ponda"], ["", "tiger", "tigre"], ["", "unicorn", "hunicorn"], ["", "zebra", "zubra"]];
-								var wackys = ["jack", "jill", "horse", "dinasour", "shark", "whale", "cheese"];
-								var img41 = new _configQuesImag2['default'](41, "what is it", { choiceSize: 50, timeup: 7000 }, "", "", questions, wackys, 'extras/animalSheet2009.jpg');
-								//
-								var questions = [["", "f", "g"], ["", "c", "t"], ["", "d", "g"], ["", "b", "g"], ["", "e", "t"], ["", "f", "h"], ["", "g", "f"], ["", "h", "i"], ["", "m", "n"], ["", "m", "t"], ["", "p", "o"], ["", "t", "r"], ["", "u", "h"], ["", "z", "y"]];
-								var wackys = ["x", "y", "w"];
-								var img42 = new _configQuesImag2['default'](41, "first letter", { choiceSize: 50, timeup: 7000 }, "", "", questions, wackys, 'extras/animalSheet2009.jpg');
-								//
-								// ["", "", ""],
-								var trivia = [["which country is home to the\n kangaroo", "Australia", "Mexico"], ["which color is in a rainbow", "blue", "gold"], ["What farm animal gives us milk to drink", "cow", "mouse"], ["What animal purrs and is known for chasing mice", "cat", "dog"], ["what do Jack and Jill go up the hill to fetch", "water", "flowers"], ["what color are the leaves in summer", "green", "black"], ["what season is usually cold", "winter", "summer"], ["what season usually has red leaves", "fall", "summer"], ["what runs on a track and blows a whistle", "train", "car"], ["what color is a stop sign", "red", "blue"], ["what is a baby pig called", "piglet", "calf"], ["who defeated goliath with a sling and a stone", "david", "victor"], ["who was abel's brother", "cain", "moses"], ["what color is snow usually", "white", "red"], ["what bug makes honey", "bee", "dolphin"], ["where do fish usually live", "water", "moon"]];
-								var wackys = ["duck", "jack", "where", "what", "cheese", "jill", "clifford"];
-								var tri51 = new _configQues2['default'](51, "trivia 51", { quizSize: 64, choiceSize: 48, moveMainBy: -250, timeup: 8000 }, "", " ?", trivia, wackys);
-								//
-								var message = 'The United States of America (USA), is a country in North America. USA is made up of 50 states, a federal district, and five territories. The capital of the United States is Washington DC, its federal district. It is one of the worlds superpowers. It is famous for its influence over finance, trade, culture, military, politics, and technology.';
-								var keywords = ["United", "USA", "North", "50", "federal", "Washington", "superpowers", "influence"];
-								var red61 = new _configLect2['default'](61, "read & comprehend", { quizSize: 64, choiceSize: 46, moveMainBy: -296, timeup: 6000 }, message, keywords, 40000);
-								//
-								var message = 'Bread is a type of baked food. It is mainly made from dough, which is made mainly from flour, yeast and water. Bread is often baked in an oven. Bread can be toasted or used to make a sandwich. Pizza is a food based on bread. There are many different kinds of bread. Cake is made in a similar way to bread but sugar, fat and milk are added to the dough.';
-								var keywords = ["Bread", "food", "flour", "water", "sandwich", "food", "kinds", "Cake", "sugar"];
-								var red62 = new _configLect2['default'](62, "read & comprehend", { quizSize: 64, choiceSize: 44, moveMainBy: -296, timeup: 6000 }, message, keywords, 40000);
-								//
-								var message = 'The Earth is the third planet from the Sun and it is the only planet known to have life on it. The Earth formed around 4,5 billion years ago. Earth is one of four rocky planets on the inside of the Solar System. The large mass of the Sun makes the Earth move around it. The mass of the Earth makes the moon move around it. The Earth also turns around in space. The Earth goes around the Sun once a year.';
-								var keywords = ["Earth", "third", "planet", "billion", "years", "rocky", "planets", "Sun", "moon", "turns", "year"];
-								var red63 = new _configLect2['default'](63, "read & comprehend", { quizSize: 64, choiceSize: 44, moveMainBy: -296, timeup: 6000 }, message, keywords, 40000);
+        var add11 = new _configCalc2['default'](11, "additin", { choiceSize: 90 }, 0, 9, 4, "+");
+        //
+        var add12 = new _configCalc2['default'](12, "additin", { choiceSize: 90 }, 0, 9, 8, "+");
+        //
+        var del12 = new _configCalc2['default'](12, "subtractin", { choiceSize: 90 }, 4, 10, 5, "-");
+        //
+        var mul13 = new _configCalc2['default'](13, "multiplicatin", { choiceSize: 90 }, 1, 5, 4, "*");
+        //
+        var mem16 = new _configMem2['default'](16, "memoize numbers 5", { quizSize: 160, choiceSize: 60, moveMainBy: -50, timeup: 9000, timein: 3000 }, 5, function (result) {
+            return result;
+        });
+        //
+        var mem17 = new _configMem2['default'](17, "revers numbers", { quizSize: 160, choiceSize: 68, moveMainBy: -50, timeup: 9000, timein: 3000 }, 4, function (result) {
+            console.log('AA AA');return result.split("").reverse().join("");
+        });
+        //
+        var mem18 = new _configMem2['default'](18, "memoize numbers 6", { quizSize: 160, choiceSize: 52, moveMainBy: -50, timeup: 9000, timein: 3000 }, 6, function (result) {
+            return result;
+        });
+        //
+        var mem19 = new _configMem2['default'](19, "memoize numbers 7", { quizSize: 160, choiceSize: 48, moveMainBy: -50, timeup: 9000, timein: 3000 }, 7, function (result) {
+            return result;
+        });
+        //
+        var rhymes = [["ball", "wall", "bell"], ["net", "bet", "cat"], ["moon", "toon", "spawn"], ["soon", "moon", "ant"], ["rice", "nice", "like"], ["kite", "lite", "king"], ["rough", "cough", "latch"], ["see", "knee", "dean"], ["neat", "seat", "note"], ["dry", "fry", "dress"]];
+        var wackys = ["duck", "jack", "where", "what", "mac", "rune", "tin", "chip", "fin", "flan", "dune", "man"];
+        var rhy21 = new _configQues2['default'](21, "rhymes", { quizSize: 84, choiceSize: 54, moveMainBy: -170, timeup: 8000 }, "rhymes with ", " ?", rhymes, wackys);
+        //
+        var message = 'Nectar, in botany, is a liquid made by the flowers of plants. It is very sweet because it has a lot of sugar in it. Plants make nectar to attract pollinating animals. It is made in glands called nectaries. The Nectaries are usually at the bottom of the flower. This means the animal trying to get the nectar have to touch the parts of the plant that are used for reproduction. Some plants make nectar outside the flower.';
+        var questions = [["what makes nectar", "plants", "bees"], ["why is nectar sweet", "sugar", "salt"], ["are all nectars inside the \nflower", "no", "yes"], ["where are the nectaries in \nthe flower", "bottom", "top"], ["what does nectar attract", "animals", "babies"], ["what are nectaries", "glands", "animals"], ["is nectar a liquid", "yes", "no"]];
+        var wackys = ["jack", "joe", "what", "fire", "sand", "apple", "cheese", "ice cream", "men"];
+        var mem31 = new _configQuesRead2['default'](31, "read comprehend", { quizSize: 74, choiceSize: 50, moveMainBy: -300, timeup: 6000 }, "", " ?", message, questions, wackys);
+        //
+        // ["", "", ""],
+        var opposites = [["up", "down", "right"], ["right", "left", "up"], ["left", "right", "down"], ["walk", "run", "smile"], ["happy", "sad", "naughty"], ["over", "under", "cooked"], ["wet", "dry", "sleep"], ["new", "old", "salty"]];
+        var wackys = ["duck", "jack", "where", "what", "who", "honey", "chip", "flan", "piano", "drum"];
+        var opp22 = new _configQues2['default'](22, "opposites", { quizSize: 84, choiceSize: 54, moveMainBy: -170, timeup: 8000 }, "opposite of ", " ?", opposites, wackys);
+        //
+        var sequences = [["1 2 3 _", "4", "6"], ["2 4 6 _", "8", "7"], ["4 5 _ 7", "6", "7"], ["4 6 _ 10", "8", "6"], ["5 4 3 _", "2", "1"], ["4 3 2 _", "1", "2"], ["3 6 _ 12", "9", "10"], ["10 20 _ 40", "30", "21"], ["1 3 _ 7", "5", "6"], ["100 200 _", "300", "1000"], ["10 12 14 _", "16", "18"]];
+        var wackys = ["0", "7", "11", "13", "17", "19", "21", "99"];
+        var seq25 = new _configQues2['default'](25, "sequence", { quizSize: 84, choiceSize: 54, moveMainBy: -170, timeup: 8000 }, "sequence:   ", "", sequences, wackys);
+        //
+        var questions = [["", "frog", "fog"], ["", "cat", "cart"], ["", "dog", "doog"], ["", "bird", "burd"], ["", "elephant", "aliphant"], ["", "fish", "fin"], ["", "giraffe", "girafy"], ["", "hippo", "hiper"], ["", "monkey", "mankey"], ["", "mouse", "moose"], ["", "panda", "ponda"], ["", "tiger", "tigre"], ["", "unicorn", "hunicorn"], ["", "zebra", "zubra"]];
+        var wackys = ["jack", "jill", "horse", "dinasour", "shark", "whale", "cheese"];
+        var img41 = new _configQuesImag2['default'](41, "what is it", { choiceSize: 50, timeup: 7000 }, "", "", questions, wackys, 'extras/animalSheet2009.jpg');
+        //
+        var questions = [["", "f", "g"], ["", "c", "t"], ["", "d", "g"], ["", "b", "g"], ["", "e", "t"], ["", "f", "h"], ["", "g", "f"], ["", "h", "i"], ["", "m", "n"], ["", "m", "t"], ["", "p", "o"], ["", "t", "r"], ["", "u", "h"], ["", "z", "y"]];
+        var wackys = ["x", "y", "w"];
+        var img42 = new _configQuesImag2['default'](41, "first letter", { choiceSize: 50, timeup: 7000 }, "", "", questions, wackys, 'extras/animalSheet2009.jpg');
+        //
+        // ["", "", ""],
+        var trivia = [["which country is home to the\n kangaroo", "Australia", "Mexico"], ["which color is in a rainbow", "blue", "gold"], ["What farm animal gives us milk to drink", "cow", "mouse"], ["What animal purrs and is known for chasing mice", "cat", "dog"], ["what do Jack and Jill go up the hill to fetch", "water", "flowers"], ["what color are the leaves in summer", "green", "black"], ["what season is usually cold", "winter", "summer"], ["what season usually has red leaves", "fall", "summer"], ["what runs on a track and blows a whistle", "train", "car"], ["what color is a stop sign", "red", "blue"], ["what is a baby pig called", "piglet", "calf"], ["who defeated goliath with a sling and a stone", "david", "victor"], ["who was abel's brother", "cain", "moses"], ["what color is snow usually", "white", "red"], ["what bug makes honey", "bee", "dolphin"], ["where do fish usually live", "water", "moon"]];
+        var wackys = ["duck", "jack", "where", "what", "cheese", "jill", "clifford"];
+        var tri51 = new _configQues2['default'](51, "trivia 51", { quizSize: 64, choiceSize: 48, moveMainBy: -250, timeup: 8000 }, "", " ?", trivia, wackys);
+        //
+        var message = 'The United States of America (USA), is a country in North America. USA is made up of 50 states, a federal district, and five territories. The capital of the United States is Washington DC, its federal district. It is one of the worlds superpowers. It is famous for its influence over finance, trade, culture, military, politics, and technology.';
+        var keywords = ["United", "USA", "North", "50", "federal", "Washington", "superpowers", "influence"];
+        var red61 = new _configLect2['default'](61, "read & comprehend", { quizSize: 64, choiceSize: 46, moveMainBy: -296, timeup: 6000 }, message, keywords, 40000);
+        //
+        var message = 'Bread is a type of baked food. It is mainly made from dough, which is made mainly from flour, yeast and water. Bread is often baked in an oven. Bread can be toasted or used to make a sandwich. Pizza is a food based on bread. There are many different kinds of bread. Cake is made in a similar way to bread but sugar, fat and milk are added to the dough.';
+        var keywords = ["Bread", "food", "flour", "water", "sandwich", "food", "kinds", "Cake", "sugar"];
+        var red62 = new _configLect2['default'](62, "read & comprehend", { quizSize: 64, choiceSize: 44, moveMainBy: -296, timeup: 6000 }, message, keywords, 40000);
+        //
+        var message = 'The Earth is the third planet from the Sun and it is the only planet known to have life on it. The Earth formed around 4,5 billion years ago. Earth is one of four rocky planets on the inside of the Solar System. The large mass of the Sun makes the Earth move around it. The mass of the Earth makes the moon move around it. The Earth also turns around in space. The Earth goes around the Sun once a year.';
+        var keywords = ["Earth", "third", "planet", "billion", "years", "rocky", "planets", "Sun", "moon", "turns", "year"];
+        var red63 = new _configLect2['default'](63, "read & comprehend", { quizSize: 64, choiceSize: 44, moveMainBy: -296, timeup: 6000 }, message, keywords, 40000);
+        //
+        var message = 'dinosaurs are a type of reptile. They were the dominant land animals of the Mesozoic era. Over 500 different genera of dinosaurs have been found. Fossils of dinosaurs have been found on every continent. There are still frequent new discoveries. dinosaurs appeared in the Triassic era, about 231 million years ago. By the early Jurassic era they were the top land vertebrates. During that time they dominated most environments on land. They continued until a sudden extinction event 66 million years ago.';
+        var keywords = ["dinosaurs", "reptile", "animals", "environments", "extinction", "million", "land"];
+        var red64 = new _configLect2['default'](64, "read & comprehend", { quizSize: 64, choiceSize: 44, moveMainBy: -296, timeup: 6000 }, message, keywords, 40000);
+        //
+        var message = 'A television or TV is a machine with a screen. Televisions receive broadcast signals and turn them into pictures and sound. The word television comes from the words tele (Greek for far away) and vision (seeing). Sometimes a TV can look like a box. Older TVs had large wooden frames and sat on the floor like furniture. A newer TV is much lighter and flatter. A television can show pictures from many places.';
+        var keywords = ["television", "TV", "pictures", "box", "furniture", "lighter", "places"];
+        var red65 = new _configLect2['default'](65, "read & comprehend", { quizSize: 64, choiceSize: 44, moveMainBy: -296, timeup: 6000 }, message, keywords, 40000);
+        //
+        var message = 'A beach is an area of lakeshore or seashore which is fairly open. A beach slopes smoothly to the water, and is free of trees or large boulders. Many beaches are made of sand. But some beaches are made of gravel. Beaches are easy natural landing and launching places for boats. People often use beaches as a place to swim, to work on their tan, or just to relax. The most popular beaches have fine white or light-colored sand and warm water to swim in. Beaches may also be popular because of the excellent opportunities for seeing marine life.';
+        var keywords = ["beach", "water", "sand", "boats", "beaches", "swim", "marine"];
+        var red66 = new _configLect2['default'](66, "read & comprehend", { quizSize: 64, choiceSize: 44, moveMainBy: -296, timeup: 6000 }, message, keywords, 40000);
+        //
+        window.config = add11;
+        //////
 
-								//
-								var message = 'Virginia is a state in the United States. Its capital is Richmond and its largest city is Virginia Beach. The official name of Virginia is the Commonwealth of Virginia. Virginia became a state in 1788 after the American Revolution. Before the United States, Virginia was a colony of Great Britain. The state of West Virginia used to be part of Virginia.';
-								var keywords = ["Virginia", "United", "Richmond", "Beach", "official", "Revolution", "Britain", "West"];
-								var red64 = new _configLect2['default'](64, "read & comprehend", { quizSize: 64, choiceSize: 44, moveMainBy: -296, timeup: 6000 }, message, keywords, 40000);
-								//
-								window.config = add11;
-								//////
+        var bStyle = { font: "120px Arial", fill: "#000000" };
 
-								var bStyle = { font: "120px Arial", fill: "#000000" };
+        // Add
+        var button11 = game.add.button(this.xpos, this.ypos, key, function () {
+            window.config = add11;
+        }, context, 0, 1, 2, 3);
+        button11.anchor.x = 0.5;
+        button11.anchor.y = 0.5;
+        button11.scale.setTo(0.14, 0.14);
+        text = game.add.text(-60, -80, "++", bStyle);
+        button11.addChild(text);
 
-								// Add
-								var button11 = game.add.button(this.xpos, this.ypos, key, function () {
-												window.config = add11;
-								}, context, 0, 1, 2, 3);
-								button11.anchor.x = 0.5;
-								button11.anchor.y = 0.5;
-								button11.scale.setTo(0.14, 0.14);
-								text = game.add.text(-60, -80, "++", bStyle);
-								button11.addChild(text);
+        this.xpos += 38;
 
-								this.xpos += 38;
+        // Add
+        var button15 = game.add.button(this.xpos, this.ypos, key, function () {
+            window.config = add12;
+        }, context, 0, 1, 2, 3);
+        button15.anchor.x = 0.5;
+        button15.anchor.y = 0.5;
+        button15.scale.setTo(0.14, 0.14);
+        text = game.add.text(-60, -80, "+2", bStyle);
+        button15.addChild(text);
 
-								// Del
-								var button12 = game.add.button(this.xpos, this.ypos, key, function () {
-												window.config = del12;
-								}, context, 0, 1, 2, 3);
-								button12.anchor.x = 0.5;
-								button12.anchor.y = 0.5;
-								button12.scale.setTo(0.14, 0.14);
-								text = game.add.text(-30, -80, "--", bStyle);
-								button12.addChild(text);
+        this.xpos += 38;
 
-								this.xpos += 38;
+        // Del
+        var button12 = game.add.button(this.xpos, this.ypos, key, function () {
+            window.config = del12;
+        }, context, 0, 1, 2, 3);
+        button12.anchor.x = 0.5;
+        button12.anchor.y = 0.5;
+        button12.scale.setTo(0.14, 0.14);
+        text = game.add.text(-30, -80, "--", bStyle);
+        button12.addChild(text);
 
-								// Mul
-								var button13 = game.add.button(this.xpos, this.ypos, key, function () {
-												window.config = mul13;
-								}, context, 0, 1, 2, 3);
-								button13.anchor.x = 0.5;
-								button13.anchor.y = 0.5;
-								button13.scale.setTo(0.14, 0.14);
-								text = game.add.text(-50, -80, "xx", bStyle);
-								button13.addChild(text);
+        this.xpos += 38;
 
-								this.xpos += 38;
+        // Mul
+        var button13 = game.add.button(this.xpos, this.ypos, key, function () {
+            window.config = mul13;
+        }, context, 0, 1, 2, 3);
+        button13.anchor.x = 0.5;
+        button13.anchor.y = 0.5;
+        button13.scale.setTo(0.14, 0.14);
+        text = game.add.text(-50, -80, "xx", bStyle);
+        button13.addChild(text);
 
-								// seq25
-								var button25 = game.add.button(this.xpos, this.ypos, key, function () {
-												window.config = seq25;
-								}, context, 0, 1, 2, 3);
-								button25.anchor.x = 0.5;
-								button25.anchor.y = 0.5;
-								button25.scale.setTo(0.14, 0.14);
-								text = game.add.text(-40, -80, "s5", bStyle);
-								button25.addChild(text);
+        this.xpos = this.xposOrig;
+        this.ypos += 40;
 
-								this.xpos = this.xposOrig;
-								this.ypos += 40;
+        // seq25
+        var button25 = game.add.button(this.xpos, this.ypos, key, function () {
+            window.config = seq25;
+        }, context, 0, 1, 2, 3);
+        button25.anchor.x = 0.5;
+        button25.anchor.y = 0.5;
+        button25.scale.setTo(0.14, 0.14);
+        text = game.add.text(-40, -80, "s5", bStyle);
+        button25.addChild(text);
 
-								// Rhy
-								var button21 = game.add.button(this.xpos, this.ypos, key, function () {
-												window.config = rhy21;
-								}, context, 0, 1, 2, 3);
-								button21.anchor.x = 0.5;
-								button21.anchor.y = 0.5;
-								button21.scale.setTo(0.14, 0.14);
-								text = game.add.text(-40, -80, "r1", bStyle);
-								button21.addChild(text);
+        this.xpos += 38;
 
-								this.xpos += 38;
+        // Rhy
+        var button21 = game.add.button(this.xpos, this.ypos, key, function () {
+            window.config = rhy21;
+        }, context, 0, 1, 2, 3);
+        button21.anchor.x = 0.5;
+        button21.anchor.y = 0.5;
+        button21.scale.setTo(0.14, 0.14);
+        text = game.add.text(-40, -80, "r1", bStyle);
+        button21.addChild(text);
 
-								// opp22
-								var button22 = game.add.button(this.xpos, this.ypos, key, function () {
-												window.config = opp22;
-								}, context, 0, 1, 2, 3);
-								button22.anchor.x = 0.5;
-								button22.anchor.y = 0.5;
-								button22.scale.setTo(0.14, 0.14);
-								text = game.add.text(-40, -80, "o1", bStyle);
-								button22.addChild(text);
+        this.xpos += 38;
 
-								this.xpos = this.xposOrig;
-								this.ypos += 40;
+        // opp22
+        var button22 = game.add.button(this.xpos, this.ypos, key, function () {
+            window.config = opp22;
+        }, context, 0, 1, 2, 3);
+        button22.anchor.x = 0.5;
+        button22.anchor.y = 0.5;
+        button22.scale.setTo(0.14, 0.14);
+        text = game.add.text(-40, -80, "o1", bStyle);
+        button22.addChild(text);
 
-								// Mem16
-								var button16 = game.add.button(this.xpos, this.ypos, key, function () {
-												window.config = mem16;
-								}, context, 0, 1, 2, 3);
-								button16.anchor.x = 0.5;
-								button16.anchor.y = 0.5;
-								button16.scale.setTo(0.14, 0.14);
-								text = game.add.text(-80, -80, "m6", bStyle);
-								button16.addChild(text);
+        this.xpos = this.xposOrig;
+        this.ypos += 40;
 
-								this.xpos += 38;
+        // Mem16
+        var button16 = game.add.button(this.xpos, this.ypos, key, function () {
+            window.config = mem16;
+        }, context, 0, 1, 2, 3);
+        button16.anchor.x = 0.5;
+        button16.anchor.y = 0.5;
+        button16.scale.setTo(0.14, 0.14);
+        text = game.add.text(-80, -80, "m6", bStyle);
+        button16.addChild(text);
 
-								// mem17
-								var button17 = game.add.button(this.xpos, this.ypos, key, function () {
-												window.config = mem17;
-								}, context, 0, 1, 2, 3);
-								button17.anchor.x = 0.5;
-								button17.anchor.y = 0.5;
-								button17.scale.setTo(0.14, 0.14);
-								text = game.add.text(-80, -80, "m7", bStyle);
-								button17.addChild(text);
+        this.xpos += 38;
 
-								this.xpos += 38;
+        // mem17
+        var button17 = game.add.button(this.xpos, this.ypos, key, function () {
+            window.config = mem17;
+        }, context, 0, 1, 2, 3);
+        button17.anchor.x = 0.5;
+        button17.anchor.y = 0.5;
+        button17.scale.setTo(0.14, 0.14);
+        text = game.add.text(-80, -80, "m7", bStyle);
+        button17.addChild(text);
 
-								// mem18
-								var button18 = game.add.button(this.xpos, this.ypos, key, function () {
-												window.config = mem18;
-								}, context, 0, 1, 2, 3);
-								button18.anchor.x = 0.5;
-								button18.anchor.y = 0.5;
-								button18.scale.setTo(0.14, 0.14);
-								text = game.add.text(-80, -80, "m8", bStyle);
-								button18.addChild(text);
+        this.xpos += 38;
 
-								this.xpos = this.xposOrig;
-								this.ypos += 40;
+        // mem18
+        var button18 = game.add.button(this.xpos, this.ypos, key, function () {
+            window.config = mem18;
+        }, context, 0, 1, 2, 3);
+        button18.anchor.x = 0.5;
+        button18.anchor.y = 0.5;
+        button18.scale.setTo(0.14, 0.14);
+        text = game.add.text(-80, -80, "m8", bStyle);
+        button18.addChild(text);
 
-								// tri51
-								var button51 = game.add.button(this.xpos, this.ypos, key, function () {
-												window.config = tri51;window.config.pre(game, this.center);
-								}, context, 0, 1, 2, 3);
-								button51.anchor.x = 0.5;
-								button51.anchor.y = 0.5;
-								button51.scale.setTo(0.14, 0.14);
-								text = game.add.text(-30, -80, "t1", bStyle);
-								button51.addChild(text);
+        this.xpos += 38;
 
-								this.xpos += 38;
+        // mem19
+        var button19 = game.add.button(this.xpos, this.ypos, key, function () {
+            window.config = mem19;
+        }, context, 0, 1, 2, 3);
+        button19.anchor.x = 0.5;
+        button19.anchor.y = 0.5;
+        button19.scale.setTo(0.14, 0.14);
+        text = game.add.text(-80, -80, "m9", bStyle);
+        button19.addChild(text);
 
-								// img41
-								var button41 = game.add.button(this.xpos, this.ypos, key, function () {
-												window.config = img41;window.config.pre(game, this.center);
-								}, context, 0, 1, 2, 3);
-								button41.anchor.x = 0.5;
-								button41.anchor.y = 0.5;
-								button41.scale.setTo(0.14, 0.14);
-								text = game.add.text(-30, -80, "i1", bStyle);
-								button41.addChild(text);
+        this.xpos = this.xposOrig;
+        this.ypos += 40;
 
-								this.xpos += 38;
+        // tri51
+        var button51 = game.add.button(this.xpos, this.ypos, key, function () {
+            window.config = tri51;window.config.pre(game, this.center);
+        }, context, 0, 1, 2, 3);
+        button51.anchor.x = 0.5;
+        button51.anchor.y = 0.5;
+        button51.scale.setTo(0.14, 0.14);
+        text = game.add.text(-30, -80, "t1", bStyle);
+        button51.addChild(text);
 
-								// img42
-								var button42 = game.add.button(this.xpos, this.ypos, key, function () {
-												window.config = img42;window.config.pre(game, this.center);
-								}, context, 0, 1, 2, 3);
-								button42.anchor.x = 0.5;
-								button42.anchor.y = 0.5;
-								button42.scale.setTo(0.14, 0.14);
-								text = game.add.text(-30, -80, "i2", bStyle);
-								button42.addChild(text);
+        this.xpos += 38;
 
-								this.xpos = this.xposOrig;
-								this.ypos += 40;
+        // img41
+        var button41 = game.add.button(this.xpos, this.ypos, key, function () {
+            window.config = img41;window.config.pre(game, this.center);
+        }, context, 0, 1, 2, 3);
+        button41.anchor.x = 0.5;
+        button41.anchor.y = 0.5;
+        button41.scale.setTo(0.14, 0.14);
+        text = game.add.text(-30, -80, "i1", bStyle);
+        button41.addChild(text);
 
-								// Mem reading
-								var button31 = game.add.button(this.xpos, this.ypos, key, function () {
-												window.config = mem31;window.config.pre(game, this.center);
-								}, context, 0, 1, 2, 3);
-								button31.anchor.x = 0.5;
-								button31.anchor.y = 0.5;
-								button31.scale.setTo(0.14, 0.14);
-								text = game.add.text(-80, -80, "m1", bStyle);
-								button31.addChild(text);
+        this.xpos += 38;
 
-								this.xpos += 38;
+        // img42
+        var button42 = game.add.button(this.xpos, this.ypos, key, function () {
+            window.config = img42;window.config.pre(game, this.center);
+        }, context, 0, 1, 2, 3);
+        button42.anchor.x = 0.5;
+        button42.anchor.y = 0.5;
+        button42.scale.setTo(0.14, 0.14);
+        text = game.add.text(-30, -80, "i2", bStyle);
+        button42.addChild(text);
 
-								// red61
-								var button61 = game.add.button(this.xpos, this.ypos, key, function () {
-												window.config = red61;window.config.pre(game, this.center);
-								}, context, 0, 1, 2, 3);
-								button61.anchor.x = 0.5;
-								button61.anchor.y = 0.5;
-								button61.scale.setTo(0.14, 0.14);
-								text = game.add.text(-30, -80, "r1", bStyle);
-								button61.addChild(text);
+        this.xpos = this.xposOrig;
+        this.ypos += 40;
 
-								this.xpos = this.xposOrig;
-								this.ypos += 40;
+        // Mem reading
+        var button31 = game.add.button(this.xpos, this.ypos, key, function () {
+            window.config = mem31;window.config.pre(game, this.center);
+        }, context, 0, 1, 2, 3);
+        button31.anchor.x = 0.5;
+        button31.anchor.y = 0.5;
+        button31.scale.setTo(0.14, 0.14);
+        text = game.add.text(-80, -80, "m1", bStyle);
+        button31.addChild(text);
 
-								// red62
-								var button62 = game.add.button(this.xpos, this.ypos, key, function () {
-												window.config = red62;window.config.pre(game, this.center);
-								}, context, 0, 1, 2, 3);
-								button62.anchor.x = 0.5;
-								button62.anchor.y = 0.5;
-								button62.scale.setTo(0.14, 0.14);
-								text = game.add.text(-30, -80, "r2", bStyle);
-								button62.addChild(text);
+        this.xpos += 38;
 
-								this.xpos += 38;
+        // red61
+        var button61 = game.add.button(this.xpos, this.ypos, key, function () {
+            window.config = red61;window.config.pre(game, this.center);
+        }, context, 0, 1, 2, 3);
+        button61.anchor.x = 0.5;
+        button61.anchor.y = 0.5;
+        button61.scale.setTo(0.14, 0.14);
+        text = game.add.text(-30, -80, "r1", bStyle);
+        button61.addChild(text);
 
-								// red63
-								var button63 = game.add.button(this.xpos, this.ypos, key, function () {
-												window.config = red63;window.config.pre(game, this.center);
-								}, context, 0, 1, 2, 3);
-								button63.anchor.x = 0.5;
-								button63.anchor.y = 0.5;
-								button63.scale.setTo(0.14, 0.14);
-								text = game.add.text(-30, -80, "r3", bStyle);
-								button63.addChild(text);
+        this.xpos += 38;
 
-								this.xpos += 38;
+        // red62
+        var button62 = game.add.button(this.xpos, this.ypos, key, function () {
+            window.config = red62;window.config.pre(game, this.center);
+        }, context, 0, 1, 2, 3);
+        button62.anchor.x = 0.5;
+        button62.anchor.y = 0.5;
+        button62.scale.setTo(0.14, 0.14);
+        text = game.add.text(-30, -80, "r2", bStyle);
+        button62.addChild(text);
 
-								// red64
+        this.xpos = this.xposOrig;
+        this.ypos += 40;
 
-								var button64 = game.add.button(this.xpos, this.ypos, key, function () {
-												window.config = red64;window.config.pre(game, this.center);
-								}, context, 0, 1, 2, 3);
-								button64.anchor.x = 0.5;
-								button64.anchor.y = 0.5;
-								button64.scale.setTo(0.14, 0.14);
-								text = game.add.text(-30, -80, "r4", bStyle);
-								button64.addChild(text);
+        // red63
+        var button63 = game.add.button(this.xpos, this.ypos, key, function () {
+            window.config = red63;window.config.pre(game, this.center);
+        }, context, 0, 1, 2, 3);
+        button63.anchor.x = 0.5;
+        button63.anchor.y = 0.5;
+        button63.scale.setTo(0.14, 0.14);
+        text = game.add.text(-30, -80, "r3", bStyle);
+        button63.addChild(text);
 
-								this.xpos += 38;
+        this.xpos += 38;
 
-								//////
-				}
+        // red64
+        var button64 = game.add.button(this.xpos, this.ypos, key, function () {
+            window.config = red64;window.config.pre(game, this.center);
+        }, context, 0, 1, 2, 3);
+        button64.anchor.x = 0.5;
+        button64.anchor.y = 0.5;
+        button64.scale.setTo(0.14, 0.14);
+        text = game.add.text(-30, -80, "r4", bStyle);
+        button64.addChild(text);
 
-				return QuizType;
+        this.xpos += 38;
+
+        // red65
+        var button65 = game.add.button(this.xpos, this.ypos, key, function () {
+            window.config = red65;window.config.pre(game, this.center);
+        }, context, 0, 1, 2, 3);
+        button65.anchor.x = 0.5;
+        button65.anchor.y = 0.5;
+        button65.scale.setTo(0.14, 0.14);
+        text = game.add.text(-30, -80, "r5", bStyle);
+        button65.addChild(text);
+
+        this.xpos += 38;
+
+        // red66
+        var button66 = game.add.button(this.xpos, this.ypos, key, function () {
+            window.config = red66;window.config.pre(game, this.center);
+        }, context, 0, 1, 2, 3);
+        button66.anchor.x = 0.5;
+        button66.anchor.y = 0.5;
+        button66.scale.setTo(0.14, 0.14);
+        text = game.add.text(-30, -80, "r5", bStyle);
+        button66.addChild(text);
+
+        this.xpos += 38;
+
+        //////
+    }
+
+    return QuizType;
 })(Phaser.Sprite);
 
 exports['default'] = QuizType;
