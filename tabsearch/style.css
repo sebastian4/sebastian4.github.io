@@ -1,0 +1,28 @@
+
+.table-container {
+	margin: 0.5%;
+	border-color: lightgray;
+	border-style: solid;
+	border-width: 0.01em;
+	font-family: 'Architects Daughter', cursive;
+}
+
+.inner-table {
+	margin: 2%;
+	border-color: lightblue;
+	border-style: solid;
+	border-width: 0.01em;
+}
+
+.cell {
+	text-align: center;
+	font-size: 3em;
+	width: 1.5em;
+	height: 1.5em;
+}
+
+.a-button {
+	font-size: 1em;
+	padding: 0.4em;
+	margin: 0.4em;
+}
