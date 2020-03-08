@@ -1,4 +1,5 @@
 $(document).ready(function() {
+
   ////
 
   console.log("start");
@@ -69,6 +70,72 @@ $(document).ready(function() {
     console.log("big-numbers");
     generate(numbers);
   });
+
+  $("#sights-1").click(function(){
+    console.log("sights-1");
+    generate(sights1);
+  });
+
+  ////
+
+  let sights1 = [ 
+  "at",
+  "bat",
+  "cat",
+  "mat",
+  "pat",
+  "rat",
+  "sat",
+  "an",
+  "can",
+  "fan",
+  "man",
+  "pan",
+  "ran",
+  "tan",
+  "cap",
+  "map",
+  "nap",
+  "tap",
+  "sap",
+  "bag",
+  "wag",
+  "tag",
+  "rag",
+  "gag",
+  "am",
+  "dam",
+  "ham",
+  "jam",
+  "ram",
+  "yam",
+  "bad",
+  "dad",
+  "had",
+  "mad",
+  "jar",
+  "tar",
+  "by",
+  "dry",
+  "my",
+  "all",
+  "am",
+  "are",
+  "ask",
+  "as",
+  "or",
+  "mom",
+  "and",
+  "us",
+  "pad",
+  "sad",
+  "an",
+  "can",
+  "fan",
+  "pan",
+  "ran",
+  "van"
+  ]
 
   ////
 
