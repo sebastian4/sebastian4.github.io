@@ -11,10 +11,10 @@
 ## YT Just Dance songs
 
 - just dance mamma mia [Link](https://www.youtube.com/watch?v=OtAaVrOFzMM)
-- just dance mimimi
-- just dance i wanna be with you
-- just dance pa panamericano
-- just dance the fox
+- just dance mimimi [Link](https://www.youtube.com/watch?v=0t0Jm-hQH_I)
+- just dance i wanna be with you [Link](https://www.youtube.com/watch?v=Kecffqp9Lfo)
+- just dance pa panamericano [Link](https://www.youtube.com/watch?v=eJ2xIaO6rwM)
+- just dance the fox [Link](https://www.youtube.com/watch?v=drWHI-l_Gew)
 - just dance ghostbusters
 - just dance despacito
 - just dance macarena
