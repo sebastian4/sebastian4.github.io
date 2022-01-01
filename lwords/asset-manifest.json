@@ -1,30 +1,30 @@
 {
   "files": {
-    "main.css": "/static/css/main.8c6e8ebf.css",
-    "main.js": "/static/js/main.508ea132.js",
-    "static/js/787.ff0f2745.chunk.js": "/static/js/787.ff0f2745.chunk.js",
-    "static/media/olaf11.png": "/static/media/olaf11.4539d6c3412b900213ae.png",
-    "static/media/smiley21.png": "/static/media/smiley21.30e11d706a400badcfe3.png",
-    "static/media/isabela1.png": "/static/media/isabela1.edbc1a1a0d9599a4a9e1.png",
-    "static/media/isabela2.png": "/static/media/isabela2.6469abede61b65bbd67d.png",
-    "static/media/rosita1.png": "/static/media/rosita1.482bb5def315b277fbea.png",
-    "static/media/ding.mp3": "/static/media/ding.4bf3338b447992c9a6c5.mp3",
-    "static/media/mirabel1.png": "/static/media/mirabel1.f0422c55a57c04065828.png",
-    "static/media/poppy1.png": "/static/media/poppy1.45e898a4550b35ef1b89.png",
-    "static/media/sven12.png": "/static/media/sven12.fb2bc910dc0aa4bb371f.png",
-    "static/media/olaf12.jpg": "/static/media/olaf12.157c70b49edc418b28d7.jpg",
-    "static/media/anaelsa.jpg": "/static/media/anaelsa.a27dab2349e6fd51ef70.jpg",
-    "static/media/thumbsup1.png": "/static/media/thumbsup1.eaa717c0c1ab980a2fbc.png",
-    "static/media/thumbsup2.png": "/static/media/thumbsup2.2e3233aafbc9741e7c82.png",
-    "static/media/smiley2.jpg": "/static/media/smiley2.3da8011112f615fc358d.jpg",
-    "static/media/logo.svg": "/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
-    "index.html": "/index.html",
-    "main.8c6e8ebf.css.map": "/static/css/main.8c6e8ebf.css.map",
-    "main.508ea132.js.map": "/static/js/main.508ea132.js.map",
-    "787.ff0f2745.chunk.js.map": "/static/js/787.ff0f2745.chunk.js.map"
+    "main.css": "/lwords/static/css/main.8c6e8ebf.css",
+    "main.js": "/lwords/static/js/main.11c0ac10.js",
+    "static/js/787.ff0f2745.chunk.js": "/lwords/static/js/787.ff0f2745.chunk.js",
+    "static/media/olaf11.png": "/lwords/static/media/olaf11.4539d6c3412b900213ae.png",
+    "static/media/smiley21.png": "/lwords/static/media/smiley21.30e11d706a400badcfe3.png",
+    "static/media/isabela1.png": "/lwords/static/media/isabela1.edbc1a1a0d9599a4a9e1.png",
+    "static/media/isabela2.png": "/lwords/static/media/isabela2.6469abede61b65bbd67d.png",
+    "static/media/rosita1.png": "/lwords/static/media/rosita1.482bb5def315b277fbea.png",
+    "static/media/ding.mp3": "/lwords/static/media/ding.4bf3338b447992c9a6c5.mp3",
+    "static/media/mirabel1.png": "/lwords/static/media/mirabel1.f0422c55a57c04065828.png",
+    "static/media/poppy1.png": "/lwords/static/media/poppy1.45e898a4550b35ef1b89.png",
+    "static/media/sven12.png": "/lwords/static/media/sven12.fb2bc910dc0aa4bb371f.png",
+    "static/media/olaf12.jpg": "/lwords/static/media/olaf12.157c70b49edc418b28d7.jpg",
+    "static/media/anaelsa.jpg": "/lwords/static/media/anaelsa.a27dab2349e6fd51ef70.jpg",
+    "static/media/thumbsup1.png": "/lwords/static/media/thumbsup1.eaa717c0c1ab980a2fbc.png",
+    "static/media/thumbsup2.png": "/lwords/static/media/thumbsup2.2e3233aafbc9741e7c82.png",
+    "static/media/smiley2.jpg": "/lwords/static/media/smiley2.3da8011112f615fc358d.jpg",
+    "static/media/logo.svg": "/lwords/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/lwords/index.html",
+    "main.8c6e8ebf.css.map": "/lwords/static/css/main.8c6e8ebf.css.map",
+    "main.11c0ac10.js.map": "/lwords/static/js/main.11c0ac10.js.map",
+    "787.ff0f2745.chunk.js.map": "/lwords/static/js/787.ff0f2745.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.8c6e8ebf.css",
-    "static/js/main.508ea132.js"
+    "static/js/main.11c0ac10.js"
   ]
 }
