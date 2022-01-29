@@ -1,0 +1,32 @@
+{
+  "files": {
+    "main.css": "/lyread/static/css/main.f533d2f8.css",
+    "main.js": "/lyread/static/js/main.86f12c76.js",
+    "static/js/787.aa9032f7.chunk.js": "/lyread/static/js/787.aa9032f7.chunk.js",
+    "static/media/three-little-pigs-8.jpg": "/lyread/static/media/three-little-pigs-8.d4f0487bdbf56ef6cddf.jpg",
+    "static/media/three-little-pigs-9.jpg": "/lyread/static/media/three-little-pigs-9.e3c13d137c7c1873ac33.jpg",
+    "static/media/three-little-pigs-12.jpg": "/lyread/static/media/three-little-pigs-12.e1187636e55104197424.jpg",
+    "static/media/three-little-pigs-4.jpg": "/lyread/static/media/three-little-pigs-4.89fb0950371a4ac3f285.jpg",
+    "static/media/three-little-pigs-16.jpg": "/lyread/static/media/three-little-pigs-16.6bee095c3a2b4d49a456.jpg",
+    "static/media/three-little-pigs-13.jpg": "/lyread/static/media/three-little-pigs-13.c48cd14f25f85031ac59.jpg",
+    "static/media/three-little-pigs-2.jpg": "/lyread/static/media/three-little-pigs-2.c96555fafd4779d70596.jpg",
+    "static/media/three-little-pigs-10.jpg": "/lyread/static/media/three-little-pigs-10.bf9e7231ab32d7fc3b59.jpg",
+    "static/media/three-little-pigs-7.jpg": "/lyread/static/media/three-little-pigs-7.95791049fba3462e07c1.jpg",
+    "static/media/three-little-pigs-1.jpg": "/lyread/static/media/three-little-pigs-1.f68cd3a8922bac85301d.jpg",
+    "static/media/three-little-pigs-5.jpg": "/lyread/static/media/three-little-pigs-5.c8049783339bc3566bff.jpg",
+    "static/media/three-little-pigs-3.jpg": "/lyread/static/media/three-little-pigs-3.d4e3cebe9d73ec24c924.jpg",
+    "static/media/three-little-pigs-11.jpg": "/lyread/static/media/three-little-pigs-11.16921e175727df7c3626.jpg",
+    "static/media/three-little-pigs-15.jpg": "/lyread/static/media/three-little-pigs-15.aacfaa2ad7801aa0450b.jpg",
+    "static/media/three-little-pigs-6.jpg": "/lyread/static/media/three-little-pigs-6.4def7553b141d2925775.jpg",
+    "static/media/three-little-pigs-14.jpg": "/lyread/static/media/three-little-pigs-14.c8cb045b508cea7cea1a.jpg",
+    "static/media/logo.svg": "/lyread/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/lyread/index.html",
+    "main.f533d2f8.css.map": "/lyread/static/css/main.f533d2f8.css.map",
+    "main.86f12c76.js.map": "/lyread/static/js/main.86f12c76.js.map",
+    "787.aa9032f7.chunk.js.map": "/lyread/static/js/787.aa9032f7.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f533d2f8.css",
+    "static/js/main.86f12c76.js"
+  ]
+}
