@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/lyread/static/css/main.e625457a.css",
-    "main.js": "/lyread/static/js/main.89f1b007.js",
+    "main.js": "/lyread/static/js/main.4fc47e52.js",
     "static/js/787.aa9032f7.chunk.js": "/lyread/static/js/787.aa9032f7.chunk.js",
     "static/media/three-little-pigs-8.jpg": "/lyread/static/media/three-little-pigs-8.d4f0487bdbf56ef6cddf.jpg",
     "static/media/three-little-pigs-9.jpg": "/lyread/static/media/three-little-pigs-9.e3c13d137c7c1873ac33.jpg",
@@ -26,11 +26,11 @@
     "static/media/logo.svg": "/lyread/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/lyread/index.html",
     "main.e625457a.css.map": "/lyread/static/css/main.e625457a.css.map",
-    "main.89f1b007.js.map": "/lyread/static/js/main.89f1b007.js.map",
+    "main.4fc47e52.js.map": "/lyread/static/js/main.4fc47e52.js.map",
     "787.aa9032f7.chunk.js.map": "/lyread/static/js/787.aa9032f7.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e625457a.css",
-    "static/js/main.89f1b007.js"
+    "static/js/main.4fc47e52.js"
   ]
 }
