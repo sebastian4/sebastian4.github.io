@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>device stats</h1>
+<p>some stats</p>
+
+<p id="demo1"></p>
+
+<script>
+    var v2 = navigator.platform + "," + navigator.hardwareConcurrency + "," + navigator.language + "," + Intl.DateTimeFormat().resolvedOptions().timeZone;
+    document.getElementById("demo1").innerHTML = v2;
+</script>
+
+</body>
+</html>
