@@ -3,13 +3,15 @@
 <body>
 
 <h1>device stats</h1>
-<p>some stats</p>
 
 <p id="demo1"></p>
+<p id="demo2"></p>
 
 <script>
-    var v2 = navigator.platform + "," + navigator.hardwareConcurrency + "," + navigator.language + "," + Intl.DateTimeFormat().resolvedOptions().timeZone;
-    document.getElementById("demo1").innerHTML = v2;
+    var d1 = navigator.platform + "," + navigator.hardwareConcurrency + "," + navigator.language + "," + Intl.DateTimeFormat().resolvedOptions().timeZone;
+    document.getElementById("demo1").innerHTML = d1;
+    var d2 = navigator.userAgent;
+    document.getElementById("demo2").innerHTML = d2;
 </script>
 
 </body>
